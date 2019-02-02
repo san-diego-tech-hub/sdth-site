@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "name": "sdtech-hub",
+  "alias": "sdtech-hub.now.sh",
+  "builds": [
+    { "src": "package.json", "use": "@now/static-build", "config": { "distDir": "public" } }
+  ],
+  "build": {
+    "env": {
+      "NODE_ENV": "production",
+      "MAILCHIMP": "@mailchimp"
+    }
+  }
+}
