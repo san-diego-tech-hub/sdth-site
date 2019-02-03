@@ -49,6 +49,9 @@ const Navigation = () => (
       <li>
         <MenuItem to="/get-involved">Get Involved</MenuItem>
       </li>
+      <li>
+        <MenuItem to="/events">Events</MenuItem>
+      </li>
     </Menu>
   </Nav>
 )
