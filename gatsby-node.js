@@ -7,10 +7,10 @@ function authenticate() {
     'https://www.googleapis.com/auth/calendar',
   ])
 
-  return new Promise((res, rej) => {
-    jwtClient.authorize((err, tokens) => {
+  return new Promise(res => {
+    jwtClient.authorize(err => {
       if (err) {
-        rej(err)
+        throw new Error(err)
       }
       res(jwtClient)
     })
