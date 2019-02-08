@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import urlencode from 'urlencode'
-import styled from 'styled-components'
-import Modal from 'react-modal'
 import { Link } from 'gatsby'
+import Modal from 'react-modal'
 import moment from 'moment'
+import styled from 'styled-components'
+import urlencode from 'urlencode'
 
 import truncateString from '../../utils/truncate'
 import ProposeEvent from '../forms/propose-event'
