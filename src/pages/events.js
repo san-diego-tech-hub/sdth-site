@@ -53,6 +53,14 @@ export const query = graphql`
           summary
           description
           location
+          end {
+            date(formatString: "M/DD/YYYY h:mm:ss z")
+            dateTime(formatString: "M/DD/YYYY h:mm:ss z")
+          }
+          start {
+            date(formatString: "M/DD/YYYY h:mm:ss z")
+            dateTime(formatString: "M/DD/YYYY h:mm:ss z")
+          }
         }
       }
     }
