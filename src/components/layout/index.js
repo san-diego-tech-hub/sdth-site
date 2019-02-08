@@ -7,7 +7,7 @@ import Header from './header'
 import Footer from './footer'
 import AppContext from '../../utils/context'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
+import { faCaretDown, faMapMarker, faClock } from '@fortawesome/free-solid-svg-icons'
 import {
   faLinkedin,
   faFacebookSquare,
@@ -17,7 +17,7 @@ import {
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { Wrapper, theme } from './styles'
 
-library.add(faLinkedin, faFacebookSquare, faTwitterSquare, faSlack, faCaretDown)
+library.add(faLinkedin, faFacebookSquare, faTwitterSquare, faSlack, faCaretDown, faMapMarker, faClock)
 
 const Layout = ({ children, pageProps }) => (
   <ThemeProvider theme={theme}>
