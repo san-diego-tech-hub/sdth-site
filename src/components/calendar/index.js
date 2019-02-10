@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 import BigCalendar from 'react-big-calendar'
@@ -14,11 +14,6 @@ function Calendar({ events }) {
   const [eventInfo, setEventInfo] = useState(null)
 
   const clearEventInfo = () => setEventInfo(null)
-
-  useEffect(() => {
-    window.document.addEventListener('scroll', clearEventInfo)
-    return () => window.document.removeEventListener('scroll', clearEventInfo)
-  })
 
   const handleSelectEvent = (event, { pageX, pageY }) => {
     if (eventInfo) {
@@ -43,6 +38,7 @@ function Calendar({ events }) {
         />
       )}
       <BigCalendar
+        onClick={() => console.log('test')}
         onNavigate={clearEventInfo}
         onView={clearEventInfo}
         localizer={localizer}

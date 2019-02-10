@@ -19,6 +19,7 @@ function EventIndex({ data, ...props }) {
     // }
 
     return {
+      id: event.node.id,
       title: event.node.summary,
       start: start._d,
       end: end._d,
