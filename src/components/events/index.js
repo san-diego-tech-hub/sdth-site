@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled from 'styled-components'
 
+import truncateString from '../../utils/truncate'
 import Modal from '../modal'
 
 const Button = styled.button`
@@ -74,7 +75,7 @@ class EventsComponent extends React.Component {
             const start = new Date(node.start.date || node.start.dateTime).toLocaleTimeString()
             const end = new Date(node.end.date || node.end.dateTime).toLocaleTimeString()
 
-            const allDay = start === end
+            // const allDay = start === end
 
             return (
               <Event key={node.id}>
@@ -82,7 +83,7 @@ class EventsComponent extends React.Component {
 
                 <div>
                   <FontAwesomeIcon icon="clock" style={{ marginRight: '.8rem' }} />
-                  {allDay ? 'All Day' : `${start} - ${end}`}
+                  {start} - {end}
                 </div>
                 <div>
                   <FontAwesomeIcon icon="map-marker" style={{ marginRight: '.8rem' }} />
@@ -91,8 +92,9 @@ class EventsComponent extends React.Component {
                 </div>
 
                 <div
+                  title={node.description}
                   style={{ padding: '1.6rem 0', color: 'black' }}
-                  dangerouslySetInnerHTML={{ __html: node.description || 'No description' }}
+                  dangerouslySetInnerHTML={{ __html: truncateString(node.description) || 'No description' }}
                 />
               </Event>
             )
