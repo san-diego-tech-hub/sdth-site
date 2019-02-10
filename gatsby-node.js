@@ -3,6 +3,8 @@ const { google } = require('googleapis')
 const { GC_CLIENT_EMAIL, GC_PRIVATE_KEY, GC_ID } = process.env
 
 function authenticate() {
+  console.log('PRIVATE', GC_CLIENT_EMAIL, GC_PRIVATE_KEY)
+
   const jwtClient = new google.auth.JWT(GC_CLIENT_EMAIL, null, GC_PRIVATE_KEY, [
     'https://www.googleapis.com/auth/calendar',
   ])
