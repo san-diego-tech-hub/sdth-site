@@ -59,3 +59,9 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
 
   return
 }
+
+exports.onCreateNode = ({ node }) => {
+  if (node.internal.type === 'CalendarEvent') {
+    console.log('the vent')
+  }
+}
