@@ -83,6 +83,11 @@ export const PillarIcon = styled.div`
   display: grid;
   grid-template-rows: 1fr 1fr;
 
+  p {
+    padding-bottom: 1rem;
+    min-height: 300px;
+  }
+
   @media (max-width: 990px) {
     padding: 1.5rem;
     grid-template-rows: 2fr 1fr;
