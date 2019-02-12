@@ -87,6 +87,10 @@ export const PillarIcon = styled(Link)`
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     transform: translate(-2px, -2px);
   }
+  p {
+    padding-bottom: 1rem;
+    min-height: 300px;
+  }
   @media (max-width: 990px) {
     padding: 1.5rem;
     grid-template-rows: 2fr 1fr;
