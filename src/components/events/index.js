@@ -24,6 +24,10 @@ const Events = styled.span`
     text-decoration: none;
     color: ${props => props.theme.mainPurple};
   }
+  @media (max-width: 375px) {
+    grid-template-columns: none;
+    grid-template-rows: 1fr 1fr;
+  }
 `
 
 const Event = styled.aside`

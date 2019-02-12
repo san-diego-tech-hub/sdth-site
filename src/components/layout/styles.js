@@ -6,6 +6,8 @@ export const theme = {
 }
 
 export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
   background: white;
 
   section {
@@ -34,7 +36,7 @@ export const Wrapper = styled.div`
   }
   
   @media (max-width: 5000px) {
-      width: 1200px;
+      max-width: 1200px;
       margin: 0 auto;
       text-align: center;
   }
