@@ -35,6 +35,12 @@ export const Wrapper = styled.div`
     font-size: 3.2rem;
   }
   
+  @media (max-width: 5000px) {
+      width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+  }
+
   @media (max-width: 990px) {
     section {
       margin: 5rem 10rem;
