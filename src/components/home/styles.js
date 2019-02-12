@@ -21,6 +21,7 @@ export const ThreeStep = styled.section`
   .description {
     text-align: left;
     font-size: 1.6rem;
+    text-align: center;
   }
   @media (max-width: 667px) {
     text-align: center;
@@ -50,7 +51,7 @@ export const CollabIcon = styled.div`
 
 export const PillarRow = styled.aside`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-gap: 1rem;
   h4 {
     font-size: 2.4rem;
@@ -59,6 +60,10 @@ export const PillarRow = styled.aside`
   p {
     font-size: 1.6rem;
     padding: 0 1rem;
+  }
+  @media (max-width: 5000px) {
+    grid-gap: 15rem;
+    justify-content: center;
   }
   @media (max-width: 990px) {
     grid-template-columns: 1fr;
@@ -77,6 +82,7 @@ export const PillarIcon = styled.div`
   text-align: center;
   display: grid;
   grid-template-rows: 1fr 1fr;
+
   @media (max-width: 990px) {
     padding: 1.5rem;
     grid-template-rows: 2fr 1fr;
