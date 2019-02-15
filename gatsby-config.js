@@ -71,6 +71,16 @@ module.exports = {
       },
     },
     `gatsby-plugin-remove-serviceworker`,
-    `gatsby-plugin-styled-components`
+    `gatsby-plugin-styled-components`,
+    {
+      resolve: `gatsby-source-meetup`,
+      options: {
+        key: process.env.MEETUP_API_KEY,
+        groupUrlName: 'sandiegojs',
+        status: 'upcoming,past',
+        desc: 'true',
+        page: 200,
+      },
+    },
   ],
 }
