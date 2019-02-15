@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
 export const ThreeStep = styled.section`
   background: rgb(240, 240, 240);
@@ -65,7 +66,7 @@ export const PillarRow = styled.aside`
   }
 `
 
-export const PillarIcon = styled.div`
+export const PillarIcon = styled(Link)`
   background: ${props => props.background};
   line-height: 2rem;
   border-radius: 1rem;
@@ -75,8 +76,13 @@ export const PillarIcon = styled.div`
   margin: auto;
   padding: 3rem;
   text-align: center;
+  text-decoration: none;
   display: grid;
   grid-template-rows: 1fr 1fr;
+  &:hover, &:focus {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    transform: translate(-2px, -2px);
+  }
   @media (max-width: 990px) {
     padding: 1.5rem;
     grid-template-rows: 2fr 1fr;

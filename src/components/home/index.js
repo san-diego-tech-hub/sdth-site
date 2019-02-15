@@ -55,7 +55,7 @@ export default () => (
           <p>{homeJson.thirdSectionDescription}</p>
           <PillarRow>
             {homeJson.thirdSectionItems.map((pillar, i) => (
-              <PillarIcon key={i} background={pillar.background}>
+              <PillarIcon to={`/${pillar.title}`} key={i} background={pillar.background}>
                 <div>
                   <img alt={pillar.title} src={pillarIcons[pillar.title]} height="75" />
                   <h4>{pillar.title}</h4>
