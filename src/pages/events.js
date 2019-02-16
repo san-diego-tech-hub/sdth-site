@@ -5,7 +5,7 @@ import moment from 'moment'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
-import Events from '../components/events'
+// import Events from '../components/events'
 import Calendar from '../components/calendar'
 
 function EventIndex({ data, ...props }) {
@@ -51,7 +51,7 @@ function EventIndex({ data, ...props }) {
 
       <Calendar events={realEvents} />
 
-      <Events events={data.allCalendarEvent.edges} />
+      {/* <Events events={realEvents.slice(0, 10)} /> */}
     </Layout>
   )
 }
