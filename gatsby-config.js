@@ -82,5 +82,13 @@ module.exports = {
         page: 200,
       },
     },
+    {
+      resolve: `gatsby-source-eventbrite`,
+      options: {
+        organizationId: process.env.EVENTBRITE_ORG_ID,
+        accessToken: process.env.EVENTBRITE_OAUTH_TOKEN,
+        entities: ['events'],
+      },
+    },
   ],
 }
