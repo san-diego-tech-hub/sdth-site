@@ -9,9 +9,9 @@ import Events from '../components/events'
 import Calendar from '../components/calendar'
 
 function EventIndex({ data, ...props }) {
-  const realEvents = data.allCalendarEvent.edges.map(event => {
-    let start = moment(new Date(event.node.start.dateTime))
-    let end = moment(new Date(event.node.end.dateTime))
+  const googleCalendarEvents = data.allCalendarEvent.edges.map(event => {
+    const start = moment(new Date(event.node.start.dateTime))
+    const end = moment(new Date(event.node.end.dateTime))
 
     // const allDay = start.format('H:mm') === end.format('H:mm')
     // if (allDay) {
@@ -27,6 +27,23 @@ function EventIndex({ data, ...props }) {
       description: event.node.description,
     }
   })
+
+  const meetupEvents = data.meetupGroup.childrenMeetupEvent.map(event => {
+    const start = moment(new Date(event.time))
+    const end = moment(new Date(event.time + event.duration))
+    return {
+      id: event.id,
+      title: event.name,
+      description: event.description,
+      start: start._d,
+      end: end._d,
+    }
+  })
+
+  const realEvents = [
+    ...googleCalendarEvents,
+    ...meetupEvents,
+  ]
 
   return (
     <Layout pageProps={props}>
@@ -46,7 +63,7 @@ EventIndex.propTypes = {
 }
 
 export const query = graphql`
-  query CALENDAR_EVENTS {
+  query EVENTS {
     allCalendarEvent {
       edges {
         node {
@@ -62,6 +79,32 @@ export const query = graphql`
             # date(formatString: "M/DD/YYYY h:mm:ss z")
             dateTime(formatString: "M/DD/YYYY h:mm:ss z")
           }
+        }
+      }
+    }
+    meetupGroup {
+      name
+      link
+      description
+      next_event {
+        id
+      }
+      childrenMeetupEvent {
+        id
+        name
+        link
+        description
+        duration
+        time
+        local_date
+        local_time
+        venue {
+          name
+          lat
+          lon
+          address_1
+          city
+          state
         }
       }
     }
