@@ -75,15 +75,15 @@ class EventsComponent extends React.Component {
         </div>
 
         <Events>
-          {events.map(({ node }) => {
-            const start = new Date(node.start.date || node.start.dateTime).toLocaleTimeString()
-            const end = new Date(node.end.date || node.end.dateTime).toLocaleTimeString()
+          {events.map(event => {
+            const start = new Date(event.start).toLocaleTimeString()
+            const end = new Date(event.end).toLocaleTimeString()
 
             // const allDay = start === end
 
             return (
-              <Event key={node.id}>
-                <h2 style={{ fontSize: '2rem' }}>{node.summary}</h2>
+              <Event key={event.id}>
+                <h2 style={{ fontSize: '2rem' }}>{event.title}</h2>
 
                 <div>
                   <FontAwesomeIcon icon="clock" style={{ marginRight: '.8rem' }} />
@@ -91,14 +91,14 @@ class EventsComponent extends React.Component {
                 </div>
                 <div>
                   <FontAwesomeIcon icon="map-marker" style={{ marginRight: '.8rem' }} />
-                  {(node.location && <a href={`${mapsUrl}${node.location}`}>{node.location}</a>) ||
+                  {(event.location && <a href={`${mapsUrl}${event.location}`}>{event.location}</a>) ||
                     'No location'}
                 </div>
 
                 <div
-                  title={node.description}
+                  title={event.description}
                   style={{ padding: '1.6rem 0', color: 'black' }}
-                  dangerouslySetInnerHTML={{ __html: truncateString(node.description) || 'No description' }}
+                  dangerouslySetInnerHTML={{ __html: truncateString(event.description) || 'No description' }}
                 />
               </Event>
             )
