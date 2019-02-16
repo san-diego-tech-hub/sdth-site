@@ -46,6 +46,7 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
   data.items.forEach(event => {
     // console.log(event.attachments);
     const start = moment(new Date(event.start.dateTime))._d
+    const end = moment(new Date(event.end.dateTime))._d
     const eventKey = `${event.summary}-${start}`
 
     if (uniqueEvents.has(eventKey)) {
@@ -54,12 +55,17 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
 
     uniqueEvents.add(eventKey)
 
+    event.start = start
+    event.end = end
+    event.title = event.summary
+    delete event.summary
+
     const nodeMeta = {
       id: createNodeId(`my-data-${event.id}`),
       parent: null,
       children: [],
       internal: {
-        type: 'CalendarEvent',
+        type: 'Event',
         content: JSON.stringify(event),
         contentDigest: createContentDigest(event),
       },
@@ -72,17 +78,43 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
   return
 }
 
-exports.onCreateNode = ({ node, actions }) => {
-  const { deleteNode } = actions
+let id = 0
+exports.onCreateNode = ({
+  actions,
+  createContentDigest,
+  createNodeId,
+  node,
+}) => {
+  const { deleteNode, createNode, createParentChildLink } = actions
 
   if (node.internal.type === 'MeetupEvent') {
     const start = moment(new Date(node.time))._d
+    const end = moment(new Date(node.time + node.duration))._d
     const eventKey = `${node.name}-${start}`
 
     if (uniqueEvents.has(eventKey)) {
       deleteNode({ node })
     } else {
       uniqueEvents.add(eventKey)
+
+      const newJson = {
+        title: node.name,
+        description: node.description,
+        start,
+        end,
+      }
+      const newNode = {
+        ...newJson,
+        id: createNodeId(`${node.id}-${++id}`),
+        children: [],
+        parent: node.id,
+        internal: {
+          contentDigest: createContentDigest(newJson),
+          type: 'Event',
+        },
+      }
+      createNode(newNode)
+      createParentChildLink({ parent: node, child: newNode })
     }
   }
 }
@@ -93,65 +125,28 @@ exports.createPages = ({ graphql, actions }) => {
 
   return graphql(`
     query EVENTS {
-      allCalendarEvent {
+      allEvent {
         edges {
           node {
             id
-            summary
+            title
             description
-            location
-            end {
-              # date(formatString: "M/DD/YYYY h:mm:ss z")
-              dateTime(formatString: "M/DD/YYYY h:mm:ss z")
-            }
-            start {
-              # date(formatString: "M/DD/YYYY h:mm:ss z")
-              dateTime(formatString: "M/DD/YYYY h:mm:ss z")
-            }
-          }
-        }
-      }
-      meetupGroup {
-        name
-        link
-        description
-        next_event {
-          id
-        }
-        childrenMeetupEvent {
-          id
-          name
-          link
-          description
-          duration
-          time
-          local_date
-          local_time
-          venue {
-            name
-            lat
-            lon
-            address_1
-            city
-            state
+            start
+            end
           }
         }
       }
     }
   `).then(results => {
     if (results.errors) {
-      reject('the error', results.errors)
+      throw new Error(results.errors)
     }
 
-    const allEvents = results.data.allCalendarEvent.edges
-      .map(({ node }) => ({ ...node }))
-      .concat(results.data.meetupGroup.childrenMeetupEvent)
-
-    allEvents.forEach(event => {
+    return results.data.allEvent.edges.map(({ node }) => {
       createPage({
-        path: `/event/${event.id}`,
+        path: `/event/${node.id}`,
         component: template,
-        context: { event: event },
+        context: { event: node },
       })
     })
   })
