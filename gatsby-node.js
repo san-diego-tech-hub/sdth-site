@@ -36,7 +36,7 @@ function getEvents(auth) {
   })
 }
 
-const uniqueEvents = new Map();
+const uniqueEvents = new Set();
 
 exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
   const { createNode } = actions
@@ -52,7 +52,7 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
       return
     }
 
-    uniqueEvents.set(eventKey, true)
+    uniqueEvents.add(eventKey)
 
     const nodeMeta = {
       id: createNodeId(`my-data-${event.id}`),
@@ -73,7 +73,7 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
 }
 
 exports.onCreateNode = ({ node, actions }) => {
-  const { createNodeField, deleteNode } = actions
+  const { deleteNode } = actions
 
   if (node.internal.type === 'MeetupEvent') {
     const start = moment(new Date(node.time))._d
@@ -82,81 +82,77 @@ exports.onCreateNode = ({ node, actions }) => {
     if (uniqueEvents.has(eventKey)) {
       deleteNode({ node })
     } else {
-      uniqueEvents.set(eventKey, true)
+      uniqueEvents.add(eventKey)
     }
   }
 }
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
+  const template = path.resolve('src/pages/event.js')
 
-  return new Promise((resolve, reject) => {
-    const template = path.resolve('src/pages/event.js')
-    resolve(
-      graphql(`
-        query EVENTS {
-          allCalendarEvent {
-            edges {
-              node {
-                id
-                summary
-                description
-                location
-                end {
-                  # date(formatString: "M/DD/YYYY h:mm:ss z")
-                  dateTime(formatString: "M/DD/YYYY h:mm:ss z")
-                }
-                start {
-                  # date(formatString: "M/DD/YYYY h:mm:ss z")
-                  dateTime(formatString: "M/DD/YYYY h:mm:ss z")
-                }
-              }
-            }
-          }
-          meetupGroup {
-            name
-            link
+  return graphql(`
+    query EVENTS {
+      allCalendarEvent {
+        edges {
+          node {
+            id
+            summary
             description
-            next_event {
-              id
+            location
+            end {
+              # date(formatString: "M/DD/YYYY h:mm:ss z")
+              dateTime(formatString: "M/DD/YYYY h:mm:ss z")
             }
-            childrenMeetupEvent {
-              id
-              name
-              link
-              description
-              duration
-              time
-              local_date
-              local_time
-              venue {
-                name
-                lat
-                lon
-                address_1
-                city
-                state
-              }
+            start {
+              # date(formatString: "M/DD/YYYY h:mm:ss z")
+              dateTime(formatString: "M/DD/YYYY h:mm:ss z")
             }
           }
         }
-      `).then(results => {
-        if (results.errors) {
-          reject('the error', results.errors)
+      }
+      meetupGroup {
+        name
+        link
+        description
+        next_event {
+          id
         }
+        childrenMeetupEvent {
+          id
+          name
+          link
+          description
+          duration
+          time
+          local_date
+          local_time
+          venue {
+            name
+            lat
+            lon
+            address_1
+            city
+            state
+          }
+        }
+      }
+    }
+  `).then(results => {
+    if (results.errors) {
+      reject('the error', results.errors)
+    }
 
-        const allEvents = results.data.allCalendarEvent.edges
-          .map(({ node }) => ({ ...node }))
-          .concat(results.data.meetupGroup.childrenMeetupEvent)
+    const allEvents = results.data.allCalendarEvent.edges
+      .map(({ node }) => ({ ...node }))
+      .concat(results.data.meetupGroup.childrenMeetupEvent)
 
-          allEvents.forEach(event => {
-            createPage({
-              path: `/event/${event.id}`,
-              component: template,
-              context: { event: event },
-            })
-          })
+    allEvents.forEach(event => {
+      createPage({
+        path: `/event/${event.id}`,
+        component: template,
+        context: { event: event },
       })
-    )
+    })
   })
 }
