@@ -1,5 +1,6 @@
 const { google } = require('googleapis')
 const path = require('path')
+const moment = require('moment')
 
 const { GC_CLIENT_EMAIL, GC_PRIVATE_KEY, GC_ID } = process.env
 
@@ -35,14 +36,24 @@ function getEvents(auth) {
   })
 }
 
+const uniqueEvents = new Map();
+
 exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
   const { createNode } = actions
   const jwtClient = await authenticate()
   const data = await getEvents(jwtClient)
 
-
   data.items.forEach(event => {
-    console.log(event.attachments);
+    // console.log(event.attachments);
+    const start = moment(new Date(event.start.dateTime))._d
+    const eventKey = `${event.summary}-${start}`
+
+    if (uniqueEvents.has(eventKey)) {
+      return
+    }
+
+    uniqueEvents.set(eventKey, true)
+
     const nodeMeta = {
       id: createNodeId(`my-data-${event.id}`),
       parent: null,
@@ -61,11 +72,20 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
   return
 }
 
-// exports.onCreateNode = ({ node }) => {
-//   if (node.internal.type === 'CalendarEvent') {
-//     console.log('the vent')
-//   }
-// }
+exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField, deleteNode } = actions
+
+  if (node.internal.type === 'MeetupEvent') {
+    const start = moment(new Date(node.time))._d
+    const eventKey = `${node.name}-${start}`
+
+    if (uniqueEvents.has(eventKey)) {
+      deleteNode({ node })
+    } else {
+      uniqueEvents.set(eventKey, true)
+    }
+  }
+}
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
@@ -74,7 +94,7 @@ exports.createPages = ({ graphql, actions }) => {
     const template = path.resolve('src/pages/event.js')
     resolve(
       graphql(`
-        query CALENDAR_EVENTS {
+        query EVENTS {
           allCalendarEvent {
             edges {
               node {
@@ -93,19 +113,49 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
+          meetupGroup {
+            name
+            link
+            description
+            next_event {
+              id
+            }
+            childrenMeetupEvent {
+              id
+              name
+              link
+              description
+              duration
+              time
+              local_date
+              local_time
+              venue {
+                name
+                lat
+                lon
+                address_1
+                city
+                state
+              }
+            }
+          }
         }
       `).then(results => {
         if (results.errors) {
           reject('the error', results.errors)
         }
 
-        results.data.allCalendarEvent.edges.map(({ node }) => {
-          createPage({
-            path: `/event/${node.id}`,
-            component: template,
-            context: { event: node },
+        const allEvents = results.data.allCalendarEvent.edges
+          .map(({ node }) => ({ ...node }))
+          .concat(results.data.meetupGroup.childrenMeetupEvent)
+
+          allEvents.forEach(event => {
+            createPage({
+              path: `/event/${event.id}`,
+              component: template,
+              context: { event: event },
+            })
           })
-        })
       })
     )
   })

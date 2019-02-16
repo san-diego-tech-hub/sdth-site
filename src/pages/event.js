@@ -4,7 +4,7 @@ import Layout from '../components/layout'
 export default function EventPage({ pageContext: { event }, ...props }) {
   return (
     <Layout pageProps={props}>
-      <h2>{event.summary}</h2>
+      <h2>{event.summary || event.name}</h2>
 
       <div 
         dangerouslySetInnerHTML={{__html: event.description }}
