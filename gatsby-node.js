@@ -1,6 +1,6 @@
 const { google } = require('googleapis')
 const path = require('path')
-const moment = require('moment')
+const transformers = require('./src/data/transformers')
 
 const { GC_CLIENT_EMAIL, GC_PRIVATE_KEY, GC_ID } = process.env
 
@@ -45,9 +45,7 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
 
   data.items.forEach(event => {
     // console.log(event.attachments);
-    const start = moment(new Date(event.start.dateTime))._d
-    const end = moment(new Date(event.end.dateTime))._d
-    const eventKey = `${event.summary}-${start}`
+    const { model, eventKey } = transformers['GoogleCalendarEvent'](event)
 
     if (uniqueEvents.has(eventKey)) {
       return
@@ -55,23 +53,18 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
 
     uniqueEvents.add(eventKey)
 
-    event.start = start
-    event.end = end
-    event.title = event.summary
-    delete event.summary
-
     const nodeMeta = {
       id: createNodeId(`my-data-${event.id}`),
       parent: null,
       children: [],
       internal: {
         type: 'Event',
-        content: JSON.stringify(event),
-        contentDigest: createContentDigest(event),
+        content: JSON.stringify(model),
+        contentDigest: createContentDigest(model),
       },
     }
 
-    const node = Object.assign({}, event, nodeMeta)
+    const node = Object.assign({}, model, nodeMeta)
     createNode(node)
   })
 
@@ -87,35 +80,32 @@ exports.onCreateNode = ({
 }) => {
   const { deleteNode, createNode, createParentChildLink } = actions
 
-  if (node.internal.type === 'MeetupEvent') {
-    const start = moment(new Date(node.time))._d
-    const end = moment(new Date(node.time + node.duration))._d
-    const eventKey = `${node.name}-${start}`
+  const otherEvents = ['MeetupEvent', 'EventbriteEvents']
+
+  if (otherEvents.includes(node.internal.type)) {
+    const { model, eventKey } = transformers[node.internal.type](node)
 
     if (uniqueEvents.has(eventKey)) {
       deleteNode({ node })
-    } else {
-      uniqueEvents.add(eventKey)
-
-      const newJson = {
-        title: node.name,
-        description: node.description,
-        start,
-        end,
-      }
-      const newNode = {
-        ...newJson,
-        id: createNodeId(`${node.id}-${++id}`),
-        children: [],
-        parent: node.id,
-        internal: {
-          contentDigest: createContentDigest(newJson),
-          type: 'Event',
-        },
-      }
-      createNode(newNode)
-      createParentChildLink({ parent: node, child: newNode })
+      return
     }
+
+    uniqueEvents.add(eventKey)
+
+    const nodeMeta = {
+      id: createNodeId(`${node.id}-${++id}`),
+      children: [],
+      parent: node.id,
+      internal: {
+        content: JSON.stringify(model),
+        contentDigest: createContentDigest(model),
+        type: 'Event',
+      },
+    }
+
+    const newNode = Object.assign({}, model, nodeMeta)
+    createNode(newNode)
+    createParentChildLink({ parent: node, child: newNode })
   }
 }
 
