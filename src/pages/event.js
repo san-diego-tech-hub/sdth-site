@@ -70,7 +70,7 @@ const Field = styled.div`
   font-size: 1.5rem;
   font-weight: bolder;
   margin-bottom: 0.5rem;
-  margin-left: 10px;
+  margin-left: 5px;
 `
 
 const Header = styled.div`
@@ -109,6 +109,7 @@ const Title = styled.h3`
 const Value = styled.div`
   font-size: 1.5rem;
   margin-bottom: 2rem;
+  margin-left: 5px;
   a {
     color: ${props => props.theme.mainPurple};
     text-decoration: none;
