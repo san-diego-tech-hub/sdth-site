@@ -7,7 +7,10 @@ import { useFormInput } from '../../utils/hooks'
 
 function ProposeEvent({ afterSubmit }) {
   const date = moment().format('YYYY-MM-DDTHH:mm')
+
+  const user = useFormInput()
   const name = useFormInput()
+  const email = useFormInput()
   const location = useFormInput()
   const start = useFormInput(date)
   const end = useFormInput(date)
@@ -19,6 +22,8 @@ function ProposeEvent({ afterSubmit }) {
     if (
       name.value === '' ||
       location.value === '' ||
+      email.value === '' ||
+      user.value === '' ||
       start.value === '' ||
       end.value === '' ||
       description.value === ''
@@ -31,8 +36,11 @@ function ProposeEvent({ afterSubmit }) {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: encode({
         'form-name': 'event-proposal',
+
         name: name.value,
         location: location.value,
+        user: user.value,
+        email: email.value,
         start: start.value,
         end: end.value,
         description: description.value,
@@ -50,9 +58,18 @@ function ProposeEvent({ afterSubmit }) {
       method="post"
       onSubmit={handleSubmit}
     >
-      {/* <input type="hidden" name="form-name" value="event-proposal" /> */}
       <div className="input">
-        <label htmlFor="name">Name</label>
+        <label htmlFor="user">Your Name</label>
+        <input autoFocus name="user" type="text" {...user} id="user" />
+      </div>
+
+      <div className="input">
+        <label htmlFor="email">Email</label>
+        <input name="email" type="email" {...email} id="email" />
+      </div>
+
+      <div className="input">
+        <label htmlFor="name">Name of Event</label>
         <input name="name" type="text" {...name} id="name" />
       </div>
 
@@ -77,8 +94,6 @@ function ProposeEvent({ afterSubmit }) {
       </div>
 
       <button type="submit">Propose Event</button>
-
-      {/* <DatePicker selected={end.value} onChange={end.onChange} /> */}
     </ProposeForm>
   )
 }
