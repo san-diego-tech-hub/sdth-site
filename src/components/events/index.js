@@ -13,10 +13,13 @@ const Container = styled.div`
   flex-wrap: wrap;
   margin-left: 2rem;
   margin-top: 5rem;
+  @media(max-width: 768px) {
+    margin-left: 0;
+  }
 `
 
 const Button = styled.button`
-  background: #4c4e7a;
+  background: ${props => props.theme.mainPurple};
   border: 1px solid #2abbf4;
   border-radius: 0.5rem;
   color: white;
@@ -53,8 +56,17 @@ const Event = styled.aside`
   background: white;
   border: 2px solid #ddd;
   border-radius: 0.5rem;
+  color: #666;
+  font-size: 1.2rem;
   margin-bottom: 1rem;
   padding: 2.4rem;
+  text-align: left;
+`
+
+const Title = styled.h3`
+  color: ${props => props.theme.mainPurple};
+  margin-bottom: 7px;
+  font-size: 2rem;
 `
 
 const mapsUrl = `https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=`
@@ -111,7 +123,7 @@ class EventsComponent extends React.Component {
 
             return (
               <Event key={event.id}>
-                <h2 style={{ fontSize: '2rem' }}>{event.title}</h2>
+                <Title>{event.title}</Title>
 
                 <div>
                   <FontAwesomeIcon icon="clock" style={{ marginRight: '.8rem' }} />
@@ -124,7 +136,7 @@ class EventsComponent extends React.Component {
 
                 <div
                   title={event.description}
-                  style={{ padding: '1.6rem 0', color: 'black' }}
+                  style={{ padding: '1.6rem 0', color: '#333' }}
                   dangerouslySetInnerHTML={{ __html: truncateString(event.description) || 'No description' }}
                 />
               </Event>

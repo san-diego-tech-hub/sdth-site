@@ -1,7 +1,7 @@
 import React from 'react'
 import addToMailChimp from 'gatsby-plugin-mailchimp'
 
-import { Container, Form, SocialContainer } from './styles'
+import { Container, Form, FormTitle, SocialContainer } from './styles'
 // import styles from './form.module.css'
 import SocialMedia from './social-media'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -37,7 +37,7 @@ class StayConnected extends React.Component {
     return (
       <Container>
         <Form method="post" onSubmit={this.handleSubmit}>
-          <h2 className='bigScreen'>Stay Connected</h2>
+          <FormTitle className='bigScreen'>Stay Connected</FormTitle>
           <div>
             <label htmlFor="name">Name:</label>
             <input name="name" id="name" value={name} onChange={this.handleChange} />
