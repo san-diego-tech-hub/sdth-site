@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import moment from 'moment'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { StyledDetails } from './styles'
 import truncateString from '../../utils/truncate'
@@ -9,7 +10,7 @@ function Details({ eventInfo, setEventInfo, ...position }) {
   React.useEffect(() => {
     const handler = e => {
       if (!e.target.closest('.event-details')) {
-        setEventInfo(null);
+        setEventInfo(null)
       }
     }
 
@@ -30,14 +31,17 @@ function Details({ eventInfo, setEventInfo, ...position }) {
     },
     [eventInfo.event.title]
   )
-  const start = moment(eventInfo.event.start).format('MMM D, Y @ h:mma');
+  const start = moment(eventInfo.event.start).format('MMM D, Y @ h:mma')
 
   return (
     <StyledDetails {...position} className="event-details">
       <aside className="header">
         <div>
           {eventInfo.event.title}
-          <div className='start'>{start}</div>
+          <div className="start">
+            <FontAwesomeIcon icon="clock" style={{ marginRight: '.8rem' }} />
+            {start}
+          </div>
         </div>
         <span>
           <button onClick={() => setEventInfo(null)}>&times;</button>

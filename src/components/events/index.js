@@ -5,6 +5,7 @@ import urlencode from 'urlencode'
 import styled from 'styled-components'
 import Modal from 'react-modal'
 import { Link } from 'gatsby'
+import moment from 'moment'
 
 import truncateString from '../../utils/truncate'
 import ProposeEvent from '../forms/propose-event'
@@ -105,8 +106,7 @@ function EventsComponent({ events }) {
 
       <Events>
         {events.map(event => {
-          const start = new Date(event.start).toLocaleString()
-          const end = new Date(event.end).toLocaleString()
+          const start = moment(event.start).format('MMM D, Y @ h:mma');
 
           const mapLink = !event.venue.address 
             ? 'No Location'
@@ -122,14 +122,13 @@ function EventsComponent({ events }) {
 
           return (
             <Event key={event.id}>
-              
               <Link to={`/event/${event.id}`}>
                 <Title>{event.title}</Title>
               </Link>
 
               <div>
                 <FontAwesomeIcon icon="clock" style={{ marginRight: '.8rem' }} />
-                {start} - {end}
+                {start}
               </div>
               <div>
                 <FontAwesomeIcon icon="map-marker" style={{ marginRight: '.8rem' }} />

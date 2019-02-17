@@ -27,6 +27,7 @@ export const StyledDetails = styled.aside`
     .start {
       font-size: 1rem;
       font-weight: normal;
+      display: inline;
     }
     button {
       padding: 0;
