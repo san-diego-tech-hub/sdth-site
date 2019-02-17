@@ -65,6 +65,17 @@ export default () => (
             ))}
           </PillarRow>
         </section>
+        <PillarRow>
+          {homeJson.thirdSectionItems.map((pillar, i) => (
+            <PillarIcon key={i} background={pillar.background}>
+              <div>
+                <img alt={pillar.title} src={pillarIcons[pillar.title]} height="75" />
+                <h4>{pillar.title}</h4>
+              </div>
+              <p>{pillar.description}</p>
+            </PillarIcon>
+          ))}
+        </PillarRow>
       </main>
     )}
   />

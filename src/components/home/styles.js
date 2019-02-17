@@ -51,9 +51,10 @@ export const CollabIcon = styled.div`
 `
 
 export const PillarRow = styled.aside`
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
   h4 {
     font-size: 2.4rem;
     text-transform: capitalize;
@@ -63,11 +64,8 @@ export const PillarRow = styled.aside`
     padding: 0 1rem;
   }
   @media (max-width: 5000px) {
-    grid-gap: 15rem;
-    justify-content: center;
   }
   @media (max-width: 990px) {
-    grid-template-columns: 1fr;
   }
 `
 export const PillarIcon = styled(Link)`
