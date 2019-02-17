@@ -139,7 +139,7 @@ function EventsComponent({ events }) {
                 title={event.description}
                 style={{ padding: '1.6rem 0', color: '#333' }}
                 dangerouslySetInnerHTML={{
-                  __html: truncateString(event.description) || 'No description',
+                  __html: truncateString(event.description || 'No description'),
                 }}
               />
             </Event>

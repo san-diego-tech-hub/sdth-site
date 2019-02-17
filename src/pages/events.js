@@ -26,13 +26,18 @@ function EventIndex({ data, ...props }) {
     }
   `
 
+  const eventFeedEvents = events
+    .filter(
+      event => event.start >= Date.now()
+    ).slice(0, 10)
+
   return (
     <Layout pageProps={props}>
       <SEO title="Events" keywords={['san diego', 'tech', 'hub', 'events', 'upcoming']} />
 
       <Container>
         <Calendar events={events} />
-        <Events events={events.slice(0, 10)} />
+        <Events events={eventFeedEvents} />
       </Container>
     </Layout>
   )
@@ -46,7 +51,12 @@ EventIndex.propTypes = {
 
 export const query = graphql`
   query EVENTS {
-    allEvent {
+    allEvent(
+      sort: {
+        fields: [start]
+        order: ASC
+      }
+    ) {
       edges {
         node {
           id
