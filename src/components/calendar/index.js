@@ -47,11 +47,11 @@ function Calendar({ events }) {
         events={events}
         onSelectEvent={handleSelectEvent}
         style={{
-          height: '700px',
-          maxWidth: '80%',
-          margin: 'auto',
-          marginTop: '4.8rem',
           fontSize: '1.6rem',
+          height: '700px',
+          marginTop: '4.8rem',
+          minWidth: '320px',
+          width: '80%',
         }}
       />
     </>

@@ -7,35 +7,66 @@ import styled from 'styled-components'
 import truncateString from '../../utils/truncate'
 import Modal from '../modal'
 
-const Button = styled.button`
-  padding: 1rem;
-  background: #f25aa3;
-  color: white;
-  border: 1px solid #2abbf4;
-  border-radius: 0.5rem;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 2rem;
+  margin-top: 5rem;
+  @media(max-width: 768px) {
+    margin-left: 0;
+  }
 `
 
-const Events = styled.span`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 2rem;
+const Button = styled.button`
+  background: ${props => props.theme.mainPurple};
+  border: 1px solid #2abbf4;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 2rem;
+  padding: 1rem;
+  width: 100%;
+  &:hover {
+    cursor: pointer;
+  }
+`
+
+const Events = styled.div`
+  background: #f5f5f5;
+  border-radius: 5px;
+  border: 5px solid #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  height: 635px;
   margin-top: 1.6rem;
+  padding: 5px;
+  overflow-y: scroll;
 
   a {
     text-decoration: none;
     color: ${props => props.theme.mainPurple};
   }
+
   @media (max-width: 375px) {
-    grid-template-columns: none;
-    grid-template-rows: 1fr 1fr;
+    width: 100vw;
   }
 `
 
 const Event = styled.aside`
-  padding: 2.4rem;
-  border: 1px solid #555;
+  background: white;
+  border: 2px solid #ddd;
   border-radius: 0.5rem;
-  box-shadow: 4px 4px 2px #555;
+  color: #666;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  padding: 2.4rem;
+  text-align: left;
+`
+
+const Title = styled.h3`
+  color: ${props => props.theme.mainPurple};
+  margin-bottom: 7px;
+  font-size: 2rem;
 `
 
 const mapsUrl = `https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=`
@@ -52,9 +83,7 @@ class EventsComponent extends React.Component {
     const { showModal } = this.state
 
     return (
-      <section>
-        <h2>Events</h2>
-
+      <Container>
         {showModal && (
           <Modal close={this.toggleModal}>
             <form onSubmit={e => e.preventDefault()} method="post">
@@ -94,7 +123,7 @@ class EventsComponent extends React.Component {
 
             return (
               <Event key={event.id}>
-                <h2 style={{ fontSize: '2rem' }}>{event.title}</h2>
+                <Title>{event.title}</Title>
 
                 <div>
                   <FontAwesomeIcon icon="clock" style={{ marginRight: '.8rem' }} />
@@ -107,14 +136,14 @@ class EventsComponent extends React.Component {
 
                 <div
                   title={event.description}
-                  style={{ padding: '1.6rem 0', color: 'black' }}
+                  style={{ padding: '1.6rem 0', color: '#333' }}
                   dangerouslySetInnerHTML={{ __html: truncateString(event.description) || 'No description' }}
                 />
               </Event>
             )
           })}
         </Events>
-      </section>
+      </Container>
     )
   }
 }

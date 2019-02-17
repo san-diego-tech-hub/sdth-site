@@ -12,10 +12,6 @@ export const Container = styled.div`
   padding: 4.8rem;
   font-size: 2rem;
 
-  h2 {
-    color: ${props => props.theme.mainPurple};
-    font-size: 3.2rem;
-  }
   button {
     width: 100%;
     margin-top: 2rem;
@@ -85,6 +81,11 @@ export const Form = styled.form`
     margin-top: 2.4rem;
     padding: 3rem 1rem 1rem 1rem;
   }
+`
+
+export const FormTitle = styled.h2`
+  color: ${props => props.theme.mainPurple};
+  font-size: 3.2rem;
 `
 
 export const SocialContainer = styled.div`
