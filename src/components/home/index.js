@@ -26,7 +26,7 @@ export default () => (
           <h2>{homeJson.firstSectionTitle}</h2>
           <p>{homeJson.firstSectionDescription}</p>
         </section>
-
+        
         <ThreeStep>
           <h2>{homeJson.secondSectionTitle}</h2>
           <p>{homeJson.secondSectionDescription}</p>

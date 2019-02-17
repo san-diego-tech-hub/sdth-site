@@ -4,11 +4,11 @@ import moment from 'moment'
 import BigCalendar from 'react-big-calendar'
 
 import Details from './details'
+import './styles.css'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 const localizer = BigCalendar.momentLocalizer(moment)
 
 // worst case scenario to style calender
-// import './styles.css'
 
 function Calendar({ events }) {
   const [eventInfo, setEventInfo] = useState(null)

@@ -28,6 +28,7 @@ const Layout = ({ children, pageProps }) => (
         <Wrapper>{children}</Wrapper>
         <StayConnected />
 
+        {/* <div id='modal'></div> */}
         <Footer />
       </div>
     </AppContext.Provider>
