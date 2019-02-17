@@ -25,9 +25,9 @@ export const Container = styled.div`
     display: none;
   }
   @media (max-width: 5000px) {
-      width: 1200px;
-      margin: 0 auto;
-      text-align: center;
+    width: 1200px;
+    margin: 0 auto;
+    text-align: center;
   }
 
   @media (max-width: 990px) {
@@ -99,5 +99,33 @@ export const SocialContainer = styled.div`
   a {
     text-decoration: none;
     color: white;
+  }
+`
+
+export const ProposeForm = styled.form`
+  font-size: 1.4rem;
+  height: 100%;
+  margin: auto;
+  padding: 5rem;
+  label {
+    font-weight: bolder;
+    display: block;
+
+    margin-top: 0.8rem;
+  }
+  .input {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+    margin-top: 2rem;
+    padding: 1rem;
+    background: #f25aa3;
+    color: white;
+    border: 1px solid #2abbf4;
+    border-radius: 0.5rem;
   }
 `

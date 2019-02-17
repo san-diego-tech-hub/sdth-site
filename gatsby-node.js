@@ -2,10 +2,11 @@ const { google } = require('googleapis')
 const path = require('path')
 const transformers = require('./src/data/transformers')
 
-const { GC_CLIENT_EMAIL, GC_PRIVATE_KEY, GC_ID } = process.env
+const { GC_ID } = process.env
 
 function authenticate() {
-  const jwtClient = new google.auth.JWT(GC_CLIENT_EMAIL, null, GC_PRIVATE_KEY, [
+  const privateKey = process.env.GC_PRIVATE_KEY.replace(/\\n/g, '\n')
+  const jwtClient = new google.auth.JWT(process.env.GC_CLIENT_EMAIL, null, privateKey, [
     'https://www.googleapis.com/auth/calendar',
   ])
 
@@ -36,7 +37,7 @@ function getEvents(auth) {
   })
 }
 
-const uniqueEvents = new Set();
+const uniqueEvents = new Set()
 
 exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
   const { createNode } = actions
@@ -76,7 +77,7 @@ exports.onCreateNode = ({
   actions,
   createContentDigest,
   createNodeId,
-  node,
+  node 
 }) => {
   const { deleteNode, createNode, createParentChildLink } = actions
 
