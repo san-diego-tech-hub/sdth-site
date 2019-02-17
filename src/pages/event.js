@@ -5,6 +5,9 @@ import moment from 'moment'
 import Layout from '../components/layout'
 
 export default function EventPage({ pageContext: { event }, ...props }) {
+  if (event == null) {
+    return null
+  }
   const start = moment(event.start)
   const end = moment(event.end)
   return (
