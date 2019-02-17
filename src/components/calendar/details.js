@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import moment from 'moment'
 
 import { StyledDetails } from './styles'
 import truncateString from '../../utils/truncate'
@@ -29,11 +30,15 @@ function Details({ eventInfo, setEventInfo, ...position }) {
     },
     [eventInfo.event.title]
   )
+  const start = moment(eventInfo.event.start).format('MMM D, Y @ h:mma');
 
   return (
     <StyledDetails {...position} className="event-details">
       <aside className="header">
-        <div>{eventInfo.event.title}</div>
+        <div>
+          {eventInfo.event.title}
+          <div className='start'>{start}</div>
+        </div>
         <span>
           <button onClick={() => setEventInfo(null)}>&times;</button>
         </span>
