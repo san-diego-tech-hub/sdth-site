@@ -70,6 +70,7 @@ const Field = styled.div`
   font-size: 1.5rem;
   font-weight: bolder;
   margin-bottom: 0.5rem;
+  margin-left: 10px;
 `
 
 const Header = styled.div`
