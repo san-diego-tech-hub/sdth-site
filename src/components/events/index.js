@@ -3,9 +3,28 @@ import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import urlencode from 'urlencode'
 import styled from 'styled-components'
+import Modal from 'react-modal'
+import { Link } from 'gatsby'
+import moment from 'moment'
 
 import truncateString from '../../utils/truncate'
-import Modal from '../modal'
+import ProposeEvent from '../forms/propose-event'
+
+Modal.setAppElement('#modal')
+
+const styles = {
+  overlay: {
+    backgroundColor: 'rgba(0, 0, 0, 0.75)',
+  },
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+}
 
 const Container = styled.div`
   display: flex;
@@ -13,7 +32,7 @@ const Container = styled.div`
   flex-wrap: wrap;
   margin-left: 2rem;
   margin-top: 5rem;
-  @media(max-width: 768px) {
+  @media (max-width: 768px) {
     margin-left: 0;
   }
 `
@@ -71,81 +90,64 @@ const Title = styled.h3`
 
 const mapsUrl = `https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=`
 
-class EventsComponent extends React.Component {
-  state = {
-    showModal: false,
-  }
+function EventsComponent({ events }) {
+  const [modalOpen, setModalOpen] = React.useState(false)
+  const closeModal = () => setModalOpen(false)
 
-  toggleModal = () => this.setState({ showModal: !this.state.showModal })
+  return (
+    <Container>
+      <Modal isOpen={modalOpen} onRequestClose={closeModal} style={styles}>
+        <ProposeEvent afterSubmit={closeModal} />
+      </Modal>
 
-  render() {
-    const { events } = this.props
-    const { showModal } = this.state
+      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <Button onClick={() => setModalOpen(true)}>Propose New Event</Button>
+      </div>
 
-    return (
-      <Container>
-        {showModal && (
-          <Modal close={this.toggleModal}>
-            <form onSubmit={e => e.preventDefault()} method="post">
-              <div>
-                <label>Event Name</label>
-                <input type="text" />
-              </div>
+      <Events>
+        {events.map(event => {
+          const start = moment(event.start).format('MMM D, Y @ h:mma');
 
-              <div>
-                <label>Description</label>
-                <textarea>Limit 256...</textarea>
-              </div>
-              <Button type="submit">Submit</Button>
-            </form>
-          </Modal>
-        )}
-        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-          <Button onClick={this.toggleModal}>Propose New Event</Button>
-        </div>
+          const mapLink = !event.venue.address 
+            ? 'No Location'
+            : (
+              <a
+                href={`${mapsUrl}${urlencode(event.venue.address)}`}
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                {event.venue.address}
+              </a>
+          )
 
-        <Events>
-          {events.map(event => {
-            const start = new Date(event.start).toLocaleTimeString()
-            const end = new Date(event.end).toLocaleTimeString()
-
-            const mapLink = !event.venue.address
-              ? 'No Location'
-              : <a 
-                  href={`${mapsUrl}${urlencode(event.venue.address)}`}
-                  rel='noopener noreferrer'
-                  target='_blank'
-                >
-                  {event.venue.address}
-                </a>
-
-            // const allDay = start === end
-
-            return (
-              <Event key={event.id}>
+          return (
+            <Event key={event.id}>
+              <Link to={`/event/${event.id}`}>
                 <Title>{event.title}</Title>
+              </Link>
 
-                <div>
-                  <FontAwesomeIcon icon="clock" style={{ marginRight: '.8rem' }} />
-                  {start} - {end}
-                </div>
-                <div>
-                  <FontAwesomeIcon icon="map-marker" style={{ marginRight: '.8rem' }} />
-                  {mapLink}
-                </div>
+              <div>
+                <FontAwesomeIcon icon="clock" style={{ marginRight: '.8rem' }} />
+                {start}
+              </div>
+              <div>
+                <FontAwesomeIcon icon="map-marker" style={{ marginRight: '.8rem' }} />
+                {mapLink}
+              </div>
 
-                <div
-                  title={event.description}
-                  style={{ padding: '1.6rem 0', color: '#333' }}
-                  dangerouslySetInnerHTML={{ __html: truncateString(event.description || 'No description') }}
-                />
-              </Event>
-            )
-          })}
-        </Events>
-      </Container>
-    )
-  }
+              <div
+                title={event.description}
+                style={{ padding: '1.6rem 0', color: '#333' }}
+                dangerouslySetInnerHTML={{
+                  __html: truncateString(event.description) || 'No description',
+                }}
+              />
+            </Event>
+          )
+        })}
+      </Events>
+    </Container>
+  )
 }
 
 EventsComponent.propTypes = {
