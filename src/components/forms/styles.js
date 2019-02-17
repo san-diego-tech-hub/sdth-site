@@ -113,10 +113,14 @@ export const ProposeForm = styled.form`
 
     margin-top: 0.8rem;
   }
-  .input {
+  .input-field {
     display: flex;
     justify-content: center;
     flex-direction: column;
+  }
+  input {
+    border: 1px solid #cccccc;
+    border-radius: 0.5rem;
   }
 
   button {

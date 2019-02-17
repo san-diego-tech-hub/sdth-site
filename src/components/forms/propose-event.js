@@ -58,37 +58,37 @@ function ProposeEvent({ afterSubmit }) {
       method="post"
       onSubmit={handleSubmit}
     >
-      <div className="input">
+      <div className="input-field">
         <label htmlFor="user">Your Name</label>
         <input autoFocus name="user" type="text" {...user} id="user" />
       </div>
 
-      <div className="input">
+      <div className="input-field">
         <label htmlFor="email">Email</label>
         <input name="email" type="email" {...email} id="email" />
       </div>
 
-      <div className="input">
+      <div className="input-field">
         <label htmlFor="name">Name of Event</label>
         <input name="name" type="text" {...name} id="name" />
       </div>
 
-      <div className="input">
+      <div className="input-field">
         <label htmlFor="name">Location</label>
         <input name="location" type="text" {...location} id="location" />
       </div>
 
-      <div className="input">
+      <div className="input-field">
         <label htmlFor="start">Start</label>
         <input type="datetime-local" name="start" id="start" {...start} />
       </div>
 
-      <div className="input">
+      <div className="input-field">
         <label htmlFor="end">End</label>
         <input type="datetime-local" name="end" id="end" {...end} />
       </div>
 
-      <div className="input">
+      <div className="input-field">
         <label htmlFor="description">Description</label>
         <textarea name="description" id="description" {...description} />
       </div>
