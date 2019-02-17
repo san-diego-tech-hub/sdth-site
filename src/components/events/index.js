@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import urlencode from 'urlencode'
 import styled from 'styled-components'
 
 import truncateString from '../../utils/truncate'
@@ -79,6 +80,16 @@ class EventsComponent extends React.Component {
             const start = new Date(event.start).toLocaleTimeString()
             const end = new Date(event.end).toLocaleTimeString()
 
+            const mapLink = !event.venue.address
+              ? 'No Location'
+              : <a 
+                  href={`${mapsUrl}${urlencode(event.venue.address)}`}
+                  rel='noopener noreferrer'
+                  target='_blank'
+                >
+                  {event.venue.address}
+                </a>
+
             // const allDay = start === end
 
             return (
@@ -91,8 +102,7 @@ class EventsComponent extends React.Component {
                 </div>
                 <div>
                   <FontAwesomeIcon icon="map-marker" style={{ marginRight: '.8rem' }} />
-                  {(event.location && <a href={`${mapsUrl}${event.location}`}>{event.location}</a>) ||
-                    'No location'}
+                  {mapLink}
                 </div>
 
                 <div
