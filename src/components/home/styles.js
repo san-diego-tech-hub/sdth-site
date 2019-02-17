@@ -54,6 +54,7 @@ export const PillarRow = styled.aside`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 3rem;
   width: 100%;
   h4 {
     font-size: 2.4rem;
@@ -63,14 +64,9 @@ export const PillarRow = styled.aside`
     font-size: 1.6rem;
     padding: 0 1rem;
   }
-  @media (max-width: 5000px) {
-  }
-  @media (max-width: 990px) {
-  }
 `
 export const PillarIcon = styled(Link)`
   background: ${props => props.background};
-  line-height: 2rem;
   border-radius: 1rem;
   height: 30rem;
   overflow: hidden;
