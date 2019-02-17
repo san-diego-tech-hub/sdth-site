@@ -53,6 +53,7 @@ export const PillarRow = styled.aside`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 3rem;
   width: 100%;
   h4 {
     font-size: 2.4rem;
@@ -62,30 +63,27 @@ export const PillarRow = styled.aside`
     font-size: 1.6rem;
     padding: 0 1rem;
   }
-  @media (max-width: 5000px) {
-  }
-  @media (max-width: 990px) {
-  }
 `
 
 export const PillarIcon = styled(Link)`
   background: ${props => props.background};
-  line-height: 2rem;
   border-radius: 1rem;
-  height: 27rem;
-  overflow: hidden;
   color: white;
+  height: 30rem;
+  width: 23rem;
+  line-height: 2rem;
   margin: 0.5rem;
+  overflow: hidden;
   padding: 3rem;
   text-align: center;
   text-decoration: none;
   display: grid;
   grid-template-rows: 1fr 1fr;
+  width: 27rem;
   &:hover, &:focus {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     transform: translate(-2px, -2px);
   }
-  width: 27rem;
 
   p {
     padding-bottom: 1rem;
