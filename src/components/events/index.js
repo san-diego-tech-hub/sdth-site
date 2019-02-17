@@ -6,35 +6,54 @@ import styled from 'styled-components'
 import truncateString from '../../utils/truncate'
 import Modal from '../modal'
 
-const Button = styled.button`
-  padding: 1rem;
-  background: #f25aa3;
-  color: white;
-  border: 1px solid #2abbf4;
-  border-radius: 0.5rem;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 2rem;
+  margin-top: 5rem;
 `
 
-const Events = styled.span`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 2rem;
+const Button = styled.button`
+  background: #4c4e7a;
+  border: 1px solid #2abbf4;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 2rem;
+  padding: 1rem;
+  width: 100%;
+  &:hover {
+    cursor: pointer;
+  }
+`
+
+const Events = styled.div`
+  background: #f5f5f5;
+  border-radius: 5px;
+  border: 5px solid #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  height: 635px;
   margin-top: 1.6rem;
+  padding: 5px;
+  overflow-y: scroll;
 
   a {
     text-decoration: none;
     color: ${props => props.theme.mainPurple};
   }
+
   @media (max-width: 375px) {
-    grid-template-columns: none;
-    grid-template-rows: 1fr 1fr;
+    width: 100vw;
   }
 `
 
 const Event = styled.aside`
-  padding: 2.4rem;
-  border: 1px solid #555;
+  background: white;
+  border: 2px solid #ddd;
   border-radius: 0.5rem;
-  box-shadow: 4px 4px 2px #555;
+  margin-bottom: 1rem;
+  padding: 2.4rem;
 `
 
 const mapsUrl = `https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=`
@@ -51,9 +70,7 @@ class EventsComponent extends React.Component {
     const { showModal } = this.state
 
     return (
-      <section>
-        <h2>Events</h2>
-
+      <Container>
         {showModal && (
           <Modal close={this.toggleModal}>
             <form onSubmit={e => e.preventDefault()} method="post">
@@ -104,7 +121,7 @@ class EventsComponent extends React.Component {
             )
           })}
         </Events>
-      </section>
+      </Container>
     )
   }
 }

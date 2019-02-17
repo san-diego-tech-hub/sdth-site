@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import moment from 'moment'
+import styled from 'styled-components'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
@@ -15,13 +16,24 @@ function EventIndex({ data, ...props }) {
     end: moment(new Date(node.end))._d,
   }))
 
+  const Container = styled.div`
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    @media(max-width: 768px) {
+      flex-direction: column;
+    }
+  `
+
   return (
     <Layout pageProps={props}>
       <SEO title="Events" keywords={['san diego', 'tech', 'hub', 'events', 'upcoming']} />
 
-      <Calendar events={events} />
-
-      <Events events={events.slice(0, 10)} />
+      <Container>
+        <Calendar events={events} />
+        <Events events={events.slice(0, 10)} />
+      </Container>
     </Layout>
   )
 }
