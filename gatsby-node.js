@@ -121,8 +121,15 @@ exports.createPages = ({ graphql, actions }) => {
             id
             title
             description
+            url
             start
             end
+            venue {
+              name
+              address
+              latitude
+              longitude
+            }
           }
         }
       }

@@ -40,8 +40,15 @@ export const query = graphql`
           id
           title
           description
+          url
           start
           end
+          venue {
+            name
+            address
+            latitude
+            longitude
+          }
         }
       }
     }
