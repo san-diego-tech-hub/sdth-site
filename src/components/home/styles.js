@@ -50,9 +50,10 @@ export const CollabIcon = styled.div`
 `
 
 export const PillarRow = styled.aside`
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-gap: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
   h4 {
     font-size: 2.4rem;
     text-transform: capitalize;
@@ -62,11 +63,8 @@ export const PillarRow = styled.aside`
     padding: 0 1rem;
   }
   @media (max-width: 5000px) {
-    grid-gap: 15rem;
-    justify-content: center;
   }
   @media (max-width: 990px) {
-    grid-template-columns: 1fr;
   }
 `
 
@@ -74,14 +72,13 @@ export const PillarIcon = styled.div`
   background: ${props => props.background};
   line-height: 2rem;
   border-radius: 1rem;
-  height: 30rem;
+  height: 27rem;
   overflow: hidden;
   color: white;
-  margin: auto;
+  margin: 0.5rem;
   padding: 3rem;
   text-align: center;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
+  width: 27rem;
 
   p {
     padding-bottom: 1rem;
@@ -90,7 +87,6 @@ export const PillarIcon = styled.div`
 
   @media (max-width: 990px) {
     padding: 1.5rem;
-    grid-template-rows: 2fr 1fr;
     div {
       align-self: flex-end;
     }
