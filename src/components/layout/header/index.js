@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Nav from '../nav'
-import conduitsFlow from '../../../images/conduits-flow.svg'
+import conduitsFlow from 'Images/conduits-flow.svg'
 
 const Header = () => (
   <header>
