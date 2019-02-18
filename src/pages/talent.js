@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-import PillarTemplate from '../components/pillars/template'
+import Layout from 'Components/layout'
+import SEO from 'Components/seo'
+import PillarTemplate from 'Components/pillars/template'
 
 export default props => (
   <Layout pageProps={props}>

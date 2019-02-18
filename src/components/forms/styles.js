@@ -24,6 +24,7 @@ export const Container = styled.div`
   .smallScreen {
     display: none;
   }
+
   @media (max-width: 5000px) {
     width: 1200px;
     margin: 0 auto;

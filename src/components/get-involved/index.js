@@ -2,9 +2,9 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
 import { ChallengesSection, ChallengeIcon } from './styles'
-import silos from '../../images/silos.svg'
-import judge from '../../images/judge.svg'
-import conversations from '../../images/conversations.svg'
+import silos from 'Images/silos.svg'
+import judge from 'Images/judge.svg'
+import conversations from 'Images/conversations.svg'
 
 const icons = { silos, judge, conversations }
 

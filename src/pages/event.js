@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components'
 import moment from 'moment'
 
-import Layout from '../components/layout'
+import Layout from 'Components/layout'
 
 export default function EventPage({ pageContext: { event }, ...props }) {
   if (event == null) {

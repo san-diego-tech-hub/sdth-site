@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-import sdthLogo from '../../../images/sdth-logo.svg'
+import sdthLogo from 'Images/sdth-logo.svg'
 import Nav from '../nav'
 import { ConduitsFlow, Logo } from './styles'
 
