@@ -17,19 +17,18 @@ function EventIndex({ data, ...props }) {
   }))
 
   const Container = styled.div`
+    width: 83%;
+    margin: auto;
     align-items: center;
     display: flex;
     justify-content: center;
     margin-bottom: 3rem;
-    @media(max-width: 768px) {
+    @media (max-width: 768px) {
       flex-direction: column;
     }
   `
 
-  const eventFeedEvents = events
-    .filter(
-      event => event.start >= Date.now()
-    ).slice(0, 10)
+  const eventFeedEvents = events.filter(event => event.start >= Date.now()).slice(0, 10)
 
   return (
     <Layout pageProps={props}>
@@ -51,12 +50,7 @@ EventIndex.propTypes = {
 
 export const query = graphql`
   query EVENTS {
-    allEvent(
-      sort: {
-        fields: [start]
-        order: ASC
-      }
-    ) {
+    allEvent(sort: { fields: [start], order: ASC }) {
       edges {
         node {
           id
