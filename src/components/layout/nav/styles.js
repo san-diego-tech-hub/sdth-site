@@ -12,9 +12,12 @@ export const Nav = styled.nav`
   display: flex;
   height: 88px;
   justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 
   a {
-    color: #FFF;
+    color: #fff;
     display: block;
     text-decoration: none;
   }
@@ -45,7 +48,7 @@ export const Menu = styled.ul`
     width: 100%;
     font-size: 1rem;
     li {
-      padding: 0 .5rem;
+      padding: 0 0.5rem;
     }
   }
 `
