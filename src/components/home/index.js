@@ -6,6 +6,7 @@ import {
   Collaboration,
   CollabIcon,
   Description,
+  PillarDescription,
   PillarIcon,
   PillarRow,
   ThreeStep,
@@ -61,10 +62,10 @@ export default () => (
           </aside>
         </ThreeStep>
 
-        <section style={{ margin: '15rem auto 5rem', maxWidth: '800px'}}>
+        <PillarDescription>
           <h2>{homeJson.thirdSectionTitle}</h2>
           <p>{homeJson.thirdSectionDescription}</p>
-        </section>
+        </PillarDescription>
         <PillarRow>
           {homeJson.thirdSectionItems.map((pillar, i) => (
             <PillarIcon to={`/${pillar.title}`} key={i} background={pillar.background}>

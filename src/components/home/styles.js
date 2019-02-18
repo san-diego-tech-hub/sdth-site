@@ -8,39 +8,82 @@ export const Collaboration = styled.div`
   text-align: center;
 `
 
-export const Description = styled.p`
-  font-size: 1.7em;
-  padding-left: 10rem;
-  width: 700px;
+export const CollabIcon = styled.div`
+  position: relative;
+  text-align: center;
+  border-radius: 100%;
+  width: 20rem;
+  height: 20rem;
+  margin: auto;
+  padding: 2rem;
 `
 
-export const WhatIsSDTH = styled.div`
-  background: linear-gradient(rgba(82,48,181,0.7), 70%, rgba(129,74,198,0.4));
-  border-radius: 5px;
-  color: white;
-  left: 10rem;
-  padding: 4rem;
-  position: absolute;
-  top: 12rem;
-  width: 570px; 
+export const Description = styled.p`
+  font-size: 1.7em;
+  padding: 0 5rem;
+`
 
+export const PillarDescription = styled.section`
+  margin: 15rem auto 5rem;
+  max-width: 800px;
   @media(max-width: 990px) {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    left: 0;
-    justify-content: center;
     text-align: center;
-    width: 100vw;
+  }
+`
+
+export const PillarIcon = styled(Link)`
+  background: ${props => props.background};
+  border-radius: 1rem;
+  color: white;
+  height: 30rem;
+  line-height: 2rem;
+  margin: 0.5rem;
+  overflow: hidden;
+  padding: 3rem;
+  text-align: center;
+  text-decoration: none;
+  width: 27rem;
+
+  &:hover, &:focus {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    transform: translate(-2px, -2px);
+  }
+
+  p {
+    padding-bottom: 1rem;
+    min-height: 300px;
+  }
+
+  @media (max-width: 990px) {
+    padding: 1.5rem;
+    div {
+      align-self: flex-end;
+    }
   }
 
   @media(max-width: 600px) {
-    top: 14rem;
-    padding: 1rem;
+    width: 100vw;
+
+    p {
+      margin: auto;
+      width: 25rem;
+    }
   }
-  
-  @media(max-width: 480px) {
-    top: 10rem;
+`
+
+export const PillarRow = styled.aside`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 15rem;
+  width: 100%;
+  h4 {
+    font-size: 2.4rem;
+    text-transform: capitalize;
+  }
+  p {
+    font-size: 1.6rem;
+    padding: 0 1rem;
   }
 `
 
@@ -82,60 +125,32 @@ export const ThreeStep = styled.section`
   }
 `
 
-export const CollabIcon = styled.div`
-  position: relative;
-  text-align: center;
-  border-radius: 100%;
-  width: 20rem;
-  height: 20rem;
-  margin: auto;
-  padding: 2rem;
-`
-
-export const PillarRow = styled.aside`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 15rem;
-  width: 100%;
-  h4 {
-    font-size: 2.4rem;
-    text-transform: capitalize;
-  }
-  p {
-    font-size: 1.6rem;
-    padding: 0 1rem;
-  }
-`
-
-export const PillarIcon = styled(Link)`
-  background: ${props => props.background};
-  border-radius: 1rem;
+export const WhatIsSDTH = styled.div`
+  background: linear-gradient(rgba(82,48,181,0.7), 70%, rgba(129,74,198,0.4));
+  border-radius: 5px;
   color: white;
-  height: 30rem;
-  width: 23rem;
-  line-height: 2rem;
-  margin: 0.5rem;
-  overflow: hidden;
-  padding: 3rem;
-  text-align: center;
-  text-decoration: none;
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  width: 27rem;
-  &:hover, &:focus {
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    transform: translate(-2px, -2px);
+  left: 10rem;
+  padding: 4rem;
+  position: absolute;
+  top: 12rem;
+  width: 570px; 
+
+  @media(max-width: 990px) {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    justify-content: center;
+    text-align: center;
+    width: 100vw;
   }
 
-  p {
-    padding-bottom: 1rem;
-    min-height: 300px;
+  @media(max-width: 600px) {
+    top: 14rem;
+    padding: 0.5rem;
   }
-  @media (max-width: 990px) {
-    padding: 1.5rem;
-    div {
-      align-self: flex-end;
-    }
+  
+  @media(max-width: 383px) {
+    top: 10rem;
   }
 `
