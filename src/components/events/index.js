@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import ExternalLink from 'Common/ExternalLink'
+import { MAPS_URL } from 'Utils/constants'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'gatsby'
 import Modal from 'react-modal'
@@ -88,9 +90,6 @@ const Title = styled.h3`
   margin-bottom: 7px;
   font-size: 2rem;
 `
-
-const mapsUrl = `https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=`
-
 function EventsComponent({ events }) {
   const [modalOpen, setModalOpen] = React.useState(false)
   const closeModal = () => setModalOpen(false)
@@ -107,18 +106,14 @@ function EventsComponent({ events }) {
 
       <Events>
         {events.map(event => {
-          const start = moment(event.start).format('MMM D, Y @ h:mma');
+          const start = moment(event.start).format('MMM D, Y @ h:mma')
 
-          const mapLink = !event.venue.address 
-            ? 'No Location'
-            : (
-              <a
-                href={`${mapsUrl}${urlencode(event.venue.address)}`}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                {event.venue.address}
-              </a>
+          const mapLink = !event.venue.address ? (
+            'No Location'
+          ) : (
+            <ExternalLink href={`${MAPS_URL}${urlencode(event.venue.address)}`}>
+              {event.venue.address}
+            </ExternalLink>
           )
 
           return (

@@ -17,7 +17,7 @@ function EventIndex({ data, ...props }) {
   }))
 
   const Container = styled.div`
-    width: 83%;
+    max-width: 120rem;
     margin: auto;
     align-items: center;
     display: flex;

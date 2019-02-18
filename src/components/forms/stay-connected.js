@@ -2,7 +2,7 @@ import React from 'react'
 import addToMailChimp from 'gatsby-plugin-mailchimp'
 
 import { Container, Form, FormTitle, SocialContainer } from './styles'
-// import styles from './form.module.css'
+import ExternalLink from 'Common/ExternalLink'
 import SocialMedia from './social-media'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -64,16 +64,14 @@ class StayConnected extends React.Component {
             individuals looking to make a different towards redefining the San Diego tech scene.
           </p>
 
-          <a
-            target="_blank"
+          <ExternalLink
             href="https://join.slack.com/t/sandiegotechhub/shared_invite/enQtNTI1MDA2NjQyNDcwLTRhYmFhOGZlNzQyZWQ0NmJjMTEzNGE1YjI1NTJmY2RhZjVmYjBjNDAyYmI4MDZkNTM4MzMwM2JmYWQzOGVkYjY"
-            rel="noopener noreferrer"
           >
             <button>
               <FontAwesomeIcon size="sm" icon={['fab', 'slack']} />
               <span style={{ marginLeft: '1rem' }}>Join our Slack Community</span>
             </button>
-          </a>
+          </ExternalLink>
           <SocialMedia />
         </SocialContainer>
 
