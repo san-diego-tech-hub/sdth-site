@@ -1,6 +1,49 @@
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
+export const Collaboration = styled.div`
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 5rem;
+  text-align: center;
+`
+
+export const Description = styled.p`
+  font-size: 1.7em;
+  padding-left: 10rem;
+  width: 700px;
+`
+
+export const WhatIsSDTH = styled.div`
+  background: linear-gradient(rgba(82,48,181,0.7), 70%, rgba(129,74,198,0.4));
+  border-radius: 5px;
+  color: white;
+  left: 10rem;
+  padding: 4rem;
+  position: absolute;
+  top: 12rem;
+  width: 570px; 
+
+  @media(max-width: 990px) {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    justify-content: center;
+    text-align: center;
+    width: 100vw;
+  }
+
+  @media(max-width: 600px) {
+    top: 14rem;
+    padding: 1rem;
+  }
+  
+  @media(max-width: 480px) {
+    top: 10rem;
+  }
+`
+
 export const ThreeStep = styled.section`
   background: rgb(240, 240, 240);
   text-align: center;
@@ -53,7 +96,7 @@ export const PillarRow = styled.aside`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 3rem;
+  margin-bottom: 15rem;
   width: 100%;
   h4 {
     font-size: 2.4rem;

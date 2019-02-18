@@ -1,43 +1,34 @@
 import styled from 'styled-components'
 
-export const Nav = styled.nav`
-  background: ${props => props.theme.mainPurple};
-  color: #FFF;
+export const Container = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding-top: 3.2rem;
-  text-align: center;
-  /* height: 7rem; */
+  max-width: 1600px;
+  width: 100%;
+`
+
+export const Nav = styled.nav`
+  background: ${props => props.theme.primary};
+  color: #fff;
+  display: flex;
+  height: 88px;
+  justify-content: center;
 
   a {
-    padding-bottom: 1rem;
-    display: block;
     color: #FFF;
+    display: block;
     text-decoration: none;
   }
 `
 export const Menu = styled.ul`
-  width: 80%;
-  list-style-type: none;
+  align-items: center;
   display: flex;
-  justify-content: space-evenly;
   font-size: 2rem;
-  margin: 0 auto !important;
-  position: relative;
+  justify-content: space-around;
+  list-style-type: none;
+  margin: 0;
   text-align: center;
+  width: 80%;
 
-  li {
-    margin-bottom: 0 !important;
-    padding: 0 1rem;
-    white-space: nowrap;
-    display: flex;
-  }
-  li:not(:last-child)::after {
-    content: '|';
-    color: white;
-    margin-left: 2rem;
-  }
   @media (max-width: 990px) {
     width: 100%;
     font-size: 1.6rem;
@@ -67,19 +58,26 @@ export const Drop = styled.div`
   }
 `
 
+export const DropItem = styled.li`
+  align-items: center;
+  display: flex;
+  height: 100%;
+  margin: 0;
+`
+
 export const DropdownContent = styled.div`
-  text-align: left;
-  border: 0.05rem solid ${props => props.theme.mainPurple};
-  font-weight: normal;
-  width: 100%;
-  display: none;
-  position: absolute;
   background-color: white;
-  color: ${props => props.theme.mainPurple};
-  min-width: 160px;
+  border: 0.05rem solid ${props => props.theme.mainPurple};
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  color: ${props => props.theme.mainPurple};
+  display: none;
+  font-weight: normal;
+  min-width: 160px;
+  position: absolute;
+  text-align: left;
+  top: 60px;
+  width: 100%;
   z-index: 1;
-  margin-top: 1.5rem;
   img {
     margin-right: 0.5rem;
   }
@@ -94,10 +92,18 @@ export const DropdownContent = styled.div`
     margin-left: 0.1rem;
   }
 `
+export const Logo = styled.div`
+  background: white;
+  border-radius: 0 0 50px;
+  box-shadow: 0 0 25px rgba(255,255,255,0.5);
+  height: 100%;
+  width: 350px;
 
-export const Inner = styled.span`
-  padding: 0 2rem;
+  img {
+    margin-bottom: 0;
+  }
+
   @media (max-width: 667px) {
-    padding: 0;
+    width: 100%;
   }
 `

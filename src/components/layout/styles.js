@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const theme = {
+  primary: '#5230B5',
   mainPurple: '#4c4e7a',
   color: 'rgb(115, 115, 115)',
 }

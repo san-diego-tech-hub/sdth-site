@@ -22,7 +22,7 @@ library.add(faLinkedin, faFacebookSquare, faTwitterSquare, faSlack, faCaretDown,
 const Layout = ({ children, pageProps }) => (
   <ThemeProvider theme={theme}>
     <AppContext.Provider value={{ path: pageProps.location.pathname }}>
-      <div>
+      <div style={{maxWidth: '100vw', overflowX: 'hidden'}}>
         <Header />
 
         <Wrapper>{children}</Wrapper>

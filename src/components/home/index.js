@@ -2,7 +2,15 @@ import React from 'react'
 import Img from 'gatsby-image'
 import { StaticQuery, graphql } from 'gatsby'
 
-import { ThreeStep, CollabIcon, PillarRow, PillarIcon } from './styles'
+import {
+  Collaboration,
+  CollabIcon,
+  Description,
+  PillarIcon,
+  PillarRow,
+  ThreeStep,
+  WhatIsSDTH
+} from './styles'
 import communityIcon from 'Images/icon_community.svg'
 import educationIcon from 'Images/icon_education.svg'
 import inclusionIcon from 'Images/icon_inclusion.svg'
@@ -22,14 +30,17 @@ export default () => (
     query={homeQuery}
     render={({ homeJson, ...icons }) => (
       <main>
-        <section>
-          <h2>{homeJson.firstSectionTitle}</h2>
-          <p>{homeJson.firstSectionDescription}</p>
-        </section>
-
-        <ThreeStep>
+        <WhatIsSDTH>
+          <div style={{maxWidth: '570px'}}>
+            <h2 style={{color: 'white'}}>{homeJson.firstSectionTitle}</h2>
+            <p style={{fontSize: '1.5rem'}}>{homeJson.firstSectionDescription}</p>
+          </div>
+        </WhatIsSDTH>
+        <Collaboration>
           <h2>{homeJson.secondSectionTitle}</h2>
-          <p>{homeJson.secondSectionDescription}</p>
+          <Description>{homeJson.secondSectionDescription}</Description>
+        </Collaboration>
+        <ThreeStep>
           <aside>
             {homeJson.secondSectionItems.map((c, i) => {
               const icon = icons[c.title]
@@ -50,7 +61,7 @@ export default () => (
           </aside>
         </ThreeStep>
 
-        <section>
+        <section style={{ margin: '15rem auto 5rem', maxWidth: '800px'}}>
           <h2>{homeJson.thirdSectionTitle}</h2>
           <p>{homeJson.thirdSectionDescription}</p>
         </section>
