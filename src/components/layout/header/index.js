@@ -1,22 +1,29 @@
 import React from 'react'
-import { Link } from 'gatsby'
-
-import sdthLogo from 'Images/sdth-logo.svg'
+import styled from 'styled-components'
 import Nav from '../nav'
-import { ConduitsFlow, Logo } from './styles'
+import conduitsFlow from '../../../images/conduits-flow.svg'
 
 const Header = () => (
   <header>
-    <ConduitsFlow>
-      <Logo>
-        <Link to="/">
-          <img alt="San Diego Tech Hub" src={sdthLogo} />
-        </Link>
-      </Logo>
-    </ConduitsFlow>
-
     <Nav />
+    <ConduitsFlow />
   </header>
 )
+
+const ConduitsFlow = styled.div`
+  background-image: url(${conduitsFlow});
+  background-size: cover;
+  background-position-y: -15rem;
+  padding: 10rem;
+  text-align: center;
+
+  @media (max-width: 667px) {
+    padding: 0.5rem;
+    img {
+      margin: 0;
+      width: 100vh;
+    }
+  }
+`
 
 export default Header
