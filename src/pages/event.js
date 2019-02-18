@@ -1,8 +1,11 @@
 import React from 'react';
 import styled from 'styled-components'
 import moment from 'moment'
+import urlencode from 'urlencode'
 
+import { MAPS_URL } from 'Utils/constants'
 import Layout from 'Components/layout'
+import ExternalLink from 'Components/common/ExternalLink'
 
 export default function EventPage({ pageContext: { event }, ...props }) {
   if (event == null) {
@@ -37,18 +40,20 @@ export default function EventPage({ pageContext: { event }, ...props }) {
 
           <Field>Website:</Field>
           <Value>
-            <a
+            <ExternalLink
               href={event.url}
-              rel='noopener noreferrer'
-              target='_blank'
             >
               {event.url}
-            </a>
+            </ExternalLink>
           </Value>
 
           <SubHeading>Venue</SubHeading>
-          <Value>{event.venue.name}</Value>
-          <Value>{event.venue.address}</Value>
+          <ExternalLink
+            href={`${MAPS_URL}${urlencode(event.venue.address)}`}
+          >
+            <Value>{event.venue.name}</Value>
+            <Value>{event.venue.address}</Value>
+          </ExternalLink>
 
         </SideBar>
       </Container>
@@ -84,7 +89,6 @@ const Field = styled.div`
 `
 
 const Value = styled.div`
-  color: #222;
   font-size: 1.5rem;
   margin-bottom: 2rem;
   margin-left: 5px;
