@@ -10,6 +10,7 @@ export const Collaboration = styled.div`
 
 export const Description = styled.p`
   font-size: 1.7em;
+  padding-left: 10rem;
   width: 700px;
 `
 
