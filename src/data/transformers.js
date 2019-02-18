@@ -59,7 +59,7 @@ module.exports = {
 
     const model = {
       title: event.name,
-      description: event.description,
+      description: event.description.replace(/src=\"http\:/g, 'src="https:'),
       url: event.link,
       start,
       end,
