@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import Nav from '../nav'
 import conduitsFlow from 'Images/conduits-flow.svg'
+import Nav from '../nav'
+import { NAV_HEIGHT } from 'Utils/constants'
 
 const Header = () => (
   <header>
@@ -34,6 +35,7 @@ const Img = styled.div`
 const ConduitsFlow = styled.div`
   background: linear-gradient(#5230B5, 70%, #814AC6);
   height: 350px;
+  margin-top: ${NAV_HEIGHT};
   margin-bottom: 7rem;
   width: 100vw;
 `

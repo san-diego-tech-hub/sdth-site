@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { NAV_HEIGHT } from 'Utils/constants'
 
 export const Container = styled.div`
   display: flex;
@@ -10,9 +11,11 @@ export const Nav = styled.nav`
   background: ${props => props.theme.primary};
   color: #fff;
   display: flex;
-  height: 88px;
+  height: ${NAV_HEIGHT};
   justify-content: center;
-  position: sticky;
+  position: fixed;
+  left: 0;
+  right: 0;
   top: 0;
   z-index: 1;
 
