@@ -149,14 +149,14 @@ exports.createPages = ({ graphql, actions }) => {
 }
 
 exports.onCreateWebpackConfig = ({ actions }) => {
-	actions.setWebpackConfig({
-		resolve: {
-			alias: {
-				Components: `${__dirname}/src/components`,
-				Common: `${__dirname}/src/components/common`,
-				Images: `${__dirname}/src/images`,
-				Utils: `${__dirname}/src/utils`
-			},
-		},
-	})
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        Components: `${__dirname}/src/components`,
+        Common: `${__dirname}/src/components/common`,
+        Images: `${__dirname}/src/images`,
+        Utils: `${__dirname}/src/utils`
+      },
+    },
+  })
 }
