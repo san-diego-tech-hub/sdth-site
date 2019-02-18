@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 
 import StayConnected from '../forms/stay-connected'
+import Nav from './nav'
 import Header from './header'
 import Footer from './footer'
 import AppContext from '../../utils/context'
@@ -23,6 +24,7 @@ const Layout = ({ children, pageProps }) => (
   <ThemeProvider theme={theme}>
     <AppContext.Provider value={{ path: pageProps.location.pathname }}>
       <div>
+        <Nav />
         <Header />
 
         <Wrapper>{children}</Wrapper>

@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import sdthLogo from '../../../images/sdth-logo.svg'
-import Nav from '../nav'
 import { ConduitsFlow, Logo } from './styles'
 
 const Header = () => (
@@ -14,8 +13,6 @@ const Header = () => (
         </Link>
       </Logo>
     </ConduitsFlow>
-
-    <Nav />
   </header>
 )
 

@@ -2,18 +2,21 @@ import styled from 'styled-components'
 
 export const Nav = styled.nav`
   background: ${props => props.theme.mainPurple};
-  color: #FFF;
+  color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   padding-top: 3.2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1;
   text-align: center;
   /* height: 7rem; */
 
   a {
     padding-bottom: 1rem;
     display: block;
-    color: #FFF;
+    color: #fff;
     text-decoration: none;
   }
 `
@@ -54,7 +57,7 @@ export const Menu = styled.ul`
     width: 100%;
     font-size: 1rem;
     li {
-      padding: 0 .5rem;
+      padding: 0 0.5rem;
     }
   }
 `
