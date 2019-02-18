@@ -95,6 +95,7 @@ export const DropdownContent = styled.div`
 export const Logo = styled.div`
   background: white;
   border-radius: 0 0 50px;
+  box-shadow: 0 0 25px rgba(255,255,255,0.5);
   height: 100%;
   width: 350px;
 
