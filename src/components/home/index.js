@@ -31,8 +31,10 @@ export default () => (
     render={({ homeJson, ...icons }) => (
       <main>
         <WhatIsSDTH>
-          <h2 style={{color: 'white'}}>{homeJson.firstSectionTitle}</h2>
-          <p style={{fontSize: '1.5rem'}}>{homeJson.firstSectionDescription}</p>
+          <div style={{maxWidth: '570px'}}>
+            <h2 style={{color: 'white'}}>{homeJson.firstSectionTitle}</h2>
+            <p style={{fontSize: '1.5rem'}}>{homeJson.firstSectionDescription}</p>
+          </div>
         </WhatIsSDTH>
         <Collaboration>
           <h2>{homeJson.secondSectionTitle}</h2>

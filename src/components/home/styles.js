@@ -23,6 +23,25 @@ export const WhatIsSDTH = styled.div`
   position: absolute;
   top: 12rem;
   width: 570px; 
+
+  @media(max-width: 990px) {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    left: 0;
+    justify-content: center;
+    text-align: center;
+    width: 100vw;
+  }
+
+  @media(max-width: 600px) {
+    top: 14rem;
+    padding: 1rem;
+  }
+  
+  @media(max-width: 480px) {
+    top: 10rem;
+  }
 `
 
 export const ThreeStep = styled.section`
