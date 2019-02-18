@@ -1,8 +1,19 @@
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
+export const Collaboration = styled.div`
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 5rem;
+  text-align: center;
+`
+
+export const Description = styled.p`
+  font-size: 1.7em;
+  width: 700px;
+`
+
 export const WhatIsSDTH = styled.div`
-  // background: linear-gradient(#5230B5, 70%, #814AC6);
   background: linear-gradient(rgba(82,48,181,0.7), 70%, rgba(129,74,198,0.4));
   border-radius: 5px;
   color: white;
@@ -65,7 +76,7 @@ export const PillarRow = styled.aside`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 3rem;
+  margin-bottom: 15rem;
   width: 100%;
   h4 {
     font-size: 2.4rem;

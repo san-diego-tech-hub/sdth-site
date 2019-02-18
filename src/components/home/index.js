@@ -3,7 +3,9 @@ import Img from 'gatsby-image'
 import { StaticQuery, graphql } from 'gatsby'
 
 import {
+  Collaboration,
   CollabIcon,
+  Description,
   PillarIcon,
   PillarRow,
   ThreeStep,
@@ -32,9 +34,11 @@ export default () => (
           <h2 style={{color: 'white'}}>{homeJson.firstSectionTitle}</h2>
           <p style={{fontSize: '1.5rem'}}>{homeJson.firstSectionDescription}</p>
         </WhatIsSDTH>
-        <ThreeStep>
+        <Collaboration>
           <h2>{homeJson.secondSectionTitle}</h2>
-          <p>{homeJson.secondSectionDescription}</p>
+          <Description>{homeJson.secondSectionDescription}</Description>
+        </Collaboration>
+        <ThreeStep>
           <aside>
             {homeJson.secondSectionItems.map((c, i) => {
               const icon = icons[c.title]
@@ -55,7 +59,7 @@ export default () => (
           </aside>
         </ThreeStep>
 
-        <section>
+        <section style={{ margin: '15rem auto 5rem', maxWidth: '800px'}}>
           <h2>{homeJson.thirdSectionTitle}</h2>
           <p>{homeJson.thirdSectionDescription}</p>
         </section>
