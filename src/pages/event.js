@@ -27,7 +27,7 @@ export default function EventPage({ pageContext: { event }, ...props }) {
           </Header>
 
           <Description
-            dangerouslySetInnerHTML={{__html: event.description }}
+            dangerouslySetInnerHTML={{__html: event.description.replace(/src=\"http\:/g, 'src="https:') }}
           />
         </MainSection>
         <SideBar>
