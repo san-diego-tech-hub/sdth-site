@@ -7,6 +7,8 @@ import Modal from 'react-modal'
 import { Link } from 'gatsby'
 import moment from 'moment'
 
+import ExternalLink from '../common/ExternalLink'
+import { MAPS_URL } from '../../utils/constants'
 import truncateString from '../../utils/truncate'
 import ProposeEvent from '../forms/propose-event'
 
@@ -24,6 +26,68 @@ const styles = {
     marginRight: '-50%',
     transform: 'translate(-50%, -50%)',
   },
+}
+
+function EventsComponent({ events }) {
+  const [modalOpen, setModalOpen] = React.useState(false)
+  const closeModal = () => setModalOpen(false)
+
+  return (
+    <Container>
+      <Modal isOpen={modalOpen} onRequestClose={closeModal} style={styles}>
+        <ProposeEvent afterSubmit={closeModal} />
+      </Modal>
+
+      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <Button onClick={() => setModalOpen(true)}>Propose New Event</Button>
+      </div>
+
+      <Events>
+        {events.map(event => {
+          const start = moment(event.start).format('MMM D, Y @ h:mma');
+
+          const mapLink = !event.venue.address 
+            ? 'No Location'
+            : (
+              <ExternalLink
+                href={`${MAPS_URL}${urlencode(event.venue.address)}`}
+              >
+                {event.venue.address}
+              </ExternalLink>
+          )
+
+          return (
+            <Event key={event.id}>
+              <Link to={`/event/${event.id}`}>
+                <Title>{event.title}</Title>
+              </Link>
+
+              <div>
+                <FontAwesomeIcon icon="clock" style={{ marginRight: '.8rem' }} />
+                {start}
+              </div>
+              <div>
+                <FontAwesomeIcon icon="map-marker" style={{ marginRight: '.8rem' }} />
+                {mapLink}
+              </div>
+
+              <div
+                title={event.description}
+                style={{ padding: '1.6rem 0', color: '#333' }}
+                dangerouslySetInnerHTML={{
+                  __html: truncateString(event.description || 'No description'),
+                }}
+              />
+            </Event>
+          )
+        })}
+      </Events>
+    </Container>
+  )
+}
+
+EventsComponent.propTypes = {
+  events: PropTypes.array.isRequired,
 }
 
 const Container = styled.div`
@@ -87,71 +151,5 @@ const Title = styled.h3`
   margin-bottom: 7px;
   font-size: 2rem;
 `
-
-const mapsUrl = `https://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=`
-
-function EventsComponent({ events }) {
-  const [modalOpen, setModalOpen] = React.useState(false)
-  const closeModal = () => setModalOpen(false)
-
-  return (
-    <Container>
-      <Modal isOpen={modalOpen} onRequestClose={closeModal} style={styles}>
-        <ProposeEvent afterSubmit={closeModal} />
-      </Modal>
-
-      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <Button onClick={() => setModalOpen(true)}>Propose New Event</Button>
-      </div>
-
-      <Events>
-        {events.map(event => {
-          const start = moment(event.start).format('MMM D, Y @ h:mma');
-
-          const mapLink = !event.venue.address 
-            ? 'No Location'
-            : (
-              <a
-                href={`${mapsUrl}${urlencode(event.venue.address)}`}
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                {event.venue.address}
-              </a>
-          )
-
-          return (
-            <Event key={event.id}>
-              <Link to={`/event/${event.id}`}>
-                <Title>{event.title}</Title>
-              </Link>
-
-              <div>
-                <FontAwesomeIcon icon="clock" style={{ marginRight: '.8rem' }} />
-                {start}
-              </div>
-              <div>
-                <FontAwesomeIcon icon="map-marker" style={{ marginRight: '.8rem' }} />
-                {mapLink}
-              </div>
-
-              <div
-                title={event.description}
-                style={{ padding: '1.6rem 0', color: '#333' }}
-                dangerouslySetInnerHTML={{
-                  __html: truncateString(event.description || 'No description'),
-                }}
-              />
-            </Event>
-          )
-        })}
-      </Events>
-    </Container>
-  )
-}
-
-EventsComponent.propTypes = {
-  events: PropTypes.array.isRequired,
-}
 
 export default EventsComponent
