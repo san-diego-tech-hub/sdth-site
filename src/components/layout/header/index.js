@@ -14,6 +14,7 @@ const ConduitsFlow = styled.div`
   background-image: url(${conduitsFlow});
   background-size: cover;
   background-position-y: -15rem;
+  margin-bottom: 20rem;
   padding: 10rem;
   text-align: center;
 

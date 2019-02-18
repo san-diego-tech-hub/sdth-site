@@ -2,7 +2,13 @@ import React from 'react'
 import Img from 'gatsby-image'
 import { StaticQuery, graphql } from 'gatsby'
 
-import { ThreeStep, CollabIcon, PillarRow, PillarIcon } from './styles'
+import {
+  CollabIcon,
+  PillarIcon,
+  PillarRow,
+  ThreeStep,
+  WhatIsSDTH
+} from './styles'
 import communityIcon from 'Images/icon_community.svg'
 import educationIcon from 'Images/icon_education.svg'
 import inclusionIcon from 'Images/icon_inclusion.svg'
@@ -22,11 +28,10 @@ export default () => (
     query={homeQuery}
     render={({ homeJson, ...icons }) => (
       <main>
-        <section>
-          <h2>{homeJson.firstSectionTitle}</h2>
-          <p>{homeJson.firstSectionDescription}</p>
-        </section>
-
+        <WhatIsSDTH>
+          <h2 style={{color: 'white'}}>{homeJson.firstSectionTitle}</h2>
+          <p style={{fontSize: '1.5rem'}}>{homeJson.firstSectionDescription}</p>
+        </WhatIsSDTH>
         <ThreeStep>
           <h2>{homeJson.secondSectionTitle}</h2>
           <p>{homeJson.secondSectionDescription}</p>

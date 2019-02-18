@@ -1,6 +1,17 @@
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 
+export const WhatIsSDTH = styled.div`
+  background: rgba(82,48,181,0.8);
+  border-radius: 5px;
+  color: white;
+  left: 10rem;
+  padding: 4rem;
+  position: absolute;
+  top: 12rem;
+  width: 570px; 
+`
+
 export const ThreeStep = styled.section`
   background: rgb(240, 240, 240);
   text-align: center;
