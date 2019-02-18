@@ -68,8 +68,6 @@ export const query = graphql`
           venue {
             name
             address
-            latitude
-            longitude
           }
         }
       }

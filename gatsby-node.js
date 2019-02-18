@@ -128,8 +128,6 @@ exports.createPages = ({ graphql, actions }) => {
             venue {
               name
               address
-              latitude
-              longitude
             }
           }
         }

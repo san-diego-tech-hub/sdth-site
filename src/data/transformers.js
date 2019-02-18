@@ -29,8 +29,6 @@ module.exports = {
       venue: {
         name: null, // Is it possible to add this to Google Calendar Events?
         address: event.location,
-        latitude: null,
-        longitude: null
       }
     }
 
@@ -68,8 +66,6 @@ module.exports = {
       venue: {
         name: event.venue.name,
         address: createAddressString(addressFields),
-        latitude: event.venue.lat,
-        longitude: event.venue.lon,
       }
     }
 
@@ -116,8 +112,6 @@ module.exports = {
       venue: {
         name: event.venue.name,
         address: createAddressString(addressFields),
-        latitude: event.venue.address.latitude,
-        longitude: event.venue.address.longitude,
       }
     }
 
@@ -125,5 +119,5 @@ module.exports = {
       model,
       eventKey
     }
-  }
+  },
 }
