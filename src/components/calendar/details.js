@@ -4,7 +4,7 @@ import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { StyledDetails } from './styles'
-import truncateString from '../../utils/truncate'
+import truncateString from 'Utils/truncate'
 
 function Details({ eventInfo, setEventInfo, ...position }) {
   React.useEffect(() => {

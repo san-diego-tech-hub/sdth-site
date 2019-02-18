@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Nav, Menu } from './styles'
 import MenuItem from './menu-item'
 import Dropdown from './dropdown'
-import AppContext from '../../../utils/context'
+import AppContext from 'Utils/context'
 
 const items = [
   { text: 'Community', url: '/community', icon: 'community' },

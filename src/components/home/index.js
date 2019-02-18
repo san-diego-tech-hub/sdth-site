@@ -3,11 +3,11 @@ import Img from 'gatsby-image'
 import { StaticQuery, graphql } from 'gatsby'
 
 import { ThreeStep, CollabIcon, PillarRow, PillarIcon } from './styles'
-import communityIcon from '../../images/icon_community.svg'
-import educationIcon from '../../images/icon_education.svg'
-import inclusionIcon from '../../images/icon_inclusion.svg'
-import innovationIcon from '../../images/icon_innovation.svg'
-import talentIcon from '../../images/icon_talent.svg'
+import communityIcon from 'Images/icon_community.svg'
+import educationIcon from 'Images/icon_education.svg'
+import inclusionIcon from 'Images/icon_inclusion.svg'
+import innovationIcon from 'Images/icon_innovation.svg'
+import talentIcon from 'Images/icon_talent.svg'
 
 const pillarIcons = {
   community: communityIcon,

@@ -4,10 +4,10 @@ import { graphql } from 'gatsby'
 import moment from 'moment'
 import styled from 'styled-components'
 
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-import Events from '../components/events'
-import Calendar from '../components/calendar'
+import Layout from 'Components/layout'
+import SEO from 'Components/seo'
+import Events from 'Components/events'
+import Calendar from 'Components/calendar'
 
 function EventIndex({ data, ...props }) {
   const events = data.allEvent.edges.map(({ node }) => ({

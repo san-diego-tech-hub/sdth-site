@@ -1,9 +1,9 @@
 import React from 'react'
 import moment from 'moment'
 
-import encode from '../../utils/encode'
+import encode from 'Utils/encode'
+import { useFormInput } from 'Utils/hooks'
 import { ProposeForm } from './styles'
-import { useFormInput } from '../../utils/hooks'
 
 function ProposeEvent({ afterSubmit }) {
   const date = moment().format('YYYY-MM-DDTHH:mm')

@@ -8,8 +8,8 @@ import moment from 'moment'
 import styled from 'styled-components'
 import urlencode from 'urlencode'
 
-import truncateString from '../../utils/truncate'
-import ProposeEvent from '../forms/propose-event'
+import truncateString from 'Utils/truncate'
+import ProposeEvent from 'Components/forms/propose-event'
 
 Modal.setAppElement('#modal')
 

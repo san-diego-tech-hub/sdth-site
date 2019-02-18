@@ -1,8 +1,8 @@
 import React from 'react'
 
-import GetInvolved from '../components/get-involved'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
+import GetInvolved from 'Components/get-involved'
+import Layout from 'Components/layout'
+import SEO from 'Components/seo'
 
 export default props => (
   <Layout pageProps={props}>

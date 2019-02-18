@@ -1,11 +1,11 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
-import claude1 from '../../images/claude_1.png'
-import claude2 from '../../images/claude_2.png'
-import goals from '../../images/goals.svg'
-import heart from '../../images/heart.svg'
-import tasks from '../../images/tasks.svg'
+import claude1 from 'Images/claude_1.png'
+import claude2 from 'Images/claude_2.png'
+import goals from 'Images/goals.svg'
+import heart from 'Images/heart.svg'
+import tasks from 'Images/tasks.svg'
 import { RebuildSection, FounderSection } from './styles'
 
 const icons = { goals, heart, tasks }
