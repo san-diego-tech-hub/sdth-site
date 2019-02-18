@@ -6,25 +6,35 @@ import conduitsFlow from 'Images/conduits-flow.svg'
 const Header = () => (
   <header>
     <Nav />
-    <ConduitsFlow />
+    <ConduitsFlow>
+      <Img />
+      <WhiteCurve />
+    </ConduitsFlow>
   </header>
 )
 
-const ConduitsFlow = styled.div`
+const WhiteCurve = styled.div`
+  background: white;
+  border-radius: 50%;
+  height: 200px;
+  margin-top: -50px;
+  margin-left: -10vw;
+  width: 120vw;
+`
+
+const Img = styled.div`
   background-image: url(${conduitsFlow});
   background-size: cover;
-  background-position-y: -15rem;
-  margin-bottom: 20rem;
+  background-position-y: -13rem;
   padding: 10rem;
-  text-align: center;
+  height: 100%;
+`
 
-  @media (max-width: 667px) {
-    padding: 0.5rem;
-    img {
-      margin: 0;
-      width: 100vh;
-    }
-  }
+const ConduitsFlow = styled.div`
+  background: linear-gradient(#5230B5, 70%, #814AC6);
+  height: 350px;
+  margin-bottom: 7rem;
+  width: 100vw;
 `
 
 export default Header

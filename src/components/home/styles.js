@@ -2,7 +2,8 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 export const WhatIsSDTH = styled.div`
-  background: rgba(82,48,181,0.8);
+  // background: linear-gradient(#5230B5, 70%, #814AC6);
+  background: linear-gradient(rgba(82,48,181,0.7), 70%, rgba(129,74,198,0.4));
   border-radius: 5px;
   color: white;
   left: 10rem;
