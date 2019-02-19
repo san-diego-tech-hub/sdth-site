@@ -42,7 +42,7 @@ export default () => (
           <Description>{homeJson.secondSectionDescription}</Description>
         </Collaboration>
         <ThreeStep>
-          <aside>
+          <aside style={{maxWidth: '1200px'}}>
             {homeJson.secondSectionItems.map((c, i) => {
               const icon = icons[c.title]
 

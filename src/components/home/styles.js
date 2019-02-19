@@ -19,13 +19,18 @@ export const CollabIcon = styled.div`
 `
 
 export const Description = styled.p`
-  font-size: 1.7em;
+  font-size: 1.7rem;
   padding: 0 5rem;
 `
 
-export const PillarDescription = styled.section`
+export const PillarDescription = styled.div`
   margin: 15rem auto 5rem;
   max-width: 800px;
+
+  p {
+    font-size: 1.7rem;
+  }
+
   @media(max-width: 990px) {
     text-align: center;
   }
@@ -123,6 +128,10 @@ export const ThreeStep = styled.section`
       grid-template-columns: 1fr;
     }
   }
+`
+
+export const HomeTitle = styled.div`
+  
 `
 
 export const WhatIsSDTH = styled.div`
