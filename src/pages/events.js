@@ -8,6 +8,7 @@ import Layout from 'Components/layout'
 import SEO from 'Components/seo'
 import Events from 'Components/events'
 import Calendar from 'Components/calendar'
+import PageTitle from 'Common/PageTitle'
 
 function EventIndex({ data, ...props }) {
   const events = data.allEvent.edges.map(({ node }) => ({
@@ -23,7 +24,7 @@ function EventIndex({ data, ...props }) {
       <SEO title="Events" keywords={['san diego', 'tech', 'hub', 'events', 'upcoming']} />
 
       <PageTitle>
-        <H1>Events</H1>
+        Events
       </PageTitle>
       <Container>
         <Calendar events={events} />
@@ -71,30 +72,5 @@ const Container = styled.div`
     flex-direction: column;
   }
 `
-
-const H1 = styled.div`
-  background: linear-gradient(rgba(82,48,181,0.7), 70%, rgba(129,74,198,0.4));
-  border-radius: 5px;
-  font-size: 7rem;
-  font-weight: normal;
-  padding: 5rem;
-  text-shadow: 5px 5px 10px ${props => props.theme.primaryDark};
-  text-transform: uppercase;
-
-  @media(max-width: 480px) {
-    padding: 2rem;
-  }
-`
-
-const PageTitle = styled.div`
-  color: white;
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  top: 15rem;
-  left: 0;
-  right: 0;
-`
-
 
 export default EventIndex
