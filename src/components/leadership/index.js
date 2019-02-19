@@ -27,7 +27,7 @@ const pillarIcons = {
   talent: talentIcon,
 }
 
-const FOUNDER_COLOR = '#343cdf'
+const FOUNDER_COLOR = Color('#545CFE').desaturate(0.2)
 
 export default () => (
   <StaticQuery
@@ -42,8 +42,8 @@ export default () => (
         </section>
         <TeamSection>
           <span>
-            <Card color={FOUNDER_COLOR} style={{ width: '50%', margin: 'auto' }}>
-              <Label style={{ background: Color(FOUNDER_COLOR).darken(0.1).toString(), padding: 0 }}>
+            <Card color={FOUNDER_COLOR.toString()} style={{ width: '50%', margin: 'auto' }}>
+              <Label style={{ background: FOUNDER_COLOR.darken(0.15).toString(), padding: 0 }}>
                 <Link
                   to={`/about`}
                   style={{
@@ -67,7 +67,7 @@ export default () => (
                 <div style={{ fontSize: '2rem' }}>claude@sandiegotechhub.com</div>
 
                 <div className="card-text">
-                  <Why color='#343cdf'>
+                  <Why color={FOUNDER_COLOR.darken(0.2).toString()}>
                     Why San Diego Tech Hub Is Important To Me
                   </Why>
                   {/* <p dangerouslySetInnerHTML={{ __html: 'something something' }} /> */}
@@ -88,10 +88,11 @@ export default () => (
             {leadershipJson.leadership.map((leader, i) => {
               const icon = pillarIcons[leader.pillar.text]
               const photo = avatar[leader.photo]
+              const baseColor = Color(leader.pillar.color).desaturate(0.2)
 
               return (
-                <Card color={leader.pillar.color} key={i}>
-                  <Label style={{ background: Color(leader.pillar.color).darken(0.1).toString() }}>
+                <Card color={baseColor.toString()} key={i}>
+                  <Label style={{ background: baseColor.darken(0.2).toString() }}>
                     <Link
                       to={`/${leader.pillar.text}`}
                       style={{ color: 'white', textDecoration: 'none', padding: '.3rem' }}
@@ -115,7 +116,7 @@ export default () => (
 
                     <div className="card-text">
                       {leader.bio ? (
-                        <Why color={leader.pillar.background_dark}>
+                        <Why color={baseColor.darken(0.2).toString()}>
                           Why San Diego Tech Hub Is Important To Me
                         </Why>
                       ) : (
