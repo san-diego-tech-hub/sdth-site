@@ -33,7 +33,7 @@ export const Wrapper = styled.div`
     font-size: 4rem;
   }
   h2 {
-    color: ${props => props.theme.primaryDark};
+    color: ${props => props.theme.primary};
     font-size: 3.2rem;
   }
   
