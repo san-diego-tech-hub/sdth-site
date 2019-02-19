@@ -6,8 +6,10 @@ import Color from 'color'
 // import styles from './leadership.module.css'
 import {
   AvatarCard,
+  Blurb,
   Card,
   Label,
+  Header,
   PillarLeaders,
   TeamSection,
   Why
@@ -34,12 +36,12 @@ export default () => (
     query={query}
     render={({ leadershipJson, ...avatar }) => (
       <main>
-        <section style={{display: 'flex', justifyContent: 'center', marginBottom: '2rem'}}>
+        <Header style={{display: 'flex', justifyContent: 'center', marginBottom: '2rem'}}>
           <div style={{maxWidth: '900px'}}>
             <h2>{leadershipJson.firstSectionTitle}</h2>
             <p>{leadershipJson.firstSectionDescription}</p>
           </div>
-        </section>
+        </Header>
         <TeamSection>
           <span>
             <Card color={FOUNDER_COLOR.toString()} style={{ width: '50%', margin: 'auto' }}>
@@ -67,19 +69,21 @@ export default () => (
                 <div style={{ fontSize: '2rem' }}>claude@sandiegotechhub.com</div>
 
                 <div className="card-text">
-                  <Why color={FOUNDER_COLOR.darken(0.2).toString()}>
+                  <Why color={FOUNDER_COLOR.darken(0.1).toString()}>
                     Why San Diego Tech Hub Is Important To Me
                   </Why>
                   {/* <p dangerouslySetInnerHTML={{ __html: 'something something' }} /> */}
-                  <p>
-                    San Diego Tech Hub is an extension of my passion to bring people together for
-                    the greater good. I want to see San Diego thrive and opportunities created for
-                    those that don't have a voice.
-                  </p>
-                  <p>
-                    "We should never wait for opportunities to come when we can create them for
-                    ourselves."
-                  </p>
+                  <Blurb>
+                    <p>
+                      San Diego Tech Hub is an extension of my passion to bring people together for
+                      the greater good. I want to see San Diego thrive and opportunities created for
+                      those that don't have a voice.
+                    </p>
+                    <p>
+                      "We should never wait for opportunities to come when we can create them for
+                      ourselves."
+                    </p>
+                  </Blurb>
                 </div>
               </div>
             </Card>
@@ -125,7 +129,7 @@ export default () => (
                           lead
                         </div>
                       )}
-                      <div dangerouslySetInnerHTML={{ __html: leader.bio }} />
+                      <Blurb dangerouslySetInnerHTML={{ __html: leader.bio }} />
                     </div>
                   </div>
                 </Card>
