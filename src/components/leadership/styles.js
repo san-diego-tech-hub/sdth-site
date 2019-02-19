@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Color from 'color'
 
 export const Card = styled.div`
   background: ${props => props.color};
@@ -98,9 +99,9 @@ export const TeamSection = styled.section`
 export const Why = styled.div`
   // background: rgba(255,255,255,0.05);
   // color: rgba(0,0,0,0.45) !important;
-  color: ${props => props.color} !important;
+  color: ${props => Color(props.color).darken(0.2).toString()} !important;
   font-weight: bold;
   padding: 0.1rem 3rem;
   text-transform: uppercase !important;
-  text-shadow: 1px 1px 1px rgba(255,255,255,0.3);
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.25);
 `
