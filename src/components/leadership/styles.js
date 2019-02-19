@@ -1,13 +1,16 @@
 import styled from 'styled-components'
 
 export const Card = styled.div`
+  background: ${props => props.color};
   border-radius: 0.5rem;
   border: 1px solid rgb(207, 207, 207);
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
 
   .card-header {
     text-align: center;
-    color: #4c4e7a;
+    color: white;
     margin-top: 1rem;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.6);
     div,
     p {
       font-size: 3rem;
@@ -18,12 +21,12 @@ export const Card = styled.div`
     font-size: 1.6rem !important;
     line-height: 3rem;
     padding: 1.6rem;
-    color: rgb(156, 168, 195);
+    color: rgba(255,255,255,0.8);
     text-transform: uppercase;
 
     div,
     p {
-      color: #4c4e7a !important;
+      color: white;
       display: block;
       font-size: 1.4rem;
       text-transform: none;
@@ -37,23 +40,30 @@ export const Card = styled.div`
   }
 `
 
-export const Label = styled.span`
+export const Label = styled.div`
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 42px;
+  padding: 0.2rem 1.5rem 1rem 0.2rem;
+  min-width: 120px;
+  width: fit-content;
+
   font-size: 1.4rem;
-  padding: 0.2rem 2rem 0.2rem 0.2rem;
   color: white;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
   text-transform: capitalize;
-  display: inline-block;
   margin-top: 1rem;
 
   img {
-    display: inline-block;
     margin: 1rem 0 0 0;
   }
 `
 export const AvatarCard = styled.div`
   border-radius: 100%;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
   margin: auto;
   width: 200px;
   img {
@@ -72,5 +82,13 @@ export const PillarLeaders = styled.span`
   }
   @media (max-width: 990px) {
     grid-template-columns: 1fr;
+  }
+`
+
+export const TeamSection = styled.section`
+  @media(max-width: 600px) {
+    padding: 0 !important;
+    margin: 0;
+    width: 100vw !important;
   }
 `

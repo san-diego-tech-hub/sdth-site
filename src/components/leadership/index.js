@@ -3,12 +3,13 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 
 // import styles from './leadership.module.css'
-import { Card, Label, AvatarCard, PillarLeaders } from './styles'
+import { Card, Label, AvatarCard, PillarLeaders, TeamSection } from './styles'
 import communityIcon from 'Images/icon_community.svg'
 import educationIcon from 'Images/icon_education.svg'
 import inclusionIcon from 'Images/icon_inclusion.svg'
 import innovationIcon from 'Images/icon_innovation.svg'
 import talentIcon from 'Images/icon_talent.svg'
+import sdthLogo from 'Images/ciricle-logo.svg'
 
 const pillarIcons = {
   community: communityIcon,
@@ -27,14 +28,21 @@ export default () => (
           <h2>{leadershipJson.firstSectionTitle}</h2>
           <p>{leadershipJson.firstSectionDescription}</p>
         </section>
-        <section>
+        <TeamSection>
           <span>
-            <Card style={{ width: '50%', margin: 'auto' }}>
-              <Label style={{ background: '#4c4e7a' }}>
+            <Card color='#545cff' style={{ width: '50%', margin: 'auto' }}>
+              <Label style={{ background: '#343cdf', padding: 0 }}>
                 <Link
                   to={`/about`}
-                  style={{ color: 'white', textDecoration: 'none', padding: '1.3rem' }}
+                  style={{
+                    alignItems: 'center',
+                    color: 'white',
+                    display: 'flex',
+                    padding: '1.3rem',
+                    textDecoration: 'none'
+                  }}
                 >
+                  <img style={{margin: 0, marginRight: '1rem'}} height='30px' src={sdthLogo} alt='SDTH' />
                   Founder
                 </Link>
               </Label>
@@ -68,8 +76,8 @@ export default () => (
               const photo = avatar[leader.photo]
 
               return (
-                <Card key={i}>
-                  <Label style={{ background: leader.pillar.background }}>
+                <Card color={leader.pillar.background_light} key={i}>
+                  <Label style={{ background: leader.pillar.background_dark }}>
                     <Link
                       to={`/${leader.pillar.text}`}
                       style={{ color: 'white', textDecoration: 'none', padding: '.3rem' }}
@@ -107,7 +115,7 @@ export default () => (
               )
             })}
           </PillarLeaders>
-        </section>
+        </TeamSection>
       </main>
     )}
   />
@@ -123,7 +131,8 @@ const query = graphql`
         email
         pillar {
           text
-          background
+          background_light
+          background_dark
         }
         bio
         photo

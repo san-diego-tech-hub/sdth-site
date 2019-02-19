@@ -7,7 +7,7 @@ export const theme = {
   primaryLight: '#7945c2',
   secondary: '#f25aa3',
   // mainPurple: '#4c4e7a',
-  color: 'rgb(115, 115, 115)',
+  gray: 'rgb(115, 115, 115)',
 }
 
 export const Wrapper = styled.div`
@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
   section {
     margin: 10rem 20rem;
     font-size: 2rem;
-    color: ${props => props.theme.color};
+    color: ${props => props.theme.gray};
   }
   section:first-child {
     margin-top: 0;
