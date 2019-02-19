@@ -41,7 +41,7 @@ const Container = styled.div`
 `
 
 const Button = styled.button`
-  background: ${props => props.theme.primaryDark};
+  background: ${props => props.theme.primaryLight};
   border: 1px solid #2abbf4;
   border-radius: 0.5rem;
   color: white;
@@ -86,7 +86,7 @@ const Event = styled.aside`
 `
 
 const Title = styled.h3`
-  color: ${props => props.theme.primaryDark};
+  color: ${props => props.theme.primaryMuted};
   margin-bottom: 7px;
   font-size: 2rem;
 `
