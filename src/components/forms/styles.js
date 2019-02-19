@@ -57,7 +57,7 @@ export const Form = styled.form`
   border-right: 1px dashed black;
   padding-right: 4.8rem;
   label {
-    color: ${props => props.theme.mainPurple};
+    color: ${props => props.theme.primaryDark};
     font-size: 2rem;
   }
   input,
@@ -85,7 +85,7 @@ export const Form = styled.form`
 `
 
 export const FormTitle = styled.h2`
-  color: ${props => props.theme.mainPurple};
+  color: ${props => props.theme.primaryDark};
   font-size: 3.2rem;
 `
 

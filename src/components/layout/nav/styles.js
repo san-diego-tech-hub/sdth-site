@@ -73,9 +73,9 @@ export const DropItem = styled.li`
 
 export const DropdownContent = styled.div`
   background-color: white;
-  border: 0.05rem solid ${props => props.theme.mainPurple};
+  border: 0.05rem solid ${props => props.theme.primaryDark};
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  color: ${props => props.theme.mainPurple};
+  color: ${props => props.theme.primaryDark};
   display: none;
   font-weight: normal;
   min-width: 160px;
@@ -93,7 +93,7 @@ export const DropdownContent = styled.div`
   .innerLink {
     padding: 0.5rem;
     display: block;
-    color: ${props => props.theme.mainPurple};
+    color: ${props => props.theme.primaryDark};
     text-decoration: none;
     margin-left: 0.1rem;
   }

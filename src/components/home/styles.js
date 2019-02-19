@@ -109,7 +109,7 @@ export const ThreeStep = styled.section`
   h3 {
     font-size: 3.2rem;
     margin-top: 1.6rem;
-    color: ${props => props.theme.mainPurple};
+    color: ${props => props.theme.primaryDark};
     font-weight: normal;
   }
   aside {

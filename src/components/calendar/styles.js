@@ -16,7 +16,7 @@ export const StyledDetails = styled.aside`
     justify-content: space-between;
     font-size: 1.4rem;
     border-bottom: 2px solid #555;
-    background: ${props => props.theme.mainPurple};
+    background: ${props => props.theme.primaryDark};
     color: white;
     padding: 1.6rem;
     div {

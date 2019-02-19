@@ -41,7 +41,7 @@ const Container = styled.div`
 `
 
 const Button = styled.button`
-  background: ${props => props.theme.mainPurple};
+  background: ${props => props.theme.primaryDark};
   border: 1px solid #2abbf4;
   border-radius: 0.5rem;
   color: white;
@@ -66,7 +66,7 @@ const Events = styled.div`
 
   a {
     text-decoration: none;
-    color: ${props => props.theme.mainPurple};
+    color: ${props => props.theme.primaryDark};
   }
 
   @media (max-width: 375px) {
@@ -86,7 +86,7 @@ const Event = styled.aside`
 `
 
 const Title = styled.h3`
-  color: ${props => props.theme.mainPurple};
+  color: ${props => props.theme.primaryDark};
   margin-bottom: 7px;
   font-size: 2rem;
 `

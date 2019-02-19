@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const theme = {
-  primaryDark: '#321d70',
+  primaryDark: '#422695',
   primary: '#5230b5',
   // mainPurple: '#4c4e7a',
   color: 'rgb(115, 115, 115)',
@@ -33,7 +33,7 @@ export const Wrapper = styled.div`
     font-size: 4rem;
   }
   h2 {
-    color: ${props => props.theme.mainPurple};
+    color: ${props => props.theme.primaryDark};
     font-size: 3.2rem;
   }
   

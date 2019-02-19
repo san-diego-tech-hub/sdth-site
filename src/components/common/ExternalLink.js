@@ -14,7 +14,7 @@ export default function ExternalLink({ children, ...props }) {
 }
 
 const Link = styled.a`
-  color: ${props => props.theme.mainPurple};
+  color: ${props => props.theme.primaryDark};
   text-decoration: none;
   &:hover {
     cursor: pointer;
