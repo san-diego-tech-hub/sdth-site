@@ -23,6 +23,15 @@ export const Description = styled.p`
   padding: 0 5rem;
 `
 
+export const HomeTitle = styled.div`
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 12rem;
+  left: 0;
+  right: 0;
+`
+
 export const PillarDescription = styled.div`
   margin: 15rem auto 5rem;
   max-width: 800px;
@@ -128,15 +137,6 @@ export const ThreeStep = styled.section`
       grid-template-columns: 1fr;
     }
   }
-`
-
-export const HomeTitle = styled.div`
-  display: flex;
-  justify-content: center;
-  position: absolute;
-  top: 12rem;
-  left: 0;
-  right: 0;
 `
 
 export const WhatIsSDTH = styled.div`
