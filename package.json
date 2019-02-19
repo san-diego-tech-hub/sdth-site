@@ -4,8 +4,19 @@
   "description": "Website for San Diego Tech Hub",
   "version": "0.1.0",
   "contributors": [
-    "Wilmer Guerra <wilmerguerra@outlook.com>"
+    "Wilmer Guerra <wilmerguerra@outlook.com>",
+    "Leeland Clenista",
+    "Kevin Brewer <kevinbrewer04@gmail.com>",
+    "Nick Peddie"
   ],
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "format": "prettier --write \"src/**/*.js\"",
+    "now-build": "npm run build",
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.12",
     "@fortawesome/free-brands-svg-icons": "^5.6.3",
@@ -48,16 +59,8 @@
     "typography": "^0.16.18",
     "urlencode": "^1.1.0"
   },
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "start": "npm run develop",
-    "format": "prettier --write \"src/**/*.js\"",
-    "now-build": "npm run build",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
-  },
   "devDependencies": {
     "prettier": "^1.15.2"
-  }
+  },
+  "license": "MIT"
 }
