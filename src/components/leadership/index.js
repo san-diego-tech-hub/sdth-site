@@ -1,6 +1,7 @@
 import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
+import Color from 'color'
 
 // import styles from './leadership.module.css'
 import {
@@ -26,6 +27,8 @@ const pillarIcons = {
   talent: talentIcon,
 }
 
+const FOUNDER_COLOR = '#343cdf'
+
 export default () => (
   <StaticQuery
     query={query}
@@ -39,8 +42,8 @@ export default () => (
         </section>
         <TeamSection>
           <span>
-            <Card color='#545cff' style={{ width: '50%', margin: 'auto' }}>
-              <Label style={{ background: '#343cdf', padding: 0 }}>
+            <Card color={FOUNDER_COLOR} style={{ width: '50%', margin: 'auto' }}>
+              <Label style={{ background: Color(FOUNDER_COLOR).darken(0.1).toString(), padding: 0 }}>
                 <Link
                   to={`/about`}
                   style={{
@@ -87,8 +90,8 @@ export default () => (
               const photo = avatar[leader.photo]
 
               return (
-                <Card color={leader.pillar.background_light} key={i}>
-                  <Label style={{ background: leader.pillar.background_dark }}>
+                <Card color={leader.pillar.color} key={i}>
+                  <Label style={{ background: Color(leader.pillar.color).darken(0.1).toString() }}>
                     <Link
                       to={`/${leader.pillar.text}`}
                       style={{ color: 'white', textDecoration: 'none', padding: '.3rem' }}
@@ -143,9 +146,8 @@ const query = graphql`
         name
         email
         pillar {
+          color
           text
-          background_light
-          background_dark
         }
         bio
         photo
