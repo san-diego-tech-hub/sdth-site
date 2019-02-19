@@ -5,6 +5,7 @@ export const theme = {
   primaryDark: '#422695',
   primary: '#5230b5',
   primaryLight: '#7945c2',
+  secondary: '#f25aa3',
   // mainPurple: '#4c4e7a',
   color: 'rgb(115, 115, 115)',
 }

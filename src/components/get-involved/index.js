@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import { ChallengesSection, ChallengeIcon } from './styles'
 import silos from 'Images/silos.svg'
 import judge from 'Images/judge.svg'
+import SocialAggregator from 'Components/social-aggregator'
 import conversations from 'Images/conversations.svg'
 
 const icons = { silos, judge, conversations }
@@ -38,6 +39,11 @@ const GetInvolved = () => (
             })}
           </ChallengeIcon>
         </ChallengesSection>
+
+        <section>
+          <h2>San Diego Tech Hub Online</h2>
+          <SocialAggregator />
+        </section>
       </main>
     )}
   />
