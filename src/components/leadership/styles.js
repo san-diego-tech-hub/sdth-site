@@ -5,6 +5,8 @@ export const Card = styled.div`
   border-radius: 0.5rem;
   border: 1px solid rgb(207, 207, 207);
   box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  max-width: 500px;
+  margin: 1rem;
 
   .card-header {
     text-align: center;
@@ -72,23 +74,23 @@ export const AvatarCard = styled.div`
 `
 
 export const PillarLeaders = styled.span`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   margin-top: 3.2rem;
   div,
   p {
     margin-top: 1.6rem !important;
   }
   @media (max-width: 990px) {
-    grid-template-columns: 1fr;
   }
 `
 
 export const TeamSection = styled.section`
+  margin: 10rem 0 !important;
+  width: 100vw !important;
   @media(max-width: 600px) {
     padding: 0 !important;
     margin: 0;
-    width: 100vw !important;
   }
 `

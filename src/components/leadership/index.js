@@ -10,6 +10,7 @@ import inclusionIcon from 'Images/icon_inclusion.svg'
 import innovationIcon from 'Images/icon_innovation.svg'
 import talentIcon from 'Images/icon_talent.svg'
 import sdthLogo from 'Images/ciricle-logo.svg'
+import { runtimeconfig_v1beta1 } from 'googleapis';
 
 const pillarIcons = {
   community: communityIcon,
@@ -24,9 +25,11 @@ export default () => (
     query={query}
     render={({ leadershipJson, ...avatar }) => (
       <main>
-        <section>
-          <h2>{leadershipJson.firstSectionTitle}</h2>
-          <p>{leadershipJson.firstSectionDescription}</p>
+        <section style={{display: 'flex', justifyContent: 'center'}}>
+          <div style={{maxWidth: '900px'}}>
+            <h2>{leadershipJson.firstSectionTitle}</h2>
+            <p>{leadershipJson.firstSectionDescription}</p>
+          </div>
         </section>
         <TeamSection>
           <span>
