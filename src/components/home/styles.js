@@ -3,19 +3,18 @@ import { Link } from 'gatsby'
 
 export const Collaboration = styled.div`
   max-width: 800px;
-  margin: auto;
-  margin-bottom: 5rem;
+  margin: 7rem auto 5rem;
   text-align: center;
 `
 
 export const CollabIcon = styled.div`
-  position: relative;
-  text-align: center;
   border-radius: 100%;
-  width: 20rem;
   height: 20rem;
   margin: auto;
   padding: 2rem;
+  position: relative;
+  text-align: center;
+  width: 20rem;
 `
 
 export const Description = styled.p`
@@ -104,8 +103,8 @@ export const PillarRow = styled.aside`
 export const ThreeStep = styled.section`
   background: rgb(240, 240, 240);
   text-align: center;
-  padding: 3.2rem 20rem;
   margin: 0 !important;
+  padding: 3.2rem 20rem;
   h3 {
     font-size: 3.2rem;
     margin-top: 1.6rem;

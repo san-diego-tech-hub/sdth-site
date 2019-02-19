@@ -36,7 +36,6 @@ const ConduitsFlow = styled.div`
   background: linear-gradient(#5230B5, 70%, #814AC6);
   height: 350px;
   margin-top: ${NAV_HEIGHT};
-  margin-bottom: 7rem;
   width: 100vw;
 `
 
