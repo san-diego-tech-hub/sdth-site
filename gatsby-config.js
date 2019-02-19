@@ -58,8 +58,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-mailchimp',
       options: {
-        endpoint:
-          process.env.MAILCHIMP
+        endpoint: process.env.MAILCHIMP,
       },
     },
     `gatsby-plugin-remove-trailing-slashes`,

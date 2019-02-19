@@ -55,6 +55,10 @@ export const Container = styled.div`
 `
 
 export const Form = styled.form`
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   border-right: 1px dashed black;
   padding-right: 4.8rem;
   label {
@@ -92,8 +96,10 @@ export const FormTitle = styled.h2`
 
 export const SocialContainer = styled.div`
   font-size: 1.6rem;
-  margin: auto;
-  width: 75%;
+  padding: 0 3.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   button {
     margin: auto;
     display: block;
