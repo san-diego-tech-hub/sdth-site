@@ -6,6 +6,7 @@ import {
   Collaboration,
   CollabIcon,
   Description,
+  HomeTitle,
   PillarDescription,
   PillarIcon,
   PillarRow,
@@ -31,12 +32,16 @@ export default () => (
     query={homeQuery}
     render={({ homeJson, ...icons }) => (
       <main>
-        <WhatIsSDTH>
-          <div style={{maxWidth: '570px'}}>
-            <h2 style={{color: 'white'}}>{homeJson.firstSectionTitle}</h2>
-            <p style={{fontSize: '1.5rem'}}>{homeJson.firstSectionDescription}</p>
+        <HomeTitle>
+          <div style={{width: '100%', maxWidth: '1200px'}}>
+            <WhatIsSDTH>
+              <div style={{maxWidth: '570px'}}>
+                <h2 style={{color: 'white'}}>{homeJson.firstSectionTitle}</h2>
+                <p style={{fontSize: '1.5rem'}}>{homeJson.firstSectionDescription}</p>
+              </div>
+            </WhatIsSDTH>
           </div>
-        </WhatIsSDTH>
+        </HomeTitle>
         <Collaboration>
           <h2>{homeJson.secondSectionTitle}</h2>
           <Description>{homeJson.secondSectionDescription}</Description>

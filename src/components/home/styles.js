@@ -131,17 +131,19 @@ export const ThreeStep = styled.section`
 `
 
 export const HomeTitle = styled.div`
-  
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 12rem;
+  left: 0;
+  right: 0;
 `
 
 export const WhatIsSDTH = styled.div`
   background: linear-gradient(rgba(82,48,181,0.7), 70%, rgba(129,74,198,0.4));
   border-radius: 5px;
   color: white;
-  left: 10rem;
   padding: 4rem;
-  position: absolute;
-  top: 12rem;
   width: 570px; 
 
   @media(max-width: 990px) {
