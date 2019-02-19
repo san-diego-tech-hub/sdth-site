@@ -4,7 +4,7 @@ if (process.env.NODE_EN !== 'production') {
   require('dotenv').config({ path }) // only run this in prod if we're doing the FTP deployement, not for now/netlify deployment.
 }
 
-module.exports = {
+let plugins = {
   siteMetadata: {
     title: 'San Diego Tech Hub',
     description:
@@ -62,13 +62,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-remove-trailing-slashes`,
-
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: process.env.GA,
-      },
-    },
     `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-styled-components`,
     {
@@ -91,3 +84,14 @@ module.exports = {
     },
   ],
 }
+
+if (process.env.NODE_ENV === 'production') {
+  plugins = Object.assign({}, plugins, {
+    resolve: `gatsby-plugin-google-analytics`,
+    options: {
+      trackingId: process.env.GA,
+    },
+  })
+}
+
+module.exports = plugins
