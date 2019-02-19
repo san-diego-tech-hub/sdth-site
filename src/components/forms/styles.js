@@ -17,6 +17,7 @@ export const Container = styled.div`
     margin-top: 2rem;
     padding: 1rem;
     background: #f25aa3;
+    // background: ${props => props.theme.primaryLight};
     color: white;
     border: 1px solid #2abbf4;
     border-radius: 0.5rem;
@@ -57,7 +58,7 @@ export const Form = styled.form`
   border-right: 1px dashed black;
   padding-right: 4.8rem;
   label {
-    color: ${props => props.theme.mainPurple};
+    color: ${props => props.theme.primaryMuted};
     font-size: 2rem;
   }
   input,
@@ -85,7 +86,7 @@ export const Form = styled.form`
 `
 
 export const FormTitle = styled.h2`
-  color: ${props => props.theme.mainPurple};
+  color: ${props => props.theme.primaryMuted};
   font-size: 3.2rem;
 `
 
@@ -130,7 +131,7 @@ export const ProposeForm = styled.form`
     padding: 1rem;
     background: #f25aa3;
     color: white;
-    border: 1px solid #2abbf4;
+    background: ${props => props.theme.primaryLight};
     border-radius: 0.5rem;
   }
 `

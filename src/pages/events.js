@@ -16,24 +16,15 @@ function EventIndex({ data, ...props }) {
     end: moment(new Date(node.end))._d,
   }))
 
-  const Container = styled.div`
-    max-width: 120rem;
-    margin: auto;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 3rem;
-    @media (max-width: 768px) {
-      flex-direction: column;
-    }
-  `
-
   const eventFeedEvents = events.filter(event => event.start >= Date.now()).slice(0, 10)
 
   return (
     <Layout pageProps={props}>
       <SEO title="Events" keywords={['san diego', 'tech', 'hub', 'events', 'upcoming']} />
 
+      <PageTitle>
+        <H1>Events</H1>
+      </PageTitle>
       <Container>
         <Calendar events={events} />
         <Events events={eventFeedEvents} />
@@ -68,5 +59,42 @@ export const query = graphql`
     }
   }
 `
+
+const Container = styled.div`
+  max-width: 120rem;
+  margin: auto;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+`
+
+const H1 = styled.div`
+  background: linear-gradient(rgba(82,48,181,0.7), 70%, rgba(129,74,198,0.4));
+  border-radius: 5px;
+  font-size: 7rem;
+  font-weight: normal;
+  padding: 5rem;
+  text-shadow: 5px 5px 10px ${props => props.theme.primaryDark};
+  text-transform: uppercase;
+
+  @media(max-width: 480px) {
+    padding: 2rem;
+  }
+`
+
+const PageTitle = styled.div`
+  color: white;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 15rem;
+  left: 0;
+  right: 0;
+`
+
 
 export default EventIndex

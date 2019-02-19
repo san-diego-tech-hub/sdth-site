@@ -93,13 +93,13 @@ const Value = styled.div`
   margin-bottom: 2rem;
   margin-left: 5px;
   a {
-    color: ${props => props.theme.mainPurple};
+    color: ${props => props.theme.primaryDark};
     text-decoration: none;
   }
 `
 
 const Header = styled.div`
-  background: rgba(76,78,122, 0.8);
+  background: rgba(66,38,149,0.8);
   color: white;
   margin: 3rem 0;
   max-width: 900px;
@@ -123,7 +123,7 @@ const SideBar = styled.div`
 `
 
 const SubHeading = styled.h3`
-  background: rgba(76,78,122, 0.8); 
+  background: rgba(66,38,149,0.8); 
   color: white;
   font-size: 1.7rem;
   padding: 8px;
