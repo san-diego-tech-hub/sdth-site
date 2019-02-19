@@ -6,6 +6,8 @@ import {
   Collaboration,
   CollabIcon,
   Description,
+  HomeTitle,
+  PillarDescription,
   PillarIcon,
   PillarRow,
   ThreeStep,
@@ -30,18 +32,22 @@ export default () => (
     query={homeQuery}
     render={({ homeJson, ...icons }) => (
       <main>
-        <WhatIsSDTH>
-          <div style={{maxWidth: '570px'}}>
-            <h2 style={{color: 'white'}}>{homeJson.firstSectionTitle}</h2>
-            <p style={{fontSize: '1.5rem'}}>{homeJson.firstSectionDescription}</p>
+        <HomeTitle>
+          <div style={{width: '100%', maxWidth: '1200px'}}>
+            <WhatIsSDTH>
+              <div style={{maxWidth: '570px'}}>
+                <h2 style={{color: 'white'}}>{homeJson.firstSectionTitle}</h2>
+                <p style={{fontSize: '1.5rem'}}>{homeJson.firstSectionDescription}</p>
+              </div>
+            </WhatIsSDTH>
           </div>
-        </WhatIsSDTH>
+        </HomeTitle>
         <Collaboration>
           <h2>{homeJson.secondSectionTitle}</h2>
           <Description>{homeJson.secondSectionDescription}</Description>
         </Collaboration>
         <ThreeStep>
-          <aside>
+          <aside style={{maxWidth: '1200px'}}>
             {homeJson.secondSectionItems.map((c, i) => {
               const icon = icons[c.title]
 
@@ -61,10 +67,10 @@ export default () => (
           </aside>
         </ThreeStep>
 
-        <section style={{ margin: '15rem auto 5rem', maxWidth: '800px'}}>
+        <PillarDescription>
           <h2>{homeJson.thirdSectionTitle}</h2>
           <p>{homeJson.thirdSectionDescription}</p>
-        </section>
+        </PillarDescription>
         <PillarRow>
           {homeJson.thirdSectionItems.map((pillar, i) => (
             <PillarIcon to={`/${pillar.title}`} key={i} background={pillar.background}>

@@ -2,19 +2,19 @@ import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
-import { Footer } from './styles'
+import { Container, InnerDiv } from './styles'
 
-const TheFooter = () => (
-  <Footer>
+const Footer = () => (
+  <Container>
     <StaticQuery
       query={query}
       render={({ footer }) => (
-        <div>
+        <InnerDiv>
           <Img fluid={footer.childImageSharp.fluid} style={{ width: '30rem' }} />
-        </div>
+        </InnerDiv>
       )}
     />
-  </Footer>
+  </Container>
 )
 
 const query = graphql`
@@ -25,4 +25,4 @@ const query = graphql`
   }
 `
 
-export default TheFooter
+export default Footer
