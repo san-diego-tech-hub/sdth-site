@@ -3,14 +3,20 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 
 // import styles from './leadership.module.css'
-import { Card, Label, AvatarCard, PillarLeaders, TeamSection } from './styles'
+import {
+  AvatarCard,
+  Card,
+  Label,
+  PillarLeaders,
+  TeamSection,
+  Why
+} from './styles'
 import communityIcon from 'Images/icon_community.svg'
 import educationIcon from 'Images/icon_education.svg'
 import inclusionIcon from 'Images/icon_inclusion.svg'
 import innovationIcon from 'Images/icon_innovation.svg'
 import talentIcon from 'Images/icon_talent.svg'
 import sdthLogo from 'Images/ciricle-logo.svg'
-import { runtimeconfig_v1beta1 } from 'googleapis';
 
 const pillarIcons = {
   community: communityIcon,
@@ -58,7 +64,9 @@ export default () => (
                 <div style={{ fontSize: '2rem' }}>claude@sandiegotechhub.com</div>
 
                 <div className="card-text">
-                  Why San Diego Tech Hub Is Important To Me
+                  <Why color='#343cdf'>
+                    Why San Diego Tech Hub Is Important To Me
+                  </Why>
                   {/* <p dangerouslySetInnerHTML={{ __html: 'something something' }} /> */}
                   <p>
                     San Diego Tech Hub is an extension of my passion to bring people together for
@@ -104,7 +112,9 @@ export default () => (
 
                     <div className="card-text">
                       {leader.bio ? (
-                        'Why San Diego Tech Hub Is Important To Me'
+                        <Why color={leader.pillar.background_dark}>
+                          Why San Diego Tech Hub Is Important To Me
+                        </Why>
                       ) : (
                         <div>
                           Please fill out the form below if you're interested in becoming a pillar
