@@ -78,7 +78,7 @@ const H1 = styled.div`
   font-size: 7rem;
   font-weight: normal;
   padding: 5rem;
-  text-shadow: 2px 2px 10px ${props => props.theme.primaryDark};
+  text-shadow: 5px 5px 10px ${props => props.theme.primaryDark};
   text-transform: uppercase;
 
   @media(max-width: 480px) {
