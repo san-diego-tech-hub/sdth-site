@@ -31,7 +31,7 @@ export default () => (
     query={query}
     render={({ leadershipJson, ...avatar }) => (
       <main>
-        <section style={{display: 'flex', justifyContent: 'center'}}>
+        <section style={{display: 'flex', justifyContent: 'center', marginBottom: '2rem'}}>
           <div style={{maxWidth: '900px'}}>
             <h2>{leadershipJson.firstSectionTitle}</h2>
             <p>{leadershipJson.firstSectionDescription}</p>

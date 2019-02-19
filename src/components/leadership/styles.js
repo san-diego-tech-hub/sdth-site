@@ -88,7 +88,7 @@ export const PillarLeaders = styled.span`
 `
 
 export const TeamSection = styled.section`
-  margin: 10rem 0 !important;
+  margin: 2rem 0 10rem 0 !important;
   width: 100vw !important;
   @media(max-width: 600px) {
     padding: 0 !important;
@@ -97,8 +97,6 @@ export const TeamSection = styled.section`
 `
 
 export const Why = styled.div`
-  // background: rgba(255,255,255,0.05);
-  // color: rgba(0,0,0,0.45) !important;
   color: ${props => Color(props.color).darken(0.2).toString()} !important;
   font-weight: bold;
   padding: 0.1rem 3rem;
