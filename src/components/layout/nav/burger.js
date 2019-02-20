@@ -39,6 +39,9 @@ const Burger = (props) => (
     <MenuItem to="/events">
       Events
     </MenuItem>
+    <MenuItem to="/partners">
+      Our Partners
+    </MenuItem>
   </BurgerMenu>
 )
 

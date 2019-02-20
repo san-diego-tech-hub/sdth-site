@@ -4,6 +4,7 @@ import { NAV_HEIGHT } from 'Utils/constants'
 export const Container = styled.div`
   display: flex;
   flex-wrap: wrap-reverse;
+  height: fit-content;
   max-width: 1600px;
   width: 100%;
 `
@@ -54,7 +55,7 @@ export const DropdownContent = styled.div`
 export const Logo = styled.div`
   background: white;
   border-radius: 0 0 50px;
-  box-shadow: 0 0 25px rgba(255,255,255,0.5);
+  box-shadow: 1px 3px 3px rgba(255,255,255,0.2);
   height: ${NAV_HEIGHT};
   width: 350px;
 
@@ -72,9 +73,11 @@ export const Menu = styled.ul`
   display: flex;
   flex-grow: 3;
   font-size: 2rem;
+  height: ${NAV_HEIGHT};
   justify-content: space-around;
   list-style-type: none;
   margin: 0;
+  min-width: 915px;
   text-align: center;
 
   @media (max-width: 990px) {
@@ -90,7 +93,7 @@ export const Menu = styled.ul`
     }
   }
 
-  @media(max-width: 1024px) {
+  @media(max-width: 900px) {
     display: none;
   }
 `
@@ -118,9 +121,9 @@ export const Nav = styled.nav`
   }
 `
 export const Spacer = styled.div`
-  height: 150px;
+  height: ${NAV_HEIGHT};
   width: 200px;
-  @media(min-width: 900px) {
+  @media(min-width: 450px) {
     display: none;
   }
 `
