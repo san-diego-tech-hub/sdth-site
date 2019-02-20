@@ -1,14 +1,25 @@
 import React from 'react'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
+import Color from 'color'
 
 // import styles from './leadership.module.css'
-import { Card, Label, AvatarCard, PillarLeaders } from './styles'
+import {
+  AvatarCard,
+  Blurb,
+  Card,
+  Label,
+  Header,
+  PillarLeaders,
+  TeamSection,
+  Why
+} from './styles'
 import communityIcon from 'Images/icon_community.svg'
 import educationIcon from 'Images/icon_education.svg'
 import inclusionIcon from 'Images/icon_inclusion.svg'
 import innovationIcon from 'Images/icon_innovation.svg'
 import talentIcon from 'Images/icon_talent.svg'
+import sdthLogo from 'Images/ciricle-logo.svg'
 
 const pillarIcons = {
   community: communityIcon,
@@ -18,23 +29,34 @@ const pillarIcons = {
   talent: talentIcon,
 }
 
+const FOUNDER_COLOR = Color('#545CFE').desaturate(0.2)
+
 export default () => (
   <StaticQuery
     query={query}
     render={({ leadershipJson, ...avatar }) => (
       <main>
-        <section>
-          <h2>{leadershipJson.firstSectionTitle}</h2>
-          <p>{leadershipJson.firstSectionDescription}</p>
-        </section>
-        <section>
+        <Header style={{display: 'flex', justifyContent: 'center', marginBottom: '2rem'}}>
+          <div style={{maxWidth: '900px'}}>
+            <h2>{leadershipJson.firstSectionTitle}</h2>
+            <p>{leadershipJson.firstSectionDescription}</p>
+          </div>
+        </Header>
+        <TeamSection>
           <span>
-            <Card style={{ width: '50%', margin: 'auto' }}>
-              <Label style={{ background: '#4c4e7a' }}>
+            <Card color={FOUNDER_COLOR.toString()} style={{ width: '50%', margin: 'auto' }}>
+              <Label style={{ background: FOUNDER_COLOR.darken(0.15).toString(), padding: 0 }}>
                 <Link
                   to={`/about`}
-                  style={{ color: 'white', textDecoration: 'none', padding: '1.3rem' }}
+                  style={{
+                    alignItems: 'center',
+                    color: 'white',
+                    display: 'flex',
+                    padding: '1.3rem',
+                    textDecoration: 'none'
+                  }}
                 >
+                  <img style={{margin: 0, marginRight: '1rem'}} height='30px' src={sdthLogo} alt='SDTH' />
                   Founder
                 </Link>
               </Label>
@@ -47,17 +69,21 @@ export default () => (
                 <div style={{ fontSize: '2rem' }}>claude@sandiegotechhub.com</div>
 
                 <div className="card-text">
-                  Why San Diego Tech Hub Is Important To Me
+                  <Why color={FOUNDER_COLOR.toString()}>
+                    Why San Diego Tech Hub Is Important To Me
+                  </Why>
                   {/* <p dangerouslySetInnerHTML={{ __html: 'something something' }} /> */}
-                  <p>
-                    San Diego Tech Hub is an extension of my passion to bring people together for
-                    the greater good. I want to see San Diego thrive and opportunities created for
-                    those that don't have a voice.
-                  </p>
-                  <p>
-                    "We should never wait for opportunities to come when we can create them for
-                    ourselves."
-                  </p>
+                  <Blurb>
+                    <p>
+                      San Diego Tech Hub is an extension of my passion to bring people together for
+                      the greater good. I want to see San Diego thrive and opportunities created for
+                      those that don't have a voice.
+                    </p>
+                    <p>
+                      "We should never wait for opportunities to come when we can create them for
+                      ourselves."
+                    </p>
+                  </Blurb>
                 </div>
               </div>
             </Card>
@@ -66,10 +92,11 @@ export default () => (
             {leadershipJson.leadership.map((leader, i) => {
               const icon = pillarIcons[leader.pillar.text]
               const photo = avatar[leader.photo]
+              const baseColor = Color(leader.pillar.color).desaturate(0.2)
 
               return (
-                <Card key={i}>
-                  <Label style={{ background: leader.pillar.background }}>
+                <Card color={baseColor.toString()} key={i}>
+                  <Label style={{ background: baseColor.darken(0.2).toString() }}>
                     <Link
                       to={`/${leader.pillar.text}`}
                       style={{ color: 'white', textDecoration: 'none', padding: '.3rem' }}
@@ -93,21 +120,23 @@ export default () => (
 
                     <div className="card-text">
                       {leader.bio ? (
-                        'Why San Diego Tech Hub Is Important To Me'
+                        <Why color={baseColor.darken(0.2).toString()}>
+                          Why San Diego Tech Hub Is Important To Me
+                        </Why>
                       ) : (
                         <div>
                           Please fill out the form below if you're interested in becoming a pillar
                           lead
                         </div>
                       )}
-                      <div dangerouslySetInnerHTML={{ __html: leader.bio }} />
+                      <Blurb dangerouslySetInnerHTML={{ __html: leader.bio }} />
                     </div>
                   </div>
                 </Card>
               )
             })}
           </PillarLeaders>
-        </section>
+        </TeamSection>
       </main>
     )}
   />
@@ -122,8 +151,8 @@ const query = graphql`
         name
         email
         pillar {
+          color
           text
-          background
         }
         bio
         photo

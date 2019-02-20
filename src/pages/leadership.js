@@ -2,7 +2,7 @@ import React from 'react'
 
 import Layout from 'Components/layout'
 import SEO from 'Components/seo'
-import Leadeship from 'Components/leadership'
+import Leadership from 'Components/leadership'
 import PageTitle from 'Common/PageTitle'
 
 export default props => (
@@ -11,6 +11,6 @@ export default props => (
     <PageTitle>
       Team
     </PageTitle>
-    <Leadeship />
+    <Leadership />
   </Layout>
 )
