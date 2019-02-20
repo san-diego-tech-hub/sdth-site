@@ -69,7 +69,7 @@ export default () => (
                 <div style={{ fontSize: '2rem' }}>claude@sandiegotechhub.com</div>
 
                 <div className="card-text">
-                  <Why color={FOUNDER_COLOR.darken(0.1).toString()}>
+                  <Why color={FOUNDER_COLOR.toString()}>
                     Why San Diego Tech Hub Is Important To Me
                   </Why>
                   {/* <p dangerouslySetInnerHTML={{ __html: 'something something' }} /> */}
