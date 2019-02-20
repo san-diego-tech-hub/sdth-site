@@ -75,6 +75,7 @@ export const Menu = styled.ul`
   justify-content: space-around;
   list-style-type: none;
   margin: 0;
+  min-width: 915px;
   text-align: center;
 
   @media (max-width: 990px) {
@@ -90,7 +91,7 @@ export const Menu = styled.ul`
     }
   }
 
-  @media(max-width: 1024px) {
+  @media(max-width: 900px) {
     display: none;
   }
 `
@@ -113,7 +114,7 @@ export const Nav = styled.nav`
     text-decoration: none;
   }
 
-  @media(max-width: 450px) {
+  @media(max-width: 1289px) {
     height: calc(${NAV_HEIGHT} * 2);
   }
 `
