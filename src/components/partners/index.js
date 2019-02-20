@@ -74,7 +74,7 @@ export default Partners
 
 const Container = styled.div`
   text-align: center;
-  margin: 10rem 30rem !important;
+  margin: 0 30rem 10rem !important;
   @media (max-width: 1500px) {
     margin: 10rem !important;
   }
