@@ -37,6 +37,10 @@ const ConduitsFlow = styled.div`
   height: 350px;
   margin-top: ${NAV_HEIGHT};
   width: 100vw;
+
+  @media(max-width: 450px) {
+    margin-top: calc(${NAV_HEIGHT} * 2);
+  }
 `
 
 export default Header

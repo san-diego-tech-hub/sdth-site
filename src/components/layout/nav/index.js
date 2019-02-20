@@ -3,7 +3,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { Link } from 'gatsby'
 import sdthLogo from 'Images/sdth-logo.svg'
-import { Container, Nav, Menu, Logo, DropItem } from './styles'
+import {
+  Container,
+  DropItem,
+  Logo,
+  Menu,
+  Nav,
+  Spacer
+} from './styles'
+import Burger from './burger'
 import MenuItem from './menu-item'
 import Dropdown from './dropdown'
 import AppContext from 'Utils/context'
@@ -18,12 +26,14 @@ const items = [
 
 const Navigation = () => (
   <Nav>
+    <Burger />
     <Container>
       <Logo>
         <Link to="/">
           <img alt="San Diego Tech Hub" src={sdthLogo} />
         </Link>
       </Logo>
+      <Spacer /> 
       <Menu>
         <MenuItem to="/about">
           About

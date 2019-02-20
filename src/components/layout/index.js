@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components'
 import StayConnected from '../forms/stay-connected'
 import Header from './header'
 import Footer from './footer'
-import AppContext from '../../utils/context'
+import AppContext from 'Utils/context'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCaretDown, faMapMarker, faClock } from '@fortawesome/free-solid-svg-icons'
 import {
