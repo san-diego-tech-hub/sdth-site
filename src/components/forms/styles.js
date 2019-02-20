@@ -27,7 +27,8 @@ export const Container = styled.div`
   }
 
   @media (max-width: 5000px) {
-    width: 1200px;
+    width: 75%;
+    max-width: 1200px;
     margin: 0 auto;
     text-align: center;
   }
