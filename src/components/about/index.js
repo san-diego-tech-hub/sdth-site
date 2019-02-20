@@ -9,7 +9,7 @@ import tasks from 'Images/tasks.svg'
 import silos from 'Images/silos.svg'
 import judge from 'Images/judge.svg'
 import conversations from 'Images/conversations.svg'
-import { RebuildSection, FounderSection, ChallengesSection, ChallengeIcon } from './styles'
+import { RebuildSection, FounderSection, ChallengesSection, ChallengeIcon, AboutSection } from './styles'
 
 const icons = { goals, heart, tasks, silos, judge, conversations }
 
@@ -73,10 +73,10 @@ const About = () => (
           <div style={{ clear: 'both' }} />
         </FounderSection>
 
-        <section style={{ background: 'rgb(240, 240, 240', margin: '0', padding: '10rem 20rem' }}>
+        <AboutSection>
           <h2>{aboutJson.firstSectionTitle}</h2>
           <div dangerouslySetInnerHTML={{ __html: aboutJson.firstSectionDescription }} />
-        </section>
+        </AboutSection>
 
         <ChallengesSection>
           <ChallengeIcon>

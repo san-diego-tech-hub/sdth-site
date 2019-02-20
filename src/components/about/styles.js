@@ -1,11 +1,22 @@
 import styled from 'styled-components'
 
+export const AboutSection = styled.section`
+  background: rgb(240, 240, 240);
+  margin: 0 !important;
+  padding: 10rem 20rem;
+
+  @media (max-width: 990px) {
+    padding: 5rem;
+    width: 100% !important;
+  }
+`
+
 export const RebuildSection = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2.4rem;
   background: rgb(240, 240, 240);
-  margin: 0 0 4.8rem 0!important;
+  margin: 0 0 4.8rem 0 !important;
   padding: 10rem 20rem;
 
   h4 {
@@ -28,6 +39,8 @@ export const RebuildSection = styled.section`
 
   @media (max-width: 990px) {
     grid-template-columns: 1fr;
+    padding: 5rem !important;
+    width: 100% !important;
   }
 `
 
