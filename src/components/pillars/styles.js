@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const PillarInfo = styled.section`
+  margin: 5rem 20rem !important;
   display: grid;
   grid-template-columns: 15rem 1fr;
   div {
@@ -28,7 +29,12 @@ export const PillarInfo = styled.section`
   }
 `
 
+export const PillarSection = styled.section`
+  margin: 5rem 20rem !important;
+`
+
 export const LeadsSection = styled.section`
+  margin: 5rem 20rem !important;
   p {
     text-align: left;
     font-size: 1.4rem;
