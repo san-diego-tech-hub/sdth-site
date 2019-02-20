@@ -33,6 +33,7 @@ function getEvents(auth) {
     } catch (err) {
       reject(err)
     }
+
     res(resp.data)
   })
 }

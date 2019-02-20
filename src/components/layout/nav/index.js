@@ -41,6 +41,7 @@ const Navigation = () => (
         <MenuItem to="/leadership">
           Team
         </MenuItem>
+        
         <DropItem>
           <AppContext.Consumer>
             {({ path }) => {
@@ -69,6 +70,9 @@ const Navigation = () => (
         </MenuItem>
         <MenuItem to="/events">
           Events
+        </MenuItem>
+        <MenuItem to="/partners">
+          Our Partners
         </MenuItem>
       </Menu>
     </Container>

@@ -72,7 +72,6 @@ export default () => (
                   <Why color={FOUNDER_COLOR.toString()}>
                     Why San Diego Tech Hub Is Important To Me
                   </Why>
-                  {/* <p dangerouslySetInnerHTML={{ __html: 'something something' }} /> */}
                   <Blurb>
                     <p>
                       San Diego Tech Hub is an extension of my passion to bring people together for
