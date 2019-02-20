@@ -17,19 +17,19 @@ const Burger = (props) => (
     <Pillars>
       PILLARS of EXCELLENCE <FontAwesomeIcon icon={'caret-down'} />
     </Pillars>
-    <MenuItem indent firstPillar to="/community">
+    <MenuItem indent="true" firstpillar="true" to="/community">
       Community
     </MenuItem>
-    <MenuItem indent to="/education">
+    <MenuItem indent="true" to="/education">
       Education
     </MenuItem>
-    <MenuItem indent to="/inclusion">
+    <MenuItem indent="true" to="/inclusion">
       Inclusion
     </MenuItem>
-    <MenuItem indent to="/innovation">
+    <MenuItem indent="true" to="/innovation">
       Innovation
     </MenuItem>
-    <MenuItem indent to="/talent">
+    <MenuItem indent="true" to="/talent">
       Talent
     </MenuItem>
 
@@ -45,7 +45,7 @@ const Burger = (props) => (
 const MenuItem = styled(Link)`
   font-size: 2rem;
   margin: 3rem 0;
-  margin-top: ${props => props.firstPillar ? '1rem' : '3rem'};
+  margin-top: ${props => props.firstpillar ? '1rem' : '3rem'};
   margin-left: ${props => props.indent ? '3rem' : '0'};
   text-transform: uppercase;
 `
