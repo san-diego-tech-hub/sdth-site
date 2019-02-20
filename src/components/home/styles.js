@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import { NAV_HEIGHT } from 'Utils/constants'
 
 export const Collaboration = styled.div`
   max-width: 800px;
@@ -29,6 +30,10 @@ export const HomeTitle = styled.div`
   top: 12rem;
   left: 0;
   right: 0;
+
+  @media(max-width: 450px) {
+    top: calc(12rem + ${NAV_HEIGHT});
+  }
 `
 
 export const PillarDescription = styled.div`

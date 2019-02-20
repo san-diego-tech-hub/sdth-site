@@ -3,9 +3,11 @@ import PropTypes from 'prop-types'
 import { ThemeProvider } from 'styled-components'
 
 import StayConnected from '../forms/stay-connected'
+// import Nav from './nav'
+// import Burger from './Burger'
 import Header from './header'
 import Footer from './footer'
-import AppContext from '../../utils/context'
+import AppContext from 'Utils/context'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCaretDown, faMapMarker, faClock } from '@fortawesome/free-solid-svg-icons'
 import {
@@ -23,6 +25,8 @@ const Layout = ({ children, pageProps }) => (
   <ThemeProvider theme={theme}>
     <AppContext.Provider value={{ path: pageProps.location.pathname }}>
       <div style={{maxWidth: '100vw', overflowX: 'hidden'}}>
+        {/* <Burger /> */}
+        {/* <Nav /> */}
         <Header />
 
         <Wrapper>{children}</Wrapper>
