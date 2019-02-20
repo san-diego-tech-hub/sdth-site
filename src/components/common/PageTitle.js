@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { NAV_HEIGHT } from 'Utils/constants'
 
 export default function PageTitle({ children, ...props }) {
   return (
@@ -21,6 +22,7 @@ const H1 = styled.div`
   text-transform: uppercase;
 
   @media(max-width: 480px) {
+    font-size: 5rem;
     padding: 2rem;
   }
 `
@@ -33,4 +35,12 @@ const Container = styled.div`
   top: 15rem;
   left: 0;
   right: 0;
+
+  @media(max-width: 480px) {
+    top: calc(10rem + ${NAV_HEIGHT});
+  }
+
+  @media(max-width: 450px) {
+    top: calc(18rem + ${NAV_HEIGHT});
+  }
 `
