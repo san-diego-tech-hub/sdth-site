@@ -61,13 +61,13 @@ class StayConnected extends React.Component {
         <SocialContainer>
           <p>
             Want to be a conduit for change? Join the movement and connect with liked-minded
-            individuals looking to make a different towards redefining the San Diego tech scene.
+            individuals looking to make a difference redefining the San Diego tech scene.
           </p>
 
           <ExternalLink href="https://join.slack.com/t/sandiegotechhub/shared_invite/enQtNTI1MDA2NjQyNDcwLTRhYmFhOGZlNzQyZWQ0NmJjMTEzNGE1YjI1NTJmY2RhZjVmYjBjNDAyYmI4MDZkNTM4MzMwM2JmYWQzOGVkYjY">
             <button>
               <FontAwesomeIcon size="sm" icon={['fab', 'slack']} />
-              <span style={{ marginLeft: '1rem' }}>Join our Slack Community</span>
+              <span style={{ marginLeft: '1rem' }}>Join our Slack <span className="join">Community</span></span>
             </button>
           </ExternalLink>
           <SocialMedia />

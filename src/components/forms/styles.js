@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  color: ${props => props.theme.color};
+  color: ${props => props.theme.gray};
   background: rgb(240, 240, 240);
   border-radius: 1rem;
   margin-bottom: 3.2rem;
@@ -23,7 +23,9 @@ export const Container = styled.div`
     border-radius: 0.5rem;
   }
   .smallScreen {
+    color: ${props => props.theme.primaryMuted};
     display: none;
+    font-size: 3.5rem;
   }
 
   @media (max-width: 5000px) {
@@ -42,15 +44,22 @@ export const Container = styled.div`
     }
     display: flex;
     flex-direction: column-reverse;
-    /* width: 80%; */
     margin: 1rem auto;
   }
+
   @media (max-width: 667px) {
     margin: 0 0 5rem 0;
     width: 100%;
     button {
       width: 100%;
       font-size: 1.8rem;
+    }
+  }
+
+  @media(max-width: 400px) {
+    padding: 10px;
+    .join {
+      display: none
     }
   }
 `
