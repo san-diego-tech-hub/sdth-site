@@ -62,14 +62,14 @@ export const query = graphql`
 `
 
 const Container = styled.div`
-  max-width: 120rem;
-  margin: auto;
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
+  margin: auto;
   margin-bottom: 3rem;
   @media (max-width: 768px) {
-    flex-direction: column;
+    width: 100%;
   }
 `
 

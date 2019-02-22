@@ -25,71 +25,10 @@ const styles = {
     right: 'auto',
     bottom: 'auto',
     marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
+    transform: 'translate(-50%, -50%)'
   },
 }
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin-left: 2rem;
-  margin-top: 5rem;
-  @media (max-width: 768px) {
-    margin-left: 0;
-  }
-`
-
-const Button = styled.button`
-  background: ${props => props.theme.primaryLight};
-  border: 1px solid #2abbf4;
-  border-radius: 0.5rem;
-  color: white;
-  font-size: 2rem;
-  padding: 1rem;
-  width: 100%;
-  &:hover {
-    cursor: pointer;
-  }
-`
-
-const Events = styled.div`
-  background: #f5f5f5;
-  border-radius: 5px;
-  border: 5px solid #f5f5f5;
-  display: flex;
-  flex-direction: column;
-  height: 635px;
-  margin-top: 1.6rem;
-  padding: 5px;
-  overflow-y: scroll;
-
-  a {
-    text-decoration: none;
-    color: ${props => props.theme.primaryDark};
-  }
-
-  @media (max-width: 375px) {
-    width: 100vw;
-  }
-`
-
-const Event = styled.aside`
-  background: white;
-  border: 2px solid #ddd;
-  border-radius: 0.5rem;
-  color: #666;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  padding: 2.4rem;
-  text-align: left;
-`
-
-const Title = styled.h3`
-  color: ${props => props.theme.primaryMuted};
-  margin-bottom: 7px;
-  font-size: 2rem;
-`
 function EventsComponent({ events }) {
   const [modalOpen, setModalOpen] = React.useState(false)
   const closeModal = () => setModalOpen(false)
@@ -149,5 +88,68 @@ function EventsComponent({ events }) {
 EventsComponent.propTypes = {
   events: PropTypes.array.isRequired,
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin-left: 2rem;
+  margin-top: 5rem;
+  width: 500px;
+  @media (max-width: 768px) {
+    margin-left: 0;
+  }
+`
+
+const Button = styled.button`
+  background: ${props => props.theme.primaryLight};
+  border: 1px solid #2abbf4;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 2rem;
+  padding: 1rem;
+  width: 100%;
+  &:hover {
+    cursor: pointer;
+  }
+`
+
+const Events = styled.div`
+  background: #f5f5f5;
+  border-radius: 5px;
+  border: 5px solid #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  height: 635px;
+  margin-top: 1.6rem;
+  padding: 5px;
+  overflow-y: scroll;
+
+  a {
+    text-decoration: none;
+    color: ${props => props.theme.primaryDark};
+  }
+
+  @media (max-width: 375px) {
+    width: 100vw;
+  }
+`
+
+const Event = styled.aside`
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 0.5rem;
+  color: #666;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  padding: 2.4rem;
+  text-align: left;
+`
+
+const Title = styled.h3`
+  color: ${props => props.theme.primaryMuted};
+  margin-bottom: 7px;
+  font-size: 2rem;
+`
 
 export default EventsComponent

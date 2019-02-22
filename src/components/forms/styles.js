@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { NAV_HEIGHT }  from 'Utils/constants'
 
 export const Container = styled.div`
   color: ${props => props.theme.gray};
@@ -149,5 +150,10 @@ export const ProposeForm = styled.form`
     color: white;
     background: ${props => props.theme.primaryLight};
     border-radius: 0.5rem;
+  }
+
+  @media(max-width: 450px) {
+    height: calc(100vh - ${NAV_HEIGHT} * 2);
+    margin-top: calc(${NAV_HEIGHT} * 2);
   }
 `
