@@ -48,8 +48,8 @@ function Calendar({ events }) {
           fontSize: '1.6rem',
           height: '700px',
           marginTop: '4.8rem',
-          minWidth: '320px',
-          width: '80%',
+          maxWidth: '715px',
+          width: '100%'
         }}
       />
     </>
