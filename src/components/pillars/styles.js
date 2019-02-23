@@ -1,7 +1,11 @@
 import styled from 'styled-components'
 
+export const Container = styled.div`
+  margin: 0 auto;
+  max-width: 1200px;
+`
+
 export const PillarInfo = styled.section`
-  margin: 5rem 20rem !important;
   display: grid;
   grid-template-columns: 15rem 1fr;
   div {
@@ -28,23 +32,21 @@ export const PillarInfo = styled.section`
     }
   }
 
-  @media (max-width: 500px) {
-    margin: 2rem 0 !important;
-    width: 100vw !important;
+  @media(max-width: 450px) {
+    padding-left: 2rem;
   }
 `
 
 export const PillarSection = styled.section`
-  margin: 5rem 20rem !important;
-
-  @media (max-width: 500px) {
-    margin: 2rem 0 !important;
-    width: 100vw !important;
+  @media(max-width: 450px) {
+    padding: 10px;
+    h2 {
+      text-align: center;
+    }
   }
 `
 
 export const LeadsSection = styled.section`
-  margin: 5rem 20rem !important;
   p {
     text-align: left;
     font-size: 1.4rem;
@@ -75,14 +77,16 @@ export const LeadsSection = styled.section`
       font-size: 1.6rem;
     }
   }
-  @media (max-width: 768px) {
+
+  @media(max-width: 768px) {
     .lead {
       grid-template-columns: 1fr;
     }
   }
 
-  @media (max-width: 500px) {
-    margin: 2rem 0 !important;
-    width: 100vw !important;
+  @media(max-width: 450px) {
+    h2 {
+      text-align: center;
+    }
   }
 `
