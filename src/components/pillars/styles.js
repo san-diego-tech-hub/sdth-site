@@ -27,10 +27,20 @@ export const PillarInfo = styled.section`
       padding: 0;
     }
   }
+
+  @media (max-width: 500px) {
+    margin: 2rem 0 !important;
+    width: 100vw !important;
+  }
 `
 
 export const PillarSection = styled.section`
   margin: 5rem 20rem !important;
+
+  @media (max-width: 500px) {
+    margin: 2rem 0 !important;
+    width: 100vw !important;
+  }
 `
 
 export const LeadsSection = styled.section`
@@ -69,5 +79,10 @@ export const LeadsSection = styled.section`
     .lead {
       grid-template-columns: 1fr;
     }
+  }
+
+  @media (max-width: 500px) {
+    margin: 2rem 0 !important;
+    width: 100vw !important;
   }
 `
