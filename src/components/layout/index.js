@@ -16,6 +16,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import { Wrapper, theme } from './styles'
+import './layout.css'
 
 library.add(faLinkedin, faFacebookSquare, faTwitterSquare, faSlack, faCaretDown, faMapMarker, faClock)
 
