@@ -6,7 +6,16 @@ import BurgerMenu from 'react-burger-menu/lib/menus/slide'
 import './burger.css'
 
 const Burger = (props) => (
-  <BurgerMenu right>
+  <BurgerMenu
+    right
+    onStateChange={state => {
+      if (state.isOpen) {
+        document.body.classList.add('no-scroll')
+      } else {
+        document.body.classList.remove('no-scroll')
+      }
+    }}
+  >
     <MenuItem to="/about">
       About
     </MenuItem>
