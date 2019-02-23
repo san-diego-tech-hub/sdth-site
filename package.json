@@ -4,16 +4,28 @@
   "description": "Website for San Diego Tech Hub",
   "version": "0.1.0",
   "contributors": [
-    "Wilmer Guerra <wilmerguerra@outlook.com>"
+    "Wilmer Guerra <wilmerguerra@outlook.com>",
+    "Leeland Clenista",
+    "Kevin Brewer <kevinbrewer04@gmail.com>",
+    "Nick Peddie"
   ],
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "format": "prettier --write \"src/**/*.js\"",
+    "now-build": "npm run build",
+    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+  },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.12",
     "@fortawesome/free-brands-svg-icons": "^5.6.3",
     "@fortawesome/free-solid-svg-icons": "^5.6.3",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "babel-plugin-styled-components": "^1.10.0",
+    "color": "^3.1.0",
     "dotenv": "^6.2.0",
-    "gatsby": "^2.0.91",
+    "gatsby": "^2.0.118",
     "gatsby-image": "^2.0.20",
     "gatsby-plugin-google-analytics": "^2.0.9",
     "gatsby-plugin-google-fonts": "0.0.4",
@@ -26,29 +38,31 @@
     "gatsby-plugin-sharp": "^2.0.14",
     "gatsby-plugin-styled-components": "^3.0.4",
     "gatsby-plugin-typography": "^2.2.5",
+    "gatsby-source-eventbrite": "^1.0.2",
     "gatsby-source-filesystem": "^2.0.8",
+    "gatsby-source-meetup": "0.0.1",
     "gatsby-transformer-json": "^2.1.6",
     "gatsby-transformer-remark": "^2.2.0",
     "gatsby-transformer-sharp": "^2.1.8",
+    "google-maps-react": "^2.0.2",
+    "googleapis": "^37.1.0",
+    "moment": "^2.24.0",
     "prop-types": "^15.6.2",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
+    "react": "^16.8.1",
+    "react-big-calendar": "^0.20.3",
+    "react-burger-menu": "^2.6.5",
+    "react-dom": "^16.8.1",
     "react-helmet": "^5.2.0",
+    "react-modal": "^3.8.1",
     "react-reveal": "^1.2.2",
     "react-typography": "^0.16.18",
+    "striptags": "^3.1.1",
     "styled-components": "^4.1.3",
-    "typography": "^0.16.18"
-  },
-  "license": "MIT",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "start": "npm run develop",
-    "format": "prettier --write \"src/**/*.js\"",
-    "now-build": "npm run build",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "typography": "^0.16.18",
+    "urlencode": "^1.1.0"
   },
   "devDependencies": {
     "prettier": "^1.15.2"
-  }
+  },
+  "license": "MIT"
 }

@@ -1,9 +1,16 @@
 import styled from 'styled-components'
 
-export const Footer = styled.footer`
-   background: rgb(239, 239, 239);
+export const Container = styled.footer`
+  background: rgb(239, 239, 239);
+  display: flex;
+  justify-content: center;
+  margin-top: 10rem;
+  padding: 1.6rem;
+`
+
+export const InnerDiv = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding: 1.6rem;
-
+  max-width: 1200px;
+  width: 100%;
 `

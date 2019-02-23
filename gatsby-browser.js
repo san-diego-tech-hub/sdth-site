@@ -1,7 +1,4 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+const portal = document.createElement("div")
+portal.id = "modal"
+document.body.appendChild(portal)
 
-// You can delete this file if you're not using it

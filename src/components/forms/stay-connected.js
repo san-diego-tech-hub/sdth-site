@@ -1,9 +1,9 @@
 import React from 'react'
 import addToMailChimp from 'gatsby-plugin-mailchimp'
 
-import { Container, Form, SocialContainer } from './styles'
-// import styles from './form.module.css'
 import SocialMedia from './social-media'
+import { Container, Form, FormTitle, SocialContainer } from './styles'
+import ExternalLink from 'Common/ExternalLink'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class StayConnected extends React.Component {
@@ -37,7 +37,7 @@ class StayConnected extends React.Component {
     return (
       <Container>
         <Form method="post" onSubmit={this.handleSubmit}>
-          <h2 className='bigScreen'>Stay Connected</h2>
+          <FormTitle className="bigScreen">Stay Connected</FormTitle>
           <div>
             <label htmlFor="name">Name:</label>
             <input name="name" id="name" value={name} onChange={this.handleChange} />
@@ -61,23 +61,19 @@ class StayConnected extends React.Component {
         <SocialContainer>
           <p>
             Want to be a conduit for change? Join the movement and connect with liked-minded
-            individuals looking to make a different towards redefining the San Diego tech scene.
+            individuals looking to make a difference redefining the San Diego tech scene.
           </p>
 
-          <a
-            target="_blank"
-            href="https://join.slack.com/t/sandiegotechhub/shared_invite/enQtNTI1MDA2NjQyNDcwLTRhYmFhOGZlNzQyZWQ0NmJjMTEzNGE1YjI1NTJmY2RhZjVmYjBjNDAyYmI4MDZkNTM4MzMwM2JmYWQzOGVkYjY"
-            rel="noopener noreferrer"
-          >
+          <ExternalLink href="https://join.slack.com/t/sandiegotechhub/shared_invite/enQtNTI1MDA2NjQyNDcwLTRhYmFhOGZlNzQyZWQ0NmJjMTEzNGE1YjI1NTJmY2RhZjVmYjBjNDAyYmI4MDZkNTM4MzMwM2JmYWQzOGVkYjY">
             <button>
               <FontAwesomeIcon size="sm" icon={['fab', 'slack']} />
-              <span style={{ marginLeft: '1rem' }}>Join our Slack Community</span>
+              <span style={{ marginLeft: '1rem' }}>Join our Slack <span className="join">Community</span></span>
             </button>
-          </a>
+          </ExternalLink>
           <SocialMedia />
         </SocialContainer>
 
-        <h2 className='smallScreen'>Stay Connected</h2>
+        <h2 className="smallScreen">Stay Connected</h2>
       </Container>
     )
   }

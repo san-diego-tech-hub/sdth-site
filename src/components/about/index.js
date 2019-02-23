@@ -1,26 +1,24 @@
 import React from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 
-import claude1 from '../../images/claude_1.png'
-import claude2 from '../../images/claude_2.png'
-import goals from '../../images/goals.svg'
-import heart from '../../images/heart.svg'
-import tasks from '../../images/tasks.svg'
-import { RebuildSection, FounderSection } from './styles'
+import claude1 from 'Images/claude_1.png'
+import claude2 from 'Images/claude_2.png'
+import goals from 'Images/goals.svg'
+import heart from 'Images/heart.svg'
+import tasks from 'Images/tasks.svg'
+import silos from 'Images/silos.svg'
+import judge from 'Images/judge.svg'
+import conversations from 'Images/conversations.svg'
+import { RebuildSection, FounderSection, ChallengesSection, ChallengeIcon, AboutSection } from './styles'
 
-const icons = { goals, heart, tasks }
+const icons = { goals, heart, tasks, silos, judge, conversations }
 
-export default () => (
+const About = () => (
   <StaticQuery
     query={aboutQuery}
     render={({ aboutJson }) => (
       <main>
-        <section>
-          <h2>{aboutJson.firstSectionTitle}</h2>
-          <div dangerouslySetInnerHTML={{ __html: aboutJson.firstSectionDescription }} />
-        </section>
-
-        <FounderSection style={{ background: 'rgb(240, 240, 240)' }}>
+        <FounderSection>
           <h2>{aboutJson.secondSectionTitle}</h2>
 
           <p>
@@ -75,6 +73,32 @@ export default () => (
           <div style={{ clear: 'both' }} />
         </FounderSection>
 
+        <AboutSection>
+          <h2>{aboutJson.firstSectionTitle}</h2>
+          <div dangerouslySetInnerHTML={{ __html: aboutJson.firstSectionDescription }} />
+        </AboutSection>
+
+        <ChallengesSection>
+          <ChallengeIcon>
+            {aboutJson.fourthSectionItems.map((item, i) => {
+              return (
+                <div key={i}>
+                  <img src={icons[item.icon]} alt={item.header} width="100" />
+                  <span>
+                    <h4>{item.header}</h4>
+                    <p>{item.text}</p>
+                  </span>
+                </div>
+              )
+            })}
+          </ChallengeIcon>
+
+          <span>
+            <h2>{aboutJson.fourthSectionTitle}</h2>
+            <p>{aboutJson.fourthSectionDescription}</p>
+          </span>
+        </ChallengesSection>
+
         <RebuildSection>
           <span>
             <h2>{aboutJson.thirdSectionTitle}</h2>
@@ -83,7 +107,7 @@ export default () => (
 
           <span>
             {aboutJson.thirdSectionItems.map((s, i) => (
-              <div className='rebuild-panel' key={i}>
+              <div className="rebuild-panel" key={i}>
                 <img src={icons[s.icon]} alt={s.title} width="100" />
                 <span>
                   <h4>{s.title}</h4>
@@ -112,6 +136,14 @@ const aboutQuery = graphql`
         description
         icon
       }
+      fourthSectionTitle
+      fourthSectionDescription
+      fourthSectionItems {
+        icon
+        header
+        text
+      }
     }
   }
 `
+export default About

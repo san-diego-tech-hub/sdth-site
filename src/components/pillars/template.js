@@ -2,11 +2,10 @@ import React from 'react'
 import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 
-import {PillarInfo, LeadsSection} from './styles'
-// import styles from './pillars.module.css'
+import { PillarInfo, LeadsSection, PillarSection } from './styles'
 
 const PillarTemplate = ({ data, icon }) => (
-  <>
+  <div style={{margin: '0 auto', maxWidth: '1200px'}}>
     <PillarInfo>
       <Img fluid={icon.childImageSharp.fluid} />
       <div>
@@ -15,21 +14,21 @@ const PillarTemplate = ({ data, icon }) => (
       </div>
     </PillarInfo>
 
-    <section>
+    <PillarSection>
       <h2>Purpose</h2>
       <div dangerouslySetInnerHTML={{ __html: data.purpose }} />
-    </section>
+    </PillarSection>
 
-    <section>
+    <PillarSection>
       <h2>How do we challenge to status quo?</h2>
       <div dangerouslySetInnerHTML={{ __html: data.challenge }} />
-    </section>
+    </PillarSection>
 
     {data.leads && data.leads[0].name.length > 0 && (
       <LeadsSection>
         <h2>Pillar Leads</h2>
         {data.leads.map((lead, i) => (
-          <div key={i} className='lead'>
+          <div key={i} className="lead">
             <div>
               <img
                 src={require(`../../images/${lead.photo}.jpg`)}
@@ -39,7 +38,7 @@ const PillarTemplate = ({ data, icon }) => (
               />
               <div>
                 <span>{lead.name}</span>
-                <span className='email'>{lead.email}</span>
+                <span className="email">{lead.email}</span>
               </div>
             </div>
             <span style={{ padding: '.5rem' }}>
@@ -55,7 +54,7 @@ const PillarTemplate = ({ data, icon }) => (
       <h2>Goals</h2>
       <div dangerouslySetInnerHTML={{ __html: data.goals }} />
     </section> */}
-  </>
+  </div>
 )
 
 PillarTemplate.propTypes = {

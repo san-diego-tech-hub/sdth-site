@@ -2,12 +2,22 @@ import React from 'react'
 import Img from 'gatsby-image'
 import { StaticQuery, graphql } from 'gatsby'
 
-import { ThreeStep, CollabIcon, PillarRow, PillarIcon } from './styles'
-import communityIcon from '../../images/icon_community.svg'
-import educationIcon from '../../images/icon_education.svg'
-import inclusionIcon from '../../images/icon_inclusion.svg'
-import innovationIcon from '../../images/icon_innovation.svg'
-import talentIcon from '../../images/icon_talent.svg'
+import {
+  Collaboration,
+  CollabIcon,
+  Description,
+  HomeTitle,
+  PillarDescription,
+  PillarIcon,
+  PillarRow,
+  ThreeStep,
+  WhatIsSDTH
+} from './styles'
+import communityIcon from 'Images/icon_community.svg'
+import educationIcon from 'Images/icon_education.svg'
+import inclusionIcon from 'Images/icon_inclusion.svg'
+import innovationIcon from 'Images/icon_innovation.svg'
+import talentIcon from 'Images/icon_talent.svg'
 
 const pillarIcons = {
   community: communityIcon,
@@ -22,15 +32,22 @@ export default () => (
     query={homeQuery}
     render={({ homeJson, ...icons }) => (
       <main>
-        <section>
-          <h2>{homeJson.firstSectionTitle}</h2>
-          <p>{homeJson.firstSectionDescription}</p>
-        </section>
-
-        <ThreeStep>
+        <HomeTitle>
+          <div style={{width: '100%', maxWidth: '1200px'}}>
+            <WhatIsSDTH>
+              <div style={{maxWidth: '570px'}}>
+                <h2 style={{color: 'white'}}>{homeJson.firstSectionTitle}</h2>
+                <p style={{fontSize: '1.5rem'}}>{homeJson.firstSectionDescription}</p>
+              </div>
+            </WhatIsSDTH>
+          </div>
+        </HomeTitle>
+        <Collaboration>
           <h2>{homeJson.secondSectionTitle}</h2>
-          <p>{homeJson.secondSectionDescription}</p>
-          <aside>
+          <Description>{homeJson.secondSectionDescription}</Description>
+        </Collaboration>
+        <ThreeStep>
+          <aside style={{maxWidth: '1200px'}}>
             {homeJson.secondSectionItems.map((c, i) => {
               const icon = icons[c.title]
 
@@ -50,21 +67,21 @@ export default () => (
           </aside>
         </ThreeStep>
 
-        <section>
+        <PillarDescription>
           <h2>{homeJson.thirdSectionTitle}</h2>
           <p>{homeJson.thirdSectionDescription}</p>
-          <PillarRow>
-            {homeJson.thirdSectionItems.map((pillar, i) => (
-              <PillarIcon to={`/${pillar.title}`} key={i} background={pillar.background}>
-                <div>
-                  <img alt={pillar.title} src={pillarIcons[pillar.title]} height="75" />
-                  <h4>{pillar.title}</h4>
-                </div>
-                <p>{pillar.description}</p>
-              </PillarIcon>
-            ))}
-          </PillarRow>
-        </section>
+        </PillarDescription>
+        <PillarRow>
+          {homeJson.thirdSectionItems.map((pillar, i) => (
+            <PillarIcon to={`/${pillar.title}`} key={i} background={pillar.background}>
+              <div>
+                <img alt={pillar.title} src={pillarIcons[pillar.title]} height="75" />
+                <h4>{pillar.title}</h4>
+              </div>
+              <p>{pillar.description}</p>
+            </PillarIcon>
+          ))}
+        </PillarRow>
       </main>
     )}
   />

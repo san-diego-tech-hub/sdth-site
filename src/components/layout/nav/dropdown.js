@@ -2,11 +2,11 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 import { Drop, DropdownContent } from './styles'
-import communityIcon from '../../../images/nav_community.svg'
-import educationIcon from '../../../images/nav_education.svg'
-import inclusionIcon from '../../../images/nav_inclusion.svg'
-import innovationIcon from '../../../images/nav_innovation.svg'
-import talentIcon from '../../../images/nav_talent.svg'
+import communityIcon from 'Images/nav_community.svg'
+import educationIcon from 'Images/nav_education.svg'
+import inclusionIcon from 'Images/nav_inclusion.svg'
+import innovationIcon from 'Images/nav_innovation.svg'
+import talentIcon from 'Images/nav_talent.svg'
 
 const pillarIcons = {
   community: communityIcon,

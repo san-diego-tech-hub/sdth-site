@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Layout from '../components/layout'
-import SEO from '../components/seo'
-import Home from '../components/home'
+import Layout from 'Components/layout'
+import SEO from 'Components/seo'
+import Home from 'Components/home'
 
 export default props => (
   <Layout pageProps={props}>
