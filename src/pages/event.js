@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import styled from 'styled-components'
 import moment from 'moment'
 import urlencode from 'urlencode'
@@ -18,17 +18,11 @@ export default function EventPage({ pageContext: { event }, ...props }) {
       <Container>
         <MainSection>
           <Header>
-            <Title>
-              {event.title}
-            </Title>
-            <DateTime>
-              {`${start.format('MMM Do @ h:mmA')} - ${end.format('h:mmA')}`}
-            </DateTime>
+            <Title>{event.title}</Title>
+            <DateTime>{`${start.format('MMM Do @ h:mmA')} - ${end.format('h:mmA')}`}</DateTime>
           </Header>
 
-          <Description
-            dangerouslySetInnerHTML={{__html: event.description }}
-          />
+          <Description dangerouslySetInnerHTML={{ __html: event.description }} />
         </MainSection>
         <SideBar>
           <SubHeading>Details</SubHeading>
@@ -40,21 +34,23 @@ export default function EventPage({ pageContext: { event }, ...props }) {
 
           <Field>Website:</Field>
           <Value>
-            <ExternalLink
-              href={event.url}
-            >
-              {event.url}
-            </ExternalLink>
+            <ExternalLink href={event.url}>{event.url}</ExternalLink>
           </Value>
 
           <SubHeading>Venue</SubHeading>
-          <ExternalLink
-            href={`${MAPS_URL}${urlencode(event.venue.address)}`}
-          >
+          <ExternalLink href={`${MAPS_URL}${urlencode(event.venue.address)}`}>
             <Value>{event.venue.name}</Value>
             <Value>{event.venue.address}</Value>
           </ExternalLink>
-
+          <iframe
+            width="250px"
+            height="250px"
+            frameborder="0"
+            src={`https://www.google.com/maps/embed/v1/place?key=${
+              process.env.GOOGLE_API
+            }&q=${urlencode(event.venue.address)}`}
+            allowFullScreen
+          />
         </SideBar>
       </Container>
     </Layout>
@@ -99,7 +95,7 @@ const Value = styled.div`
 `
 
 const Header = styled.div`
-  background: rgba(66,38,149,0.8);
+  background: rgba(66, 38, 149, 0.8);
   color: white;
   margin: 3rem 0;
   max-width: 900px;
@@ -110,20 +106,20 @@ const MainSection = styled.div``
 
 const SideBar = styled.div`
   background: #f5f5f5;
-  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
   max-width: 300px;
   margin-top: 3rem;
   margin-left: 2rem;
   padding: 10px 15px;
   text-align: left;
   width: 300px;
-  @media(max-width: 667px) {
+  @media (max-width: 667px) {
     display: none;
   }
 `
 
 const SubHeading = styled.h3`
-  background: rgba(66,38,149,0.8); 
+  background: rgba(66, 38, 149, 0.8);
   color: white;
   font-size: 1.7rem;
   padding: 8px;
