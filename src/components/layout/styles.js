@@ -19,6 +19,10 @@ export const Wrapper = styled.div`
     margin: 10rem 20rem;
     font-size: 2rem;
     color: ${props => props.theme.gray};
+
+    @media(max-width: 450px) {
+      width: 100vw !important;
+    }
   }
   section:first-child {
     margin-top: 0;

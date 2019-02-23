@@ -1,11 +1,15 @@
 import React from 'react'
 import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
-
-import { PillarInfo, LeadsSection, PillarSection } from './styles'
+import {
+  Container,
+  LeadsSection,
+  PillarInfo,
+  PillarSection
+} from './styles'
 
 const PillarTemplate = ({ data, icon }) => (
-  <div style={{margin: '0 auto', maxWidth: '1200px'}}>
+  <Container>
     <PillarInfo>
       <Img fluid={icon.childImageSharp.fluid} />
       <div>
@@ -49,12 +53,7 @@ const PillarTemplate = ({ data, icon }) => (
         ))}
       </LeadsSection>
     )}
-
-    {/* <section>>
-      <h2>Goals</h2>
-      <div dangerouslySetInnerHTML={{ __html: data.goals }} />
-    </section> */}
-  </div>
+  </Container>
 )
 
 PillarTemplate.propTypes = {
