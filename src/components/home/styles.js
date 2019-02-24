@@ -1,11 +1,16 @@
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import conduitsFlow from 'Images/conduits-flow.svg'
 import { NAV_HEIGHT } from 'Utils/constants'
 
 export const Collaboration = styled.div`
   max-width: 800px;
   margin: 7rem auto 5rem;
   text-align: center;
+
+  @media(max-width: 450px) {
+    margin-top: 11rem;
+  }
 `
 
 export const CollabIcon = styled.div`
@@ -31,8 +36,16 @@ export const HomeTitle = styled.div`
   left: 0;
   right: 0;
 
+  @media(max-width: 1267px) {
+    top: calc(${NAV_HEIGHT} * 2 - 20px);
+  }
+
+  @media(max-width: 612px) {
+    top: 12rem;
+  }
+
   @media(max-width: 450px) {
-    background: linear-gradient(rgba(82,48,181,0.9), 70%, rgba(129,74,198,0.9));
+    background: linear-gradient(rgba(82,48,181,0.9), 40%, rgba(129,74,198,0.9));
     top: ${NAV_HEIGHT};
   }
 `
@@ -151,6 +164,10 @@ export const WhatIsSDTH = styled.div`
   padding: 4rem;
   width: 570px; 
 
+  @media(max-width: 1267px) {
+    padding-bottom: 1.5rem;
+  }
+
   @media(max-width: 990px) {
     align-items: center;
     display: flex;
@@ -162,8 +179,23 @@ export const WhatIsSDTH = styled.div`
   }
 
   @media(max-width: 600px) {
-    top: 14rem;
     padding: 0.5rem;
+    top: 14rem;
+  }
+
+  @media(max-width: 448px) {
+    &::before {
+      content: "";
+      background-image: url(${conduitsFlow});
+      background-size: cover;
+      opacity: 0.4;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      position: absolute;
+      z-index: 0;
+    }
   }
   
   @media(max-width: 383px) {
