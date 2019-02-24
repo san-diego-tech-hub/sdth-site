@@ -20,9 +20,15 @@ const H1 = styled.div`
   padding: 5rem;
   text-shadow: 5px 5px 10px ${props => props.theme.primaryDark};
   text-transform: uppercase;
+  max-width: 100%;
+  white-space: nowrap;
 
-  @media(max-width: 480px) {
-    font-size: 5rem;
+  @media(max-width: 500px) {
+    font-size: 4rem;
+    padding: 5rem 2rem;
+  }
+
+  @media(max-width: 450px) {
     padding: 2rem;
   }
 `
@@ -36,11 +42,7 @@ const Container = styled.div`
   left: 0;
   right: 0;
 
-  @media(max-width: 480px) {
-    top: calc(10rem + ${NAV_HEIGHT});
-  }
-
   @media(max-width: 450px) {
-    top: calc(18rem + ${NAV_HEIGHT});
+    top: ${NAV_HEIGHT};
   }
 `

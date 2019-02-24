@@ -3,10 +3,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { Link } from 'gatsby'
 import sdthLogo from 'Images/sdth-logo.svg'
+import sdthLogoSmall from 'Images/ciricle-logo.svg'
 import {
   Container,
   DropItem,
   Logo,
+  SmallLogo,
   Menu,
   Nav,
   Spacer
@@ -28,6 +30,11 @@ const Navigation = () => (
   <Nav>
     <Burger />
     <Container>
+      <SmallLogo>
+        <Link to="/">
+          <img alt="San Diego Tech Hub" src={sdthLogoSmall} />
+        </Link>
+      </SmallLogo>
       <Logo>
         <Link to="/">
           <img alt="San Diego Tech Hub" src={sdthLogo} />
