@@ -35,7 +35,7 @@ export default () => (
         <HomeTitle>
           <div style={{width: '100%', maxWidth: '1200px'}}>
             <WhatIsSDTH>
-              <div style={{maxWidth: '570px'}}>
+              <div style={{maxWidth: '570px', zIndex: 2}}>
                 <h2 style={{color: 'white'}}>{homeJson.firstSectionTitle}</h2>
                 <p style={{fontSize: '1.5rem'}}>{homeJson.firstSectionDescription}</p>
               </div>
