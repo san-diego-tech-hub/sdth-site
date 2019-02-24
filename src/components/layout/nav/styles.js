@@ -64,6 +64,7 @@ export const Logo = styled.div`
   }
 
   @media (max-width: 450px) {
+    display: none;
     width: 100%;
   }
 `
@@ -115,11 +116,19 @@ export const Nav = styled.nav`
     display: block;
     text-decoration: none;
   }
+`
 
-  @media(max-width: 450px) {
-    height: calc(${NAV_HEIGHT} * 2);
+export const SmallLogo = styled.div`
+  img {
+    height: ${NAV_HEIGHT};
+    padding: 8px;
+  }
+
+  @media(min-width: 450px) {
+    display: none;
   }
 `
+
 export const Spacer = styled.div`
   height: ${NAV_HEIGHT};
   width: 200px;

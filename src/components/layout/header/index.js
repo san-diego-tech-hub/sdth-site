@@ -36,10 +36,10 @@ const ConduitsFlow = styled.div`
   background: linear-gradient(#5230B5, 70%, #814AC6);
   height: 350px;
   margin-top: ${NAV_HEIGHT};
-  width: 100vw;
+  width: 100%;
 
   @media(max-width: 450px) {
-    margin-top: calc(${NAV_HEIGHT} * 2);
+    height: 200px;
   }
 `
 

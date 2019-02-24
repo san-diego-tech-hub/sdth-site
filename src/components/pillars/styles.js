@@ -33,7 +33,7 @@ export const PillarInfo = styled.section`
   }
 
   @media(max-width: 450px) {
-    padding-left: 2rem;
+    margin: auto;
   }
 `
 
