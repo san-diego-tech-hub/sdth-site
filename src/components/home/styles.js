@@ -32,7 +32,8 @@ export const HomeTitle = styled.div`
   right: 0;
 
   @media(max-width: 450px) {
-    top: calc(12rem + ${NAV_HEIGHT});
+    background: linear-gradient(rgba(82,48,181,0.9), 70%, rgba(129,74,198,0.9));
+    top: ${NAV_HEIGHT};
   }
 `
 
