@@ -179,5 +179,8 @@ const query = graphql`
     operationcode: file(relativePath: { eq: "operationcode.png" }) {
       ...childSharp
     }
+    sdnedc: file(relativePath: { eq: "sdnedc.png" }) {
+      ...childSharp
+    }
   }
 `
