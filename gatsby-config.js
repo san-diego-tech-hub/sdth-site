@@ -91,7 +91,7 @@ if (process.env.NODE_ENV === 'development') {
     resolve: 'gatsby-plugin-eslint',
     options: {
       test: /\.js$|\.jsx$/,
-      include: /(node_modules|.cache|public)/,
+      exclude: /(node_modules|.cache|public)/,
       stages: ['develop'],
       options: {
         emitWarning: true,
