@@ -1,18 +1,10 @@
-{
-  "extends": [
-    "airbnb",
-    "prettier",
-    "prettier/react"
-  ],
-  "plugins": [
-    "react",
-    "jsx-a11y",
-    "import"
-  ],
-  "rules": {
+module.exports = {
+  extends: ["airbnb", "plugin:prettier/recommended", "prettier/react"],
+  plugins: ["react", "jsx-a11y", "import"],
+  rules: {
     "arrow-body-style": 0,
     "arrow-parens": 0,
-    "camelcase": 0,
+    camelcase: 0,
     "comma-dangle": 0,
     "function-paren-newline": 0,
     "global-require": 0,
@@ -23,6 +15,7 @@
     "jsx-a11y/no-static-element-interactions": 0,
     "linebreak-style": 0,
     "import/no-cycle": 0,
+    "import/no-dynamic-require": 0,
     "import/no-extraneous-dependencies": 0,
     "import/no-unresolved": 0,
     "import/no-useless-path-segments": 0,
@@ -43,20 +36,20 @@
     "react/no-unescaped-entities": 0,
     "react/prop-types": 0,
     "react/require-default-props": 0,
-    "semi": 0
+    semi: 0,
   },
-  "parser": "babel-eslint",
-  "globals": {
-    "alert": "readonly",
-    "document": "readonly",
-    "fetch": "readonly",
-    "FormData": "readonly",
-    "graphql": "readonly",
-    "localStorage": "readonly",
-    "location": "readonly",
-    "navigator": "readonly",
-    "Notification": "readonly",
-    "window": "readonly",
-    "__PATH_PREFIX__": true
-  }
+  parser: "babel-eslint",
+  globals: {
+    alert: "readonly",
+    document: "readonly",
+    fetch: "readonly",
+    FormData: "readonly",
+    graphql: "readonly",
+    localStorage: "readonly",
+    location: "readonly",
+    navigator: "readonly",
+    Notification: "readonly",
+    window: "readonly",
+    __PATH_PREFIX__: true,
+  },
 }
