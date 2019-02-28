@@ -1,7 +1,7 @@
-const path = '.env' + (process.env.NODE_ENV === 'development' ? '.dev' : '')
+const path = ".env" + (process.env.NODE_ENV === "development" ? ".dev" : "")
 
-if (process.env.NODE_EN !== 'production') {
-  require('dotenv').config({ path }) // only run this in prod if we're doing the FTP deployement, not for now/netlify deployment.
+if (process.env.NODE_EN !== "production") {
+  require("dotenv").config({ path }) // only run this in prod if we're doing the FTP deployement, not for now/netlify deployment.
 }
 
 const plugins = [
@@ -33,7 +33,7 @@ const plugins = [
       background_color: `#663399`,
       theme_color: `#663399`,
       display: `minimal-ui`,
-      icon: './src/images/ciricle-logo.png',
+      icon: "./src/images/ciricle-logo.png",
     },
   },
   {
@@ -45,11 +45,11 @@ const plugins = [
   {
     resolve: `gatsby-plugin-google-fonts`,
     options: {
-      fonts: ['roboto'],
+      fonts: ["roboto"],
     },
   },
   {
-    resolve: 'gatsby-plugin-mailchimp',
+    resolve: "gatsby-plugin-mailchimp",
     options: {
       endpoint: process.env.MAILCHIMP,
     },
@@ -61,9 +61,9 @@ const plugins = [
     resolve: `gatsby-source-meetup`,
     options: {
       key: process.env.MEETUP_API_KEY,
-      groupUrlName: 'sandiegojs',
-      status: 'upcoming,past',
-      desc: 'true',
+      groupUrlName: "sandiegojs",
+      status: "upcoming,past",
+      desc: "true",
       page: 200,
     },
   },
@@ -72,12 +72,12 @@ const plugins = [
     options: {
       organizationId: process.env.EVENTBRITE_ORG_ID,
       accessToken: process.env.EVENTBRITE_OAUTH_TOKEN,
-      entities: ['events'],
+      entities: ["events"],
     },
   },
 ]
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === "production") {
   plugins.push({
     resolve: `gatsby-plugin-google-analytics`,
     options: {
@@ -86,13 +86,13 @@ if (process.env.NODE_ENV === 'production') {
   })
 }
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === "development") {
   plugins.push({
-    resolve: 'gatsby-plugin-eslint',
+    resolve: "gatsby-plugin-eslint",
     options: {
       test: /\.js$|\.jsx$/,
       exclude: /(node_modules|.cache|public)/,
-      stages: ['develop'],
+      stages: ["develop"],
       options: {
         emitWarning: true,
         failOnError: false,
@@ -101,11 +101,11 @@ if (process.env.NODE_ENV === 'development') {
   })
 }
 
-let config = {
+const config = {
   siteMetadata: {
-    title: 'San Diego Tech Hub',
+    title: "San Diego Tech Hub",
     description:
-      'San Diego Tech Hub represents a movement aimed at changing the perception of the San Diego tech ecosystem. Our focus is to be a conduit for change connecting businesses, organizations, and individuals, leveraging their resources and talents to build a stronger San Diego tech community through collaboration.',
+      "San Diego Tech Hub represents a movement aimed at changing the perception of the San Diego tech ecosystem. Our focus is to be a conduit for change connecting businesses, organizations, and individuals, leveraging their resources and talents to build a stronger San Diego tech community through collaboration.",
     author: `Claude Jones`,
   },
   plugins,
