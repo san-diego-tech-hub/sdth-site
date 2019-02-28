@@ -162,7 +162,9 @@ export const WhatIsSDTH = styled.div`
   border-radius: 5px;
   color: white;
   padding: 4rem;
+  position: relative;
   width: 570px; 
+  z-index: 0;
 
   @media(max-width: 1267px) {
     padding-bottom: 1.5rem;
@@ -180,7 +182,7 @@ export const WhatIsSDTH = styled.div`
 
   @media(max-width: 600px) {
     padding: 0.5rem;
-    top: 14rem;
+    top: 0;
   }
 
   @media(max-width: 448px) {
@@ -196,9 +198,5 @@ export const WhatIsSDTH = styled.div`
       position: absolute;
       z-index: 0;
     }
-  }
-  
-  @media(max-width: 383px) {
-    top: 10rem;
   }
 `
