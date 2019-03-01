@@ -23,6 +23,7 @@ module.exports = {
     "import/prefer-default-export": 0,
     "no-console": 0,
     "no-multi-spaces": 0,
+    "no-plusplus": 0,
     "no-restricted-globals": 0,
     "no-use-before-define": 0,
     "object-curly-newline": 0,
