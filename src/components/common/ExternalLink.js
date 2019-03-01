@@ -4,8 +4,8 @@ import styled from 'styled-components'
 export default function ExternalLink({ children, ...props }) {
   return (
     <Link
-      rel='noopener noreferrer'
-      target='_blank'
+      rel="noopener noreferrer"
+      target="_blank"
       {...props}
     >
       {children}

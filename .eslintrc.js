@@ -1,10 +1,10 @@
 module.exports = {
-  extends: ["airbnb", "plugin:prettier/recommended", "prettier/react"],
+  extends: ["airbnb"],
   plugins: ["react", "jsx-a11y", "import"],
   rules: {
     "arrow-body-style": 0,
     "arrow-parens": 0,
-    camelcase: 0,
+    "camelcase": 0,
     "comma-dangle": 0,
     "function-paren-newline": 0,
     "global-require": 0,
@@ -36,7 +36,7 @@ module.exports = {
     "react/no-unescaped-entities": 0,
     "react/prop-types": 0,
     "react/require-default-props": 0,
-    semi: 0,
+    "semi": 0,
   },
   parser: "babel-eslint",
   globals: {
