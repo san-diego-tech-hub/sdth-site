@@ -23,5 +23,5 @@ const CuratorFeed = styled.div`
   margin: auto;
   font-size: 1.4rem;
 `;
-//! remove underline for email. add boxshadow
+//! add boxshadow
 export default SocialAggregator;
