@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components"
 
 export const AboutSection = styled.section`
   background: rgb(240, 240, 240);

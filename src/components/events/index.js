@@ -1,31 +1,31 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react"
+import PropTypes from "prop-types"
 
-import ExternalLink from 'Common/ExternalLink'
-import { MAPS_URL } from 'Utils/constants'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Link } from 'gatsby'
-import Modal from 'react-modal'
-import moment from 'moment'
-import styled from 'styled-components'
-import urlencode from 'urlencode'
+import ExternalLink from "Common/ExternalLink"
+import { MAPS_URL } from "Utils/constants"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Link } from "gatsby"
+import Modal from "react-modal"
+import moment from "moment"
+import styled from "styled-components"
+import urlencode from "urlencode"
 
-import truncateString from 'Utils/truncate'
-import ProposeEvent from 'Components/forms/propose-event'
+import truncateString from "Utils/truncate"
+import ProposeEvent from "Components/forms/propose-event"
 
-Modal.setAppElement('#modal')
+Modal.setAppElement("#modal")
 
 const styles = {
   overlay: {
-    backgroundColor: 'rgba(0, 0, 0, 0.75)',
+    backgroundColor: "rgba(0, 0, 0, 0.75)",
   },
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)'
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)"
   },
 }
 
@@ -39,16 +39,16 @@ function EventsComponent({ events }) {
         <ProposeEvent afterSubmit={closeModal} />
       </Modal>
 
-      <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+      <div style={{ display: "flex", justifyContent: "flex-end" }}>
         <Button onClick={() => setModalOpen(true)}>Propose New Event</Button>
       </div>
 
       <Events>
         {events.map(event => {
-          const start = moment(event.start).format('MMM D, Y @ h:mma')
+          const start = moment(event.start).format("MMM D, Y @ h:mma")
 
           const mapLink = !event.venue.address ? (
-            'No Location'
+            "No Location"
           ) : (
             <ExternalLink href={`${MAPS_URL}${urlencode(event.venue.address)}`}>
               {event.venue.address}
@@ -62,19 +62,19 @@ function EventsComponent({ events }) {
               </Link>
 
               <div>
-                <FontAwesomeIcon icon="clock" style={{ marginRight: '.8rem' }} />
+                <FontAwesomeIcon icon="clock" style={{ marginRight: ".8rem" }} />
                 {start}
               </div>
               <div>
-                <FontAwesomeIcon icon="map-marker" style={{ marginRight: '.8rem' }} />
+                <FontAwesomeIcon icon="map-marker" style={{ marginRight: ".8rem" }} />
                 {mapLink}
               </div>
 
               <div
                 title={event.description}
-                style={{ padding: '1.6rem 0', color: '#333' }}
+                style={{ padding: "1.6rem 0", color: "#333" }}
                 dangerouslySetInnerHTML={{
-                  __html: truncateString(event.description || 'No description'),
+                  __html: truncateString(event.description || "No description"),
                 }}
               />
             </Event>

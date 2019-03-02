@@ -1,1 +1,1 @@
-export default () => 'Page not found'
+export default () => "Page not found"

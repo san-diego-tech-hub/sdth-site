@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import { Link } from 'gatsby'
-import conduitsFlow from 'Images/conduits-flow.svg'
-import { NAV_HEIGHT } from 'Utils/constants'
+import styled from "styled-components"
+import { Link } from "gatsby"
+import conduitsFlow from "Images/conduits-flow.svg"
+import { NAV_HEIGHT } from "Utils/constants"
 
 export const Collaboration = styled.div`
   max-width: 800px;
@@ -162,7 +162,7 @@ export const WhatIsSDTH = styled.div`
   border-radius: 5px;
   color: white;
   padding: 4rem;
-  width: 570px; 
+  width: 570px;
 
   @media(max-width: 1267px) {
     padding-bottom: 1.5rem;
@@ -197,7 +197,7 @@ export const WhatIsSDTH = styled.div`
       z-index: 0;
     }
   }
-  
+
   @media(max-width: 383px) {
     top: 10rem;
   }
