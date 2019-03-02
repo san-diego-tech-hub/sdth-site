@@ -31,7 +31,7 @@ const query = graphql`
 `
 const Container = styled.main`
 @media (max-width: 1500px) {
-    
+    margin: 10rem !important;
     max-width: 1200px;
   }
   section {

@@ -5,11 +5,13 @@ export const AboutSection = styled.section`
   margin: 0 !important;
   padding: 10rem 20rem;
 
-  @media (max-width: 1500px) {
-   
-    max-width: 1200px;
+   @media (max-width: 1500px) {
+    .about-container {
+      margin: 10rem !important;
+      max-width: 1200px;
   }
-
+}
+  
   @media (max-width: 990px) {
     padding: 5rem;
     width: 100% !important;
@@ -72,6 +74,7 @@ export const ChallengesSection = styled.section`
     font-size: 2.4rem;
     font-weight: 600;
   }
+
   @media (max-width: 667px) {
     grid-template-columns: 1fr;
   }

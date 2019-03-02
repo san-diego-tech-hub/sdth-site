@@ -1,6 +1,5 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
-
 import claude1 from "Images/claude_1.png"
 import claude2 from "Images/claude_2.png"
 import goals from "Images/goals.svg"
@@ -74,8 +73,10 @@ const About = () => (
         </FounderSection>
 
         <AboutSection>
-          <h2>{aboutJson.firstSectionTitle}</h2>
-          <div dangerouslySetInnerHTML={{ __html: aboutJson.firstSectionDescription }} />
+          <div className="about-container">
+            <h2>{aboutJson.firstSectionTitle}</h2>
+            <div dangerouslySetInnerHTML={{ __html: aboutJson.firstSectionDescription }} />
+          </div>
         </AboutSection>
 
         <ChallengesSection>
