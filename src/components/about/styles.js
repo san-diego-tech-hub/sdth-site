@@ -5,6 +5,11 @@ export const AboutSection = styled.section`
   margin: 0 !important;
   padding: 10rem 20rem;
 
+  @media (max-width: 1500px) {
+    margin: 10rem !important;
+    max-width: 1200px;
+  }
+
   @media (max-width: 990px) {
     padding: 5rem;
     width: 100% !important;
@@ -47,6 +52,10 @@ export const RebuildSection = styled.section`
 export const FounderSection = styled.section`
   margin: 0 !important;
   padding: 3.2rem 20rem;
+  @media (max-width: 1500px) {
+    margin: 10rem !important;
+    max-width: 1200px;
+  }
   @media (max-width: 990px) {
     padding: 5rem;
     width: 100% !important;
