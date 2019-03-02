@@ -54,4 +54,4 @@ class MyMap extends React.Component {
   }
 }
 
-export default GoogleApiWrapper({ api: process.env.GOOGLE_API })(MyMap)
+export default GoogleApiWrapper({ api: process.env.GATSBY_GOOGLE_API })(MyMap)

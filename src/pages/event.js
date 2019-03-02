@@ -59,7 +59,7 @@ export default function EventPage({ pageContext: { event }, ...props }) {
             width="250px"
             height="250px"
             frameBorder="0"
-            src={`https://www.google.com/maps/embed/v1/place?key=${process.env.GOOGLE_API}&q=${urlencode(event.venue.address)}`}
+            src={`https://www.google.com/maps/embed/v1/place?key=${process.env.GATSBY_GOOGLE_API}&q=${urlencode(event.venue.address)}`}
             allowFullScreen
           />
         </SideBar>
