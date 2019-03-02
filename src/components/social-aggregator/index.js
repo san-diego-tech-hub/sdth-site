@@ -1,11 +1,12 @@
-import React from "react"
-import styled from "styled-components"
+import React from "react";
+import styled from "styled-components";
+import "./styles.css";
 
-import ExternalLink from "Common/ExternalLink"
-import { useCurator } from "Utils/hooks"
+import ExternalLink from "Common/ExternalLink";
+import { useCurator } from "Utils/hooks";
 
 function SocialAggregator() {
-  useCurator()
+  useCurator();
 
   return (
     <CuratorFeed>
@@ -15,12 +16,12 @@ function SocialAggregator() {
         </ExternalLink>
       </div>
     </CuratorFeed>
-  )
+  );
 }
 
 const CuratorFeed = styled.div`
   margin: auto;
   font-size: 1.4rem;
-`
-
-export default SocialAggregator
+`;
+//! remove underline for email. add boxshadow
+export default SocialAggregator;
