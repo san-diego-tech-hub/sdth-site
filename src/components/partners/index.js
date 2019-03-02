@@ -73,13 +73,11 @@ export default Partners
 
 const Container = styled.div`
   text-align: center;
-  margin: 0 30rem 10rem !important;
 
-  @media (max-width: 1500px) {
+  @media (min-width: 1200px) {
     margin: 10rem !important;
     max-width: 1200px;
   }
-
   @media (max-width: 1100px) {
     margin: 0 !important;
   }
@@ -114,6 +112,7 @@ const PartnerSection = styled.section`
       border-radius: 0.5rem;
     }
   }
+  
   @media (max-width: 990px) {
     .partners {
       grid-template-columns: repeat(2, 1fr);

@@ -5,7 +5,7 @@ export const AboutSection = styled.section`
   margin: 0 !important;
   padding: 10rem 20rem;
 
-   @media (max-width: 1500px) {
+   @media (min-width: 1200px) {
     .about-container {
       margin: 10rem !important;
       max-width: 1200px;
@@ -54,7 +54,7 @@ export const RebuildSection = styled.section`
 export const FounderSection = styled.section`
   margin: 0 !important;
   padding: 3.2rem 20rem;
-  @media (max-width: 1500px) {
+  @media (min-width: 1200px) {
     margin: 10rem !important;
     max-width: 1200px;
   }

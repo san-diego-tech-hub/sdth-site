@@ -30,7 +30,7 @@ const query = graphql`
   }
 `
 const Container = styled.main`
-@media (max-width: 1500px) {
+@media (min-width: 1200px) {
     margin: 10rem !important;
     max-width: 1200px;
   }
