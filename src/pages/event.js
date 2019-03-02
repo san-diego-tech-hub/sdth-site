@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import styled from "styled-components"
 import moment from "moment"
 import urlencode from "urlencode"
@@ -54,7 +54,14 @@ export default function EventPage({ pageContext: { event }, ...props }) {
             <Value>{event.venue.name}</Value>
             <Value>{event.venue.address}</Value>
           </ExternalLink>
-
+          <iframe
+            title={event.venue.name}
+            width="250px"
+            height="250px"
+            frameBorder="0"
+            src={`https://www.google.com/maps/embed/v1/place?key=${process.env.GOOGLE_API}&q=${urlencode(event.venue.address)}`}
+            allowFullScreen
+          />
         </SideBar>
       </Container>
     </Layout>
