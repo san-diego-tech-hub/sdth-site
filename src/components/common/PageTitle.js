@@ -1,6 +1,6 @@
-import React from 'react'
-import styled from 'styled-components'
-import { NAV_HEIGHT } from 'Utils/constants'
+import React from "react"
+import styled from "styled-components"
+import { NAV_HEIGHT } from "Utils/constants"
 
 export default function PageTitle({ children, ...props }) {
   return (

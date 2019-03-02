@@ -1,14 +1,14 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
-import moment from 'moment'
-import styled from 'styled-components'
+import React from "react"
+import PropTypes from "prop-types"
+import { graphql } from "gatsby"
+import moment from "moment"
+import styled from "styled-components"
 
-import Layout from 'Components/layout'
-import SEO from 'Components/seo'
-import Events from 'Components/events'
-import Calendar from 'Components/calendar'
-import PageTitle from 'Common/PageTitle'
+import Layout from "Components/layout"
+import SEO from "Components/seo"
+import Events from "Components/events"
+import Calendar from "Components/calendar"
+import PageTitle from "Common/PageTitle"
 
 function EventIndex({ data, ...props }) {
   const events = data.allEvent.edges.map(({ node }) => ({
@@ -21,7 +21,7 @@ function EventIndex({ data, ...props }) {
 
   return (
     <Layout pageProps={props}>
-      <SEO title="Events" keywords={['san diego', 'tech', 'hub', 'events', 'upcoming']} />
+      <SEO title="Events" keywords={["san diego", "tech", "hub", "events", "upcoming"]} />
 
       <PageTitle>
         Events
@@ -66,7 +66,6 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: auto;
   margin-bottom: 3rem;
   @media (max-width: 768px) {
     width: 100%;

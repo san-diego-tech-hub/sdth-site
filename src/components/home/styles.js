@@ -1,17 +1,17 @@
-import styled from 'styled-components'
-import { Link } from 'gatsby'
-import conduitsFlow from 'Images/conduits-flow.svg'
-import { NAV_HEIGHT } from 'Utils/constants'
+import styled from 'styled-components';
+import { Link } from 'gatsby';
+import conduitsFlow from 'Images/conduits-flow.svg';
+import { NAV_HEIGHT } from 'Utils/constants';
 
 export const Collaboration = styled.div`
   max-width: 800px;
   margin: 7rem auto 5rem;
   text-align: center;
 
-  @media(max-width: 450px) {
+  @media (max-width: 450px) {
     margin-top: 11rem;
   }
-`
+`;
 
 export const CollabIcon = styled.div`
   border-radius: 100%;
@@ -21,12 +21,12 @@ export const CollabIcon = styled.div`
   position: relative;
   text-align: center;
   width: 20rem;
-`
+`;
 
 export const Description = styled.p`
   font-size: 1.7rem;
   padding: 0 5rem;
-`
+`;
 
 export const HomeTitle = styled.div`
   display: flex;
@@ -36,19 +36,23 @@ export const HomeTitle = styled.div`
   left: 0;
   right: 0;
 
-  @media(max-width: 1267px) {
+  @media (max-width: 1267px) {
     top: calc(${NAV_HEIGHT} * 2 - 20px);
   }
 
-  @media(max-width: 612px) {
+  @media (max-width: 612px) {
     top: 12rem;
   }
 
-  @media(max-width: 450px) {
-    background: linear-gradient(rgba(82,48,181,0.9), 40%, rgba(129,74,198,0.9));
+  @media (max-width: 450px) {
+    background: linear-gradient(
+      rgba(82, 48, 181, 0.9),
+      40%,
+      rgba(129, 74, 198, 0.9)
+    );
     top: ${NAV_HEIGHT};
   }
-`
+`;
 
 export const PillarDescription = styled.div`
   margin: 15rem auto 5rem;
@@ -58,10 +62,10 @@ export const PillarDescription = styled.div`
     font-size: 1.7rem;
   }
 
-  @media(max-width: 990px) {
+  @media (max-width: 990px) {
     text-align: center;
   }
-`
+`;
 
 export const PillarIcon = styled(Link)`
   background: ${props => props.background};
@@ -76,7 +80,8 @@ export const PillarIcon = styled(Link)`
   text-decoration: none;
   width: 27rem;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     transform: translate(-2px, -2px);
   }
@@ -93,7 +98,7 @@ export const PillarIcon = styled(Link)`
     }
   }
 
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     width: 100vw;
 
     p {
@@ -101,7 +106,7 @@ export const PillarIcon = styled(Link)`
       width: 25rem;
     }
   }
-`
+`;
 
 export const PillarRow = styled.aside`
   display: flex;
@@ -117,7 +122,7 @@ export const PillarRow = styled.aside`
     font-size: 1.6rem;
     padding: 0 1rem;
   }
-`
+`;
 
 export const ThreeStep = styled.section`
   background: rgb(240, 240, 240);
@@ -155,22 +160,26 @@ export const ThreeStep = styled.section`
       grid-template-columns: 1fr;
     }
   }
-`
+`;
 
 export const WhatIsSDTH = styled.div`
-  background: linear-gradient(rgba(82,48,181,0.7), 70%, rgba(129,74,198,0.4));
+  background: linear-gradient(
+    rgba(82, 48, 181, 0.7),
+    70%,
+    rgba(129, 74, 198, 0.4)
+  );
   border-radius: 5px;
   color: white;
   padding: 4rem;
   position: relative;
-  width: 570px; 
+  width: 570px;
   z-index: 0;
 
-  @media(max-width: 1267px) {
+  @media (max-width: 1267px) {
     padding-bottom: 1.5rem;
   }
 
-  @media(max-width: 990px) {
+  @media (max-width: 990px) {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -180,14 +189,14 @@ export const WhatIsSDTH = styled.div`
     width: 100vw;
   }
 
-  @media(max-width: 600px) {
+  @media (max-width: 600px) {
     padding: 0.5rem;
     top: 0;
   }
 
-  @media(max-width: 448px) {
+  @media (max-width: 448px) {
     &::before {
-      content: "";
+      content: '';
       background-image: url(${conduitsFlow});
       background-size: cover;
       opacity: 0.4;
@@ -199,4 +208,4 @@ export const WhatIsSDTH = styled.div`
       z-index: 0;
     }
   }
-`
+`;

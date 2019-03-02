@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import conduitsFlow from 'Images/conduits-flow.svg'
-import Nav from '../nav'
-import { NAV_HEIGHT } from 'Utils/constants'
+import React from "react"
+import styled from "styled-components"
+import conduitsFlow from "Images/conduits-flow.svg"
+import { NAV_HEIGHT } from "Utils/constants"
+import Nav from "../nav"
 
 const Header = () => (
   <header>

@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import Color from 'color'
+import styled from "styled-components"
+import Color from "color"
 
 export const AvatarCard = styled.div`
   border-radius: 100%;

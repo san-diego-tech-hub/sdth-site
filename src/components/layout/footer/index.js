@@ -1,8 +1,8 @@
-import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+import React from "react"
+import { StaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 
-import { Container, InnerDiv } from './styles'
+import { Container, InnerDiv } from "./styles"
 
 const Footer = () => (
   <Container>
@@ -10,7 +10,7 @@ const Footer = () => (
       query={query}
       render={({ footer }) => (
         <InnerDiv>
-          <Img fluid={footer.childImageSharp.fluid} style={{ width: '30rem' }} />
+          <Img fluid={footer.childImageSharp.fluid} style={{ width: "30rem" }} />
         </InnerDiv>
       )}
     />

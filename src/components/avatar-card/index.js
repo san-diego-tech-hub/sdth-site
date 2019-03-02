@@ -1,6 +1,4 @@
-import React from 'react'
-
-// import styles from './avatar-card.module.css'
+import React from "react"
 
 const AvatarCard = ({ lead }) => (
   <div>

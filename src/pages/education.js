@@ -1,20 +1,26 @@
-import React from 'react'
-import { graphql } from 'gatsby'
+import React from "react"
+import { graphql } from "gatsby"
 
-import Layout from 'Components/layout'
-import SEO from 'Components/seo'
-import PillarTemplate from 'Components/pillars/template'
-import PageTitle from 'Common/PageTitle'
+import Layout from "Components/layout"
+import SEO from "Components/seo"
+import PillarTemplate from "Components/pillars/template"
+import PageTitle from "Common/PageTitle"
 
-export default props => (
-  <Layout pageProps={props}>
-    <SEO title="Education" keywords={['san diego', 'tech', 'hub', 'education', 'pillars']} />
-    <PageTitle>
-      Education
-    </PageTitle>
-    <PillarTemplate data={props.data.educationJson} icon={props.data.education} />
-  </Layout>
-)
+export default props => {
+  const { data: { education, educationJson } } = props
+  return (
+    <Layout pageProps={props}>
+      <SEO title="Education" keywords={["san diego", "tech", "hub", "education", "pillars"]} />
+      <PageTitle>
+        Education
+      </PageTitle>
+      <PillarTemplate
+        data={educationJson}
+        icon={education}
+      />
+    </Layout>
+  )
+}
 
 export const query = graphql`
   query EDUCATION_QUERY {
