@@ -6,7 +6,7 @@ export const AboutSection = styled.section`
   padding: 10rem 20rem;
 
   @media (max-width: 1500px) {
-    margin: 10rem !important;
+   
     max-width: 1200px;
   }
 
