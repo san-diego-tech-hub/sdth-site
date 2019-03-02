@@ -1,9 +1,14 @@
-import React from 'react'
-import { StaticQuery, graphql, Link } from 'gatsby'
-import Img from 'gatsby-image'
-import Color from 'color'
+import React from "react"
+import { StaticQuery, graphql, Link } from "gatsby"
+import Img from "gatsby-image"
+import Color from "color"
 
-// import styles from './leadership.module.css'
+import communityIcon from "Images/icon_community.svg"
+import educationIcon from "Images/icon_education.svg"
+import inclusionIcon from "Images/icon_inclusion.svg"
+import innovationIcon from "Images/icon_innovation.svg"
+import talentIcon from "Images/icon_talent.svg"
+import sdthLogo from "Images/ciricle-logo.svg"
 import {
   AvatarCard,
   Blurb,
@@ -13,13 +18,7 @@ import {
   PillarLeaders,
   TeamSection,
   Why
-} from './styles'
-import communityIcon from 'Images/icon_community.svg'
-import educationIcon from 'Images/icon_education.svg'
-import inclusionIcon from 'Images/icon_inclusion.svg'
-import innovationIcon from 'Images/icon_innovation.svg'
-import talentIcon from 'Images/icon_talent.svg'
-import sdthLogo from 'Images/ciricle-logo.svg'
+} from "./styles"
 
 const pillarIcons = {
   community: communityIcon,
@@ -29,44 +28,44 @@ const pillarIcons = {
   talent: talentIcon,
 }
 
-const FOUNDER_COLOR = Color('#545CFE').desaturate(0.2)
+const FOUNDER_COLOR = Color("#545CFE").desaturate(0.2)
 
 export default () => (
   <StaticQuery
     query={query}
     render={({ leadershipJson, ...avatar }) => (
       <main>
-        <Header style={{display: 'flex', justifyContent: 'center', marginBottom: '2rem'}}>
-          <div style={{maxWidth: '900px'}}>
+        <Header style={{ display: "flex", justifyContent: "center", marginBottom: "2rem" }}>
+          <div style={{ maxWidth: "900px" }}>
             <h2>{leadershipJson.firstSectionTitle}</h2>
             <p>{leadershipJson.firstSectionDescription}</p>
           </div>
         </Header>
         <TeamSection>
           <span>
-            <Card color={FOUNDER_COLOR.toString()} style={{ width: '50%', margin: 'auto' }}>
+            <Card color={FOUNDER_COLOR.toString()} style={{ width: "50%", margin: "auto" }}>
               <Label style={{ background: FOUNDER_COLOR.darken(0.15).toString(), padding: 0 }}>
                 <Link
-                  to={`/about`}
+                  to="/about"
                   style={{
-                    alignItems: 'center',
-                    color: 'white',
-                    display: 'flex',
-                    padding: '1.3rem',
-                    textDecoration: 'none'
+                    alignItems: "center",
+                    color: "white",
+                    display: "flex",
+                    padding: "1.3rem",
+                    textDecoration: "none"
                   }}
                 >
-                  <img style={{margin: 0, marginRight: '1rem'}} height='30px' src={sdthLogo} alt='SDTH' />
+                  <img style={{ margin: 0, marginRight: "1rem" }} height="30px" src={sdthLogo} alt="SDTH" />
                   Founder
                 </Link>
               </Label>
-              <AvatarCard style={{ marginTop: '1rem' }}>
+              <AvatarCard style={{ marginTop: "1rem" }}>
                 <Img fluid={avatar.claude.childImageSharp.fluid} alt="Claude Jones" />
               </AvatarCard>
 
               <div className="card-header">
-                <div style={{ fontWeight: '700' }}>Claude Jones</div>
-                <div style={{ fontSize: '2rem' }}>claude@sandiegotechhub.com</div>
+                <div style={{ fontWeight: "700" }}>Claude Jones</div>
+                <div style={{ fontSize: "2rem" }}>claude@sandiegotechhub.com</div>
 
                 <div className="card-text">
                   <Why color={FOUNDER_COLOR.toString()}>
@@ -88,17 +87,17 @@ export default () => (
             </Card>
           </span>
           <PillarLeaders>
-            {leadershipJson.leadership.map((leader, i) => {
+            {leadershipJson.leadership.map((leader) => {
               const icon = pillarIcons[leader.pillar.text]
               const photo = avatar[leader.photo]
               const baseColor = Color(leader.pillar.color).desaturate(0.2)
 
               return (
-                <Card color={baseColor.toString()} key={i}>
+                <Card color={baseColor.toString()} key={leader.name}>
                   <Label style={{ background: baseColor.darken(0.2).toString() }}>
                     <Link
                       to={`/${leader.pillar.text}`}
-                      style={{ color: 'white', textDecoration: 'none', padding: '.3rem' }}
+                      style={{ color: "white", textDecoration: "none", padding: ".3rem" }}
                     >
                       <img src={icon} width="30" alt={leader.pillar.text} />
                       {leader.pillar.text}
@@ -109,13 +108,13 @@ export default () => (
                     <Img
                       fluid={photo.childImageSharp.fluid}
                       alt={leader.name}
-                      style={{ borderRadius: '100%' }}
+                      style={{ borderRadius: "100%" }}
                     />
                   </AvatarCard>
 
                   <div className="card-header">
-                    <div style={{ fontWeight: '700' }}>{leader.name}</div>
-                    <div style={{ fontSize: '2rem' }}>{leader.email}</div>
+                    <div style={{ fontWeight: "700" }}>{leader.name}</div>
+                    <div style={{ fontSize: "2rem" }}>{leader.email}</div>
 
                     <div className="card-text">
                       {leader.bio ? (

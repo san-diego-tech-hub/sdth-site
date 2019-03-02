@@ -1,12 +1,12 @@
-import React from 'react'
-import moment from 'moment'
+import React from "react"
+import moment from "moment"
 
-import encode from 'Utils/encode'
-import { useFormInput } from 'Utils/hooks'
-import { ProposeForm } from './styles'
+import encode from "Utils/encode"
+import { useFormInput } from "Utils/hooks"
+import { ProposeForm } from "./styles"
 
 function ProposeEvent({ afterSubmit }) {
-  const date = moment().format('YYYY-MM-DDTHH:mm')
+  const date = moment().format("YYYY-MM-DDTHH:mm")
 
   const user = useFormInput()
   const name = useFormInput()
@@ -20,22 +20,23 @@ function ProposeEvent({ afterSubmit }) {
     e.preventDefault()
 
     if (
-      name.value === '' ||
-      location.value === '' ||
-      email.value === '' ||
-      user.value === '' ||
-      start.value === '' ||
-      end.value === '' ||
-      description.value === ''
+      name.value === ""
+      || location.value === ""
+      || email.value === ""
+      || user.value === ""
+      || start.value === ""
+      || end.value === ""
+      || description.value === ""
     ) {
-      return alert('Please fill out all the fields')
+      alert("Please fill out all the fields")
+      return
     }
 
-    await fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        'form-name': 'event-proposal',
+        "form-name": "event-proposal",
 
         name: name.value,
         location: location.value,
@@ -59,38 +60,52 @@ function ProposeEvent({ afterSubmit }) {
       onSubmit={handleSubmit}
     >
       <div className="input-field">
-        <label htmlFor="user">Your Name</label>
-        <input autoFocus name="user" type="text" {...user} id="user" />
+        <label htmlFor="user">
+          Your Name
+          <input id="user" type="text" {...user} />
+        </label>
       </div>
 
       <div className="input-field">
-        <label htmlFor="email">Email</label>
-        <input name="email" type="email" {...email} id="email" />
+        <label htmlFor="email">
+          Email
+          <input id="email" type="email" {...email} />
+        </label>
       </div>
 
       <div className="input-field">
-        <label htmlFor="name">Name of Event</label>
-        <input name="name" type="text" {...name} id="name" />
+        <label htmlFor="name">
+          Name of Event
+          <input id="name" type="text" {...name} />
+        </label>
       </div>
 
       <div className="input-field">
-        <label htmlFor="name">Location</label>
-        <input name="location" type="text" {...location} id="location" />
+        <label htmlFor="location">
+          Location
+          <input id="location" type="text" {...location} />
+        </label>
       </div>
 
       <div className="input-field">
-        <label htmlFor="start">Start</label>
-        <input type="datetime-local" name="start" id="start" {...start} />
+        <label htmlFor="start">
+          Start
+          <input id="start" type="datetime-local" {...start} />
+        </label>
       </div>
 
       <div className="input-field">
-        <label htmlFor="end">End</label>
-        <input type="datetime-local" name="end" id="end" {...end} />
+        <label htmlFor="end">
+          End
+          <input id="end" type="datetime-local" {...end} />
+        </label>
       </div>
 
       <div className="input-field">
-        <label htmlFor="description">Description</label>
-        <textarea name="description" id="description" {...description} />
+        <label htmlFor="description">
+          Description
+          <textarea id="description" {...description} />
+        </label>
       </div>
 
       <button type="submit">Propose Event</button>

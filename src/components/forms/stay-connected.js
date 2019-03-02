@@ -1,33 +1,33 @@
-import React from 'react'
-import addToMailChimp from 'gatsby-plugin-mailchimp'
+import React from "react"
+import addToMailChimp from "gatsby-plugin-mailchimp"
 
-import SocialMedia from './social-media'
-import { Container, Form, FormTitle, SocialContainer } from './styles'
-import ExternalLink from 'Common/ExternalLink'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ExternalLink from "Common/ExternalLink"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import SocialMedia from "./social-media"
+import { Container, Form, FormTitle, SocialContainer } from "./styles"
 
 class StayConnected extends React.Component {
   state = {
-    name: '',
-    email: '',
-    comments: '',
+    name: "",
+    email: "",
+    comments: "",
   }
 
-  handleChange = ({ target }) => this.setState({ [target.name]: target.value })
+  handleChange = ({ target }) => this.setState({ [target.id]: target.value })
 
   handleSubmit = async e => {
     e.preventDefault()
     const { name, email, comments } = this.state
 
     if (email.length < 1 || name.length < 1) {
-      alert('Please provide a valid name and email.')
+      alert("Please provide a valid name and email.")
       return
     }
     const res = await addToMailChimp(email, { NAME: name, COMMENTS: comments })
 
     alert(res.msg)
-    if (res.result === 'success') {
-      this.setState({ name: '', email: '', comments: '' })
+    if (res.result === "success") {
+      this.setState({ name: "", email: "", comments: "" })
     }
   }
 
@@ -39,24 +39,29 @@ class StayConnected extends React.Component {
         <Form method="post" onSubmit={this.handleSubmit}>
           <FormTitle className="bigScreen">Stay Connected</FormTitle>
           <div>
-            <label htmlFor="name">Name:</label>
-            <input name="name" id="name" value={name} onChange={this.handleChange} />
+            <label htmlFor="name">
+              Name:
+              <input id="name" value={name} onChange={this.handleChange} />
+            </label>
           </div>
           <div>
-            <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              value={email}
-              onChange={this.handleChange}
-            />
+            <label htmlFor="email">
+              Email:
+              <input
+                id="email"
+                type="email"
+                value={email}
+                onChange={this.handleChange}
+              />
+            </label>
           </div>
           <div>
-            <label htmlFor="comments">Comments:</label>
-            <textarea id="comments" name="comments" value={comments} onChange={this.handleChange} />
+            <label htmlFor="comments">
+              Comments:
+              <textarea id="comments" value={comments} onChange={this.handleChange} />
+            </label>
           </div>
-          <button>Join the Movement</button>
+          <button type="submit">Join the Movement</button>
         </Form>
         <SocialContainer>
           <p>
@@ -65,9 +70,11 @@ class StayConnected extends React.Component {
           </p>
 
           <ExternalLink href="https://join.slack.com/t/sandiegotechhub/shared_invite/enQtNTI1MDA2NjQyNDcwLTRhYmFhOGZlNzQyZWQ0NmJjMTEzNGE1YjI1NTJmY2RhZjVmYjBjNDAyYmI4MDZkNTM4MzMwM2JmYWQzOGVkYjY">
-            <button>
-              <FontAwesomeIcon size="sm" icon={['fab', 'slack']} />
-              <span style={{ marginLeft: '1rem' }}>Join our Slack <span className="join">Community</span></span>
+            <button type="submit">
+              <FontAwesomeIcon size="sm" icon={["fab", "slack"]} />
+              <span style={{ marginLeft: "1rem" }}>
+                Join our Slack <span className="join">Community</span>
+              </span>
             </button>
           </ExternalLink>
           <SocialMedia />

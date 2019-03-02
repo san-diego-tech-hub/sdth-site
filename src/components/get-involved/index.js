@@ -1,12 +1,12 @@
-import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-import styled from 'styled-components'
-import SocialAggregator from 'Components/social-aggregator'
+import React from "react"
+import { StaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
+import SocialAggregator from "Components/social-aggregator"
 
 const GetInvolved = () => (
   <StaticQuery
     query={query}
-    render={({ getInvolvedJson, ...logos }) => (
+    render={({ getInvolvedJson }) => (
       <Container>
         <section>
           <h2>{getInvolvedJson.firstSectionTitle}</h2>

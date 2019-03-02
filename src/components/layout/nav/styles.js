@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { NAV_HEIGHT } from 'Utils/constants'
+import styled from "styled-components"
+import { NAV_HEIGHT } from "Utils/constants"
 
 export const Container = styled.div`
   display: flex;

@@ -1,7 +1,12 @@
-import React from 'react'
-import Img from 'gatsby-image'
-import { StaticQuery, graphql } from 'gatsby'
+import React from "react"
+import Img from "gatsby-image"
+import { StaticQuery, graphql } from "gatsby"
 
+import communityIcon from "Images/icon_community.svg"
+import educationIcon from "Images/icon_education.svg"
+import inclusionIcon from "Images/icon_inclusion.svg"
+import innovationIcon from "Images/icon_innovation.svg"
+import talentIcon from "Images/icon_talent.svg"
 import {
   Collaboration,
   CollabIcon,
@@ -12,12 +17,7 @@ import {
   PillarRow,
   ThreeStep,
   WhatIsSDTH
-} from './styles'
-import communityIcon from 'Images/icon_community.svg'
-import educationIcon from 'Images/icon_education.svg'
-import inclusionIcon from 'Images/icon_inclusion.svg'
-import innovationIcon from 'Images/icon_innovation.svg'
-import talentIcon from 'Images/icon_talent.svg'
+} from "./styles"
 
 const pillarIcons = {
   community: communityIcon,
@@ -33,11 +33,11 @@ export default () => (
     render={({ homeJson, ...icons }) => (
       <main>
         <HomeTitle>
-          <div style={{width: '100%', maxWidth: '1200px'}}>
+          <div style={{ width: "100%", maxWidth: "1200px" }}>
             <WhatIsSDTH>
-              <div style={{maxWidth: '570px', zIndex: 2}}>
-                <h2 style={{color: 'white'}}>{homeJson.firstSectionTitle}</h2>
-                <p style={{fontSize: '1.5rem'}}>{homeJson.firstSectionDescription}</p>
+              <div style={{ maxWidth: "570px", zIndex: 2 }}>
+                <h2 style={{ color: "white" }}>{homeJson.firstSectionTitle}</h2>
+                <p style={{ fontSize: "1.5rem" }}>{homeJson.firstSectionDescription}</p>
               </div>
             </WhatIsSDTH>
           </div>
@@ -47,12 +47,12 @@ export default () => (
           <Description>{homeJson.secondSectionDescription}</Description>
         </Collaboration>
         <ThreeStep>
-          <aside style={{maxWidth: '1200px'}}>
+          <aside style={{ maxWidth: "1200px" }}>
             {homeJson.secondSectionItems.map((c, i) => {
               const icon = icons[c.title]
 
               return (
-                <div key={i}>
+                <div key={c.title}>
                   <CollabIcon>
                     <Img fluid={icon.childImageSharp.fluid} alt={c.title} />
                   </CollabIcon>
@@ -72,8 +72,8 @@ export default () => (
           <p>{homeJson.thirdSectionDescription}</p>
         </PillarDescription>
         <PillarRow>
-          {homeJson.thirdSectionItems.map((pillar, i) => (
-            <PillarIcon to={`/${pillar.title}`} key={i} background={pillar.background}>
+          {homeJson.thirdSectionItems.map((pillar) => (
+            <PillarIcon to={`/${pillar.title}`} key={pillar.title} background={pillar.background}>
               <div>
                 <img alt={pillar.title} src={pillarIcons[pillar.title]} height="75" />
                 <h4>{pillar.title}</h4>

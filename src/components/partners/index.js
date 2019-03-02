@@ -1,10 +1,9 @@
-import React from 'react'
-import { StaticQuery } from 'gatsby'
-import { graphql } from 'gatsby'
-import styled from 'styled-components'
-import Img from 'gatsby-image'
+import React from "react"
+import { graphql, StaticQuery } from "gatsby"
+import styled from "styled-components"
+import Img from "gatsby-image"
 
-import ExternalLink from 'Common/ExternalLink'
+import ExternalLink from "Common/ExternalLink"
 
 const Partners = () => (
   <StaticQuery
@@ -20,13 +19,13 @@ const Partners = () => (
               dangerouslySetInnerHTML={{ __html: partnersJson.firstSectionDescription }}
             />
             <div className="partners">
-              {partnersJson.firstSectionItems.map((company, i) => {
+              {partnersJson.firstSectionItems.map((company) => {
                 const logo = logos[company.logo]
                 if (!logo) {
                   return null
                 }
                 return (
-                  <div key={i} className="partner">
+                  <div key={company.name} className="partner">
                     <ExternalLink href={company.website}>
                       <Img fluid={logo.childImageSharp.fluid} alt={company.name} />
                     </ExternalLink>
@@ -44,19 +43,19 @@ const Partners = () => (
               dangerouslySetInnerHTML={{ __html: partnersJson.secondSectionDescription }}
             />
             <div className="partners">
-              {partnersJson.secondSectionItems.map((company, i) => {
+              {partnersJson.secondSectionItems.map((company) => {
                 const logo = logos[company.logo]
                 if (!logo) {
                   return null
                 }
 
                 return (
-                  <div key={i} className="partner">
+                  <div key={company.name} className="partner">
                     <ExternalLink href={company.website}>
                       <Img
                         fluid={logo.childImageSharp.fluid}
                         alt={company.name}
-                        style={{ maxWidth: '40rem', margin: 'auto' }}
+                        style={{ maxWidth: "40rem", margin: "auto" }}
                       />
                     </ExternalLink>
                   </div>

@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { NAV_HEIGHT }  from 'Utils/constants'
+import styled from "styled-components"
+import { NAV_HEIGHT }  from "Utils/constants"
 
 export const Container = styled.div`
   color: ${props => props.theme.gray};
@@ -23,6 +23,7 @@ export const Container = styled.div`
     border: 1px solid #2abbf4;
     border-radius: 0.5rem;
   }
+
   .smallScreen {
     color: ${props => props.theme.primaryMuted};
     display: none;
@@ -126,21 +127,6 @@ export const ProposeForm = styled.form`
   height: 100%;
   margin: auto;
   padding: 5rem;
-  label {
-    font-weight: bolder;
-    display: block;
-
-    margin-top: 0.8rem;
-  }
-  .input-field {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  input {
-    border: 1px solid #cccccc;
-    border-radius: 0.5rem;
-  }
 
   button {
     width: 100%;
@@ -150,6 +136,32 @@ export const ProposeForm = styled.form`
     color: white;
     background: ${props => props.theme.primaryLight};
     border-radius: 0.5rem;
+  }
+
+  label {
+    font-weight: bolder;
+    display: block;
+
+    margin-top: 0.8rem;
+  }
+
+  input {
+    border: 1px solid #cccccc;
+    border-radius: 0.5rem;
+    display: block;
+    width: 100%;
+  }
+
+  textarea {
+    border: 1px solid #bbb;
+    display: block;
+    width: 100%;
+  }
+
+  .input-field {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
   }
 
   @media(max-width: 450px) {

@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import { Link } from 'gatsby'
-import conduitsFlow from 'Images/conduits-flow.svg'
-import { NAV_HEIGHT } from 'Utils/constants'
+import styled from "styled-components"
+import { Link } from "gatsby"
+import conduitsFlow from "Images/conduits-flow.svg"
+import { NAV_HEIGHT } from "Utils/constants"
 
 export const Collaboration = styled.div`
   max-width: 800px;
