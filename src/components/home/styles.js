@@ -52,6 +52,15 @@ export const HomeTitle = styled.div`
     );
     top: ${NAV_HEIGHT};
   }
+
+  @media (max-width: 450px) {
+    background: linear-gradient(
+      rgba(82, 48, 181, 0.9),
+      40%,
+      rgba(129, 74, 198, 0.9)
+    );
+    top: ${NAV_HEIGHT};
+  }
 `;
 
 export const PillarDescription = styled.div`
