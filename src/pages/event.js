@@ -56,8 +56,8 @@ export default function EventPage({ pageContext: { event }, ...props }) {
           </ExternalLink>
           <iframe
             title={event.venue.name}
-            width="250px"
-            height="250px"
+            width="100%"
+            height="300px"
             frameBorder="0"
             src={`https://www.google.com/maps/embed/v1/place?key=${process.env.GATSBY_GOOGLE_API}&q=${urlencode(event.venue.address)}`}
             allowFullScreen
