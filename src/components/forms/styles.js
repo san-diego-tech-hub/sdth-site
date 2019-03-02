@@ -164,6 +164,12 @@ export const ProposeForm = styled.form`
     flex-direction: column;
   }
 
+  .cancel {
+    background: white;
+    border: 1px solid red;
+    color: red;
+  }
+
   @media(max-width: 450px) {
     height: calc(100vh - ${NAV_HEIGHT} * 2);
     margin-top: calc(${NAV_HEIGHT} * 2);
