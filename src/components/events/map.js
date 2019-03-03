@@ -1,24 +1,24 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { GoogleApiWrapper, InfoWindow, Map, Marker } from 'google-maps-react'
+import React from "react"
+import { GoogleApiWrapper, InfoWindow, Map, Marker } from "google-maps-react"
 
 class MyMap extends React.Component {
   state = {
     showingInfoWindow: false,
     activeMarker: {},
-    selectedPlace: {},
+    // selectedPlace: {},
   }
 
-  onMarkerClick = (props, marker, e) => {
+  onMarkerClick = (props, marker) => {
     this.setState({
-      selectedPlace: props,
+      // selectedPlace: props,
       activeMarker: marker,
       showingInfoWindow: true,
     })
   }
 
   onMapClick = () => {
-    if (this.state.showingInfoWindow) {
+    const { showingInfoWindow } = this.state
+    if (showingInfoWindow) {
       this.setState({
         showingInfoWindow: false,
         activeMarker: null,
@@ -27,23 +27,25 @@ class MyMap extends React.Component {
   }
 
   render() {
+    const { google } = this.props
+    const { activeMarker, showingInfoWindow } = this.state
     return (
-      <div style={{ width: '100%', height: '40rem' }}>
+      <div style={{ width: "100%", height: "40rem" }}>
         <Map
           item
           xs={12}
-          google={this.props.google}
+          google={google}
           onClick={this.onMapClick}
           zoom={14}
           initialCenter={{ lat: 39.648209, lng: -75.711185 }}
         >
           <Marker
             onClick={this.onMarkerClick}
-            title={'Changing Colors Garage'}
+            title="Changing Colors Garage"
             position={{ lat: 39.648209, lng: -75.711185 }}
-            name={'Changing Colors Garage'}
+            name="Changing Colors Garage"
           />
-          <InfoWindow marker={this.state.activeMarker} visible={this.state.showingInfoWindow}>
+          <InfoWindow marker={activeMarker} visible={showingInfoWindow}>
             My Info Goes Here!
           </InfoWindow>
         </Map>
@@ -52,4 +54,4 @@ class MyMap extends React.Component {
   }
 }
 
-export default GoogleApiWrapper({ api: process.env.GOOGLE_API })(MyMap)
+export default GoogleApiWrapper({ api: process.env.GATSBY_GOOGLE_API })(MyMap)

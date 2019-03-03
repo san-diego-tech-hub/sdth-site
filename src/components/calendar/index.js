@@ -20,9 +20,15 @@ function Calendar({ events }) {
       return
     }
 
+    const { scrollY } = window
+    const { clientHeight, clientWidth } = document.documentElement
+
+    const detailsX = Math.min(pageX, clientWidth - 300)
+    const detailsY = Math.min(pageY, scrollY + clientHeight - 187)
+
     setEventInfo({
       event,
-      position: { x: pageX, y: pageY },
+      position: { x: detailsX, y: detailsY },
     })
   }
 
