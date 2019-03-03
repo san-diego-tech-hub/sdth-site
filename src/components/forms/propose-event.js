@@ -5,12 +5,12 @@ import encode from "Utils/encode"
 import { useFormInput } from "Utils/hooks"
 import { ProposeForm } from "./styles"
 
-function ProposeEvent({ afterSubmit }) {
+function ProposeEvent({ closeModal }) {
   const date = moment().format("YYYY-MM-DDTHH:mm")
 
   const user = useFormInput()
-  const name = useFormInput()
   const email = useFormInput()
+  const eventName = useFormInput()
   const location = useFormInput()
   const start = useFormInput(date)
   const end = useFormInput(date)
@@ -20,13 +20,13 @@ function ProposeEvent({ afterSubmit }) {
     e.preventDefault()
 
     if (
-      name.value === ""
-      || location.value === ""
-      || email.value === ""
-      || user.value === ""
-      || start.value === ""
-      || end.value === ""
-      || description.value === ""
+      user.value === "" // greater than one character
+      || email.value === "" // look for npm package
+      || eventName.value === "" // greater than one character
+      || location.value === "" // greater than one character
+      || start.value === "" // must occur at a later date than current date
+      || end.value === "" // must occur at a later date than current date
+      || description.value === "" // greater than one character
     ) {
       alert("Please fill out all the fields")
       return
@@ -38,17 +38,17 @@ function ProposeEvent({ afterSubmit }) {
       body: encode({
         "form-name": "event-proposal",
 
-        name: name.value,
-        location: location.value,
         user: user.value,
         email: email.value,
+        eventName: eventName.value,
+        location: location.value,
         start: start.value,
         end: end.value,
         description: description.value,
       }),
     })
 
-    afterSubmit()
+    closeModal()
   }
 
   return (
@@ -74,9 +74,9 @@ function ProposeEvent({ afterSubmit }) {
       </div>
 
       <div className="input-field">
-        <label htmlFor="name">
+        <label htmlFor="event-name">
           Name of Event
-          <input id="name" type="text" {...name} />
+          <input id="event-name" type="text" {...eventName} />
         </label>
       </div>
 
@@ -109,6 +109,7 @@ function ProposeEvent({ afterSubmit }) {
       </div>
 
       <button type="submit">Propose Event</button>
+      <button type="button" className="cancel" onClick={closeModal}>Cancel</button>
     </ProposeForm>
   )
 }

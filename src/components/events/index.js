@@ -36,7 +36,7 @@ function EventsComponent({ events }) {
   return (
     <Container>
       <Modal isOpen={modalOpen} onRequestClose={closeModal} style={styles}>
-        <ProposeEvent afterSubmit={closeModal} />
+        <ProposeEvent closeModal={closeModal} />
       </Modal>
 
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
