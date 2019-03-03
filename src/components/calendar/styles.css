@@ -10,15 +10,14 @@
 
 .rbc-active {
   background-color: #7945c2 !important;
-  /* background-color: #9245cf !important; new purple to be used when ui update is done*/
   color: white !important;
 }
 
 .ReactModal__Body--open {
   overflow: hidden;
   position: fixed;
-  width: 100%;
   height: 100%;
+  width: 100%;
 }
 @media (max-width: 512px) {
   .event-details {
