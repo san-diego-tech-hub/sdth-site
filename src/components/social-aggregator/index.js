@@ -3,6 +3,7 @@ import styled from "styled-components"
 
 import ExternalLink from "Common/ExternalLink"
 import { useCurator } from "Utils/hooks"
+import "./styles.css"
 
 function SocialAggregator() {
   useCurator()
