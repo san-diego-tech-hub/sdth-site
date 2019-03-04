@@ -29,10 +29,14 @@ const query = graphql`
     }
   }
 `
+
 const Container = styled.main`
+  max-width: 1400px;
+
   section {
     padding: 2rem;
   }
+
   @media(max-width: 450px) {
     width 100vw;
   }

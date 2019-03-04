@@ -1,6 +1,5 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
-
 import claude1 from "Images/claude_1.png"
 import claude2 from "Images/claude_2.png"
 import goals from "Images/goals.svg"
@@ -9,7 +8,15 @@ import tasks from "Images/tasks.svg"
 import silos from "Images/silos.svg"
 import judge from "Images/judge.svg"
 import conversations from "Images/conversations.svg"
-import { RebuildSection, FounderSection, ChallengesSection, ChallengeIcon, AboutSection } from "./styles"
+import {
+  AboutSection,
+  AboutContent,
+  ChallengeIcon,
+  ChallengesSection,
+  FounderSection,
+  RebuildContent,
+  RebuildSection
+} from "./styles"
 
 const icons = { goals, heart, tasks, silos, judge, conversations }
 
@@ -74,8 +81,10 @@ const About = () => (
         </FounderSection>
 
         <AboutSection>
-          <h2>{aboutJson.firstSectionTitle}</h2>
-          <div dangerouslySetInnerHTML={{ __html: aboutJson.firstSectionDescription }} />
+          <AboutContent>
+            <h2>{aboutJson.firstSectionTitle}</h2>
+            <div dangerouslySetInnerHTML={{ __html: aboutJson.firstSectionDescription }} />
+          </AboutContent>
         </AboutSection>
 
         <ChallengesSection>
@@ -93,29 +102,31 @@ const About = () => (
             })}
           </ChallengeIcon>
 
-          <span>
+          <span className="title-description">
             <h2>{aboutJson.fourthSectionTitle}</h2>
             <p>{aboutJson.fourthSectionDescription}</p>
           </span>
         </ChallengesSection>
 
         <RebuildSection>
-          <span>
-            <h2>{aboutJson.thirdSectionTitle}</h2>
-            <p>{aboutJson.thirdSectionDescription}</p>
-          </span>
+          <RebuildContent>
+            <span className="title-description">
+              <h2>{aboutJson.thirdSectionTitle}</h2>
+              <p>{aboutJson.thirdSectionDescription}</p>
+            </span>
 
-          <span>
-            {aboutJson.thirdSectionItems.map((s) => (
-              <div className="rebuild-panel" key={s.title}>
-                <img src={icons[s.icon]} alt={s.title} width="100" />
-                <span>
-                  <h4>{s.title}</h4>
-                  <p>{s.description}</p>
-                </span>
-              </div>
-            ))}
-          </span>
+            <span>
+              {aboutJson.thirdSectionItems.map((s) => (
+                <div className="rebuild-panel" key={s.title}>
+                  <img src={icons[s.icon]} alt={s.title} width="100" />
+                  <span>
+                    <h4>{s.title}</h4>
+                    <p>{s.description}</p>
+                  </span>
+                </div>
+              ))}
+            </span>
+          </RebuildContent>
         </RebuildSection>
       </main>
     )}

@@ -72,12 +72,8 @@ const Partners = () => (
 export default Partners
 
 const Container = styled.div`
+  max-width: 1200px;
   text-align: center;
-  margin: 0 30rem 10rem !important;
-
-  @media (max-width: 1500px) {
-    margin: 10rem !important;
-  }
 
   @media (max-width: 1100px) {
     margin: 0 !important;
@@ -91,10 +87,13 @@ const Container = styled.div`
 `
 
 const PartnerSection = styled.section`
+  margin: 0 15rem 10rem !important;
   padding-top: 3.2rem;
+
   h2 {
     margin-bottom: 3.2rem;
   }
+
   .description {
     text-align: left;
     margin-bottom: 3.2rem;
@@ -103,21 +102,29 @@ const PartnerSection = styled.section`
       text-decoration: none;
     }
   }
+
   .partners {
-    padding-top: 3.2rem;
     display: grid;
     grid-template-columns: repeat(${props => props.repeat || 1}, 1fr);
     grid-gap: 3.2rem;
+    padding-top: 3.2rem;
 
     .partner {
       border-radius: 0.5rem;
     }
   }
+
   @media (max-width: 990px) {
+    margin: 0 5rem 10rem !important;
+
     .partners {
       grid-template-columns: repeat(2, 1fr);
       margin: 0 !important;
     }
+  }
+
+  @media (max-width: 450px) {
+    padding: 1rem;
   }
 `
 
