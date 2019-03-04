@@ -1,7 +1,7 @@
-import React from "react";
-import { StaticQuery, graphql } from "gatsby";
-import styled from "styled-components";
-import SocialAggregator from "Components/social-aggregator";
+import React from "react"
+import { StaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
+import SocialAggregator from "Components/social-aggregator"
 
 const GetInvolved = () => (
   <StaticQuery
@@ -19,7 +19,7 @@ const GetInvolved = () => (
       </Container>
     )}
   />
-);
+)
 
 const query = graphql`
   query GETINVOLVED_QUERY {
@@ -28,19 +28,18 @@ const query = graphql`
       firstSectionDescription
     }
   }
-`;
+`
+
 const Container = styled.main`
+  max-width: 1400px;
 
   section {
     padding: 2rem;
   }
-  @media (min-width: 1200px) {
-      margin: 10rem !important;
-      max-width: 1200px;
-    }
+
   @media(max-width: 450px) {
     width 100vw;
   }
-`;
+`
 
-export default GetInvolved;
+export default GetInvolved

@@ -11,10 +11,10 @@ export const theme = {
 }
 
 export const Wrapper = styled.div`
-  display: flex;
   align-items: center;
-  flex-direction: column;
   background: white;
+  display: flex;
+  flex-direction: column;
 
   section {
     margin: 10rem 20rem;
