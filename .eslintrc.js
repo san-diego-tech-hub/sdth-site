@@ -38,7 +38,7 @@ module.exports = {
     "react/no-unescaped-entities": 0,
     "react/prop-types": 0,
     "react/require-default-props": 0,
-    "semi": 0,
+    "semi": [2, "never"],
   },
   parser: "babel-eslint",
   globals: {
