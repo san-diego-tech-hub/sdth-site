@@ -96,6 +96,7 @@ const Container = styled.div`
   margin-left: 2rem;
   margin-top: 5rem;
   width: 500px;
+
   @media (max-width: 768px) {
     margin-left: 0;
   }
@@ -118,6 +119,7 @@ const Events = styled.div`
   background: #f5f5f5;
   border-radius: 5px;
   border: 5px solid #f5f5f5;
+  border-bottom: 10px solid #f5f5f5;
   display: flex;
   flex-direction: column;
   height: 635px;

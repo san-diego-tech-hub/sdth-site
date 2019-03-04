@@ -59,7 +59,12 @@ export const PillarDescription = styled.div`
   }
 
   @media(max-width: 990px) {
+    padding: 0 2rem;
     text-align: center;
+  }
+
+  @media(max-width: 612px) {
+    padding: 0 4rem;
   }
 `
 
@@ -121,15 +126,11 @@ export const PillarRow = styled.aside`
 
 export const ThreeStep = styled.section`
   background: rgb(240, 240, 240);
-  text-align: center;
   margin: 0 !important;
   padding: 3.2rem 20rem;
-  h3 {
-    font-size: 3.2rem;
-    margin-top: 1.6rem;
-    color: ${props => props.theme.primaryDark};
-    font-weight: normal;
-  }
+  text-align: center;
+  width: 100vw !important;
+
   aside {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -137,22 +138,31 @@ export const ThreeStep = styled.section`
     margin: auto;
   }
 
+  h3 {
+    font-size: 3.2rem;
+    margin-top: 1.6rem;
+    color: ${props => props.theme.primaryDark};
+    font-weight: normal;
+  }
+
   .description {
     font-size: 1.6rem;
     text-align: center;
   }
-  @media (max-width: 667px) {
-    text-align: center;
-    padding: 3.2rem 0;
-    padding: 1.6rem;
-    .description {
-      padding: 0;
-    }
-  }
+
   @media (max-width: 990px) {
-    width: 100% !important;
     aside {
       grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 667px) {
+    margin: 0 2rem !important;
+    padding: 1.6rem;
+    text-align: center;
+
+    .description {
+      padding: 0;
     }
   }
 `
@@ -163,7 +173,7 @@ export const WhatIsSDTH = styled.div`
   color: white;
   padding: 4rem;
   position: relative;
-  width: 570px; 
+  width: 570px;
   z-index: 0;
 
   @media(max-width: 1267px) {

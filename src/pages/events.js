@@ -66,8 +66,10 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 3rem;
-  @media (max-width: 768px) {
+  margin-bottom: 10rem;
+  width: 1600px;
+
+  @media (max-width: 1300px) {
     width: 100%;
   }
 `
