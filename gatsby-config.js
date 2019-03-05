@@ -1,4 +1,4 @@
-if (process.env.LOCAL_BUILD || process.env.NODE_ENV !== "production") {
+if (process.env.LOCAL_BUILD || process.env.NODE_ENV === "development") {
   require("dotenv").config({ path: ".env.dev" })
 }
 
@@ -65,14 +65,14 @@ const plugins = [
       page: 200,
     },
   },
-  // {
-  //   resolve: "gatsby-source-eventbrite",
-  //   options: {
-  //     organizationId: process.env.EVENTBRITE_ORG_ID,
-  //     accessToken: process.env.EVENTBRITE_OAUTH_TOKEN,
-  //     entities: ["events", "venues"],
-  //   },
-  // },
+  {
+    resolve: "gatsby-source-eventbrite",
+    options: {
+      organizationId: process.env.EVENTBRITE_ORG_ID,
+      accessToken: process.env.EVENTBRITE_OAUTH_TOKEN,
+      entities: ["events", "venues"],
+    },
+  },
 ]
 
 if (process.env.NODE_ENV === "production") {
