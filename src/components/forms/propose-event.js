@@ -20,6 +20,7 @@ function ProposeEvent({ closeModal }) {
 
   const formFields = [
     user,
+    email,
     eventName,
     location,
     start,

@@ -1,49 +1,47 @@
-const path = ".env" + (process.env.NODE_ENV === "development" ? ".dev" : "")
-
-if (process.env.NODE_EN !== "production") {
-  require("dotenv").config({ path }) // only run this in prod if we're doing the FTP deployement, not for now/netlify deployment.
+if (process.env.LOCAL_BUILD || process.env.NODE_ENV !== "production") {
+  require("dotenv").config({ path: ".env.dev" })
 }
 
 const plugins = [
-  `gatsby-plugin-react-helmet`,
+  "gatsby-plugin-react-helmet",
   {
-    resolve: `gatsby-source-filesystem`,
+    resolve: "gatsby-source-filesystem",
     options: {
-      name: `images`,
+      name: "images",
       path: `${__dirname}/src/images`,
     },
   },
-  `gatsby-transformer-json`,
-  `gatsby-transformer-remark`,
+  "gatsby-transformer-json",
+  "gatsby-transformer-remark",
   {
-    resolve: `gatsby-source-filesystem`,
+    resolve: "gatsby-source-filesystem",
     options: {
-      name: `data`,
+      name: "data",
       path: `${__dirname}/src/data`,
     },
   },
-  `gatsby-transformer-sharp`,
-  `gatsby-plugin-sharp`,
+  "gatsby-transformer-sharp",
+  "gatsby-plugin-sharp",
   {
-    resolve: `gatsby-plugin-manifest`,
+    resolve: "gatsby-plugin-manifest",
     options: {
-      name: `San Diego Tech Hub`,
-      short_name: `SD Tech Hub`,
-      start_url: `/`,
-      background_color: `#663399`,
-      theme_color: `#663399`,
-      display: `minimal-ui`,
+      name: "San Diego Tech Hub",
+      short_name: "SD Tech Hub",
+      start_url: "/",
+      background_color: "#663399",
+      theme_color: "#663399",
+      display: "minimal-ui",
       icon: "./src/images/ciricle-logo.png",
     },
   },
   {
-    resolve: `gatsby-plugin-typography`,
+    resolve: "gatsby-plugin-typography",
     options: {
-      pathToConfigModule: `src/utils/typography.js`,
+      pathToConfigModule: "src/utils/typography.js",
     },
   },
   {
-    resolve: `gatsby-plugin-google-fonts`,
+    resolve: "gatsby-plugin-google-fonts",
     options: {
       fonts: ["roboto"],
     },
@@ -54,11 +52,11 @@ const plugins = [
       endpoint: process.env.MAILCHIMP,
     },
   },
-  `gatsby-plugin-remove-trailing-slashes`,
-  `gatsby-plugin-remove-serviceworker`,
-  `gatsby-plugin-styled-components`,
+  "gatsby-plugin-remove-trailing-slashes",
+  "gatsby-plugin-remove-serviceworker",
+  "gatsby-plugin-styled-components",
   {
-    resolve: `gatsby-source-meetup`,
+    resolve: "gatsby-source-meetup",
     options: {
       key: process.env.MEETUP_API_KEY,
       groupUrlName: "sandiegojs",
@@ -67,19 +65,19 @@ const plugins = [
       page: 200,
     },
   },
-  {
-    resolve: `gatsby-source-eventbrite`,
-    options: {
-      organizationId: process.env.EVENTBRITE_ORG_ID,
-      accessToken: process.env.EVENTBRITE_OAUTH_TOKEN,
-      entities: ["events"],
-    },
-  },
+  // {
+  //   resolve: "gatsby-source-eventbrite",
+  //   options: {
+  //     organizationId: process.env.EVENTBRITE_ORG_ID,
+  //     accessToken: process.env.EVENTBRITE_OAUTH_TOKEN,
+  //     entities: ["events", "venues"],
+  //   },
+  // },
 ]
 
 if (process.env.NODE_ENV === "production") {
   plugins.push({
-    resolve: `gatsby-plugin-google-analytics`,
+    resolve: "gatsby-plugin-google-analytics",
     options: {
       trackingId: process.env.GA,
     },
@@ -106,7 +104,7 @@ const config = {
     title: "San Diego Tech Hub",
     description:
       "San Diego Tech Hub represents a movement aimed at changing the perception of the San Diego tech ecosystem. Our focus is to be a conduit for change connecting businesses, organizations, and individuals, leveraging their resources and talents to build a stronger San Diego tech community through collaboration.",
-    author: `Claude Jones`,
+    author: "Claude Jones",
   },
   plugins,
 }

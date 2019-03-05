@@ -10,7 +10,7 @@
     "Nick Peddie"
   ],
   "scripts": {
-    "build": "gatsby build",
+    "build": "LOCAL_BUILD=true gatsby build",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
