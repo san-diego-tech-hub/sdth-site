@@ -66,6 +66,11 @@ export const Container = styled.div`
   }
 `
 
+export const ErrorMsg = styled.div`
+  color: red;
+  height: 2rem;
+`
+
 export const Form = styled.form`
   text-align: left;
   display: flex;

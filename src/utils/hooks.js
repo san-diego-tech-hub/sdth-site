@@ -1,10 +1,26 @@
 import React from "react"
 
-export function useFormInput(initValue = "") {
-  const [value, setValue] = React.useState(initValue)
-  const onChange = e => setValue(e.target.value)
+export function useFormInput(
+  validate = () => true,
+  errorMsg = "",
+  initialValue = ""
+) {
+  const [value, setValue] = React.useState(initialValue)
+  const [isValid, setIsValid] = React.useState(true)
 
-  return { value, onChange }
+  const onChange = e => {
+    setIsValid(validate(e.target.value))
+    setValue(e.target.value)
+  }
+
+  return {
+    value,
+    onChange,
+    validate,
+    isValid,
+    setIsValid,
+    errorMsg
+  }
 }
 
 export function useCurator() {
