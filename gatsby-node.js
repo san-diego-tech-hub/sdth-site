@@ -48,7 +48,9 @@ async function getEvents(auth) {
     return []
   }
 
-  return events
+  return events.filter(
+    event => event.status === "confirmed"
+  )
 }
 
 const uniqueEvents = new Set()
