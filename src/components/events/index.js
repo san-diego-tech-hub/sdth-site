@@ -18,6 +18,8 @@ Modal.setAppElement("#modal")
 const styles = {
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.75)",
+    maxHeight: "100vh",
+    overflowY: "auto"
   },
   content: {
     top: "50%",
