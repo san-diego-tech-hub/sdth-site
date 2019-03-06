@@ -1,17 +1,19 @@
-const moment = require('moment')
+/* eslint-disable no-param-reassign */
+
+const moment = require("moment")
 
 function createAddressString(address) {
   const fields = [
-    'address_1',
-    'address_2',
-    'city_state',
-    'zipcode'
+    "address_1",
+    "address_2",
+    "city_state",
+    "zipcode"
   ]
 
   return fields
     .map(field => address[field])
     .filter(Boolean)
-    .join(' ')
+    .join(" ")
 }
 
 module.exports = {
@@ -53,13 +55,13 @@ module.exports = {
       city_state: [
         event.venue.city,
         event.venue.state
-      ].filter(Boolean).join(', '),
+      ].filter(Boolean).join(", "),
       zipcode: event.venue.zip,
     }
 
     const model = {
       title: event.name,
-      description: event.description.replace(/src=\"http\:/g, 'src="https:'),
+      description: event.description.replace(/src="http:/g, "src=\"https:"),
       url: event.link,
       start,
       end,
@@ -99,7 +101,7 @@ module.exports = {
       city_state: [
         event.venue.address.city,
         event.venue.address.region
-      ].filter(Boolean).join(', '),
+      ].filter(Boolean).join(", "),
       zipcode: event.venue.address.postal_code,
     }
 
