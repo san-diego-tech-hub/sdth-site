@@ -27,11 +27,19 @@ const items = [
 ]
 
 const Navigation = () => {
-  const getScrollTop = () => document.documentElement.scrollTop || document.body.scrollTop
+  const isBrowser = typeof window !== "undefined"
+  const getScrollTop = () => {
+    return isBrowser
+      ? (document.documentElement.scrollTop || document.body.scrollTop)
+      : 0
+  }
+
   const [scrollTop, setScrollTop] = React.useState(getScrollTop())
 
-  window.onscroll = () => {
-    setScrollTop(getScrollTop())
+  if (isBrowser) {
+    window.onscroll = () => {
+      setScrollTop(getScrollTop())
+    }
   }
 
   const boxShadow = scrollTop > 100
