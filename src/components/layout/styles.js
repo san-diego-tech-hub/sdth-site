@@ -1,24 +1,29 @@
-import styled from 'styled-components'
+import styled from "styled-components"
 
 export const theme = {
-  primaryMuted: '#4d3b84',
-  primaryDark: '#422695',
-  primary: '#5230b5',
-  primaryLight: '#7945c2',
-  secondary: '#f25aa3',
+  primaryMuted: "#4d3b84",
+  primaryDark: "#422695",
+  primary: "#5230b5",
+  primaryLight: "#7945c2",
+  secondary: "#f25aa3",
   // mainPurple: '#4c4e7a',
-  gray: 'rgb(115, 115, 115)',
+  gray: "rgb(115, 115, 115)",
 }
 
 export const Wrapper = styled.div`
+  align-items: center;
+  background: white;
   display: flex;
   flex-direction: column;
-  background: white;
 
   section {
     margin: 10rem 20rem;
     font-size: 2rem;
     color: ${props => props.theme.gray};
+
+    @media(max-width: 450px) {
+      width: 100vw !important;
+    }
   }
   section:first-child {
     margin-top: 0;
@@ -39,7 +44,7 @@ export const Wrapper = styled.div`
     color: ${props => props.theme.primaryMuted};
     font-size: 3.2rem;
   }
-  
+
   @media (max-width: 990px) {
     section {
       margin: 5rem 10rem;

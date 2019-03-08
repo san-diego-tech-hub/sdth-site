@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { NAV_HEIGHT } from 'Utils/constants'
+import styled from "styled-components"
+import { NAV_HEIGHT } from "Utils/constants"
 
 export const Container = styled.div`
   display: flex;
@@ -64,6 +64,7 @@ export const Logo = styled.div`
   }
 
   @media (max-width: 450px) {
+    display: none;
     width: 100%;
   }
 `
@@ -108,18 +109,26 @@ export const Nav = styled.nav`
   left: 0;
   right: 0;
   top: 0;
-  z-index: 1;
+  z-index: 2;
 
   a {
     color: #fff;
     display: block;
     text-decoration: none;
   }
+`
 
-  @media(max-width: 450px) {
-    height: calc(${NAV_HEIGHT} * 2);
+export const SmallLogo = styled.div`
+  img {
+    height: ${NAV_HEIGHT};
+    padding: 8px;
+  }
+
+  @media(min-width: 450px) {
+    display: none;
   }
 `
+
 export const Spacer = styled.div`
   height: ${NAV_HEIGHT};
   width: 200px;

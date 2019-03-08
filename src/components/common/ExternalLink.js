@@ -1,11 +1,11 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react"
+import styled from "styled-components"
 
 export default function ExternalLink({ children, ...props }) {
   return (
     <Link
-      rel='noopener noreferrer'
-      target='_blank'
+      rel="noopener noreferrer"
+      target="_blank"
       {...props}
     >
       {children}
@@ -16,6 +16,7 @@ export default function ExternalLink({ children, ...props }) {
 const Link = styled.a`
   color: ${props => props.theme.primaryDark};
   text-decoration: none;
+  z-index: 0 !important;
   &:hover {
     cursor: pointer;
     text-decoration: underline;

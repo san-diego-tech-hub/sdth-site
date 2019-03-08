@@ -1,13 +1,13 @@
-const { google } = require('googleapis')
-const path = require('path')
-const transformers = require('./src/data/transformers')
+const { google } = require("googleapis")
+const path = require("path")
+const transformers = require("./src/data/transformers")
 
 const { GC_ID } = process.env
 
 function authenticate() {
-  const privateKey = process.env.GC_PRIVATE_KEY.replace(/\\n/g, '\n')
+  const privateKey = process.env.GC_PRIVATE_KEY.replace(/\\n/g, "\n")
   const jwtClient = new google.auth.JWT(process.env.GC_CLIENT_EMAIL, null, privateKey, [
-    'https://www.googleapis.com/auth/calendar',
+    "https://www.googleapis.com/auth/calendar",
   ])
 
   return new Promise(res => {
@@ -20,22 +20,37 @@ function authenticate() {
   })
 }
 
-function getEvents(auth) {
-  return new Promise(async (res, reject) => {
-    const calender = google.calendar('v3')
+async function getEvents(auth) {
+  const calendar = google.calendar("v3")
 
-    let resp
-    try {
-      resp = await calender.events.list({
-        auth,
-        calendarId: GC_ID,
-      })
-    } catch (err) {
-      reject(err)
+  let events
+  try {
+    events = await calendar.events.list({
+      auth,
+      calendarId: GC_ID,
+    }).then(resp => resp.data.items)
+
+    for (let i = 0; i < events.length; i++) {
+      const event = events[i]
+      if (event.recurrence && event.recurrence.length > 0) {
+        // eslint-disable-next-line
+        const recurringEvents = await calendar.events.instances({
+          auth,
+          calendarId: GC_ID,
+          eventId: event.id
+        }).then(resp => resp.data.items)
+
+        events = events.concat(recurringEvents)
+      }
     }
+  } catch (err) {
+    console.error(err)
+    return []
+  }
 
-    res(resp.data)
-  })
+  return events.filter(
+    event => event.status === "confirmed"
+  )
 }
 
 const uniqueEvents = new Set()
@@ -43,11 +58,10 @@ const uniqueEvents = new Set()
 exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => {
   const { createNode } = actions
   const jwtClient = await authenticate()
-  const data = await getEvents(jwtClient)
+  const events = await getEvents(jwtClient)
 
-  data.items.forEach(event => {
-    // console.log(event.attachments);
-    const { model, eventKey } = transformers['GoogleCalendarEvent'](event)
+  events.forEach(event => {
+    const { model, eventKey } = transformers.GoogleCalendarEvent(event)
 
     if (uniqueEvents.has(eventKey)) {
       return
@@ -60,7 +74,7 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
       parent: null,
       children: [],
       internal: {
-        type: 'Event',
+        type: "Event",
         content: JSON.stringify(model),
         contentDigest: createContentDigest(model),
       },
@@ -69,8 +83,6 @@ exports.sourceNodes = async ({ actions, createNodeId, createContentDigest }) => 
     const node = Object.assign({}, model, nodeMeta)
     createNode(node)
   })
-
-  return
 }
 
 let id = 0
@@ -78,11 +90,11 @@ exports.onCreateNode = ({
   actions,
   createContentDigest,
   createNodeId,
-  node 
+  node
 }) => {
   const { deleteNode, createNode, createParentChildLink } = actions
 
-  const otherEvents = ['MeetupEvent', 'EventbriteEvents']
+  const otherEvents = ["MeetupEvent", "EventbriteEvents"]
 
   if (otherEvents.includes(node.internal.type)) {
     const { model, eventKey } = transformers[node.internal.type](node)
@@ -101,7 +113,7 @@ exports.onCreateNode = ({
       internal: {
         content: JSON.stringify(model),
         contentDigest: createContentDigest(model),
-        type: 'Event',
+        type: "Event",
       },
     }
 
@@ -113,7 +125,7 @@ exports.onCreateNode = ({
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-  const template = path.resolve('src/pages/event.js')
+  const template = path.resolve("src/pages/event.js")
 
   return graphql(`
     query EVENTS {
@@ -145,6 +157,7 @@ exports.createPages = ({ graphql, actions }) => {
         component: template,
         context: { event: node },
       })
+      return null
     })
   })
 }

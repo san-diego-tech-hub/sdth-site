@@ -1,15 +1,22 @@
-import React from 'react'
-import { StaticQuery, graphql } from 'gatsby'
-
-import claude1 from 'Images/claude_1.png'
-import claude2 from 'Images/claude_2.png'
-import goals from 'Images/goals.svg'
-import heart from 'Images/heart.svg'
-import tasks from 'Images/tasks.svg'
-import silos from 'Images/silos.svg'
-import judge from 'Images/judge.svg'
-import conversations from 'Images/conversations.svg'
-import { RebuildSection, FounderSection, ChallengesSection, ChallengeIcon, AboutSection } from './styles'
+import React from "react"
+import { StaticQuery, graphql } from "gatsby"
+import claude1 from "Images/claude_1.png"
+import claude2 from "Images/claude_2.png"
+import goals from "Images/goals.svg"
+import heart from "Images/heart.svg"
+import tasks from "Images/tasks.svg"
+import silos from "Images/silos.svg"
+import judge from "Images/judge.svg"
+import conversations from "Images/conversations.svg"
+import {
+  AboutSection,
+  AboutContent,
+  ChallengeIcon,
+  ChallengesSection,
+  FounderSection,
+  RebuildContent,
+  RebuildSection
+} from "./styles"
 
 const icons = { goals, heart, tasks, silos, judge, conversations }
 
@@ -24,7 +31,7 @@ const About = () => (
           <p>
             <img
               src={claude1}
-              style={{ float: 'left', marginRight: '1rem' }}
+              style={{ float: "left", marginRight: "1rem" }}
               alt="Young Claude Jones"
               width="200"
             />
@@ -56,7 +63,7 @@ const About = () => (
           </p>
 
           <p>
-            <img src={claude2} style={{ float: 'right' }} alt="Claude Jones" width="200" />
+            <img src={claude2} style={{ float: "right" }} alt="Claude Jones" width="200" />
             Today, Claude Jones is a seasoned technical leader with over 15 years of experience. He
             is currently the site lead for Walmart Labs in Carlsbad helping to contribute to the
             growing tech culture here in San Diego. In addition, Claude continues to pay it forward.
@@ -70,19 +77,21 @@ const About = () => (
             people together for the greater good. In Claude's own words: "We should never wait for
             opportunities to come when we can create them for ourselves."
           </p>
-          <div style={{ clear: 'both' }} />
+          <div style={{ clear: "both" }} />
         </FounderSection>
 
         <AboutSection>
-          <h2>{aboutJson.firstSectionTitle}</h2>
-          <div dangerouslySetInnerHTML={{ __html: aboutJson.firstSectionDescription }} />
+          <AboutContent>
+            <h2>{aboutJson.firstSectionTitle}</h2>
+            <div dangerouslySetInnerHTML={{ __html: aboutJson.firstSectionDescription }} />
+          </AboutContent>
         </AboutSection>
 
         <ChallengesSection>
           <ChallengeIcon>
-            {aboutJson.fourthSectionItems.map((item, i) => {
+            {aboutJson.fourthSectionItems.map((item) => {
               return (
-                <div key={i}>
+                <div key={item.header}>
                   <img src={icons[item.icon]} alt={item.header} width="100" />
                   <span>
                     <h4>{item.header}</h4>
@@ -93,29 +102,31 @@ const About = () => (
             })}
           </ChallengeIcon>
 
-          <span>
+          <span className="title-description">
             <h2>{aboutJson.fourthSectionTitle}</h2>
             <p>{aboutJson.fourthSectionDescription}</p>
           </span>
         </ChallengesSection>
 
         <RebuildSection>
-          <span>
-            <h2>{aboutJson.thirdSectionTitle}</h2>
-            <p>{aboutJson.thirdSectionDescription}</p>
-          </span>
+          <RebuildContent>
+            <span className="title-description">
+              <h2>{aboutJson.thirdSectionTitle}</h2>
+              <p>{aboutJson.thirdSectionDescription}</p>
+            </span>
 
-          <span>
-            {aboutJson.thirdSectionItems.map((s, i) => (
-              <div className="rebuild-panel" key={i}>
-                <img src={icons[s.icon]} alt={s.title} width="100" />
-                <span>
-                  <h4>{s.title}</h4>
-                  <p>{s.description}</p>
-                </span>
-              </div>
-            ))}
-          </span>
+            <span>
+              {aboutJson.thirdSectionItems.map((s) => (
+                <div className="rebuild-panel" key={s.title}>
+                  <img src={icons[s.icon]} alt={s.title} width="100" />
+                  <span>
+                    <h4>{s.title}</h4>
+                    <p>{s.description}</p>
+                  </span>
+                </div>
+              ))}
+            </span>
+          </RebuildContent>
         </RebuildSection>
       </main>
     )}

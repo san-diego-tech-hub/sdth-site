@@ -1,5 +1,4 @@
-import styled from 'styled-components'
-import { NAV_HEIGHT }  from 'Utils/constants'
+import styled from "styled-components"
 
 export const Container = styled.div`
   color: ${props => props.theme.gray};
@@ -18,11 +17,11 @@ export const Container = styled.div`
     margin-top: 2rem;
     padding: 1rem;
     background: #f25aa3;
-    // background: ${props => props.theme.primaryLight};
     color: white;
     border: 1px solid #2abbf4;
     border-radius: 0.5rem;
   }
+
   .smallScreen {
     color: ${props => props.theme.primaryMuted};
     display: none;
@@ -63,6 +62,11 @@ export const Container = styled.div`
       display: none
     }
   }
+`
+
+export const ErrorMsg = styled.div`
+  color: red;
+  height: 2rem;
 `
 
 export const Form = styled.form`
@@ -125,22 +129,7 @@ export const ProposeForm = styled.form`
   font-size: 1.4rem;
   height: 100%;
   margin: auto;
-  padding: 5rem;
-  label {
-    font-weight: bolder;
-    display: block;
-
-    margin-top: 0.8rem;
-  }
-  .input-field {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  input {
-    border: 1px solid #cccccc;
-    border-radius: 0.5rem;
-  }
+  padding: 5rem 2rem;
 
   button {
     width: 100%;
@@ -152,8 +141,39 @@ export const ProposeForm = styled.form`
     border-radius: 0.5rem;
   }
 
-  @media(max-width: 450px) {
-    height: calc(100vh - ${NAV_HEIGHT} * 2);
-    margin-top: calc(${NAV_HEIGHT} * 2);
+  label {
+    font-weight: bolder;
+    display: block;
+
+    margin-top: 0.8rem;
+  }
+
+  input {
+    border: 1px solid #cccccc;
+    border-radius: 0.5rem;
+    display: block;
+    width: 100%;
+  }
+
+  textarea {
+    border: 1px solid #bbb;
+    display: block;
+    width: 100%;
+  }
+
+  .input-field {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .cancel {
+    background: white;
+    border: 1px solid red;
+    color: red;
+  }
+
+  @media (max-width: 450px) {
+    margin-top: 260px;
   }
 `

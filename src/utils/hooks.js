@@ -1,18 +1,36 @@
-import React from 'react'
+import React from "react"
 
-export function useFormInput(initValue = '', date = false) {
-  const [value, setValue] = React.useState(initValue)
-  const onChange = e => setValue(e.target.value)
+export function useFormInput(
+  validate = () => true,
+  errorMsg = "",
+  initialValue = ""
+) {
+  const [value, setValue] = React.useState(initialValue)
+  const [isValid, setIsValid] = React.useState(true)
 
-  return { value, onChange }
+  const onChange = e => {
+    setIsValid(validate(e.target.value))
+    setValue(e.target.value)
+  }
+
+  return {
+    value,
+    onChange,
+    validate,
+    isValid,
+    setIsValid,
+    errorMsg
+  }
 }
 
 export function useCurator() {
   React.useEffect(() => {
-    (function(){
-      var i, e, d = document, s = "script";i = d.createElement("script");i.async = 1;
-      i.src = "https://cdn.curator.io/published/b46d667b-cd85-44f6-9f29-8991bf9f362e.js";
-      e = d.getElementsByTagName(s)[0];e.parentNode.insertBefore(i, e);
-      })();
+    (function curatorIo() {
+      const i = document.createElement("script")
+      i.async = 1
+      i.src = "https://cdn.curator.io/published/b46d667b-cd85-44f6-9f29-8991bf9f362e.js"
+      const e = document.getElementsByTagName("script")[0]
+      e.parentNode.insertBefore(i, e)
+    }())
   }, [])
 }

@@ -1,10 +1,9 @@
-import React from 'react'
-import { StaticQuery } from 'gatsby'
-import { graphql } from 'gatsby'
-import styled from 'styled-components'
-import Img from 'gatsby-image'
+import React from "react"
+import { graphql, StaticQuery } from "gatsby"
+import styled from "styled-components"
+import Img from "gatsby-image"
 
-import ExternalLink from 'Common/ExternalLink'
+import ExternalLink from "Common/ExternalLink"
 
 const Partners = () => (
   <StaticQuery
@@ -20,13 +19,13 @@ const Partners = () => (
               dangerouslySetInnerHTML={{ __html: partnersJson.firstSectionDescription }}
             />
             <div className="partners">
-              {partnersJson.firstSectionItems.map((company, i) => {
+              {partnersJson.firstSectionItems.map((company) => {
                 const logo = logos[company.logo]
                 if (!logo) {
                   return null
                 }
                 return (
-                  <div key={i} className="partner">
+                  <div key={company.name} className="partner">
                     <ExternalLink href={company.website}>
                       <Img fluid={logo.childImageSharp.fluid} alt={company.name} />
                     </ExternalLink>
@@ -44,19 +43,19 @@ const Partners = () => (
               dangerouslySetInnerHTML={{ __html: partnersJson.secondSectionDescription }}
             />
             <div className="partners">
-              {partnersJson.secondSectionItems.map((company, i) => {
+              {partnersJson.secondSectionItems.map((company) => {
                 const logo = logos[company.logo]
                 if (!logo) {
                   return null
                 }
 
                 return (
-                  <div key={i} className="partner">
+                  <div key={company.name} className="partner">
                     <ExternalLink href={company.website}>
                       <Img
                         fluid={logo.childImageSharp.fluid}
                         alt={company.name}
-                        style={{ maxWidth: '40rem', margin: 'auto' }}
+                        style={{ maxWidth: "40rem", margin: "auto" }}
                       />
                     </ExternalLink>
                   </div>
@@ -73,21 +72,28 @@ const Partners = () => (
 export default Partners
 
 const Container = styled.div`
+  max-width: 1200px;
   text-align: center;
-  margin: 0 30rem 10rem !important;
-  @media (max-width: 1500px) {
-    margin: 10rem !important;
-  }
+
   @media (max-width: 1100px) {
     margin: 0 !important;
+  }
+
+  @media(max-width: 450px) {
+    .description {
+      padding: 1rem;
+    }
   }
 `
 
 const PartnerSection = styled.section`
+  margin: 0 15rem 10rem !important;
   padding-top: 3.2rem;
+
   h2 {
     margin-bottom: 3.2rem;
   }
+
   .description {
     text-align: left;
     margin-bottom: 3.2rem;
@@ -96,21 +102,29 @@ const PartnerSection = styled.section`
       text-decoration: none;
     }
   }
+
   .partners {
-    padding-top: 3.2rem;
     display: grid;
     grid-template-columns: repeat(${props => props.repeat || 1}, 1fr);
     grid-gap: 3.2rem;
+    padding-top: 3.2rem;
 
     .partner {
       border-radius: 0.5rem;
     }
   }
+
   @media (max-width: 990px) {
+    margin: 0 5rem 10rem !important;
+
     .partners {
       grid-template-columns: repeat(2, 1fr);
       margin: 0 !important;
     }
+  }
+
+  @media (max-width: 450px) {
+    padding: 1rem;
   }
 `
 
@@ -169,6 +183,9 @@ const query = graphql`
       ...childSharp
     }
     operationcode: file(relativePath: { eq: "operationcode.png" }) {
+      ...childSharp
+    }
+    sdnedc: file(relativePath: { eq: "sdnedc.png" }) {
       ...childSharp
     }
   }

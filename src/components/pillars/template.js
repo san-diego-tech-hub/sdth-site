@@ -1,11 +1,15 @@
-import React from 'react'
-import Img from 'gatsby-image'
-import PropTypes from 'prop-types'
-
-import { PillarInfo, LeadsSection, PillarSection } from './styles'
+import React from "react"
+import Img from "gatsby-image"
+import PropTypes from "prop-types"
+import {
+  Container,
+  LeadsSection,
+  PillarInfo,
+  PillarSection
+} from "./styles"
 
 const PillarTemplate = ({ data, icon }) => (
-  <div style={{margin: '0 auto', maxWidth: '1200px'}}>
+  <Container>
     <PillarInfo>
       <Img fluid={icon.childImageSharp.fluid} />
       <div>
@@ -27,21 +31,21 @@ const PillarTemplate = ({ data, icon }) => (
     {data.leads && data.leads[0].name.length > 0 && (
       <LeadsSection>
         <h2>Pillar Leads</h2>
-        {data.leads.map((lead, i) => (
-          <div key={i} className="lead">
+        {data.leads.map((lead) => (
+          <div key={lead.name} className="lead">
             <div>
               <img
                 src={require(`../../images/${lead.photo}.jpg`)}
                 width="250"
                 alt={lead.name}
-                style={{ borderRadius: '100%' }}
+                style={{ borderRadius: "100%" }}
               />
               <div>
                 <span>{lead.name}</span>
                 <span className="email">{lead.email}</span>
               </div>
             </div>
-            <span style={{ padding: '.5rem' }}>
+            <span style={{ padding: ".5rem" }}>
               <h5>Biography</h5>
               <div dangerouslySetInnerHTML={{ __html: lead.bio }} />
             </span>
@@ -49,12 +53,7 @@ const PillarTemplate = ({ data, icon }) => (
         ))}
       </LeadsSection>
     )}
-
-    {/* <section>>
-      <h2>Goals</h2>
-      <div dangerouslySetInnerHTML={{ __html: data.goals }} />
-    </section> */}
-  </div>
+  </Container>
 )
 
 PillarTemplate.propTypes = {

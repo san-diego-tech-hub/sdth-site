@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components'
-import moment from 'moment'
-import urlencode from 'urlencode'
+import React from "react"
+import styled from "styled-components"
+import moment from "moment"
+import urlencode from "urlencode"
 
-import { MAPS_URL } from 'Utils/constants'
-import Layout from 'Components/layout'
-import ExternalLink from 'Components/common/ExternalLink'
+import { MAPS_URL } from "Utils/constants"
+import Layout from "Components/layout"
+import ExternalLink from "Components/common/ExternalLink"
 
 export default function EventPage({ pageContext: { event }, ...props }) {
   if (event == null) {
@@ -22,21 +22,21 @@ export default function EventPage({ pageContext: { event }, ...props }) {
               {event.title}
             </Title>
             <DateTime>
-              {`${start.format('MMM Do @ h:mmA')} - ${end.format('h:mmA')}`}
+              {`${start.format("MMM Do @ h:mmA")} - ${end.format("h:mmA")}`}
             </DateTime>
           </Header>
 
           <Description
-            dangerouslySetInnerHTML={{__html: event.description }}
+            dangerouslySetInnerHTML={{ __html: event.description }}
           />
         </MainSection>
         <SideBar>
           <SubHeading>Details</SubHeading>
           <Field>Date:</Field>
-          <Value>{start.format('MMMM Do')}</Value>
+          <Value>{start.format("MMMM Do")}</Value>
 
           <Field>Time:</Field>
-          <Value>{`${start.format('h:mmA')} - ${end.format('h:mmA')}`}</Value>
+          <Value>{`${start.format("h:mmA")} - ${end.format("h:mmA")}`}</Value>
 
           <Field>Website:</Field>
           <Value>
@@ -54,7 +54,14 @@ export default function EventPage({ pageContext: { event }, ...props }) {
             <Value>{event.venue.name}</Value>
             <Value>{event.venue.address}</Value>
           </ExternalLink>
-
+          <iframe
+            title={event.venue.name}
+            width="100%"
+            height="300px"
+            frameBorder="0"
+            src={`https://www.google.com/maps/embed/v1/place?key=${process.env.GATSBY_GOOGLE_API}&q=${urlencode(event.venue.address)}`}
+            allowFullScreen
+          />
         </SideBar>
       </Container>
     </Layout>
@@ -123,7 +130,7 @@ const SideBar = styled.div`
 `
 
 const SubHeading = styled.h3`
-  background: rgba(66,38,149,0.8); 
+  background: rgba(66,38,149,0.8);
   color: white;
   font-size: 1.7rem;
   padding: 8px;

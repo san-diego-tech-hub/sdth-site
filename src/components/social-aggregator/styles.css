@@ -1,0 +1,26 @@
+span.crt-post-username a {
+  text-decoration: none;
+}
+div.crt-post .crt-post-border {
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.crt-feed-scroll {
+  background: #fafafa;
+  padding-top: 1rem;
+}
+
+.crt-post a {
+  color: #5230b5 !important;
+  font-weight: bolder;
+  text-decoration: none;
+}
+
+.crt-post-fullname {
+  text-transform: uppercase;
+}
+
+.crt-post-content-text {
+  color: #555 !important;
+  padding-top: 1rem;
+}

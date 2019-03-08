@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import Color from 'color'
+import styled from "styled-components"
+import Color from "color"
 
 export const AvatarCard = styled.div`
   border-radius: 100%;
@@ -49,14 +49,22 @@ export const Card = styled.div`
       text-transform: none;
     }
   }
+
   @media (max-width: 990px) {
     width: 100% !important;
     .card-text {
       padding: 2.5rem 5rem;
     }
   }
+
   @media(max-width: 600px) {
     margin: 1rem 0;
+  }
+
+  @media(max-width: 450px) {
+    .card-text {
+      padding: 2.5rem 0.5rem;
+    }
   }
 `
 

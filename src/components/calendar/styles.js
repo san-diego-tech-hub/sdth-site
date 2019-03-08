@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from "styled-components"
 
 export const StyledDetails = styled.aside`
-  z-index: 99999;
+  z-index: 1;
   background: white;
   border-radius: 0.5rem;
   box-shadow: 1px 1px 1px #555;
