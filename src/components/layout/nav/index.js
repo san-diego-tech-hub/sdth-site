@@ -26,64 +26,77 @@ const items = [
   { text: "Talent", url: "/talent", icon: "talent" },
 ]
 
-const Navigation = () => (
-  <Nav>
-    <Burger />
-    <Container>
-      <SmallLogo>
-        <Link to="/">
-          <img alt="San Diego Tech Hub" src={sdthLogoSmall} />
-        </Link>
-      </SmallLogo>
-      <Logo>
-        <Link to="/">
-          <img alt="San Diego Tech Hub" src={sdthLogo} />
-        </Link>
-      </Logo>
-      <Spacer />
-      <Menu>
-        <MenuItem to="/about">
+const Navigation = () => {
+  const getScrollTop = () => document.documentElement.scrollTop || document.body.scrollTop
+  const [scrollTop, setScrollTop] = React.useState(getScrollTop())
+
+  window.onscroll = () => {
+    setScrollTop(getScrollTop())
+  }
+
+  const boxShadow = scrollTop > 100
+    ? "box-shadow"
+    : ""
+
+  return (
+    <Nav className={boxShadow}>
+      <Burger />
+      <Container>
+        <SmallLogo>
+          <Link to="/">
+            <img alt="San Diego Tech Hub" src={sdthLogoSmall} />
+          </Link>
+        </SmallLogo>
+        <Logo>
+          <Link to="/">
+            <img alt="San Diego Tech Hub" src={sdthLogo} />
+          </Link>
+        </Logo>
+        <Spacer />
+        <Menu>
+          <MenuItem to="/about">
           About
-        </MenuItem>
-        <MenuItem to="/leadership">
+          </MenuItem>
+          <MenuItem to="/leadership">
           Team
-        </MenuItem>
+          </MenuItem>
 
-        <DropItem>
-          <AppContext.Consumer>
-            {({ path }) => {
-              const active = items.find(i => i.url === path)
-              const dropStyle = {
-                alignItems: "center",
-                display: "flex",
-                height: "100%",
-                borderBottom: !active ? "1rem solid #5230B5" : "1rem solid #2ABBF4",
-                fontWeight: !active ? "" : "700",
-                paddingTop: "1rem",
-              }
+          <DropItem>
+            <AppContext.Consumer>
+              {({ path }) => {
+                const active = items.find(i => i.url === path)
+                const dropStyle = {
+                  alignItems: "center",
+                  display: "flex",
+                  height: "100%",
+                  borderBottom: !active ? "1rem solid #5230B5" : "1rem solid #2ABBF4",
+                  fontWeight: !active ? "" : "700",
+                  paddingTop: "1rem",
+                }
 
-              return (
-                <Dropdown items={items} style={dropStyle}>
-                  <span>
+                return (
+                  <Dropdown items={items} style={dropStyle}>
+                    <span>
                     PILLARS of EXCELLENCE <FontAwesomeIcon icon="caret-down" />
-                  </span>
-                </Dropdown>
-              )
-            }}
-          </AppContext.Consumer>
-        </DropItem>
-        <MenuItem to="/get-involved">
+                    </span>
+                  </Dropdown>
+                )
+              }}
+            </AppContext.Consumer>
+          </DropItem>
+          <MenuItem to="/get-involved">
           Get Involved
-        </MenuItem>
-        <MenuItem to="/events">
+          </MenuItem>
+          <MenuItem to="/events">
           Events
-        </MenuItem>
-        <MenuItem to="/partners">
+          </MenuItem>
+          <MenuItem to="/partners">
           Our Partners
-        </MenuItem>
-      </Menu>
-    </Container>
-  </Nav>
-)
+          </MenuItem>
+        </Menu>
+      </Container>
+    </Nav>
+  )
+}
 
 export default Navigation
