@@ -23,7 +23,6 @@ export const Container = styled.div`
     &:hover {
       cursor: pointer;
     }
-
   }
 
   .smallScreen {
@@ -60,7 +59,7 @@ export const Container = styled.div`
     }
   }
 
-  @media(max-width: 400px) {
+  @media(max-width: 450px) {
     padding: 10px;
     .join {
       display: none
@@ -124,8 +123,15 @@ export const SocialContainer = styled.div`
     display: block;
   }
   a {
-    text-decoration: none;
     color: white;
+      &:hover {
+        text-decoration: none;
+      }
+  }
+  
+  .slack-link {
+    margin-left: 1rem;
+    
   }
 `
 

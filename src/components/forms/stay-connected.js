@@ -72,7 +72,7 @@ class StayConnected extends React.Component {
           <ExternalLink href="https://join.slack.com/t/sandiegotechhub/shared_invite/enQtNTI1MDA2NjQyNDcwLTRhYmFhOGZlNzQyZWQ0NmJjMTEzNGE1YjI1NTJmY2RhZjVmYjBjNDAyYmI4MDZkNTM4MzMwM2JmYWQzOGVkYjY">
             <button type="submit">
               <FontAwesomeIcon size="sm" icon={["fab", "slack"]} />
-              <span style={{ marginLeft: "1rem" }}>
+              <span className="slack-link">
                 Join our Slack <span className="join">Community</span>
               </span>
             </button>
