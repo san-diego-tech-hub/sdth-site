@@ -20,6 +20,10 @@ export const Container = styled.div`
     color: white;
     border: 1px solid #2abbf4;
     border-radius: 0.5rem;
+    &:hover {
+      cursor: pointer;
+    }
+
   }
 
   .smallScreen {

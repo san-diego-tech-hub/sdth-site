@@ -1,7 +1,6 @@
 import React from "react"
 import Img from "gatsby-image"
 import { StaticQuery, graphql } from "gatsby"
-
 import communityIcon from "Images/icon_community.svg"
 import educationIcon from "Images/icon_education.svg"
 import inclusionIcon from "Images/icon_inclusion.svg"

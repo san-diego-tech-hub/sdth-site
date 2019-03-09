@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
   background: white;
   display: flex;
   flex-direction: column;
-
+  
   section {
     margin: 10rem 20rem;
     font-size: 2rem;
