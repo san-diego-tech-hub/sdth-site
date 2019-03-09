@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 import moment from "moment"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-
 import truncateString from "Utils/truncate"
 import { StyledDetails } from "./styles"
 
@@ -45,6 +44,7 @@ function Details({ eventInfo, setEventInfo, ...position }) {
         </div>
         <span>
           <button
+            className="close-details"
             type="button"
             onClick={() => setEventInfo(null)}
           >

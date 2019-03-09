@@ -35,10 +35,20 @@ export const StyledDetails = styled.aside`
       background: none;
       color: white;
     }
+    .close-details {
+        color: rgba(255, 255, 255, 0.5);
+        padding: 5px;
+        padding-left: 20px;
+        &:hover {
+          color: white;
+          cursor: pointer;
+        }
+      }
   }
   .content {
     font-size: 1.2rem;
     padding: 1.6rem;
     text-align: left;
   }
+
 `
