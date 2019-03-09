@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-
 import ExternalLink from "Common/ExternalLink"
 import { MAPS_URL } from "Utils/constants"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -9,7 +8,6 @@ import Modal from "react-modal"
 import moment from "moment"
 import styled from "styled-components"
 import urlencode from "urlencode"
-
 import truncateString from "Utils/truncate"
 import ProposeEvent from "Components/forms/propose-event"
 
