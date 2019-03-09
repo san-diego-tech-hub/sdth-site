@@ -7,12 +7,17 @@
     "Wilmer Guerra <wilmerguerra@outlook.com>",
     "Leeland Clenista",
     "Kevin Brewer <kevinbrewer04@gmail.com>",
-    "Nick Peddie"
+    "Nick Peddie",
+    "Joseph Huynh",
+    "Adam Funk",
+    "Jesse Loftus",
+    "Steph Huynh"
   ],
   "scripts": {
     "build": "LOCAL_BUILD=true gatsby build",
-    "develop": "gatsby develop",
-    "start": "npm run develop",
+    "clearCache": "rm -rf ./.cache",
+    "serve": "gatsby serve",
+    "start": "gatsby develop",
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "husky": {
