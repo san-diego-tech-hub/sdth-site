@@ -128,10 +128,16 @@ export const SocialContainer = styled.div`
         text-decoration: none;
       }
   }
-  
+
   .slack-link {
     margin-left: 1rem;
-    
+  }
+
+  .social-opacity {
+    opacity: 0.7;
+    &:hover {
+      opacity: 1;
+    }
   }
 `
 
