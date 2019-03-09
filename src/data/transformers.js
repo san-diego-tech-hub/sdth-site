@@ -78,8 +78,8 @@ module.exports = {
   },
 
   EventbriteEvents(event) {
-    const start = moment(new Date(event.start.local))._d
-    const end = moment(new Date(event.end.local))._d
+    const start = moment(new Date(event.start.utc))._d
+    const end = moment(new Date(event.end.utc))._d
     const title = event.name.text
     const eventKey = `${title}-${start}`
 
