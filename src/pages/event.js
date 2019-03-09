@@ -72,6 +72,9 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: 3rem;
+  @media(max-width: 767px) {
+    flex-wrap: wrap;
+  }
 `
 
 const DateTime = styled.span`
@@ -82,7 +85,6 @@ const DateTime = styled.span`
 const Description = styled.div`
   font-size: 2rem;
   margin-bottom: 3rem;
-  max-width: 800px;
   padding: 10px;
   text-align: left;
 `
@@ -109,23 +111,23 @@ const Header = styled.div`
   background: rgba(66,38,149,0.8);
   color: white;
   margin: 3rem 0;
-  max-width: 900px;
   padding: 2rem;
 `
 
-const MainSection = styled.div``
+const MainSection = styled.div`
+  flex: 1 1 auto;
+  max-width: 900px;
+`
 
 const SideBar = styled.div`
   background: #f5f5f5;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
-  max-width: 300px;
-  margin-top: 3rem;
-  margin-left: 2rem;
+  margin: 3rem 1rem 0rem;
   padding: 10px 15px;
   text-align: left;
   width: 300px;
-  @media(max-width: 667px) {
-    display: none;
+  @media(max-width: 767px) {
+    width: 100%;
   }
 `
 
