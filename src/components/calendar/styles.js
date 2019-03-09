@@ -37,8 +37,8 @@ export const StyledDetails = styled.aside`
     }
     .close-details {
         color: rgba(255, 255, 255, 0.5);
-        padding: 5px;
-        padding-left: 20px;
+        margin-left: 15px;
+        padding: 5px 10px;
         &:hover {
           color: white;
           cursor: pointer;
