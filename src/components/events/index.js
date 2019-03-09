@@ -11,7 +11,7 @@ import urlencode from "urlencode"
 import truncateString from "Utils/truncate"
 import ProposeEvent from "Components/forms/propose-event"
 
-Modal.setAppElement("#modal")
+Modal.setAppElement("#___gatsby")
 
 const styles = {
   overlay: {

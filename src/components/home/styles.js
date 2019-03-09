@@ -98,7 +98,7 @@ export const PillarIcon = styled(Link)`
     }
   }
 
-  @media(max-width: 600px) {
+  @media(max-width: 350px) {
     width: 100vw;
 
     p {
@@ -121,6 +121,10 @@ export const PillarRow = styled.aside`
   p {
     font-size: 1.6rem;
     padding: 0 1rem;
+  }
+
+  @media (max-width: 600px) {
+    padding: 1rem;
   }
 `
 
