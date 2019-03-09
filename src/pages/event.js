@@ -127,7 +127,7 @@ const SideBar = styled.div`
   text-align: left;
   width: 300px;
   @media(max-width: 767px) {
-    width: 100%;
+    min-width: calc(100% - 2rem);
   }
 `
 
