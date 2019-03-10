@@ -47,6 +47,20 @@ exports[`The Header component matches its snapshot 1`] = `
               tabindex="-1"
             >
               PILLARS of EXCELLENCE 
+              <svg
+                aria-hidden="true"
+                class="svg-inline--fa fa-caret-down fa-w-10 "
+                data-icon="caret-down"
+                data-prefix="fas"
+                role="img"
+                viewBox="0 0 320 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                  fill="currentColor"
+                />
+              </svg>
             </p>
             <a
               class="bm-item sc-dnqmqq dhnYlI"
@@ -210,7 +224,6 @@ exports[`The Header component matches its snapshot 1`] = `
           class="sc-gZMcBi bMHrUu"
         >
           <a
-            activestyle="[object Object]"
             href="/about"
             style="align-items: center; border-bottom: 1rem solid #5230B5; display: flex; height: 100%; padding: 1rem 1rem 0px; text-transform: uppercase;"
           >
@@ -221,7 +234,6 @@ exports[`The Header component matches its snapshot 1`] = `
           class="sc-gZMcBi bMHrUu"
         >
           <a
-            activestyle="[object Object]"
             href="/leadership"
             style="align-items: center; border-bottom: 1rem solid #5230B5; display: flex; height: 100%; padding: 1rem 1rem 0px; text-transform: uppercase;"
           >
@@ -238,6 +250,20 @@ exports[`The Header component matches its snapshot 1`] = `
           >
             <span>
               PILLARS of EXCELLENCE 
+              <svg
+                aria-hidden="true"
+                class="svg-inline--fa fa-caret-down fa-w-10 "
+                data-icon="caret-down"
+                data-prefix="fas"
+                role="img"
+                viewBox="0 0 320 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
+                  fill="currentColor"
+                />
+              </svg>
             </span>
             <div
               class="content sc-bxivhb krqpJu"
@@ -246,7 +272,6 @@ exports[`The Header component matches its snapshot 1`] = `
                 style="border: 1px solid #4c4e7a;"
               >
                 <a
-                  activestyle="[object Object]"
                   class="innerLink"
                   href="/community"
                   style="float: left; width: 100%;"
@@ -266,7 +291,6 @@ exports[`The Header component matches its snapshot 1`] = `
                 style="border: 1px solid #4c4e7a;"
               >
                 <a
-                  activestyle="[object Object]"
                   class="innerLink"
                   href="/education"
                   style="float: left; width: 100%;"
@@ -286,7 +310,6 @@ exports[`The Header component matches its snapshot 1`] = `
                 style="border: 1px solid #4c4e7a;"
               >
                 <a
-                  activestyle="[object Object]"
                   class="innerLink"
                   href="/inclusion"
                   style="float: left; width: 100%;"
@@ -306,7 +329,6 @@ exports[`The Header component matches its snapshot 1`] = `
                 style="border: 1px solid #4c4e7a;"
               >
                 <a
-                  activestyle="[object Object]"
                   class="innerLink"
                   href="/innovation"
                   style="float: left; width: 100%;"
@@ -326,7 +348,6 @@ exports[`The Header component matches its snapshot 1`] = `
                 style="border: 1px solid #4c4e7a;"
               >
                 <a
-                  activestyle="[object Object]"
                   class="innerLink"
                   href="/talent"
                   style="float: left; width: 100%;"
@@ -349,7 +370,6 @@ exports[`The Header component matches its snapshot 1`] = `
           class="sc-gZMcBi bMHrUu"
         >
           <a
-            activestyle="[object Object]"
             href="/get-involved"
             style="align-items: center; border-bottom: 1rem solid #5230B5; display: flex; height: 100%; padding: 1rem 1rem 0px; text-transform: uppercase;"
           >
@@ -360,7 +380,6 @@ exports[`The Header component matches its snapshot 1`] = `
           class="sc-gZMcBi bMHrUu"
         >
           <a
-            activestyle="[object Object]"
             href="/events"
             style="align-items: center; border-bottom: 1rem solid #5230B5; display: flex; height: 100%; padding: 1rem 1rem 0px; text-transform: uppercase;"
           >
@@ -371,7 +390,6 @@ exports[`The Header component matches its snapshot 1`] = `
           class="sc-gZMcBi bMHrUu"
         >
           <a
-            activestyle="[object Object]"
             href="/partners"
             style="align-items: center; border-bottom: 1rem solid #5230B5; display: flex; height: 100%; padding: 1rem 1rem 0px; text-transform: uppercase;"
           >
