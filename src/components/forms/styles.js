@@ -13,14 +13,18 @@ export const Container = styled.div`
   font-size: 2rem;
 
   button {
+    background: #f36aac;
     width: 100%;
     margin-top: 2rem;
     padding: 1rem;
-    background: #f25aa3;
-    color: white;
-    border: 1px solid #2abbf4;
+    color: rgba(245, 245, 245, 1);
+    border: none;
     border-radius: 0.5rem;
     &:hover {
+      background: #f25aa3;
+      color: white;
+      text-shadow: 0px 0px 20px rgba(255, 255, 255, 1);
+      transition: all 0.2s ease 0s;
       cursor: pointer;
     }
   }
@@ -122,13 +126,14 @@ export const SocialContainer = styled.div`
     margin: auto;
     display: block;
   }
+
   a {
     color: white;
-      &:hover {
-        text-decoration: none;
-      }
+    &:hover {
+      text-decoration: none;
+    }
   }
-
+  
   .slack-link {
     margin-left: 1rem;
   }
