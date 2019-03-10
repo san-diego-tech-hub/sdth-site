@@ -5,7 +5,7 @@ import { NAV_HEIGHT } from "Utils/constants"
 import Nav from "../nav"
 
 const Header = () => (
-  <header>
+  <header data-testid="header">
     <Nav />
     <ConduitsFlow>
       <Img />
