@@ -41,6 +41,9 @@ module.exports = {
     "semi": [2, "never"],
   },
   parser: "babel-eslint",
+  env: {
+    jest: true,
+  },
   globals: {
     alert: "readonly",
     document: "readonly",
