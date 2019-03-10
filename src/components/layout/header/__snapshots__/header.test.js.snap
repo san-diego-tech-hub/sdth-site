@@ -1,0 +1,395 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Header component matches its snapshot 1`] = `
+<header
+  data-testid="header"
+>
+  <nav
+    class="sc-bZQynM ezroS"
+  >
+    <div>
+      <div
+        class="bm-overlay"
+        style="position: fixed; z-index: 1000; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.3); opacity: 0; transform: translate3d(100%, 0, 0); transition: opacity 0.3s, transform 0s 0.3s;"
+      />
+      <div
+        class="bm-menu-wrap"
+        id=""
+        style="position: fixed; right: 0px; z-index: 1100; width: 300px; height: 100%; transform: translate3d(100%, 0, 0); transition: all 0.5s;"
+      >
+        <div
+          class="bm-menu"
+          style="height: 100%; box-sizing: border-box; overflow: auto;"
+        >
+          <nav
+            class="bm-item-list"
+            style="height: 100%;"
+          >
+            <a
+              class="bm-item sc-dnqmqq huHbJu"
+              href="/about"
+              style="display: block;"
+              tabindex="-1"
+            >
+              About
+            </a>
+            <a
+              class="bm-item sc-dnqmqq huHbJu"
+              href="/leadership"
+              style="display: block;"
+              tabindex="-1"
+            >
+              Team
+            </a>
+            <p
+              class="bm-item sc-iwsKbI ePChBS"
+              style="display: block;"
+              tabindex="-1"
+            >
+              PILLARS of EXCELLENCE 
+            </p>
+            <a
+              class="bm-item sc-dnqmqq dhnYlI"
+              firstpillar="true"
+              href="/community"
+              indent="true"
+              style="display: block;"
+              tabindex="-1"
+            >
+              Community
+            </a>
+            <a
+              class="bm-item sc-dnqmqq eDDXpd"
+              href="/education"
+              indent="true"
+              style="display: block;"
+              tabindex="-1"
+            >
+              Education
+            </a>
+            <a
+              class="bm-item sc-dnqmqq eDDXpd"
+              href="/inclusion"
+              indent="true"
+              style="display: block;"
+              tabindex="-1"
+            >
+              Inclusion
+            </a>
+            <a
+              class="bm-item sc-dnqmqq eDDXpd"
+              href="/innovation"
+              indent="true"
+              style="display: block;"
+              tabindex="-1"
+            >
+              Innovation
+            </a>
+            <a
+              class="bm-item sc-dnqmqq eDDXpd"
+              href="/talent"
+              indent="true"
+              style="display: block;"
+              tabindex="-1"
+            >
+              Talent
+            </a>
+            <a
+              class="bm-item sc-dnqmqq huHbJu"
+              href="/get-involved"
+              style="display: block;"
+              tabindex="-1"
+            >
+              Get Involved
+            </a>
+            <a
+              class="bm-item sc-dnqmqq huHbJu"
+              href="/events"
+              style="display: block;"
+              tabindex="-1"
+            >
+              Events
+            </a>
+            <a
+              class="bm-item sc-dnqmqq huHbJu"
+              href="/partners"
+              style="display: block;"
+              tabindex="-1"
+            >
+              Our Partners
+            </a>
+          </nav>
+        </div>
+        <div>
+          <div
+            class="bm-cross-button"
+            style="position: absolute; width: 24px; height: 24px; right: 8px; top: 8px;"
+          >
+            <span
+              style="position: absolute; top: 6px; right: 14px;"
+            >
+              <span
+                class="bm-cross"
+                style="position: absolute; width: 3px; height: 14px; transform: rotate(45deg);"
+              />
+              <span
+                class="bm-cross"
+                style="position: absolute; width: 3px; height: 14px; transform: rotate(-45deg);"
+              />
+            </span>
+            <button
+              style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; margin: 0px; padding: 0px; font-size: 0; background: transparent; cursor: pointer;"
+              tabindex="-1"
+            >
+              Close Menu
+            </button>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="bm-burger-button"
+          style="z-index: 1000;"
+        >
+          <span>
+            <span
+              class="bm-burger-bars"
+              style="position: absolute; height: 20%; left: 0px; right: 0px; top: 0%; opacity: 1;"
+            />
+            <span
+              class="bm-burger-bars"
+              style="position: absolute; height: 20%; left: 0px; right: 0px; top: 40%; opacity: 1;"
+            />
+            <span
+              class="bm-burger-bars"
+              style="position: absolute; height: 20%; left: 0px; right: 0px; top: 80%; opacity: 1;"
+            />
+          </span>
+          <button
+            style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; margin: 0px; padding: 0px; font-size: 0; background: transparent; cursor: pointer;"
+          >
+            Open Menu
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="sc-bdVaJa coqwMb"
+    >
+      <div
+        class="sc-gzVnrw bMuwco"
+      >
+        <a
+          href="/"
+        >
+          <img
+            alt="San Diego Tech Hub"
+            src="test-file-stub"
+          />
+        </a>
+      </div>
+      <div
+        class="sc-ifAKCX daFjQO"
+      >
+        <a
+          href="/"
+        >
+          <img
+            alt="San Diego Tech Hub"
+            src="test-file-stub"
+          />
+        </a>
+      </div>
+      <div
+        class="sc-htoDjs eTKuMX"
+      />
+      <ul
+        class="sc-EHOje bLDpOn"
+      >
+        <li
+          class="sc-gZMcBi bMHrUu"
+        >
+          <a
+            activestyle="[object Object]"
+            href="/about"
+            style="align-items: center; border-bottom: 1rem solid #5230B5; display: flex; height: 100%; padding: 1rem 1rem 0px; text-transform: uppercase;"
+          >
+            About
+          </a>
+        </li>
+        <li
+          class="sc-gZMcBi bMHrUu"
+        >
+          <a
+            activestyle="[object Object]"
+            href="/leadership"
+            style="align-items: center; border-bottom: 1rem solid #5230B5; display: flex; height: 100%; padding: 1rem 1rem 0px; text-transform: uppercase;"
+          >
+            Team
+          </a>
+        </li>
+        <li
+          class="sc-htpNat fxroIh"
+        >
+          <div
+            aria-haspopup="true"
+            class="sc-bwzfXH gGsFJD"
+            style="align-items: center; display: flex; height: 100%; border-bottom: 1rem solid #5230B5; padding-top: 1rem;"
+          >
+            <span>
+              PILLARS of EXCELLENCE 
+            </span>
+            <div
+              class="content sc-bxivhb krqpJu"
+            >
+              <div
+                style="border: 1px solid #4c4e7a;"
+              >
+                <a
+                  activestyle="[object Object]"
+                  class="innerLink"
+                  href="/community"
+                  style="float: left; width: 100%;"
+                >
+                  <img
+                    alt="community"
+                    src="test-file-stub"
+                    width="25"
+                  />
+                  Community
+                </a>
+                <div
+                  style="clear: both;"
+                />
+              </div>
+              <div
+                style="border: 1px solid #4c4e7a;"
+              >
+                <a
+                  activestyle="[object Object]"
+                  class="innerLink"
+                  href="/education"
+                  style="float: left; width: 100%;"
+                >
+                  <img
+                    alt="education"
+                    src="test-file-stub"
+                    width="25"
+                  />
+                  Education
+                </a>
+                <div
+                  style="clear: both;"
+                />
+              </div>
+              <div
+                style="border: 1px solid #4c4e7a;"
+              >
+                <a
+                  activestyle="[object Object]"
+                  class="innerLink"
+                  href="/inclusion"
+                  style="float: left; width: 100%;"
+                >
+                  <img
+                    alt="inclusion"
+                    src="test-file-stub"
+                    width="25"
+                  />
+                  Inclusion
+                </a>
+                <div
+                  style="clear: both;"
+                />
+              </div>
+              <div
+                style="border: 1px solid #4c4e7a;"
+              >
+                <a
+                  activestyle="[object Object]"
+                  class="innerLink"
+                  href="/innovation"
+                  style="float: left; width: 100%;"
+                >
+                  <img
+                    alt="innovation"
+                    src="test-file-stub"
+                    width="25"
+                  />
+                  Innovation
+                </a>
+                <div
+                  style="clear: both;"
+                />
+              </div>
+              <div
+                style="border: 1px solid #4c4e7a;"
+              >
+                <a
+                  activestyle="[object Object]"
+                  class="innerLink"
+                  href="/talent"
+                  style="float: left; width: 100%;"
+                >
+                  <img
+                    alt="talent"
+                    src="test-file-stub"
+                    width="25"
+                  />
+                  Talent
+                </a>
+                <div
+                  style="clear: both;"
+                />
+              </div>
+            </div>
+          </div>
+        </li>
+        <li
+          class="sc-gZMcBi bMHrUu"
+        >
+          <a
+            activestyle="[object Object]"
+            href="/get-involved"
+            style="align-items: center; border-bottom: 1rem solid #5230B5; display: flex; height: 100%; padding: 1rem 1rem 0px; text-transform: uppercase;"
+          >
+            Get Involved
+          </a>
+        </li>
+        <li
+          class="sc-gZMcBi bMHrUu"
+        >
+          <a
+            activestyle="[object Object]"
+            href="/events"
+            style="align-items: center; border-bottom: 1rem solid #5230B5; display: flex; height: 100%; padding: 1rem 1rem 0px; text-transform: uppercase;"
+          >
+            Events
+          </a>
+        </li>
+        <li
+          class="sc-gZMcBi bMHrUu"
+        >
+          <a
+            activestyle="[object Object]"
+            href="/partners"
+            style="align-items: center; border-bottom: 1rem solid #5230B5; display: flex; height: 100%; padding: 1rem 1rem 0px; text-transform: uppercase;"
+          >
+            Our Partners
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div
+    class="sc-jTzLTM hbTuZU"
+  >
+    <div
+      class="sc-VigVT jSmWfK"
+    />
+    <div
+      class="sc-gqjmRU csTDqH"
+    />
+  </div>
+</header>
+`;
