@@ -1,10 +1,15 @@
 import React from "react"
 import addToMailChimp from "gatsby-plugin-mailchimp"
-
+// import { useFormInput } from "Utils/hooks"
 import ExternalLink from "Common/ExternalLink"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import SocialMedia from "./social-media"
-import { Container, Form, FormTitle, SocialContainer } from "./styles"
+import {
+  Container,
+  Form,
+  FormTitle,
+  SocialContainer
+} from "./styles"
 
 class StayConnected extends React.Component {
   state = {

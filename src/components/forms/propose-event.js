@@ -3,15 +3,14 @@ import moment from "moment"
 
 import encode from "Utils/encode"
 import { useFormInput } from "Utils/hooks"
+import { notEmpty, isValidEmail } from "Utils/validations"
 import { ProposeForm, ErrorMsg } from "./styles"
 
 function ProposeEvent({ closeModal }) {
   const date = moment().format("YYYY-MM-DDTHH:mm")
 
-  const notEmpty = (val) => val.length > 0
-
   const user = useFormInput(notEmpty, "Please Enter Your Name")
-  const email = useFormInput(val => /@./.test(val), "Email must be Valid")
+  const email = useFormInput(isValidEmail, "Email must be Valid")
   const eventName = useFormInput(notEmpty, "Please Enter an Event Name")
   const location = useFormInput(notEmpty, "Please Enter a Location")
   const start = useFormInput(notEmpty, "Please pick a Start Time", date)
