@@ -6,7 +6,7 @@ exports[`The StayConnected component matches its snapshot 1`] = `
   data-testid="stay-connected"
 >
   <form
-    class="sc-bxivhb aVuHy"
+    class="sc-bxivhb gbpoxm"
     method="post"
   >
     <h2
