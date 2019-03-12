@@ -1,0 +1,183 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The StayConnected component matches its snapshot 1`] = `
+<div
+  class="sc-bwzfXH eIXwum"
+  data-testid="stay-connected"
+>
+  <form
+    class="sc-bxivhb aVuHy"
+    method="post"
+  >
+    <h2
+      class="bigScreen sc-ifAKCX hVoyhH"
+    >
+      Stay Connected
+    </h2>
+    <div>
+      <label
+        for="name"
+      >
+        Name:
+        <input
+          id="name"
+          value=""
+        />
+      </label>
+    </div>
+    <div>
+      <label
+        for="email"
+      >
+        Email:
+        <input
+          id="email"
+          type="email"
+          value=""
+        />
+      </label>
+    </div>
+    <div>
+      <label
+        for="comments"
+      >
+        Comments:
+        <textarea
+          id="comments"
+        />
+      </label>
+    </div>
+    <button
+      type="submit"
+    >
+      Join the Movement
+    </button>
+  </form>
+  <div
+    class="sc-EHOje qfkQa"
+  >
+    <p>
+      Want to be a conduit for change? Join the movement and connect with liked-minded individuals looking to make a difference redefining the San Diego tech scene.
+    </p>
+    <a
+      class="sc-bdVaJa erbOLL"
+      href="https://join.slack.com/t/sandiegotechhub/shared_invite/enQtNTI1MDA2NjQyNDcwLTRhYmFhOGZlNzQyZWQ0NmJjMTEzNGE1YjI1NTJmY2RhZjVmYjBjNDAyYmI4MDZkNTM4MzMwM2JmYWQzOGVkYjY"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      <button
+        type="submit"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-slack fa-w-14 fa-sm "
+          data-icon="slack"
+          data-prefix="fab"
+          role="img"
+          viewBox="0 0 448 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M244.2 217.5l19.3 57.7-59.8 20-19.3-57.7 59.8-20zm41.4 243.7C131.6 507.4 65 471.6 18.8 317.6S8.4 97 162.4 50.8C316.4 4.6 383 40.4 429.2 194.4c46.2 154 10.4 220.6-143.6 266.8zM366.2 265c-3.9-12.2-17.2-18.6-29.4-14.7l-29 9.7-19.3-57.7 29-9.7c12.2-3.9 18.6-17.2 14.7-29.4-3.9-12.2-17.2-18.6-29.4-14.7l-29 9.7-10-30.1c-3.9-12.2-17.2-18.6-29.4-14.7-12.2 3.9-18.6 17.2-14.7 29.4l10 30.1-59.8 20.1-10-30.1c-3.9-12.2-17.2-18.6-29.4-14.7-12.2 3.9-18.6 17.2-14.7 29.4l10 30.1-29 9.7c-12.2 3.9-18.6 17.2-14.7 29.4 3.2 9.3 12.2 15.4 21.5 15.8 4.3.6 7.7-1 36.9-10.7l19.3 57.7-29 9.7c-12.2 3.9-18.6 17.2-14.7 29.4 3.2 9.3 12.2 15.4 21.5 15.8 4.3.6 7.7-1 36.9-10.7l10 30.1c3.7 10.8 15.8 18.6 29.4 14.7 12.2-3.9 18.6-17.2 14.7-29.4l-10-30.1 59.8-20.1 10 30.1c3.7 10.8 15.8 18.6 29.4 14.7 12.2-3.9 18.6-17.2 14.7-29.4l-10-30.1 29-9.7c12.2-4.2 18.6-17.5 14.7-29.6z"
+            fill="currentColor"
+          />
+        </svg>
+        <span
+          style="margin-left: 1rem;"
+        >
+          Join our Slack 
+          <span
+            class="join"
+          >
+            Community
+          </span>
+        </span>
+      </button>
+    </a>
+    <aside
+      style="text-align: center; padding: 1rem; margin-top: 1rem;"
+    >
+      <h4
+        style="font-size: 1.4rem;"
+      >
+        Like and follow San Diego Tech Hub
+      </h4>
+      <div
+        style="display: flex; justify-content: space-evenly; width: 75%; margin: auto;"
+      >
+        <a
+          class="sc-bdVaJa erbOLL"
+          href="https://www.linkedin.com/company/san-diego-tech-hub/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-linkedin fa-w-14 fa-2x "
+            color="#0077B5"
+            data-icon="linkedin"
+            data-prefix="fab"
+            role="img"
+            viewBox="0 0 448 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
+              fill="currentColor"
+            />
+          </svg>
+        </a>
+        <a
+          class="sc-bdVaJa erbOLL"
+          href="https://www.facebook.com/SanDiegoTechHub/"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-facebook-square fa-w-14 fa-2x "
+            color="#3b5998"
+            data-icon="facebook-square"
+            data-prefix="fab"
+            role="img"
+            viewBox="0 0 448 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M448 80v352c0 26.5-21.5 48-48 48h-85.3V302.8h60.6l8.7-67.6h-69.3V192c0-19.6 5.4-32.9 33.5-32.9H384V98.7c-6.2-.8-27.4-2.7-52.2-2.7-51.6 0-87 31.5-87 89.4v49.9H184v67.6h60.9V480H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48z"
+              fill="currentColor"
+            />
+          </svg>
+        </a>
+        <a
+          class="sc-bdVaJa erbOLL"
+          href="https://twitter.com/SanDiegoTechHub"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <svg
+            aria-hidden="true"
+            class="svg-inline--fa fa-twitter-square fa-w-14 fa-2x "
+            color="#00a1f8"
+            data-icon="twitter-square"
+            data-prefix="fab"
+            role="img"
+            viewBox="0 0 448 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M400 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm-48.9 158.8c.2 2.8.2 5.7.2 8.5 0 86.7-66 186.6-186.6 186.6-37.2 0-71.7-10.8-100.7-29.4 5.3.6 10.4.8 15.8.8 30.7 0 58.9-10.4 81.4-28-28.8-.6-53-19.5-61.3-45.5 10.1 1.5 19.2 1.5 29.6-1.2-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9 29.6 8.3a65.447 65.447 0 0 1-29.2-54.6c0-12.2 3.2-23.4 8.9-33.1 32.3 39.8 80.8 65.8 135.2 68.6-9.3-44.5 24-80.6 64-80.6 18.9 0 35.9 7.9 47.9 20.7 14.8-2.8 29-8.3 41.6-15.8-4.9 15.2-15.2 28-28.8 36.1 13.2-1.4 26-5.1 37.8-10.2-8.9 13.1-20.1 24.7-32.9 34z"
+              fill="currentColor"
+            />
+          </svg>
+        </a>
+      </div>
+    </aside>
+  </div>
+  <h2
+    class="smallScreen"
+  >
+    Stay Connected
+  </h2>
+</div>
+`;
