@@ -6,34 +6,38 @@ import SEO from "Components/seo"
 import PillarTemplate from "Components/pillars/template"
 import PageTitle from "Common/PageTitle"
 
-export default props => {
-  const { data: { community, communityJson } } = props
+function CommunityPage({ data, ...props }) {
+  const { markdownRemark, community } = data
+
   return (
     <Layout pageProps={props}>
-      <SEO title="Community" keywords={["san diego", "tech", "hub", "community"]} />
-      <PageTitle>
-        Community
-      </PageTitle>
-      <PillarTemplate
-        data={communityJson}
-        icon={community}
+      <SEO
+        title="Community"
+        keywords={["san diego", "tech", "hub", "community"]}
       />
+      <PageTitle>Community</PageTitle>
+      <PillarTemplate data={markdownRemark.frontmatter} icon={community} />
     </Layout>
   )
 }
 
+export default CommunityPage
+
 export const query = graphql`
   query COMMUNITY_QUERY {
-    communityJson {
-      pageTitle
-      purpose
-      goals
-      challenge
-      leads {
-        name
-        email
-        bio
-        photo
+    markdownRemark(frontmatter: { path: { eq: "community" } }) {
+      frontmatter {
+        pageTitle
+        purpose
+        challenge
+        leads {
+          lead {
+            name
+            email
+            bioDescription
+            photo
+          }
+        }
       }
     }
     community: file(relativePath: { eq: "community-page.png" }) {

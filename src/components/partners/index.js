@@ -1,73 +1,77 @@
 import React from "react"
-import { graphql, StaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import Img from "gatsby-image"
 
 import ExternalLink from "Common/ExternalLink"
 
-const Partners = () => (
-  <StaticQuery
-    query={query}
-    render={({ partnersJson, ...logos }) => {
-      return (
-        <Container>
-          <PartnerSection repeat={4}>
-            <h2>{partnersJson.firstSectionTitle}</h2>
+function Partners() {
+  const {
+    markdownRemark: { frontmatter },
+    ...logos
+  } = useStaticQuery(query)
 
-            <div
-              className="description"
-              dangerouslySetInnerHTML={{ __html: partnersJson.firstSectionDescription }}
-            />
-            <div className="partners">
-              {partnersJson.firstSectionItems.map((company) => {
-                const logo = logos[company.logo]
-                if (!logo) {
-                  return null
-                }
-                return (
-                  <div key={company.name} className="partner">
-                    <ExternalLink href={company.website}>
-                      <Img fluid={logo.childImageSharp.fluid} alt={company.name} />
-                    </ExternalLink>
-                  </div>
-                )
-              })}
-            </div>
-          </PartnerSection>
+  return (
+    <Container>
+      <PartnerSection repeat={4}>
+        <h2>{frontmatter.partnersTitle}</h2>
 
-          <PartnerSection repeat={2}>
-            <h2>{partnersJson.secondSectionTitle}</h2>
+        <div
+          className="description"
+          dangerouslySetInnerHTML={{
+            __html: frontmatter.partnersDescription
+          }}
+        />
+        <div className="partners">
+          {frontmatter.partners.map(({ partner }) => {
+            const logo = logos[partner.logo]
+            if (!logo) {
+              return null
+            }
+            return (
+              <div key={partner.name} className="partner">
+                <ExternalLink href={partner.website}>
+                  <Img fluid={logo.childImageSharp.fluid} alt={partner.name} />
+                </ExternalLink>
+              </div>
+            )
+          })}
+        </div>
+      </PartnerSection>
 
-            <div
-              className="description"
-              dangerouslySetInnerHTML={{ __html: partnersJson.secondSectionDescription }}
-            />
-            <div className="partners">
-              {partnersJson.secondSectionItems.map((company) => {
-                const logo = logos[company.logo]
-                if (!logo) {
-                  return null
-                }
+      <PartnerSection repeat={2}>
+        <h2>{frontmatter.sponsorsTitle}</h2>
 
-                return (
-                  <div key={company.name} className="partner">
-                    <ExternalLink href={company.website}>
-                      <Img
-                        fluid={logo.childImageSharp.fluid}
-                        alt={company.name}
-                        style={{ maxWidth: "40rem", margin: "auto" }}
-                      />
-                    </ExternalLink>
-                  </div>
-                )
-              })}
-            </div>
-          </PartnerSection>
-        </Container>
-      )
-    }}
-  />
-)
+        <div
+          className="description"
+          dangerouslySetInnerHTML={{
+            __html: frontmatter.sponsorsDescription
+          }}
+        />
+        <div className="partners">
+          {frontmatter.sponsors.map(({ sponsor }) => {
+            const logo = logos[sponsor.logo]
+            if (!logo) {
+              return null
+            }
+
+            return (
+              <div key={sponsor.name} className="partner">
+                <ExternalLink href={sponsor.website}>
+                  <Img
+                    fluid={logo.childImageSharp.fluid}
+                    alt={sponsor.name}
+                    style={{ maxWidth: "40rem", margin: "auto" }}
+                  />
+                </ExternalLink>
+              </div>
+            )
+          })}
+        </div>
+      </PartnerSection>
+    </Container>
+  )
+}
 
 export default Partners
 
@@ -79,7 +83,7 @@ const Container = styled.div`
     margin: 0 !important;
   }
 
-  @media(max-width: 450px) {
+  @media (max-width: 450px) {
     .description {
       padding: 1rem;
     }
@@ -130,19 +134,26 @@ const PartnerSection = styled.section`
 
 const query = graphql`
   query PARTNERS_QUERY {
-    partnersJson {
-      firstSectionTitle
-      firstSectionDescription
-      firstSectionItems {
-        name
-        website
-        logo
-      }
-      secondSectionTitle
-      secondSectionDescription
-      secondSectionItems {
-        name
-        logo
+    markdownRemark(frontmatter: { path: { eq: "partners" } }) {
+      frontmatter {
+        partnersTitle
+        partnersDescription
+        partners {
+          partner {
+            name
+            website
+            logo
+          }
+        }
+        sponsorsTitle
+        sponsorsDescription
+        sponsors {
+          sponsor {
+            website
+            name
+            logo
+          }
+        }
       }
     }
 

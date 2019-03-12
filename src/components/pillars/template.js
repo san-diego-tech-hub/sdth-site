@@ -28,10 +28,10 @@ const PillarTemplate = ({ data, icon }) => (
       <div dangerouslySetInnerHTML={{ __html: data.challenge }} />
     </PillarSection>
 
-    {data.leads && data.leads[0].name.length > 0 && (
+    {data.leads && (
       <LeadsSection>
         <h2>Pillar Leads</h2>
-        {data.leads.map((lead) => (
+        {data.leads.map(({ lead }) => (
           <div key={lead.name} className="lead">
             <div>
               <img
@@ -47,7 +47,7 @@ const PillarTemplate = ({ data, icon }) => (
             </div>
             <span style={{ padding: ".5rem" }}>
               <h5>Biography</h5>
-              <div dangerouslySetInnerHTML={{ __html: lead.bio }} />
+              <div dangerouslySetInnerHTML={{ __html: lead.bioDescription }} />
             </span>
           </div>
         ))}

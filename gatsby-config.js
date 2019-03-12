@@ -11,15 +11,14 @@ const plugins = [
       path: `${__dirname}/src/images`,
     },
   },
-  "gatsby-transformer-json",
-  "gatsby-transformer-remark",
   {
     resolve: "gatsby-source-filesystem",
     options: {
-      name: "data",
-      path: `${__dirname}/src/data`,
+      name: "content",
+      path: `${__dirname}/src/data/content`,
     },
   },
+  "gatsby-transformer-remark",
   "gatsby-transformer-sharp",
   "gatsby-plugin-sharp",
   {
@@ -73,6 +72,7 @@ const plugins = [
       entities: ["events", "venues"],
     },
   },
+  "gatsby-plugin-netlify-cms"
 ]
 
 if (process.env.NODE_ENV === "production") {

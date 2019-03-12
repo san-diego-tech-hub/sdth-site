@@ -1,0 +1,307 @@
+backend:
+  name: git-gateway
+  branch: master
+  accept_roles:
+    - admin
+
+media_folder: static/assets
+public_folder: assets
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: home
+        label: Home
+        file: "src/data/content/home.md"
+        fields:
+          - { name: "path", label: "Path", widget: "hidden", default: "home" }
+          - { name: "mainTitle", label: "Main Title" }
+          - {
+              name: "mainDescription",
+              label: "Main Description",
+              widget: "markdown",
+            }
+          - { name: "collabTitle", label: "Collab Title" }
+          - {
+              name: "collabDescription",
+              label: "Collaboration Description",
+              widget: "markdown",
+            }
+          - label: "Collboration Items"
+            name: "collabItems"
+            widget: "list"
+            fields:
+              - label: "Collaboration Item"
+                name: "collabItem"
+                widget: "object"
+                fields:
+                  - { name: "title", label: "Title", widget: string }
+                  - {
+                      name: "description",
+                      label: "Description",
+                      widget: string,
+                    }
+          - { name: "pillarsTitle", label: "Pillars Title" }
+          - {
+              name: "pillarsDescription",
+              label: "Pillars Description",
+              widget: "markdown",
+            }
+          - label: "Pillars Icons"
+            name: "pillarIcons"
+            widget: "list"
+            fields:
+              - label: "Pillar Item"
+                name: "pillarItem"
+                widget: "object"
+                fields:
+                  - { name: "title", label: "Title", widget: string }
+                  - {
+                      name: "description",
+                      label: "Description",
+                      widget: markdown,
+                    }
+                  - {
+                      name: "background",
+                      label: "Background Color",
+                      widget: string,
+                    }
+
+      - name: about
+        label: About
+        file: "src/data/content/about.md"
+        fields:
+          - { name: "path", label: "Path", widget: "hidden", default: "about" }
+          - { name: "mainTitle", label: "Main Title" }
+          - { name: "aboutTitle", label: "About Title" }
+          - {
+              name: "aboutDescription",
+              label: "About Description",
+              widget: "markdown",
+            }
+          - { name: "challengesTitle", label: "Challenges Title" }
+          - {
+              name: "chaellengesDescription",
+              label: "Challenges Description",
+              widget: "markdown",
+            }
+          - label: "Challenges Items"
+            name: "challengesItems"
+            widget: "list"
+            fields:
+              - label: "Challenges Item"
+                name: "challengesItem"
+                widget: "object"
+                fields:
+                  - { name: "icon", label: "Icon", widget: string }
+                  - { name: "header", label: "Header" }
+                  - {
+                      name: "text",
+                      label: "text",
+                      widget: string,
+                    }
+
+          - { name: "solutionsTitle", label: "Solutions Title" }
+          - {
+              name: "solutionsDescription",
+              label: "Solutions Description",
+              widget: "markdown",
+            }
+          - label: "Solutions Items"
+            name: "solutionsItems"
+            widget: "list"
+            fields:
+              - label: "Solution Item"
+                name: "solutionItem"
+                widget: "object"
+                fields:
+                  - { name: "icon", label: "Icon", widget: string }
+                  - { name: "header", label: "Header" }
+                  - {
+                      name: "text",
+                      label: "Text",
+                      widget: string,
+                    }
+
+      - name: leadership
+        label: Leadership
+        file: "src/data/content/leadership.md"
+        fields:
+          - {
+              name: "path",
+              label: "Path",
+              widget: "hidden",
+              default: "leadership",
+            }
+          - { name: "mainTitle", label: Main Title" }
+          - {
+              name: "mainDescription",
+              label: Main Description",
+              widget: "markdown",
+            }
+          - { name: 'founderName', label: 'Founder Name' }
+          - { name: 'founderEmail', label: 'Founder Email' }
+          
+          - label: "Leadership"
+            name: "leadership"
+            widget: "list"
+            fields:
+              - label: "Leader"
+                name: "leader"
+                widget: "object"
+                fields:
+                  - { name: "name", label: "Name", widget: string }
+                  - { name: "email", label: "email" }
+                  - { name: "pillar", label: "Pillar" }
+                  - { name: "photo", label: "Photo" }
+                  - { name: "bioDescription", label: "Bio Description" }
+                  
+      - name: community
+        label: Community Pillar
+        file: "src/data/content/pillars/community.md"
+        fields:
+          - { name: 'path', label: 'Path', widget: 'hidden', default: 'community' }
+          - { name: 'pageTitle', label: 'Page Title' }
+          - { name: 'purpose', label: 'Purppse' }
+          - { name: 'challenge', label: 'Challenge' }
+          - { name: 'goalsDescription', label: 'Goals Description', widget: 'markdown' }
+          - name: 'leads'
+            label: 'Leads'
+            widget: 'list'
+            fields:
+              - label: 'Lead'
+                name: 'lead'
+                widget: 'object'
+                fields:
+                  - { name: 'name', label: 'Name' }
+                  - { name: 'email', label: 'Email' }
+                  - { name: 'photo', label: 'Photo' }
+                  - { name: 'bioDescription', label: 'Bio Description', widget: 'markdown' }
+
+      - name: education
+        label: Education Pillar
+        file: "src/data/content/pillars/education.md"
+        fields:
+          - { name: 'path', label: 'Path', widget: 'hidden', default: 'education' }
+          - { name: 'pageTitle', label: 'Page Title' }
+          - { name: 'purpose', label: 'Purppse' }
+          - { name: 'challenge', label: 'Challenge' }
+          - { name: 'goalsDescription', label: 'Goals Description', widget: 'markdown' }
+          - name: 'leads'
+            label: 'Leads'
+            widget: 'list'
+            fields:
+              - label: 'Lead'
+                name: 'lead'
+                widget: 'object'
+                fields:
+                  - { name: 'name', label: 'Name' }
+                  - { name: 'email', label: 'Email' }
+                  - { name: 'photo', label: 'Photo' }
+                  - { name: 'bioDescription', label: 'Bio Description', widget: 'markdown' }
+                
+      - name: inclusion
+        label: Inclusion Pillar
+        file: "src/data/content/pillars/inclusion.md"
+        fields:
+          - { name: 'path', label: 'Path', widget: 'hidden', default: 'inclusion' }
+          - { name: 'pageTitle', label: 'Page Title' }
+          - { name: 'purpose', label: 'Purppse' }
+          - { name: 'challenge', label: 'Challenge' }
+          - { name: 'goalsDescription', label: 'Goals Description', widget: 'markdown' }
+          - name: 'leads'
+            label: 'Leads'
+            widget: 'list'
+            fields:
+              - label: 'Lead'
+                name: 'lead'
+                widget: 'object'
+                fields:
+                  - { name: 'name', label: 'Name' }
+                  - { name: 'email', label: 'Email' }
+                  - { name: 'photo', label: 'Photo' }
+                  - { name: 'bioDescription', label: 'Bio Description', widget: 'markdown' }
+      
+      - name: innovation
+        label: Innovation Pillar
+        file: "src/data/content/pillars/innovation.md"
+        fields:
+          - { name: 'path', label: 'Path', widget: 'hidden', default: 'innovation' }
+          - { name: 'pageTitle', label: 'Page Title' }
+          - { name: 'purpose', label: 'Purppse' }
+          - { name: 'challenge', label: 'Challenge' }
+          - { name: 'goalsDescription', label: 'Goals Description', widget: 'markdown' }
+          - name: 'leads'
+            label: 'Leads'
+            widget: 'list'
+            fields:
+              - label: 'Lead'
+                name: 'lead'
+                widget: 'object'
+                fields:
+                  - { name: 'name', label: 'Name' }
+                  - { name: 'email', label: 'Email' }
+                  - { name: 'photo', label: 'Photo' }
+                  - { name: 'bioDescription', label: 'Bio Description', widget: 'markdown' }
+      - name: talent
+        label: Talent Pillar
+        file: "src/data/content/pillars/talent.md"
+        fields:
+          - { name: 'path', label: 'Path', widget: 'hidden', default: 'talent' }
+          - { name: 'pageTitle', label: 'Page Title' }
+          - { name: 'purpose', label: 'Purppse' }
+          - { name: 'challenge', label: 'Challenge' }
+          - { name: 'goalsDescription', label: 'Goals Description', widget: 'markdown' }
+          - name: 'leads'
+            label: 'Leads'
+            widget: 'list'
+            fields:
+              - label: 'Lead'
+                name: 'lead'
+                widget: 'object'
+                fields:
+                  - { name: 'name', label: 'Name' }
+                  - { name: 'email', label: 'Email' }
+                  - { name: 'photo', label: 'Photo' }
+                  - { name: 'bioDescription', label: 'Bio Description', widget: 'markdown' }
+      
+      - name: get-involved
+        label: Get Involved
+        file: "src/data/content/get-involved.md"
+        fields:
+          - { name: 'path', label: 'Path', widget: 'hidden', default: 'get-involved' }
+          - { name: 'mainTitle', label: 'Main Title' }
+          - { name: 'mainDescription', label: 'Main Description' }
+
+      - name: partners
+        label: Partners
+        file: "src/data/content/partners.md"
+        fields:
+          - { name: 'path', label: 'Path', widget: 'hidden', default: 'partners' }
+          - { name: 'partnersTitle', label: 'Partners Title' }
+          - { name: 'partnersDescription', label: 'Partners Description', widget: 'markdown' }
+          - name: partners
+            label: 'Partners'
+            widget: 'list'
+            fields:
+              - label: 'Partner'
+                name: 'partner'
+                widget: 'object'
+                fields:
+                  - { name: 'name', label: 'Name' }
+                  - { name: 'website', label: 'Website' }
+                  - { name: 'logo', label: 'Logo' }
+          - { name: 'sponsorsTitle', label: 'Sponsors Title' }
+          - { name: 'sponsorsDescription', label: 'Sponsors Description', widget: 'markdown' }
+          - name: sponsors
+            label: 'Sponsors'
+            widget: 'list'
+            fields:
+              - label: 'Sponsor'
+                name: 'sponsor'
+                widget: 'object'
+                fields:
+                  - { name: 'name', label: 'Name' }
+                  - { name: 'website', label: 'Website' }
+                  - { name: 'logo', label: 'Logo' }
