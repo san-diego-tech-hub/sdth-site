@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Appearance matches its snapshot 1`] = `
+exports[`matches its snapshot 1`] = `
 <div
   class="sc-bwzfXH jSEfmW"
   data-testid="stay-connected"
@@ -48,6 +48,7 @@ exports[`Appearance matches its snapshot 1`] = `
       </label>
     </div>
     <button
+      data-testid="subscribe"
       type="submit"
     >
       Join the Movement

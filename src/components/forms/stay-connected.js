@@ -25,7 +25,7 @@ class StayConnected extends React.Component {
     const { name, email, comments } = this.state
 
     if (email.length < 1 || name.length < 1) {
-      alert("Please provide a valid name and email.")
+      console.error("Please provide a valid name and email.")
       return
     }
     const res = await addToMailChimp(email, { NAME: name, COMMENTS: comments })
@@ -66,7 +66,9 @@ class StayConnected extends React.Component {
               <textarea id="comments" value={comments} onChange={this.handleChange} />
             </label>
           </div>
-          <button type="submit">Join the Movement</button>
+          <button data-testid="subscribe" type="submit">
+            Join the Movement
+          </button>
         </Form>
         <SocialContainer>
           <p>
