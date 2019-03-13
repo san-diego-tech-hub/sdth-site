@@ -78,7 +78,7 @@ class StayConnected extends React.Component {
             <button type="submit">
               <FontAwesomeIcon size="sm" icon={["fab", "slack"]} />
               <span style={{ marginLeft: "1rem" }}>
-                Join our Slack <span className="join">Community</span>
+                Join our Slack <span className="hidden-on-mobile">Community</span>
               </span>
             </button>
           </ExternalLink>

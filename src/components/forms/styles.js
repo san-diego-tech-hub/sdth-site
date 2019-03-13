@@ -58,7 +58,7 @@ export const Container = styled.div`
 
   @media(max-width: 400px) {
     padding: 10px;
-    .join {
+    .hidden-on-mobile {
       display: none
     }
   }
