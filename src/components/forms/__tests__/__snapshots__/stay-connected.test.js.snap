@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The StayConnected component matches its snapshot 1`] = `
+exports[`Appearance matches its snapshot 1`] = `
 <div
-  class="sc-bwzfXH eIXwum"
+  class="sc-bwzfXH jSEfmW"
   data-testid="stay-connected"
 >
   <form
@@ -87,7 +87,7 @@ exports[`The StayConnected component matches its snapshot 1`] = `
         >
           Join our Slack 
           <span
-            class="join"
+            class="hidden-on-mobile"
           >
             Community
           </span>
