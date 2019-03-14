@@ -35,7 +35,7 @@ class StayConnected extends React.Component {
     const { name, email, comments } = this.state
 
     return (
-      <Container>
+      <Container data-testid="stay-connected">
         <Form method="post" onSubmit={this.handleSubmit}>
           <FormTitle className="bigScreen">Stay Connected</FormTitle>
           <div>
