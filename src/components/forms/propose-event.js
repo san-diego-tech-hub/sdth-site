@@ -4,7 +4,8 @@ import moment from "moment"
 import encode from "Utils/encode"
 import { useFormInput } from "Utils/hooks"
 import { notEmpty, isValidEmail } from "Utils/validations"
-import { ProposeForm, ErrorMsg } from "./styles"
+import ErrorMsg from "Common/ErrorMsg"
+import { ProposeForm } from "./styles"
 
 function ProposeEvent({ closeModal }) {
   const date = moment().format("YYYY-MM-DDTHH:mm")

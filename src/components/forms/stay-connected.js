@@ -1,6 +1,7 @@
 import React from "react"
 import addToMailChimp from "gatsby-plugin-mailchimp"
 // import { useFormInput } from "Utils/hooks"
+import ErrorMsg from "Common/ErrorMsg"
 import ExternalLink from "Common/ExternalLink"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import SocialMedia from "./social-media"
@@ -24,13 +25,13 @@ class StayConnected extends React.Component {
     e.preventDefault()
     const { name, email, comments } = this.state
 
-    if (email.length < 1 || name.length < 1) {
+    if (!/.@./.test(email) || name.length < 1) {
       console.error("Please provide a valid name and email.")
       return
     }
     const res = await addToMailChimp(email, { NAME: name, COMMENTS: comments })
 
-    alert(res.msg)
+    console.log(res.msg)
     if (res.result === "success") {
       this.setState({ name: "", email: "", comments: "" })
     }
@@ -48,6 +49,9 @@ class StayConnected extends React.Component {
               Name:
               <input id="name" value={name} onChange={this.handleChange} />
             </label>
+            <ErrorMsg data-testid="name-error">
+              {}
+            </ErrorMsg>
           </div>
           <div>
             <label htmlFor="email">
@@ -59,6 +63,9 @@ class StayConnected extends React.Component {
                 onChange={this.handleChange}
               />
             </label>
+            <ErrorMsg data-testid="name-error">
+              {}
+            </ErrorMsg>
           </div>
           <div>
             <label htmlFor="comments">

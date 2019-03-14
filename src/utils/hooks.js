@@ -1,10 +1,21 @@
 import React from "react"
 
-export function useFormInput(
+export function useForm({ fields = [] }) {
+  const formUtils = {}
+  formUtils.fields = fields.map(field => field.name)
+
+  fields.forEach(field => {
+    formUtils[field.name] = useFormInput(field)
+  })
+
+  return formUtils
+}
+
+export function useFormInput({
   validate = () => true,
   errorMsg = "",
   initialValue = ""
-) {
+}) {
   const [value, setValue] = React.useState(initialValue)
   const [isValid, setIsValid] = React.useState(true)
 

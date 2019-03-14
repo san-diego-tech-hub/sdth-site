@@ -11,14 +11,15 @@
     "Joseph Huynh",
     "Adam Funk",
     "Jesse Loftus",
-    "Steph Huynh"
+    "Steph Huynh",
+    "Peter Tiszavolgyi"
   ],
   "scripts": {
     "build": "LOCAL_BUILD=true gatsby build",
     "clearCache": "rm -rf ./.cache",
     "serve": "gatsby serve",
     "start": "gatsby develop",
-    "test": "jest"
+    "test": "jest --watchAll"
   },
   "husky": {
     "hooks": {
@@ -28,6 +29,7 @@
   "lint-staged": {
     "*.{js,jsx}": [
       "eslint --fix",
+      "jest",
       "git add"
     ]
   },

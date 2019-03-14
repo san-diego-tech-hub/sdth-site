@@ -6,11 +6,11 @@ exports[`matches its snapshot 1`] = `
   data-testid="stay-connected"
 >
   <form
-    class="sc-bxivhb gbpoxm"
+    class="sc-htpNat bZbnzF"
     method="post"
   >
     <h2
-      class="bigScreen sc-ifAKCX hVoyhH"
+      class="bigScreen sc-bxivhb jDwgEc"
     >
       Stay Connected
     </h2>
@@ -24,6 +24,10 @@ exports[`matches its snapshot 1`] = `
           value=""
         />
       </label>
+      <div
+        data-testid="name-error"
+        style="color: red; height: 2rem;"
+      />
     </div>
     <div>
       <label
@@ -36,6 +40,10 @@ exports[`matches its snapshot 1`] = `
           value=""
         />
       </label>
+      <div
+        data-testid="name-error"
+        style="color: red; height: 2rem;"
+      />
     </div>
     <div>
       <label
@@ -55,7 +63,7 @@ exports[`matches its snapshot 1`] = `
     </button>
   </form>
   <div
-    class="sc-EHOje qfkQa"
+    class="sc-ifAKCX cejGdI"
   >
     <p>
       Want to be a conduit for change? Join the movement and connect with liked-minded individuals looking to make a difference redefining the San Diego tech scene.

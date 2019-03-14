@@ -1,5 +1,6 @@
 import React from "react"
-import { fireEvent, render, Simulate } from "react-testing-library"
+import { fireEvent, render } from "react-testing-library"
+import { fillInput } from "Test/utils"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import MockAddToMailchimp from "gatsby-plugin-mailchimp"
 import {
@@ -30,31 +31,71 @@ test("matches its snapshot", () => {
 })
 
 describe("Validation:", () => {
-  test("no email prevents subscribe form submission", () => {
+  test("prevents form submission unless name and email are valid", () => {
     const { getByLabelText, getByTestId } = render(<StayConnected />)
     const name = getByLabelText(/name/i)
     const comments = getByLabelText(/comments/i)
+    const email = getByLabelText(/email/i)
     const subscribe = getByTestId("subscribe")
 
-    const email = getByLabelText(/email/i)
-
-    name.value = "Some name"
-    comments.value = "a comment"
-    // fireEvent.change(email, { target: { value: "email@something.com" } })
-    Simulate.change(email, { target: { value: "email@something.com" } })
+    // does NOT submit if name is blank
+    fillInput(name, "")
+    fillInput(email, "has@symbol")
+    fillInput(comments, "a comment")
     fireEvent.click(subscribe)
-
     expect(MockAddToMailchimp).not.toHaveBeenCalled()
+
+    // does NOT submit if email is invalid
+    fillInput(name, "Name")
+    fillInput(email, "noAtSymbol")
+    fillInput(comments, "a comment")
+    fireEvent.click(subscribe)
+    expect(MockAddToMailchimp).not.toHaveBeenCalled()
+
+    // DOES submit if name and email are valid
+    fillInput(name, "Name")
+    fillInput(email, "has@symbol")
+    fillInput(comments, "")
+    fireEvent.click(subscribe)
+    expect(MockAddToMailchimp).toHaveBeenCalledTimes(1)
+  })
+
+  xtest("displays validation errors", () => {
+    const { getByLabelText, getByTestId } = render(<StayConnected />)
+    const name = getByLabelText(/name/i)
+    const email = getByLabelText(/email/i)
+    const subscribe = getByTestId("subscribe")
+
+    // errors are NOT displayed initially
+    fillInput(email, "noAtSymbol")
+    expect(getByTestId("name-error")).toBeEmpty()
+    expect(getByTestId("email-error")).toBeEmpty()
+
+    // errors are displayed after submission attempt
+    fireEvent.click(subscribe)
+    expect(getByTestId("name-error")).not.toBeEmpty()
+    expect(getByTestId("email-error")).not.toBeEmpty()
+
+    // errors disappear when fields become valid
+    fillInput(name, "Name")
+    expect(getByTestId("name-error")).toBeEmpty()
+    fillInput(email, "has@symbol")
+    expect(getByTestId("email-error")).toBeEmpty()
+
+    // errors reappear when fields become invalid
+    fillInput(name, "")
+    expect(getByTestId("name-error")).not.toBeEmpty()
+    fillInput(email, "noAtSymbol")
+    expect(getByTestId("email-error")).not.toBeEmpty()
   })
 })
 
-describe("Successful newsletter subscription", () => {
-  xtest("invalid inputs prevent form submission", () => {
-    const { getByTestId } = render(<StayConnected />)
-    const subscribe = getByTestId("subscribe")
+describe("Success Message:", () => {
+  xtest("displays success message if subscribed", () => {
 
-    fireEvent.click(subscribe)
+  })
 
-    expect(MockAddToMailchimp).not.toHaveBeenCalled()
+  xtest("does NOT display success message if validation errors", () => {
+
   })
 })
