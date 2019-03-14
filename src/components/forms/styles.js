@@ -13,17 +13,16 @@ export const Container = styled.div`
   font-size: 2rem;
 
   button {
-    background: #f36aac;
+    background: #F25AA3;
     width: 100%;
     margin-top: 2rem;
     padding: 1rem;
     color: rgba(245, 245, 245, 1);
-    border: none;
+    border: solid 1.5px #F25AA3;
     border-radius: 0.5rem;
     &:hover {
-      background: #f25aa3;
-      color: white;
-      text-shadow: 0px 0px 20px rgba(255, 255, 255, 1);
+      border: 1.5px solid #a31f5e;
+      box-shadow: inset 0 0 3px #a31f5e;
       transition: all 0.2s ease 0s;
       cursor: pointer;
     }
