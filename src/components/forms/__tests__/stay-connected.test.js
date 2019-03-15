@@ -57,7 +57,12 @@ describe("Validation:", () => {
     fillInput(email, "has@symbol")
     fillInput(comments, "")
     fireEvent.click(subscribe)
-    expect(MockAddToMailchimp).toHaveBeenCalledTimes(1)
+    expect(MockAddToMailchimp).toHaveBeenCalledWith(
+      "has@symbol", {
+        NAME: "Name",
+        COMMENTS: ""
+      }
+    )
   })
 
   test("displays validation errors", () => {

@@ -22,6 +22,20 @@ export function useForm({ fields = [] }) {
     })
   }
 
+  form.onSubmit = (action) => {
+    return (e) => {
+      e.preventDefault()
+
+      form.runValidations()
+
+      if (form.hasValidationErrors) {
+        return
+      }
+
+      action()
+    }
+  }
+
   return form
 }
 

@@ -43,15 +43,7 @@ function ProposeEvent({ closeModal }) {
     ]
   })
 
-  const handleSubmit = async e => {
-    e.preventDefault()
-
-    form.runValidations()
-
-    if (form.hasValidationErrors) {
-      return
-    }
-
+  const handleSubmit = async () => {
     await fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -77,7 +69,7 @@ function ProposeEvent({ closeModal }) {
       data-netlify="true"
       data-netlify-honeypot="bot-field"
       method="post"
-      onSubmit={handleSubmit}
+      onSubmit={form.onSubmit(handleSubmit)}
       noValidate
     >
       <div className="input-field">

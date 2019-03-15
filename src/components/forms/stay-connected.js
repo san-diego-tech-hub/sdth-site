@@ -23,15 +23,7 @@ function StayConnected() {
     ]
   })
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-
-    form.runValidations()
-
-    if (form.hasValidationErrors) {
-      return
-    }
-
+  const handleSubmit = async () => {
     const res = await addToMailChimp(form.email.value, {
       NAME: form.username.value,
       COMMENTS: form.comments.value
@@ -45,7 +37,7 @@ function StayConnected() {
 
   return (
     <Container data-testid="stay-connected">
-      <Form method="post" onSubmit={handleSubmit} noValidate>
+      <Form method="post" onSubmit={form.onSubmit(handleSubmit)} noValidate>
         <FormTitle className="bigScreen">Stay Connected</FormTitle>
         <FormField>
           <label htmlFor="username">
