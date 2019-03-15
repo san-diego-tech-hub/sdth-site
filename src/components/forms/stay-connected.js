@@ -1,6 +1,7 @@
 import React from "react"
 import addToMailChimp from "gatsby-plugin-mailchimp"
-// import { useFormInput } from "Utils/hooks"
+import { useForm } from "Utils/hooks"
+import { usernameField, emailField } from "Utils/forms"
 import ErrorMsg from "Common/ErrorMsg"
 import ExternalLink from "Common/ExternalLink"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -8,96 +9,105 @@ import SocialMedia from "./social-media"
 import {
   Container,
   Form,
+  FormField,
   FormTitle,
   SocialContainer
 } from "./styles"
 
-class StayConnected extends React.Component {
-  state = {
-    name: "",
-    email: "",
-    comments: "",
-  }
+function StayConnected() {
+  const form = useForm({
+    fields: [
+      usernameField,
+      emailField,
+      { name: "comments" }
+    ]
+  })
 
-  handleChange = ({ target }) => this.setState({ [target.id]: target.value })
-
-  handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    const { name, email, comments } = this.state
 
-    if (!/.@./.test(email) || name.length < 1) {
-      console.error("Please provide a valid name and email.")
+    form.runValidations()
+
+    if (form.hasValidationErrors) {
       return
     }
-    const res = await addToMailChimp(email, { NAME: name, COMMENTS: comments })
+
+    const res = await addToMailChimp(form.email.value, {
+      NAME: form.username.value,
+      COMMENTS: form.comments.value
+    })
 
     console.log(res.msg)
     if (res.result === "success") {
-      this.setState({ name: "", email: "", comments: "" })
+      // TODO: show react toast success
     }
   }
 
-  render() {
-    const { name, email, comments } = this.state
-
-    return (
-      <Container data-testid="stay-connected">
-        <Form method="post" onSubmit={this.handleSubmit}>
-          <FormTitle className="bigScreen">Stay Connected</FormTitle>
-          <div>
-            <label htmlFor="name">
+  return (
+    <Container data-testid="stay-connected">
+      <Form method="post" onSubmit={handleSubmit} noValidate>
+        <FormTitle className="bigScreen">Stay Connected</FormTitle>
+        <FormField>
+          <label htmlFor="username">
               Name:
-              <input id="name" value={name} onChange={this.handleChange} />
-            </label>
-            <ErrorMsg data-testid="name-error">
-              {}
-            </ErrorMsg>
-          </div>
-          <div>
-            <label htmlFor="email">
+            <input
+              id="username"
+              value={form.username.value}
+              onChange={form.username.onChange}
+            />
+          </label>
+          <ErrorMsg data-testid="name-error">
+            {form.username.error}
+          </ErrorMsg>
+        </FormField>
+        <FormField>
+          <label htmlFor="email">
               Email:
-              <input
+            <input
                 id="email"
                 type="email"
-                value={email}
-                onChange={this.handleChange}
-              />
-            </label>
-            <ErrorMsg data-testid="name-error">
-              {}
-            </ErrorMsg>
-          </div>
-          <div>
-            <label htmlFor="comments">
+                value={form.email.value}
+                onChange={form.email.onChange}
+            />
+          </label>
+          <ErrorMsg data-testid="email-error">
+            {form.email.error}
+          </ErrorMsg>
+        </FormField>
+        <FormField>
+          <label htmlFor="comments">
               Comments:
-              <textarea id="comments" value={comments} onChange={this.handleChange} />
-            </label>
-          </div>
-          <button data-testid="subscribe" type="submit">
+            <textarea
+              id="comments"
+              value={form.comments.value}
+              onChange={form.comments.onChange}
+            />
+          </label>
+        </FormField>
+        <button data-testid="subscribe" type="submit">
             Join the Movement
-          </button>
-        </Form>
-        <SocialContainer>
-          <p>
+        </button>
+      </Form>
+      <SocialContainer>
+        <p>
             Want to be a conduit for change? Join the movement and connect with liked-minded
             individuals looking to make a difference redefining the San Diego tech scene.
-          </p>
+        </p>
 
-          <ExternalLink href="https://join.slack.com/t/sandiegotechhub/shared_invite/enQtNTI1MDA2NjQyNDcwLTRhYmFhOGZlNzQyZWQ0NmJjMTEzNGE1YjI1NTJmY2RhZjVmYjBjNDAyYmI4MDZkNTM4MzMwM2JmYWQzOGVkYjY">
-            <button type="submit">
-              <FontAwesomeIcon size="sm" icon={["fab", "slack"]} />
-              <span style={{ marginLeft: "1rem" }}>
+        <ExternalLink href="https://join.slack.com/t/sandiegotechhub/shared_invite/enQtNTI1MDA2NjQyNDcwLTRhYmFhOGZlNzQyZWQ0NmJjMTEzNGE1YjI1NTJmY2RhZjVmYjBjNDAyYmI4MDZkNTM4MzMwM2JmYWQzOGVkYjY">
+          <button type="submit">
+            <FontAwesomeIcon size="sm" icon={["fab", "slack"]} />
+            <span style={{ marginLeft: "1rem" }}>
                 Join our Slack <span className="hidden-on-mobile">Community</span>
-              </span>
-            </button>
-          </ExternalLink>
-          <SocialMedia />
-        </SocialContainer>
+            </span>
+          </button>
+        </ExternalLink>
+        <SocialMedia />
+      </SocialContainer>
 
-        <h2 className="smallScreen">Stay Connected</h2>
-      </Container>
-    )
-  }
+      <h2 className="smallScreen">Stay Connected</h2>
+    </Container>
+  )
 }
 
 export default StayConnected

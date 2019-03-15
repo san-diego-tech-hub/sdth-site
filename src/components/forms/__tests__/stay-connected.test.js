@@ -60,14 +60,13 @@ describe("Validation:", () => {
     expect(MockAddToMailchimp).toHaveBeenCalledTimes(1)
   })
 
-  xtest("displays validation errors", () => {
+  test("displays validation errors", () => {
     const { getByLabelText, getByTestId } = render(<StayConnected />)
     const name = getByLabelText(/name/i)
     const email = getByLabelText(/email/i)
     const subscribe = getByTestId("subscribe")
 
     // errors are NOT displayed initially
-    fillInput(email, "noAtSymbol")
     expect(getByTestId("name-error")).toBeEmpty()
     expect(getByTestId("email-error")).toBeEmpty()
 

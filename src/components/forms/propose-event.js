@@ -1,43 +1,54 @@
 import React from "react"
 import moment from "moment"
-
 import encode from "Utils/encode"
-import { useFormInput } from "Utils/hooks"
-import { notEmpty, isValidEmail } from "Utils/validations"
+import { useForm } from "Utils/hooks"
+import { notEmpty, usernameField, emailField } from "Utils/forms"
 import ErrorMsg from "Common/ErrorMsg"
 import { ProposeForm } from "./styles"
 
 function ProposeEvent({ closeModal }) {
   const date = moment().format("YYYY-MM-DDTHH:mm")
 
-  const user = useFormInput(notEmpty, "Please Enter Your Name")
-  const email = useFormInput(isValidEmail, "Email must be Valid")
-  const eventName = useFormInput(notEmpty, "Please Enter an Event Name")
-  const location = useFormInput(notEmpty, "Please Enter a Location")
-  const start = useFormInput(notEmpty, "Please pick a Start Time", date)
-  const end = useFormInput(val => new Date(val) > new Date(start.value), "End Time Must be After Start", date)
-  const description = useFormInput(notEmpty, "Please Enter a Description")
-
-  const formFields = [
-    user,
-    email,
-    eventName,
-    location,
-    start,
-    end,
-    description
-  ]
+  const form = useForm({
+    fields: [
+      usernameField,
+      emailField,
+      {
+        name: "eventName",
+        validate: notEmpty,
+        errorMsg: "Please Enter an Event Name"
+      },
+      {
+        name: "location",
+        validate: notEmpty,
+        errorMsg: "Please Enter a Location"
+      },
+      {
+        name: "start",
+        validate: notEmpty,
+        errorMsg: "Please pick a Start Time",
+        initialValue: date
+      },
+      {
+        name: "end",
+        validate: val => new Date(val) > new Date(form.start.value),
+        errorMsg: "End Time Must be After Start",
+        initialValue: date
+      },
+      {
+        name: "description",
+        validate: notEmpty,
+        errorMsg: "Please Enter a Description"
+      }
+    ]
+  })
 
   const handleSubmit = async e => {
     e.preventDefault()
 
-    formFields.forEach(field => {
-      field.setIsValid(field.validate(field.value))
-    })
+    form.runValidations()
 
-    if (
-      formFields.some(field => !field.validate(field.value))
-    ) {
+    if (form.hasValidationErrors) {
       return
     }
 
@@ -47,13 +58,13 @@ function ProposeEvent({ closeModal }) {
       body: encode({
         "form-name": "event-proposal",
 
-        user: user.value,
-        email: email.value,
-        eventName: eventName.value,
-        location: location.value,
-        start: start.value,
-        end: end.value,
-        description: description.value,
+        username: form.username.value,
+        email: form.email.value,
+        eventName: form.eventName.value,
+        location: form.location.value,
+        start: form.start.value,
+        end: form.end.value,
+        description: form.description.value,
       }),
     })
 
@@ -67,61 +78,96 @@ function ProposeEvent({ closeModal }) {
       data-netlify-honeypot="bot-field"
       method="post"
       onSubmit={handleSubmit}
+      noValidate
     >
       <div className="input-field">
         <label htmlFor="user">
           Your Name
-          <input id="user" type="text" value={user.value} onChange={user.onChange} />
+          <input
+            id="user"
+            type="text"
+            value={form.username.value}
+            onChange={form.username.onChange}
+          />
         </label>
-        <ErrorMsg>{user.isValid ? "" : user.errorMsg }</ErrorMsg>
+        <ErrorMsg>{form.username.error}</ErrorMsg>
       </div>
 
       <div className="input-field">
         <label htmlFor="email">
           Email
-          <input id="email" type="email" value={email.value} onChange={email.onChange} />
+          <input
+            id="email"
+            type="email"
+            value={form.email.value}
+            onChange={form.email.onChange}
+          />
         </label>
-        <ErrorMsg>{email.isValid ? "" : email.errorMsg }</ErrorMsg>
+        <ErrorMsg>{form.email.error}</ErrorMsg>
       </div>
 
       <div className="input-field">
         <label htmlFor="event-name">
           Name of Event
-          <input id="event-name" type="text" value={eventName.value} onChange={eventName.onChange} />
+          <input
+            id="event-name"
+            type="text"
+            value={form.eventName.value}
+            onChange={form.eventName.onChange}
+          />
         </label>
-        <ErrorMsg>{eventName.isValid ? "" : eventName.errorMsg }</ErrorMsg>
+        <ErrorMsg>{form.eventName.error}</ErrorMsg>
       </div>
 
       <div className="input-field">
         <label htmlFor="location">
           Location
-          <input id="location" type="text" value={location.value} onChange={location.onChange} />
+          <input
+            id="location"
+            type="text"
+            value={form.location.value}
+            onChange={form.location.onChange}
+          />
         </label>
-        <ErrorMsg>{location.isValid ? "" : location.errorMsg }</ErrorMsg>
+        <ErrorMsg>{form.location.error}</ErrorMsg>
       </div>
 
       <div className="input-field">
         <label htmlFor="start">
           Start
-          <input id="start" type="datetime-local" value={start.value} onChange={start.onChange} />
+          <input
+            id="start"
+            type="datetime-local"
+            value={form.start.value}
+            onChange={form.start.onChange}
+          />
         </label>
-        <ErrorMsg>{start.isValid ? "" : start.errorMsg }</ErrorMsg>
+        <ErrorMsg>{form.start.error}</ErrorMsg>
       </div>
 
       <div className="input-field">
         <label htmlFor="end">
           End
-          <input id="end" type="datetime-local" value={end.value} onChange={end.onChange} />
+          <input
+            id="end"
+            type="datetime-local"
+            value={form.end.value}
+            onChange={form.end.onChange}
+          />
         </label>
-        <ErrorMsg>{end.isValid ? "" : end.errorMsg }</ErrorMsg>
+        <ErrorMsg>{form.end.error}</ErrorMsg>
       </div>
 
       <div className="input-field">
         <label htmlFor="description">
           Description
-          <textarea id="description" value={description.value} onChange={description.onChange} />
+          <textarea
+            id="description"
+            value={form.description.value}
+            onChange={form.description.onChange}
+          />
         </label>
-        <ErrorMsg>{description.isValid ? "" : description.errorMsg }</ErrorMsg>
+        <ErrorMsg>{form.description.error}</ErrorMsg>
       </div>
 
       <button type="submit">Propose Event</button>

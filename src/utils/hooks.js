@@ -1,14 +1,28 @@
-import React from "react"
+import React, { useState } from "react"
 
 export function useForm({ fields = [] }) {
-  const formUtils = {}
-  formUtils.fields = fields.map(field => field.name)
+  const form = { hasValidationErrors: false }
+  form.fieldNames = fields.map(field => field.name)
 
   fields.forEach(field => {
-    formUtils[field.name] = useFormInput(field)
+    form[field.name] = useFormInput(field)
   })
 
-  return formUtils
+  form.runValidations = () => {
+    form.fieldNames.forEach(fieldName => {
+      const field = form[fieldName]
+      const isValid = field.validate(field.value)
+      field.setIsValid(isValid)
+      field.updateError(isValid)
+    })
+
+    form.hasValidationErrors = form.fieldNames.some(fieldName => {
+      const field = form[fieldName]
+      return !field.validate(field.value)
+    })
+  }
+
+  return form
 }
 
 export function useFormInput({
@@ -16,11 +30,16 @@ export function useFormInput({
   errorMsg = "",
   initialValue = ""
 }) {
-  const [value, setValue] = React.useState(initialValue)
-  const [isValid, setIsValid] = React.useState(true)
+  const [value, setValue] = useState(initialValue)
+  const [isValid, setIsValid] = useState(true)
+  const [error, setError] = useState("")
 
-  const onChange = e => {
-    setIsValid(validate(e.target.value))
+  const updateError = (nextIsValid) => setError(nextIsValid ? "" : errorMsg)
+
+  const onChange = (e) => {
+    const nextIsValid = validate(e.target.value)
+    setIsValid(nextIsValid)
+    setError(nextIsValid ? "" : errorMsg)
     setValue(e.target.value)
   }
 
@@ -30,7 +49,8 @@ export function useFormInput({
     validate,
     isValid,
     setIsValid,
-    errorMsg
+    error,
+    updateError
   }
 }
 
