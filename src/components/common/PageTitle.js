@@ -21,7 +21,7 @@ const ConduitsFlow = styled.div`
   width: 100%;
 
   @media(max-width: 450px) {
-    height: 200px;
+    height: 150px;
   }
 `
 
@@ -42,6 +42,12 @@ const H1 = styled.div`
   @media (max-width: 650px) {
     padding: 4rem 0;
     width: 100vw;
+  }
+
+  @media (max-width: 450px) {
+    font-size: 4rem;
+    margin-bottom: 0;
+    padding: 2rem;
   }
 `
 
@@ -71,6 +77,10 @@ const WhiteCurve = styled.div`
   margin-top: -50px;
   margin-left: -10vw;
   width: 120vw;
+
+  @media(max-width: 450px) {
+    margin-top: -100px;
+  }
 `
 
 export default PageTitle

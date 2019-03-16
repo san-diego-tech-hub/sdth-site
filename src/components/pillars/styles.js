@@ -53,7 +53,7 @@ export const LeadsSection = styled.section`
   border: 1px solid rgb(207, 207, 207);
   box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
   text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
-  
+
   h2 {
     color: white;
     margin: 2rem 4rem;
@@ -87,7 +87,7 @@ export const LeadsSection = styled.section`
       font-size: 1.6rem;
     }
   }
-  
+
   hr {
     background: rgba(0,0,0,0.08);
   }
