@@ -5,7 +5,12 @@
 }
 
 .rbc-row-segment .rbc-event {
+  border: 1.5px solid transparent;
   background-color: #2aab64;
+}
+
+.rbc-row-segment .rbc-event:hover {
+  border: 1.5px solid #18633a;
 }
 
 .rbc-active {
