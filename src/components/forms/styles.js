@@ -18,12 +18,10 @@ export const Container = styled.div`
     margin-top: 2rem;
     padding: 1rem;
     color: rgba(245, 245, 245, 1);
-    border: solid 1.5px #F25AA3;
+    border: solid 2px #F25AA3;
     border-radius: 0.5rem;
     &:hover {
-      border: 1.5px solid #a31f5e;
-      box-shadow: inset 0 0 3px #a31f5e;
-      transition: all 0.2s ease 0s;
+      border: 2px solid #a31f5e;
       cursor: pointer;
     }
   }
@@ -156,10 +154,14 @@ export const ProposeForm = styled.form`
     width: 100%;
     margin-top: 2rem;
     padding: 1rem;
-    background: #f25aa3;
     color: white;
     background: ${props => props.theme.primaryLight};
+    border: 2px solid transparent;
     border-radius: 0.5rem;
+    &:hover {
+      border: 2px solid #3e1575;
+      cursor: pointer;
+    }
   }
 
   label {
@@ -190,8 +192,12 @@ export const ProposeForm = styled.form`
 
   .cancel {
     background: white;
-    border: 1px solid red;
-    color: red;
+    border: 2px solid #ff8787;
+    color: #ff8787;
+    &:hover{
+      border: 2px solid #ff0000;
+      color: #ff0000;
+    }
   }
 
   @media (max-width: 450px) {
