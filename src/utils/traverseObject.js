@@ -3,36 +3,36 @@ const isObject = require("./isObject")
 /**
  * This function will step through an object and apply a given function
  *
- * @param {Object} value Object to be traversed
+ * @param {Object} obj Object to be traversed
  * @param {Function} fn function to be applied to every key with "Description in it"
- * @returns {Object} New object with transofrmed keys
+ * @returns {Object} New object with transformed keys
  */
-const traverseObject = (value = {}, fn = () => {}) => {
-  if (!isObject(value)) {
-    throw new Error(`first param must be an object. ${value.contructor} given`)
+function traverseObject(obj = {}, fn = (x) => x) {
+  if (!isObject(obj)) {
+    throw new Error(`first param must be an object. ${obj.contructor} given`)
   }
 
   const data = {}
 
-  Object.keys(value).forEach(key => {
-    const item = value[key]
-    data[key] = item
+  Object.keys(obj).forEach(key => {
+    const value = obj[key]
+    data[key] = value
 
-    if (Array.isArray(item)) {
-      data[key] = item.map(j => {
-        if (isObject(j)) {
-          return traverseObject(j, fn)
+    if (Array.isArray(value)) {
+      data[key] = value.map(item => {
+        if (isObject(item)) {
+          return traverseObject(item, fn)
         }
-        return j
+        return item
       })
     }
 
-    if (isObject(item)) {
-      data[key] = traverseObject(item, fn)
+    if (isObject(value)) {
+      data[key] = traverseObject(value, fn)
     }
 
     if (typeof key === "string" && key.includes("Description")) {
-      data[key] = fn.apply(this, [item])
+      data[key] = fn(value)
     }
   })
 

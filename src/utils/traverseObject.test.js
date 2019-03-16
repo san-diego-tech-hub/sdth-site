@@ -3,22 +3,25 @@ import traverseObject from "./traverseObject"
 describe("traverseObject", () => {
   it("tests that it transforms description key", () => {
     const data = {
-      title: "title",
-      mainDescription: "# Test",
+      title: "Title",
+      mainDescription: "Description 1",
       leads: [
         {
           test: {
-            title: "Test",
-            anotherDescription: "# Test"
+            title: "Test Title",
+            anotherDescription: "Description 2"
           }
         }
       ]
     }
 
-    const changeTo = "Change Me"
-    const updated = traverseObject(data, () => changeTo)
-    expect(updated.mainDescription).toBe(changeTo)
-    expect(updated.leads[0].test.anotherDescription).toBe(changeTo)
-    expect(updated.title).toBe("title")
+    const CHANGED = "I'm Changed"
+    const updated = traverseObject(data, () => CHANGED)
+
+    expect(updated.mainDescription).toBe(CHANGED)
+    expect(updated.leads[0].test.anotherDescription).toBe(CHANGED)
+
+    expect(updated.title).toBe("Title")
+    expect(updated.leads[0].test.title).toBe("Test Title")
   })
 })

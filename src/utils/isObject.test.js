@@ -2,20 +2,25 @@ import isObject from "./isObject"
 
 describe("isObject", () => {
   it("returns true when object", () => {
-    const data = {}
-    expect(isObject(data)).toBe(true)
+    const obj = {}
+    expect(isObject(obj)).toBe(true)
   })
 
   it("returns false when not an object", () => {
     const notObjects = [
       null,
       undefined,
-      [],
       1,
       "notObject",
-      () => {}
+      [],
+      () => {},
+      Symbol("foo"),
+      new Set(),
+      new Map()
     ]
 
-    notObjects.forEach(i => expect(isObject(i)).toBe(false))
+    notObjects.forEach(
+      type => expect(isObject(type)).toBe(false)
+    )
   })
 })
