@@ -39,3 +39,11 @@ div.crt-post .crt-post-border {
   color: rgba(78, 78, 78, 0.5);
 
 }
+
+.crt-popup-wrapper .crt-popup .crt-popup-footer .crt-post-share i {
+  color: rgba(78, 78, 78, 0.5);
+}
+
+.crt-popup-wrapper .crt-popup .crt-popup-footer .crt-post-share i:hover {
+  color: #666;
+}
