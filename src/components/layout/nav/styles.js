@@ -12,6 +12,9 @@ export const Container = styled.div`
 export const Drop = styled.div`
   position: relative;
   display: inline-block;
+  &:hover {
+    cursor: pointer;
+  }
   &:hover .content {
     display: block;
   }
