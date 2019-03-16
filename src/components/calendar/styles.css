@@ -18,6 +18,10 @@
   color: white !important;
 }
 
+.rbc-toolbar .rbc-btn-group button:hover {
+  cursor: pointer
+}
+
 .ReactModal__Body--open {
   overflow: hidden;
   position: fixed;
