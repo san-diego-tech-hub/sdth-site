@@ -1,6 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
 import PropTypes from "prop-types"
+import Html from "Common/Html"
 import {
   Container,
   LeadsSection,
@@ -20,18 +21,22 @@ const PillarTemplate = ({ data, icon }) => (
 
     <PillarSection>
       <h2>Purpose</h2>
-      <div dangerouslySetInnerHTML={{ __html: data.purpose }} />
+      <Html>
+        {data.purpose}
+      </Html>
     </PillarSection>
 
     <PillarSection>
       <h2>How do we challenge to status quo?</h2>
-      <div dangerouslySetInnerHTML={{ __html: data.challenge }} />
+      <Html>
+        {data.challenge}
+      </Html>
     </PillarSection>
 
-    {data.leads && data.leads[0].name.length > 0 && (
+    {data.leads && (
       <LeadsSection>
         <h2>Pillar Leads</h2>
-        {data.leads.map((lead) => (
+        {data.leads.map(({ lead }) => (
           <div key={lead.name} className="lead">
             <div>
               <img
@@ -47,7 +52,9 @@ const PillarTemplate = ({ data, icon }) => (
             </div>
             <span style={{ padding: ".5rem" }}>
               <h5>Biography</h5>
-              <div dangerouslySetInnerHTML={{ __html: lead.bio }} />
+              <Html>
+                {lead.bioDescription}
+              </Html>
             </span>
           </div>
         ))}

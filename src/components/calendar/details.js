@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import moment from "moment"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import Html from "Common/Html"
 import truncateString from "Utils/truncate"
 import { StyledDetails } from "./styles"
 
@@ -54,7 +55,9 @@ function Details({ eventInfo, setEventInfo, ...position }) {
       </aside>
 
       <div className="content">
-        <div dangerouslySetInnerHTML={{ __html: truncateString(eventInfo.event.description) }} />
+        <Html>
+          {truncateString(eventInfo.event.description || "No Description")}
+        </Html>
         <Link style={{ fontSize: "1.2rem", whiteSpace: "no" }} to={`/event/${eventInfo.event.id}`}>
           See more
         </Link>

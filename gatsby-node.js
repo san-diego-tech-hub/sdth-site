@@ -1,6 +1,9 @@
 const { google } = require("googleapis")
 const path = require("path")
+const remark = require("remark")
+const remarkHtml = require("remark-html")
 const transformers = require("./src/data/transformers")
+const traverseObject = require("./src/utils/traverseObject")
 
 const { GC_ID } = process.env
 
@@ -51,6 +54,22 @@ async function getEvents(auth) {
   return events.filter(
     event => event.status === "confirmed"
   )
+}
+
+/**
+ * Converts markdown string to html string
+ * @param {String} value
+ * @returns {String}
+ */
+function convertMdToHtml(value = "") {
+  if (typeof value !== "string" || value.trim().length < 1) {
+    return value
+  }
+
+  return remark()
+    .use(remarkHtml)
+    .processSync(value)
+    .toString()
 }
 
 const uniqueEvents = new Set()
@@ -120,6 +139,12 @@ exports.onCreateNode = ({
     const newNode = Object.assign({}, model, nodeMeta)
     createNode(newNode)
     createParentChildLink({ parent: node, child: newNode })
+  }
+
+  // Convert any Markdown in frontmatter fields to HTML
+  if (node.internal.type === "MarkdownRemark" && node.frontmatter) {
+    // eslint-disable-next-line
+    node.frontmatter = traverseObject(node.frontmatter, convertMdToHtml)
   }
 }
 
