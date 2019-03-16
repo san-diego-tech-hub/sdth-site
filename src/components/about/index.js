@@ -1,5 +1,4 @@
 import React from "react"
-
 import { useStaticQuery, graphql } from "gatsby"
 import claude1 from "Images/claude_1.png"
 import claude2 from "Images/claude_2.png"
@@ -9,6 +8,7 @@ import tasks from "Images/tasks.svg"
 import silos from "Images/silos.svg"
 import judge from "Images/judge.svg"
 import conversations from "Images/conversations.svg"
+import Html from "Common/Html"
 import {
   AboutSection,
   AboutContent,
@@ -99,11 +99,9 @@ function About() {
       <AboutSection>
         <AboutContent>
           <h2>{frontmatter.aboutTitle}</h2>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: frontmatter.aboutDescription
-            }}
-          />
+          <Html>
+            {frontmatter.aboutDescription}
+          </Html>
         </AboutContent>
       </AboutSection>
 
@@ -125,11 +123,9 @@ function About() {
 
         <span className="title-description">
           <h2>{frontmatter.challengesTitle}</h2>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: frontmatter.challengesDescription
-            }}
-          />
+          <Html>
+            {frontmatter.challengesDescription}
+          </Html>
         </span>
       </ChallengesSection>
 
@@ -137,11 +133,9 @@ function About() {
         <RebuildContent>
           <span className="title-description">
             <h2>{frontmatter.solutionsTitle}</h2>
-            <div
-              dangerouslySetInnerHTML={{
-                __html: frontmatter.solutionsDescription
-              }}
-            />
+            <Html>
+              {frontmatter.solutionsDescription}
+            </Html>
           </span>
 
           <span>

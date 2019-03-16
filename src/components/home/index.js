@@ -1,12 +1,12 @@
 import React from "react"
 import Img from "gatsby-image"
 import { graphql, useStaticQuery } from "gatsby"
-
 import communityIcon from "Images/icon_community.svg"
 import educationIcon from "Images/icon_education.svg"
 import inclusionIcon from "Images/icon_inclusion.svg"
 import innovationIcon from "Images/icon_innovation.svg"
 import talentIcon from "Images/icon_talent.svg"
+import Html from "Common/Html"
 import {
   Collaboration,
   CollabIcon,
@@ -42,13 +42,9 @@ function Home() {
               <h2 style={{ color: "white" }}>
                 {frontmatter.mainTitle}
               </h2>
-
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: frontmatter.mainDescription
-                }}
-                style={{ fontSize: "1.5rem" }}
-              />
+              <Html style={{ fontSize: "1.5rem" }}>
+                {frontmatter.mainDescription}
+              </Html>
             </div>
           </WhatIsSDTH>
         </div>
@@ -86,11 +82,9 @@ function Home() {
 
       <PillarDescription>
         <h2>{frontmatter.pillarsTitle}</h2>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: frontmatter.pillarsDescription
-          }}
-        />
+        <Html>
+          {frontmatter.pillarsDescription}
+        </Html>
       </PillarDescription>
       <PillarRow>
         {frontmatter.pillarIcons.map(pillar => (

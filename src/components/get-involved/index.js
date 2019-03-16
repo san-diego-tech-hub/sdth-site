@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import SocialAggregator from "Components/social-aggregator"
+import Html from "Common/Html"
 
 function GetInvolved() {
   const {
@@ -12,7 +13,9 @@ function GetInvolved() {
     <Container>
       <section>
         <h2>{frontmatter.mainTitle}</h2>
-        <div dangerouslySetInnerHTML={{ __html: frontmatter.mainDescription }} />
+        <Html>
+          {frontmatter.mainDescription}
+        </Html>
       </section>
       <section>
         <h2>San Diego Tech Hub In Action</h2>

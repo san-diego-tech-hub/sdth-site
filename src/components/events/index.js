@@ -1,15 +1,16 @@
 import React from "react"
 import PropTypes from "prop-types"
-import ExternalLink from "Common/ExternalLink"
-import { MAPS_URL } from "Utils/constants"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Link } from "gatsby"
 import Modal from "react-modal"
+import { Link } from "gatsby"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import moment from "moment"
 import styled from "styled-components"
 import urlencode from "urlencode"
 import truncateString from "Utils/truncate"
+import { MAPS_URL } from "Utils/constants"
 import ProposeEvent from "Components/forms/propose-event"
+import ExternalLink from "Common/ExternalLink"
+import Html from "Common/Html"
 
 Modal.setAppElement("#___gatsby")
 
@@ -70,13 +71,12 @@ function EventsComponent({ events }) {
                 {mapLink}
               </div>
 
-              <div
+              <Html
                 title={event.description}
                 style={{ padding: "1.6rem 0", color: "#333" }}
-                dangerouslySetInnerHTML={{
-                  __html: truncateString(event.description || "No description"),
-                }}
-              />
+              >
+                {truncateString(event.description || "No description")}
+              </Html>
             </Event>
           )
         })}

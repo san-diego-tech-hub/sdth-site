@@ -9,6 +9,8 @@ import inclusionIcon from "Images/icon_inclusion.svg"
 import innovationIcon from "Images/icon_innovation.svg"
 import talentIcon from "Images/icon_talent.svg"
 import sdthLogo from "Images/ciricle-logo.svg"
+import Html from "Common/Html"
+import { pillarsInfo } from "Utils/constants"
 import {
   AvatarCard,
   Blurb,
@@ -19,7 +21,6 @@ import {
   TeamSection,
   Why
 } from "./styles"
-import { pillarsInfo } from "../../utils/constants"
 
 const pillarIcons = {
   community: communityIcon,
@@ -48,11 +49,9 @@ function Leadership() {
       >
         <div style={{ maxWidth: "900px" }}>
           <h2>{frontmatter.mainTitle}</h2>
-          <div
-            dangerouslySetInnerHTML={{
-              __html: frontmatter.mainDescription
-            }}
-          />
+          <Html>
+            {frontmatter.mainDescription}
+          </Html>
         </div>
       </Header>
 
@@ -158,7 +157,9 @@ function Leadership() {
                         becoming a pillar lead
                       </div>
                     )}
-                    <Blurb dangerouslySetInnerHTML={{ __html: leader.bioDescription }} />
+                    <Blurb
+                      dangerouslySetInnerHTML={{ __html: leader.bioDescription }}
+                    />
                   </div>
                 </div>
               </Card>

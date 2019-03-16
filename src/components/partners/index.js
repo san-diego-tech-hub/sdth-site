@@ -2,8 +2,8 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import Img from "gatsby-image"
-
 import ExternalLink from "Common/ExternalLink"
+import Html from "Common/Html"
 
 function Partners() {
   const {
@@ -15,13 +15,9 @@ function Partners() {
     <Container>
       <PartnerSection repeat={4}>
         <h2>{frontmatter.partnersTitle}</h2>
-
-        <div
-          className="description"
-          dangerouslySetInnerHTML={{
-            __html: frontmatter.partnersDescription
-          }}
-        />
+        <Html className="description">
+          {frontmatter.partnersDescription}
+        </Html>
         <div className="partners">
           {frontmatter.partners.map(({ partner }) => {
             const logo = logos[partner.logo]
@@ -41,13 +37,9 @@ function Partners() {
 
       <PartnerSection repeat={2}>
         <h2>{frontmatter.sponsorsTitle}</h2>
-
-        <div
-          className="description"
-          dangerouslySetInnerHTML={{
-            __html: frontmatter.sponsorsDescription
-          }}
-        />
+        <Html className="description">
+          {frontmatter.sponsorsDescription}
+        </Html>
         <div className="partners">
           {frontmatter.sponsors.map(({ sponsor }) => {
             const logo = logos[sponsor.logo]
