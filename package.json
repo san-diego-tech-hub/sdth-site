@@ -29,7 +29,7 @@
   "lint-staged": {
     "*.{js,jsx}": [
       "eslint --fix",
-      "jest",
+      "jest --passWithNoTests",
       "git add"
     ]
   },
