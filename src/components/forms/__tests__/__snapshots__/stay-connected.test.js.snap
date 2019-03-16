@@ -1,31 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The StayConnected component matches its snapshot 1`] = `
+exports[`matches its snapshot 1`] = `
 <div
-  class="sc-bwzfXH eIXwum"
+  class="sc-bwzfXH cdQkXI"
   data-testid="stay-connected"
 >
   <form
-    class="sc-bxivhb gbpoxm"
+    class="sc-htpNat jHeAnK"
     method="post"
+    novalidate=""
   >
     <h2
       class="bigScreen sc-ifAKCX hVoyhH"
     >
       Stay Connected
     </h2>
-    <div>
+    <div
+      class="sc-bxivhb giIgxL"
+    >
       <label
-        for="name"
+        for="username"
       >
         Name:
         <input
-          id="name"
+          id="username"
           value=""
         />
       </label>
+      <div
+        data-testid="name-error"
+        style="color: red; height: 2rem;"
+      />
     </div>
-    <div>
+    <div
+      class="sc-bxivhb giIgxL"
+    >
       <label
         for="email"
       >
@@ -36,8 +45,14 @@ exports[`The StayConnected component matches its snapshot 1`] = `
           value=""
         />
       </label>
+      <div
+        data-testid="email-error"
+        style="color: red; height: 2rem;"
+      />
     </div>
-    <div>
+    <div
+      class="sc-bxivhb giIgxL"
+    >
       <label
         for="comments"
       >
@@ -48,13 +63,14 @@ exports[`The StayConnected component matches its snapshot 1`] = `
       </label>
     </div>
     <button
+      data-testid="subscribe"
       type="submit"
     >
       Join the Movement
     </button>
   </form>
   <div
-    class="sc-EHOje qfkQa"
+    class="sc-EHOje hfzWLZ"
   >
     <p>
       Want to be a conduit for change? Join the movement and connect with liked-minded individuals looking to make a difference redefining the San Diego tech scene.
@@ -87,7 +103,7 @@ exports[`The StayConnected component matches its snapshot 1`] = `
         >
           Join our Slack 
           <span
-            class="join"
+            class="hidden-on-mobile"
           >
             Community
           </span>

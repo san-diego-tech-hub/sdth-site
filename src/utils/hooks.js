@@ -1,17 +1,70 @@
-import React from "react"
+import React, { useState } from "react"
 
-export function useFormInput(
+export function useForm({ fields = [] }) {
+  const form = { hasValidationErrors: false }
+  form.fieldNames = fields.map(field => field.name)
+
+  fields.forEach(field => {
+    form[field.name] = useFormInput(field)
+  })
+
+  form.resetFields = () => {
+    form.fieldNames.forEach(fieldName => {
+      form[fieldName].reset()
+    })
+  }
+
+  form.runValidations = () => {
+    form.fieldNames.forEach(fieldName => {
+      const field = form[fieldName]
+      const isValid = field.validate(field.value)
+      field.setIsValid(isValid)
+      field.updateError(isValid)
+    })
+
+    form.hasValidationErrors = form.fieldNames.some(fieldName => {
+      const field = form[fieldName]
+      return !field.validate(field.value)
+    })
+  }
+
+  form.onSubmit = (action) => {
+    return (e) => {
+      e.preventDefault()
+
+      form.runValidations()
+
+      if (form.hasValidationErrors) {
+        return
+      }
+
+      form.resetFields()
+      action()
+    }
+  }
+
+  return form
+}
+
+export function useFormInput({
   validate = () => true,
   errorMsg = "",
   initialValue = ""
-) {
-  const [value, setValue] = React.useState(initialValue)
-  const [isValid, setIsValid] = React.useState(true)
+}) {
+  const [value, setValue] = useState(initialValue)
+  const [isValid, setIsValid] = useState(true)
+  const [error, setError] = useState("")
 
-  const onChange = e => {
-    setIsValid(validate(e.target.value))
+  const updateError = (nextIsValid) => setError(nextIsValid ? "" : errorMsg)
+
+  const onChange = (e) => {
+    const nextIsValid = validate(e.target.value)
+    setIsValid(nextIsValid)
+    setError(nextIsValid ? "" : errorMsg)
     setValue(e.target.value)
   }
+
+  const reset = () => setValue(initialValue)
 
   return {
     value,
@@ -19,7 +72,9 @@ export function useFormInput(
     validate,
     isValid,
     setIsValid,
-    errorMsg
+    reset,
+    error,
+    updateError
   }
 }
 
