@@ -94,12 +94,16 @@ describe("Validation:", () => {
   })
 })
 
-describe("Success Message:", () => {
+describe("Successful Submission:", () => {
   xtest("displays success message if subscribed", () => {
 
   })
 
   xtest("does NOT display success message if validation errors", () => {
+
+  })
+
+  xtest("resets field values on successful submission", () => {
 
   })
 })

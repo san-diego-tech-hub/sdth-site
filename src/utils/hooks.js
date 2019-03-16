@@ -8,6 +8,12 @@ export function useForm({ fields = [] }) {
     form[field.name] = useFormInput(field)
   })
 
+  form.resetFields = () => {
+    form.fieldNames.forEach(fieldName => {
+      form[fieldName].reset()
+    })
+  }
+
   form.runValidations = () => {
     form.fieldNames.forEach(fieldName => {
       const field = form[fieldName]
@@ -32,6 +38,7 @@ export function useForm({ fields = [] }) {
         return
       }
 
+      form.resetFields()
       action()
     }
   }
@@ -57,12 +64,15 @@ export function useFormInput({
     setValue(e.target.value)
   }
 
+  const reset = () => setValue(initialValue)
+
   return {
     value,
     onChange,
     validate,
     isValid,
     setIsValid,
+    reset,
     error,
     updateError
   }
