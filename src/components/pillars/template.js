@@ -36,7 +36,7 @@ const PillarTemplate = ({ data, icon }) => {
       </PillarSection>
 
       <PillarSection>
-        <h2>How do we challenge to status quo?</h2>
+        <h2>How do we challenge the status quo?</h2>
         <Html>
           {data.challenge}
         </Html>
@@ -69,8 +69,7 @@ const PillarTemplate = ({ data, icon }) => {
                   </Html>
                 </span>
               </div>
-              {(index < data.leads.length - 1)
-              && <hr />}
+              {(index < data.leads.length - 1) && <hr />}
             </>
           ))}
         </LeadsSection>
