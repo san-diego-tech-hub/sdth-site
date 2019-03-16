@@ -93,6 +93,7 @@ export const Form = styled.form`
     border-right: none;
     border-top: 1px dashed black;
     padding-top: 3.2rem;
+    padding-right: 0;
   }
   button {
     padding: 1rem;

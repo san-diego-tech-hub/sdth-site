@@ -1,11 +1,12 @@
 import React from "react"
 import Img from "gatsby-image"
-import { StaticQuery, graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import communityIcon from "Images/icon_community.svg"
 import educationIcon from "Images/icon_education.svg"
 import inclusionIcon from "Images/icon_inclusion.svg"
 import innovationIcon from "Images/icon_innovation.svg"
 import talentIcon from "Images/icon_talent.svg"
+import Html from "Common/Html"
 import {
   Collaboration,
   CollabIcon,
@@ -23,86 +24,116 @@ const pillarIcons = {
   education: educationIcon,
   inclusion: inclusionIcon,
   innovation: innovationIcon,
-  talent: talentIcon,
+  talent: talentIcon
 }
 
-export default () => (
-  <StaticQuery
-    query={homeQuery}
-    render={({ homeJson, ...icons }) => (
-      <main>
-        <HomeTitle>
-          <div style={{ width: "100%", maxWidth: "1200px" }}>
-            <WhatIsSDTH>
-              <div style={{ maxWidth: "570px", zIndex: 2 }}>
-                <h2 style={{ color: "white" }}>{homeJson.firstSectionTitle}</h2>
-                <p style={{ fontSize: "1.5rem" }}>{homeJson.firstSectionDescription}</p>
+function Home() {
+  const {
+    markdownRemark: { frontmatter },
+    ...icons
+  } = useStaticQuery(homeQuery)
+
+  return (
+    <main>
+      <HomeTitle>
+        <div style={{ width: "100%", maxWidth: "1200px" }}>
+          <WhatIsSDTH>
+            <div style={{ maxWidth: "570px", zIndex: 2 }}>
+              <h2 style={{ color: "white" }}>
+                {frontmatter.mainTitle}
+              </h2>
+              <Html style={{ fontSize: "1.5rem" }}>
+                {frontmatter.mainDescription}
+              </Html>
+            </div>
+          </WhatIsSDTH>
+        </div>
+      </HomeTitle>
+      <Collaboration>
+        <h2>{frontmatter.collabTitle}</h2>
+        <Description
+          dangerouslySetInnerHTML={{
+            __html: frontmatter.collabDescription
+          }}
+        />
+      </Collaboration>
+
+      <ThreeStep>
+        <aside style={{ maxWidth: "1200px" }}>
+          {frontmatter.collabItems.map((c, i) => {
+            const { title, description } = c.collabItem
+            const icon = icons[title]
+
+            return (
+              <div key={title}>
+                <CollabIcon>
+                  <Img fluid={icon.childImageSharp.fluid} alt={title} />
+                </CollabIcon>
+                <h3>
+                  {i + 1}. {title}
+                </h3>
+
+                <p className="description">{description}</p>
               </div>
-            </WhatIsSDTH>
-          </div>
-        </HomeTitle>
-        <Collaboration>
-          <h2>{homeJson.secondSectionTitle}</h2>
-          <Description>{homeJson.secondSectionDescription}</Description>
-        </Collaboration>
-        <ThreeStep>
-          <aside style={{ maxWidth: "1200px" }}>
-            {homeJson.secondSectionItems.map((c, i) => {
-              const icon = icons[c.title]
+            )
+          })}
+        </aside>
+      </ThreeStep>
 
-              return (
-                <div key={c.title}>
-                  <CollabIcon>
-                    <Img fluid={icon.childImageSharp.fluid} alt={c.title} />
-                  </CollabIcon>
-                  <h3>
-                    {i + 1}. {c.title}
-                  </h3>
+      <PillarDescription>
+        <h2>{frontmatter.pillarsTitle}</h2>
+        <Html>
+          {frontmatter.pillarsDescription}
+        </Html>
+      </PillarDescription>
+      <PillarRow>
+        {frontmatter.pillarIcons.map(pillar => (
+          <PillarIcon
+            to={`/${pillar.pillarItem.title}`}
+            key={pillar.pillarItem.title}
+            background={pillar.pillarItem.background}
+          >
+            <div>
+              <img
+                alt={pillar.pillarItem.title}
+                src={pillarIcons[pillar.pillarItem.title]}
+                height="75"
+              />
+              <h4>{pillar.pillarItem.title}</h4>
+            </div>
+            <p>{pillar.pillarItem.description}</p>
+          </PillarIcon>
+        ))}
+      </PillarRow>
+    </main>
+  )
+}
 
-                  <p className="description">{c.description}</p>
-                </div>
-              )
-            })}
-          </aside>
-        </ThreeStep>
-
-        <PillarDescription>
-          <h2>{homeJson.thirdSectionTitle}</h2>
-          <p>{homeJson.thirdSectionDescription}</p>
-        </PillarDescription>
-        <PillarRow>
-          {homeJson.thirdSectionItems.map((pillar) => (
-            <PillarIcon to={`/${pillar.title}`} key={pillar.title} background={pillar.background}>
-              <div>
-                <img alt={pillar.title} src={pillarIcons[pillar.title]} height="75" />
-                <h4>{pillar.title}</h4>
-              </div>
-              <p>{pillar.description}</p>
-            </PillarIcon>
-          ))}
-        </PillarRow>
-      </main>
-    )}
-  />
-)
+export default Home
 
 const homeQuery = graphql`
   query HOME_QUERY {
-    homeJson {
-      firstSectionTitle
-      firstSectionDescription
-      secondSectionTitle
-      secondSectionDescription
-      secondSectionItems {
-        title
-        description
-      }
-      thirdSectionTitle
-      thirdSectionDescription
-      thirdSectionItems {
-        title
-        description
-        background
+    markdownRemark(frontmatter: { path: { eq: "home" } }) {
+      frontmatter {
+        mainTitle
+        mainDescription
+        collabTitle
+        collabDescription
+        collabItems {
+          collabItem {
+            title
+            description
+          }
+        }
+        pillarsTitle
+        pillarsDescription
+        pillarIcons {
+          pillarItem {
+            title
+            description
+            background
+          }
+        }
       }
     }
 

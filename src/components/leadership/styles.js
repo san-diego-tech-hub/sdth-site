@@ -12,7 +12,7 @@ export const AvatarCard = styled.div`
 `
 export const Blurb = styled.div`
   background: rgba(255,255,255,0.05);
-  padding: 3rem;
+  padding: 1.5rem 3rem;
 `
 
 export const Card = styled.div`
