@@ -19,7 +19,7 @@ import {
   Header,
   PillarLeaders,
   TeamSection,
-  Why
+  Why,
 } from "./styles"
 
 const pillarIcons = {
@@ -27,7 +27,7 @@ const pillarIcons = {
   education: educationIcon,
   inclusion: inclusionIcon,
   innovation: innovationIcon,
-  talent: talentIcon
+  talent: talentIcon,
 }
 
 const FOUNDER_COLOR = Color("#545CFE").desaturate(0.2)
@@ -44,7 +44,7 @@ function Leadership() {
         style={{
           display: "flex",
           justifyContent: "center",
-          marginBottom: "2rem"
+          marginBottom: "2rem",
         }}
       >
         <div style={{ maxWidth: "900px" }}>
@@ -64,7 +64,7 @@ function Leadership() {
             <Label
               style={{
                 background: FOUNDER_COLOR.darken(0.15).toString(),
-                padding: 0
+                padding: 0,
               }}
             >
               <Link
@@ -74,7 +74,7 @@ function Leadership() {
                   color: "white",
                   display: "flex",
                   padding: "1.3rem",
-                  textDecoration: "none"
+                  textDecoration: "none",
                 }}
               >
                 <img
@@ -98,12 +98,12 @@ function Leadership() {
               <div style={{ fontSize: "2rem" }}>{frontmatter.founderEmail}</div>
 
               <div className="card-text">
-                <Why color={FOUNDER_COLOR.toString()}>
+                <Why color={FOUNDER_COLOR.darken(0.4).toString()}>
                   Why San Diego Tech Hub Is Important To Me
                 </Why>
                 <Blurb
                   dangerouslySetInnerHTML={{
-                    __html: frontmatter.founderDescription
+                    __html: frontmatter.founderDescription,
                   }}
                 />
               </div>
@@ -115,7 +115,7 @@ function Leadership() {
             const icon = pillarIcons[leader.pillar]
             const photo = avatars[leader.photo]
             const baseColor = Color(
-              pillarsInfo[leader.pillar].color
+              pillarsInfo[leader.pillar].color,
             ).desaturate(0.2)
 
             return (
@@ -126,7 +126,7 @@ function Leadership() {
                     style={{
                       color: "white",
                       textDecoration: "none",
-                      padding: ".3rem"
+                      padding: ".3rem",
                     }}
                   >
                     <img src={icon} width="30" alt={leader.pillar} />
@@ -148,7 +148,7 @@ function Leadership() {
 
                   <div className="card-text">
                     {leader.bioDescription ? (
-                      <Why color={baseColor.darken(0.2).toString()}>
+                      <Why color={baseColor.darken(0.4).toString()}>
                         Why San Diego Tech Hub Is Important To Me
                       </Why>
                     ) : (
