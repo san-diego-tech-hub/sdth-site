@@ -28,7 +28,7 @@ div.crt-post .crt-post-border {
 .crt-button {
   border: 1.5px solid transparent;
 }
-
+/* button gains border and inner box shadow on hover */
 .crt-button:hover {
     border: 1.5px solid #bab8b8;
     box-shadow: inset 0 0 3px #bab8b8;
@@ -39,7 +39,7 @@ div.crt-post .crt-post-border {
   color: rgba(78, 78, 78, 0.5);
 
 }
-
+/* icon is washed out color and becomes solid on hover */
 .crt-popup-wrapper .crt-popup .crt-popup-footer .crt-post-share i {
   color: rgba(78, 78, 78, 0.5);
 }

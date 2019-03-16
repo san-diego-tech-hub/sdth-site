@@ -104,13 +104,16 @@ const Container = styled.div`
 
 const Button = styled.button`
   background: ${props => props.theme.primaryLight};
-  border: 1px solid #2abbf4;
+  border: 1px solid transparent;
   border-radius: 0.5rem;
   color: white;
   font-size: 2rem;
   padding: 1rem;
   width: 100%;
   &:hover {
+    border: 1px solid white;
+    box-shadow: inset 0 0 10px white;
+    transition: all 0.2s ease 0s;
     cursor: pointer;
   }
 `
