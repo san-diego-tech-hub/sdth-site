@@ -4,8 +4,8 @@
   z-index: 0;
 }
 
-.rbc-event {
-  background-color: #2aab64 !important;
+.rbc-row-segment .rbc-event {
+  background-color: #2aab64;
 }
 
 .rbc-active {
