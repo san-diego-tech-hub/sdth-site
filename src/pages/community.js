@@ -13,7 +13,7 @@ function CommunityPage({ data, ...props }) {
     <Layout pageProps={props}>
       <SEO
         title="Community"
-        keywords={["san diego", "tech", "hub", "community"]}
+        keywords={["san diego", "tech", "hub", "community", "pillar of excellence", "technology ecosystem", "central hub", "mentorship", "jared sanderson", "fred jordan"]}
       />
       <PageTitle>Community</PageTitle>
       <PillarTemplate data={markdownRemark.frontmatter} icon={community} />

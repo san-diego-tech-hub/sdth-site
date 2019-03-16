@@ -1,11 +1,11 @@
 ---
 path: "inclusion"
 pageTitle: "Inclusion"
-purpose: "Change the face of tech to reflect the diversity in our region by creating an environment where underrepresented groups feel safe, supported and encouraged to pursue tech careers. What talent and what innovation is being missed because someone isn’t saying, “You should come join us.”"
+purpose: "Change the face of tech to reflect the diversity in our region by creating an environment where underrepresented groups feel safe, supported, and encouraged to pursue tech careers. What talent and what innovation is being missed because someone isn’t saying, “You should come join us.”"
 
-challenge: "We will create awareness around action on three levels: find and leverage data to strengthen the inclusion narrative, highlight events targeting underrepresented groups in tech and bring underrepresented groups to mainstream tech events where their participation is typically lacking."
+challenge: "We will create awareness around action on three levels: find and leverage data to strengthen the inclusion narrative, highlight events targeting underrepresented groups in tech, and bring underrepresented groups to mainstream tech events where their participation is typically lacking."
 
-goalsDescription: "<ul><li>Identify major efforts supporting women, minorities and LGBTQ communities in tech </li><li>Provide support to one STEM event at different school levels to increase exposure &amp; participation by underrepresented groups</li><li>Start a SDTH Conference and invite women and members of other underrepresented groups to speak</li></ul>"
+goalsDescription: "<ul><li>Identify major efforts supporting women, minorities and LGBTQ communities in tech. </li><li>Provide support to one STEM event at different school levels to increase exposure &amp; participation by underrepresented groups.</li><li>Start an SDTH Conference and invite women and members of other underrepresented groups to speak.</li></ul>"
 
 leads:
   - lead:
