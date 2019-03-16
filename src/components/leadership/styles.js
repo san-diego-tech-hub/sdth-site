@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import Color from "color"
 
 export const AvatarCard = styled.div`
   border-radius: 100%;
@@ -121,7 +120,7 @@ export const TeamSection = styled.section`
 `
 
 export const Why = styled.div`
-  color: ${props => Color(props.color).darken(0.2).toString()} !important;
+  color: ${props => props.color} !important;
   font-weight: bold;
   padding: 0.1rem 3rem;
   text-transform: uppercase !important;
