@@ -12,7 +12,7 @@ import {
   faSlack,
 } from "@fortawesome/free-brands-svg-icons"
 import Footer from "./footer"
-import Header from "./header"
+import Nav from "./nav"
 import StayConnected from "../forms/stay-connected"
 import "@fortawesome/fontawesome-svg-core/styles.css"
 import { Wrapper, theme } from "./styles"
@@ -32,7 +32,7 @@ const Layout = ({ children, pageProps }) => (
   <ThemeProvider theme={theme}>
     <AppContext.Provider value={{ path: pageProps.location.pathname }}>
       <div style={{ maxWidth: "100vw", overflowX: "hidden" }}>
-        <Header />
+        <Nav />
 
         <Wrapper>{children}</Wrapper>
         <StayConnected />

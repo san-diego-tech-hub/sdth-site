@@ -27,7 +27,7 @@ export const Wrapper = styled.div`
   }
   section:first-child {
     margin-top: 0;
-    padding-top: 5rem;
+    padding-top: 0;
   }
   h1,
   h2,
