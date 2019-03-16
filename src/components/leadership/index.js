@@ -123,15 +123,15 @@ function Leadership() {
               <Card color={baseColor.toString()} key={leader.name}>
                 <Label style={{ background: baseColor.darken(0.2).toString() }}>
                   <Link
-                    to={`/${leader.pillar.text}`}
+                    to={`/${leader.pillar}`}
                     style={{
                       color: "white",
                       textDecoration: "none",
                       padding: ".3rem"
                     }}
                   >
-                    <img src={icon} width="30" alt={leader.pillar.text} />
-                    {leader.pillar.text}
+                    <img src={icon} width="30" alt={leader.pillar} />
+                    {leader.pillar}
                   </Link>
                 </Label>
 

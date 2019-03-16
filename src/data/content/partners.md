@@ -3,7 +3,7 @@ path: "partners"
 partnersTitle: "Partner Organizations"
 partnersDescription: >-
 
-  "Becoming a partner organization means you are plugged in to the San Diego Tech Hub network; working hand in hand to solve the challenges we face in our tech ecosystem.  Our mission and goal is to help break down siloed environments, challenge the status quo, and help disprove biased opinions.</p><p>Interested in becoming a partner organization? Please contact <a href='mailto:jared@sayvasolutions.com'>Jared Sanderson</a> to get plugged in to our network and have your logo placed on our website. There is power in numbers. Join the movement of change."
+  Becoming a partner organization means you are plugged in to the San Diego Tech Hub network; working hand in hand to solve the challenges we face in our tech ecosystem.  Our mission and goal is to help break down siloed environments, challenge the status quo, and help disprove biased opinions.</p><p>Interested in becoming a partner organization? Please contact <a href='mailto:jared@sayvasolutions.com'>Jared Sanderson</a> to get plugged in to our network and have your logo placed on our website. There is power in numbers. Join the movement of change.
 
 partners:
   - partner:
@@ -54,7 +54,7 @@ partners:
 sponsorsTitle: "Sponsorship Organization"
 sponsorsDescription: >-
 
-  "Becoming a sponsor organization means you have donated refreshments for our monthly meetings, or offered your facilities for a San Diego Tech Hub event.  In exchange for your help, you will have your logo presented during the meeting/event, have an opportunity to briefly share about your company, and have your logo placed on our website. Take a look at our sponsor organizations below.<p><p>Interested in becoming a sponsor organization? Please contact <a href='mailto:fred.jordan@randstadusa.com'>Fred Jordan</a> to get plugged in to our network and have your logo placed on our website. There is power in numbers. Join the movement of change."
+  Becoming a sponsor organization means you have donated refreshments for our monthly meetings, or offered your facilities for a San Diego Tech Hub event.  In exchange for your help, you will have your logo presented during the meeting/event, have an opportunity to briefly share about your company, and have your logo placed on our website. Take a look at our sponsor organizations below.<p><p>Interested in becoming a sponsor organization? Please contact <a href='mailto:fred.jordan@randstadusa.com'>Fred Jordan</a> to get plugged in to our network and have your logo placed on our website. There is power in numbers. Join the movement of change.
 
 sponsors:
   - sponsor:
@@ -65,7 +65,7 @@ sponsors:
       name: "Dynam AI"
       website: "https://www.dynam.ai"
       logo: "dynam"
-  
+
   - sponsor:
       name: "SD North Economic Development Council"
       website: "https://www.sdnedc.org"
