@@ -7,11 +7,11 @@ import inclusionIcon from "Images/icon_inclusion.svg"
 import innovationIcon from "Images/icon_innovation.svg"
 import talentIcon from "Images/icon_talent.svg"
 import Html from "Common/Html"
+import HomeTitle from "./HomeTitle"
 import {
   Collaboration,
   CollabIcon,
   Description,
-  HomeTitle,
   PillarDescription,
   PillarIcon,
   PillarRow,
@@ -36,18 +36,16 @@ function Home() {
   return (
     <main>
       <HomeTitle>
-        <div style={{ width: "100%", maxWidth: "1200px" }}>
-          <WhatIsSDTH>
-            <div style={{ maxWidth: "570px", zIndex: 2 }}>
-              <h2 style={{ color: "white" }}>
-                {frontmatter.mainTitle}
-              </h2>
-              <Html style={{ fontSize: "1.5rem" }}>
-                {frontmatter.mainDescription}
-              </Html>
-            </div>
-          </WhatIsSDTH>
-        </div>
+        <WhatIsSDTH>
+          <div style={{ maxWidth: "570px", zIndex: 2 }}>
+            <h2 style={{ color: "white" }}>
+              {frontmatter.mainTitle}
+            </h2>
+            <Html style={{ fontSize: "1.5rem" }}>
+              {frontmatter.mainDescription}
+            </Html>
+          </div>
+        </WhatIsSDTH>
       </HomeTitle>
       <Collaboration>
         <h2>{frontmatter.collabTitle}</h2>
@@ -59,13 +57,13 @@ function Home() {
       </Collaboration>
 
       <ThreeStep>
-        <aside style={{ maxWidth: "1200px" }}>
+        <aside>
           {frontmatter.collabItems.map((c, i) => {
             const { title, description } = c.collabItem
             const icon = icons[title]
 
             return (
-              <div key={title}>
+              <div style={{ margin: "0 2rem", maxWidth: "300px" }} key={title}>
                 <CollabIcon>
                   <Img fluid={icon.childImageSharp.fluid} alt={title} />
                 </CollabIcon>
