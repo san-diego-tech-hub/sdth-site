@@ -24,3 +24,18 @@ div.crt-post .crt-post-border {
   color: #555 !important;
   padding-top: 1rem;
 }
+
+.crt-button {
+  border: 1.5px solid transparent;
+}
+
+.crt-button:hover {
+    border: 1.5px solid #bab8b8;
+    box-shadow: inset 0 0 3px #bab8b8;
+    transition: all 0.2s ease 0s;
+}
+
+.crt-popup-wrapper .crt-popup .crt-close {
+  color: rgba(78, 78, 78, 0.5);
+
+}
