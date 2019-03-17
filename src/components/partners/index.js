@@ -104,9 +104,15 @@ const PartnerSection = styled.section`
     grid-template-columns: repeat(${props => props.repeat || 1}, 1fr);
     grid-gap: 3.2rem;
     padding-top: 3.2rem;
-
+    align-items: center;
     .partner {
+      border: 1px solid rgb(221, 221, 221);
       border-radius: 0.5rem;
+      padding: 1rem;
+      &:hover, &:focus {
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+        transform: translate(-2px, -2px);
+      }
     }
   }
 
