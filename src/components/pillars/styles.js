@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import Color from "color"
 
 export const Container = styled.div`
   margin: 0 auto;
@@ -47,6 +48,16 @@ export const PillarSection = styled.section`
 `
 
 export const LeadsSection = styled.section`
+  background: ${props => props.color};
+  border-radius: 0.5rem;
+  border: 1px solid rgb(207, 207, 207);
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+
+  h2 {
+    color: white;
+    margin: 2rem 4rem;
+  }
   p {
     text-align: left;
     font-size: 1.4rem;
@@ -54,28 +65,31 @@ export const LeadsSection = styled.section`
     text-align: left;
   }
   .lead {
-    border: 1px solid rgb(207, 207, 207);
-    border-radius: 0.5rem;
+    color: white;
     display: grid;
     grid-template-columns: 20rem 1fr;
-    padding: 4rem;
-    grid-gap: 3.2rem;
+    padding: 4rem 3rem;
+    grid-gap: 5rem;
     font-size: 2.4rem;
     text-align: center;
-    color: #4c4e7a;
     line-height: 2.4rem;
     margin-bottom: 2.4rem;
     h5 {
-      text-transform: capitalize;
+      text-transform: uppercase;
       text-align: left;
       font-size: 1.6rem;
-      color: rgb(156, 168, 195);
+      text-shadow: 1px 1px 1px rgba(255,255,255,0.25);
+      color: ${props => Color(props.color).darken(0.4).toString()}
     }
     .email {
       white-space: nowrap;
       display: block;
       font-size: 1.6rem;
     }
+  }
+
+  hr {
+    background: rgba(0,0,0,0.08);
   }
 
   @media(max-width: 768px) {

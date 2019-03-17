@@ -13,7 +13,7 @@ function EducationPage({ data, ...props }) {
     <Layout pageProps={props}>
       <SEO
         title="Education"
-        keywords={["san diego", "tech", "hub", "education", "pillars"]}
+        keywords={["san diego", "tech", "hub", "education", "pillar of excellence", "apprenctice program", "michael roberts jr", "aaron gasperi"]}
       />
       <PageTitle>Education</PageTitle>
       <PillarTemplate data={markdownRemark.frontmatter} icon={education} />

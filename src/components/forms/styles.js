@@ -1,25 +1,25 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
-  color: ${props => props.theme.gray};
   background: rgb(240, 240, 240);
   border-radius: 1rem;
-  margin-bottom: 3.2rem;
+  color: ${props => props.theme.gray};
   display: grid;
+  font-size: 2rem;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2rem;
   margin: 0 20rem 5rem 20rem;
+  margin-bottom: 3.2rem;
   padding: 4.8rem;
-  font-size: 2rem;
 
   button {
-    background: #F25AA3;
-    width: 100%;
+    background: #f25aa3;
+    border-radius: 0.5rem;
+    border: solid 2px #f25aa3;
+    color: rgba(245, 245, 245, 1);
     margin-top: 2rem;
     padding: 1rem;
-    color: rgba(245, 245, 245, 1);
-    border: solid 2px #F25AA3;
-    border-radius: 0.5rem;
+    width: 100%;
     &:hover {
       border: 2px solid #a31f5e;
       cursor: pointer;
@@ -33,80 +33,86 @@ export const Container = styled.div`
   }
 
   @media (max-width: 5000px) {
-    width: 75%;
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
+    width: 75%;
   }
 
   @media (max-width: 990px) {
-    .bigScreen {
-      display: none;
-    }
-    .smallScreen {
-      display: block;
-    }
     display: flex;
     flex-direction: column-reverse;
     margin: 1rem auto;
+
+    .bigScreen {
+      display: none;
+    }
+
+    .smallScreen {
+      display: block;
+    }
   }
 
   @media (max-width: 667px) {
     margin: 0 0 5rem 0;
     width: 100%;
+
     button {
-      width: 100%;
       font-size: 1.8rem;
+      width: 100%;
     }
   }
 
   @media(max-width: 450px) {
     padding: 10px;
-    .join {
+    .hidden-on-mobile {
       display: none
     }
   }
 `
 
-export const ErrorMsg = styled.div`
-  color: red;
-  height: 2rem;
-`
-
 export const Form = styled.form`
-  text-align: left;
+  border-right: 1px dashed black;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-right: 1px dashed black;
   padding-right: 4.8rem;
+  text-align: left;
+
   label {
     color: ${props => props.theme.primaryMuted};
     font-size: 2rem;
   }
-  input,
-  textarea {
-    width: 100%;
-    padding: 0.4rem;
-  }
-  @media (max-width: 990px) {
-    font-size: 2rem;
-    border-right: none;
-    border-top: 1px dashed black;
-    padding-top: 3.2rem;
-    padding-right: 0;
-  }
+
   button {
     padding: 1rem;
   }
-  @media (max-width: 667px) {
-    font-size: 2rem;
+
+  input,
+  textarea {
+    padding: 0.4rem;
     width: 100%;
+  }
+
+  @media (max-width: 990px) {
     border-right: none;
     border-top: 1px dashed black;
+    font-size: 2rem;
+    padding-top: 3.2rem;
+    padding-right: 0;
+  }
+
+  @media (max-width: 667px) {
+    border-right: none;
+    border-top: 1px dashed black;
+    font-size: 2rem;
     margin-top: 2.4rem;
     padding: 3rem 1rem 1rem 1rem;
+    width: 100%;
   }
+`
+export const FormField = styled.div`
+  margin-bottom: 2rem;
 `
 
 export const FormTitle = styled.h2`
@@ -115,21 +121,18 @@ export const FormTitle = styled.h2`
 `
 
 export const SocialContainer = styled.div`
-  font-size: 1.6rem;
-  padding: 0 3.2rem;
   display: flex;
   flex-direction: column;
+  font-size: 1.6rem;
   justify-content: center;
   button {
-    margin: auto;
     display: block;
+    margin: auto;
   }
 
   a {
     color: white;
-    &:hover {
-      text-decoration: none;
-    }
+    text-decoration: none;
   }
   
   .slack-link {
@@ -149,12 +152,7 @@ export const ProposeForm = styled.form`
   height: 100%;
   margin: auto;
   padding: 5rem 2rem;
-
   button {
-    width: 100%;
-    margin-top: 2rem;
-    padding: 1rem;
-    color: white;
     background: ${props => props.theme.primaryLight};
     border: 2px solid transparent;
     border-radius: 0.5rem;
@@ -165,9 +163,8 @@ export const ProposeForm = styled.form`
   }
 
   label {
-    font-weight: bolder;
     display: block;
-
+    font-weight: bolder;
     margin-top: 0.8rem;
   }
 
@@ -186,8 +183,8 @@ export const ProposeForm = styled.form`
 
   .input-field {
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
   }
 
   .cancel {
