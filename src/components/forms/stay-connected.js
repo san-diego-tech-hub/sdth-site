@@ -41,7 +41,7 @@ function StayConnected() {
         <FormTitle className="bigScreen">Stay Connected</FormTitle>
         <FormField>
           <label htmlFor="username">
-              Name:
+            Name:
             <input
               id="username"
               value={form.username.value}
@@ -54,12 +54,12 @@ function StayConnected() {
         </FormField>
         <FormField>
           <label htmlFor="email">
-              Email:
+            Email:
             <input
-                id="email"
-                type="email"
-                value={form.email.value}
-                onChange={form.email.onChange}
+              id="email"
+              type="email"
+              value={form.email.value}
+              onChange={form.email.onChange}
             />
           </label>
           <ErrorMsg data-testid="email-error">
@@ -68,7 +68,7 @@ function StayConnected() {
         </FormField>
         <FormField>
           <label htmlFor="comments">
-              Comments:
+            Comments:
             <textarea
               id="comments"
               value={form.comments.value}
@@ -77,20 +77,20 @@ function StayConnected() {
           </label>
         </FormField>
         <button data-testid="subscribe" type="submit">
-            Join the Movement
+          Join the Movement
         </button>
       </Form>
       <SocialContainer>
         <p>
-            Want to be a conduit for change? Join the movement and connect with liked-minded
-            individuals looking to make a difference redefining the San Diego tech scene.
+          Want to be a conduit for change? Join the movement and connect with liked-minded
+          individuals looking to make a difference redefining the San Diego tech scene.
         </p>
 
         <ExternalLink href="https://join.slack.com/t/sandiegotechhub/shared_invite/enQtNTI1MDA2NjQyNDcwLTRhYmFhOGZlNzQyZWQ0NmJjMTEzNGE1YjI1NTJmY2RhZjVmYjBjNDAyYmI4MDZkNTM4MzMwM2JmYWQzOGVkYjY">
           <button type="submit">
             <FontAwesomeIcon size="sm" icon={["fab", "slack"]} />
-            <span style={{ marginLeft: "1rem" }}>
-                Join our Slack <span className="hidden-on-mobile">Community</span>
+            <span className="slack-link">
+              Join our Slack <span className="join hidden-on-mobile">Community</span>
             </span>
           </button>
         </ExternalLink>

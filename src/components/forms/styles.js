@@ -13,9 +13,9 @@ export const Container = styled.div`
   padding: 4.8rem;
 
   button {
-    background: #f25aa3;
+    background: #F25AA3;
+    border: solid 2px #F25AA3;
     border-radius: 0.5rem;
-    border: solid 2px #f25aa3;
     color: rgba(245, 245, 245, 1);
     margin-top: 2rem;
     padding: 1rem;
@@ -156,6 +156,10 @@ export const ProposeForm = styled.form`
     background: ${props => props.theme.primaryLight};
     border: 2px solid transparent;
     border-radius: 0.5rem;
+    color: white;
+    margin-top: 2rem;
+    padding: 1rem;
+    width: 100%;
     &:hover {
       border: 2px solid #3e1575;
       cursor: pointer;
