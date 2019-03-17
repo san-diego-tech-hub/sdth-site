@@ -131,8 +131,10 @@ export const SocialContainer = styled.div`
   }
 
   a {
+    &:hover { 
     color: white;
     text-decoration: none;
+    }
   }
   
   .slack-link {
