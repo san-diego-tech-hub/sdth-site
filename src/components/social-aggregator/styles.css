@@ -24,7 +24,9 @@ div.crt-post .crt-post-border {
   color: #555 !important;
   padding-top: 1rem;
 }
-
+.crt-post-content:hover {
+    cursor: pointer;
+}
 .crt-button {
   border: 1.5px solid transparent;
 }
