@@ -11,13 +11,13 @@ function GetInvolved() {
 
   return (
     <Container>
-      <section>
+      <section style={{ marginBottom: "5rem", padding: "1rem" }}>
         <h2>{frontmatter.mainTitle}</h2>
         <Html>
           {frontmatter.mainDescription}
         </Html>
       </section>
-      <section>
+      <section style={{ marginTop: "5rem", padding: 0 }}>
         <h2>San Diego Tech Hub In Action</h2>
         <SocialAggregator />
       </section>

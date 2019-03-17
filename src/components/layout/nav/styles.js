@@ -66,6 +66,14 @@ export const Logo = styled.div`
     margin-bottom: 0;
   }
 
+  @media (max-width: 1040px) {
+    display: none;
+  }
+
+  @media (max-width: 900px) {
+    display: block;
+  }
+
   @media (max-width: 450px) {
     display: none;
     width: 100%;
@@ -83,19 +91,6 @@ export const Menu = styled.ul`
   margin: 0;
   min-width: 915px;
   text-align: center;
-
-  @media (max-width: 990px) {
-    width: 100%;
-    font-size: 1.6rem;
-    padding: 0 2rem;
-    li {
-      white-space: pre-line;
-    }
-    li:not(:last-child)::after {
-      content: '';
-      margin-left: 0;
-    }
-  }
 
   @media(max-width: 900px) {
     display: none;
