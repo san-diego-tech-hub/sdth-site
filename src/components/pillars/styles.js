@@ -41,9 +41,7 @@ export const PillarInfo = styled.section`
 export const PillarSection = styled.section`
   @media(max-width: 450px) {
     padding: 10px;
-    h2 {
-      text-align: center;
-    }
+    text-align: center;
   }
 `
 
