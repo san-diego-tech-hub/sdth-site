@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
     color: ${props => props.theme.gray};
 
     @media(max-width: 450px) {
-      width: 100vw !important;
+      width: 90vw !important;
     }
   }
   section:first-child {

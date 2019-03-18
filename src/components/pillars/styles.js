@@ -3,6 +3,7 @@ import Color from "color"
 
 export const Container = styled.div`
   margin: 0 auto;
+  padding: 1rem;
   max-width: 1200px;
 `
 
@@ -40,10 +41,7 @@ export const PillarInfo = styled.section`
 
 export const PillarSection = styled.section`
   @media(max-width: 450px) {
-    padding: 10px;
-    h2 {
-      text-align: center;
-    }
+    text-align: center;
   }
 `
 
