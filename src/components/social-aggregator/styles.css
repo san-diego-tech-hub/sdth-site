@@ -24,22 +24,23 @@ div.crt-post .crt-post-border {
   color: #555 !important;
   padding-top: 1rem;
 }
-.crt-post-content:hover {
-    cursor: pointer;
+.crt-post-border:hover {
+  border: 1px solid #aaa !important;
+  cursor: pointer;
 }
 .crt-button {
-  border: 1.5px solid transparent;
+  border: 1px solid transparent;
 }
 /* button gains border and inner box shadow on hover */
 .crt-button:hover {
-    border: 1.5px solid #bab8b8;
-    box-shadow: inset 0 0 3px #bab8b8;
-    transition: all 0.2s ease 0s;
+  background: #dfdfdf !important;
+  border: 1px solid #bab8b8;
+  /* box-shadow: inset 0 0 3px #bab8b8; */
+  transition: all 0.2s ease 0s;
 }
 
 .crt-popup-wrapper .crt-popup .crt-close {
   color: rgba(78, 78, 78, 0.5);
-
 }
 /* icon is washed out color and becomes solid on hover */
 .crt-popup-wrapper .crt-popup .crt-popup-footer .crt-post-share i:hover {

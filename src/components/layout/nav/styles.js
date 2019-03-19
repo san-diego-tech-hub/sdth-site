@@ -10,11 +10,10 @@ export const Container = styled.div`
 `
 
 export const Drop = styled.div`
+  padding: 0 1rem;
   position: relative;
   display: inline-block;
-  &:hover {
-    cursor: pointer;
-  }
+
   &:hover .content {
     display: block;
   }
@@ -86,7 +85,7 @@ export const Menu = styled.ul`
   flex-grow: 3;
   font-size: 2rem;
   height: ${NAV_HEIGHT};
-  justify-content: space-around;
+  justify-content: stretch;
   list-style-type: none;
   margin: 0;
   min-width: 915px;

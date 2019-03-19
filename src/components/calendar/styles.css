@@ -4,22 +4,35 @@
   z-index: 0;
 }
 
-.rbc-row-segment .rbc-event {
+.rbc-event {
+  background-color: #2aab64 !important;
+  border: 1.5px solid transparent !important;
+}
+
+.rbc-event:hover,
+.rbc-event:focus {
+  background-color: #1d9e57 !important;
+  border: 1.5px solid #18633a !important;
+}
+
+.rbc-row-segment button.rbc-event {
   border: 1.5px solid transparent;
   background-color: #2aab64;
 }
 
-.rbc-row-segment .rbc-event:hover {
+.rbc-row-segment .rbc-event:hover,
+.rbc-row-segment .rbc-event:focus {
+  background-color: #1d9e57;
   border: 1.5px solid #18633a;
 }
 
 .rbc-active {
-  background-color: #7945c2 !important;
+  background-color: #5230b5 !important;
   color: white !important;
 }
 
 .rbc-toolbar .rbc-btn-group button:hover {
-  cursor: pointer
+  cursor: pointer;
 }
 
 .ReactModal__Body--open {
