@@ -1,10 +1,9 @@
 import React from "react"
-import { Link } from "gatsby"
 import moment from "moment"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Html from "Common/Html"
 import truncateString from "Utils/truncate"
-import { StyledDetails } from "./styles"
+import { StyledDetails, SeeMore } from "./styles"
 
 function Details({ eventInfo, setEventInfo, ...position }) {
   React.useEffect(() => {
@@ -58,9 +57,9 @@ function Details({ eventInfo, setEventInfo, ...position }) {
         <Html>
           {truncateString(eventInfo.event.description || "No Description")}
         </Html>
-        <Link style={{ fontSize: "1.2rem", whiteSpace: "no" }} to={`/event/${eventInfo.event.id}`}>
+        <SeeMore to={`/event/${eventInfo.event.id}`}>
           See more
-        </Link>
+        </SeeMore>
       </div>
     </StyledDetails>
   )
