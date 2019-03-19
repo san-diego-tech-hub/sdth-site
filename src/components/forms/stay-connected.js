@@ -5,6 +5,7 @@ import { usernameField, emailField } from "Utils/forms"
 import ErrorMsg from "Common/ErrorMsg"
 import ExternalLink from "Common/ExternalLink"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { toast } from "react-toastify"
 import SocialMedia from "./social-media"
 import {
   Container,
@@ -29,15 +30,23 @@ function StayConnected() {
       COMMENTS: form.comments.value
     })
 
-    console.log(res.msg)
     if (res.result === "success") {
-      // TODO: show react toast success
+      toast.success(`🚀 ${res.msg}`)
+    }
+
+    if (res.result === "error") {
+      toast.error(`⚠️ ${res.msg}`)
     }
   }
 
   return (
     <Container data-testid="stay-connected">
-      <Form method="post" onSubmit={form.onSubmit(handleSubmit)} noValidate>
+      <Form
+        data-testid="stay-connected-form"
+        method="post"
+        onSubmit={form.onSubmit(handleSubmit)}
+        noValidate
+      >
         <FormTitle className="bigScreen">Stay Connected</FormTitle>
         <FormField>
           <label htmlFor="username">
