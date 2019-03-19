@@ -162,7 +162,7 @@ function ProposeEvent({ closeModal }) {
         <ErrorMsg>{form.description.error}</ErrorMsg>
       </div>
 
-      <button type="submit">Propose Event</button>
+      <button type="submit" className="submit">Propose Event</button>
       <button type="button" className="cancel" onClick={closeModal}>Cancel</button>
     </ProposeForm>
   )

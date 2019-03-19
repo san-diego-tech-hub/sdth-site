@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import moment from "moment"
 import styled from "styled-components"
 import urlencode from "urlencode"
+import Color from "color"
 import truncateString from "Utils/truncate"
 import { MAPS_URL } from "Utils/constants"
 import ProposeEvent from "Components/forms/propose-event"
@@ -89,6 +90,21 @@ EventsComponent.propTypes = {
   events: PropTypes.array.isRequired,
 }
 
+const Button = styled.button`
+  background: ${props => props.theme.primary};
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 2rem;
+  padding: 1rem;
+  width: 100%;
+  &:hover {
+    background: ${props => Color(props.theme.primary).lighten(0.1).toString()};
+    border: 2px solid #3e1575;
+    cursor: pointer;
+  }
+`
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -102,24 +118,12 @@ const Container = styled.div`
   }
 `
 
-const Button = styled.button`
-  background: ${props => props.theme.primaryLight};
-  border: 1px solid #2abbf4;
-  border-radius: 0.5rem;
-  color: white;
-  font-size: 2rem;
-  padding: 1rem;
-  width: 100%;
-  &:hover {
-    cursor: pointer;
-  }
-`
-
 const Events = styled.div`
   background: #f5f5f5;
   border-radius: 5px;
   border: 5px solid #f5f5f5;
   border-bottom: 10px solid #f5f5f5;
+  border-top: 10px solid #f5f5f5;
   display: flex;
   flex-direction: column;
   height: 635px;
@@ -152,6 +156,9 @@ const Title = styled.h3`
   color: ${props => props.theme.primaryMuted};
   margin-bottom: 7px;
   font-size: 2rem;
+  &:hover {
+    color: ${props => Color(props.theme.primaryMuted).lighten(0.3).toString()};
+  }
 `
 
 export default EventsComponent

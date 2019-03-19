@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import Color from "color"
 
 export const Container = styled.div`
   background: rgb(240, 240, 240);
@@ -13,13 +14,19 @@ export const Container = styled.div`
   padding: 4.8rem;
 
   button {
-    background: #f25aa3;
-    border: 1px solid #2abbf4;
+    background: #F03B92;
+    border: 2px solid transparent;
     border-radius: 0.5rem;
-    color: white;
+    color: rgb(245, 245, 245);
     margin-top: 2rem;
     padding: 1rem;
     width: 100%;
+
+    &:hover {
+      background: ${Color("#F03B92").darken(0.1).toString()};
+      border: 2px solid #a31f5e;
+      cursor: pointer;
+    }
   }
 
   .smallScreen {
@@ -59,7 +66,7 @@ export const Container = styled.div`
     }
   }
 
-  @media(max-width: 400px) {
+  @media(max-width: 450px) {
     padding: 10px;
     .hidden-on-mobile {
       display: none
@@ -121,16 +128,28 @@ export const SocialContainer = styled.div`
   flex-direction: column;
   font-size: 1.6rem;
   justify-content: center;
-  padding: 0 3.2rem;
 
   a {
-    color: white;
-    text-decoration: none;
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
   }
 
   button {
     display: block;
     margin: auto;
+  }
+
+  .slack-link {
+    margin-left: 1rem;
+  }
+
+  .social-opacity {
+    opacity: 0.8;
+    &:hover {
+      opacity: 1;
+    }
   }
 `
 
@@ -141,18 +160,29 @@ export const ProposeForm = styled.form`
   padding: 5rem 2rem;
 
   button {
-    background: ${props => props.theme.primaryLight};
+    border: 2px solid transparent;
     border-radius: 0.5rem;
-    color: white;
     margin-top: 2rem;
     padding: 1rem;
     width: 100%;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .submit {
+    background: ${props => props.theme.primaryLight};
+    color: white;
+    &:hover {
+      background: ${props => Color(props.theme.primaryLight).darken(0.1).toString()};
+      border: 2px solid #3e1575;
+      cursor: pointer;
+    }
   }
 
   label {
-    font-weight: bolder;
     display: block;
-
+    font-weight: bolder;
     margin-top: 0.8rem;
   }
 
@@ -171,14 +201,18 @@ export const ProposeForm = styled.form`
 
   .input-field {
     display: flex;
-    justify-content: center;
     flex-direction: column;
+    justify-content: center;
   }
 
   .cancel {
     background: white;
-    border: 1px solid red;
-    color: red;
+    border: 2px solid #ff8787;
+    color: #ff8787;
+    &:hover{
+      border: 2px solid #ff0000;
+      color: #ff0000;
+    }
   }
 
   @media (max-width: 450px) {

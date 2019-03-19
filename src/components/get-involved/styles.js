@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
 export const PartnerSection = styled.section`
+
   h2 {
     margin-bottom: 3.2rem;
   }
