@@ -46,6 +46,7 @@ const Container = styled.main`
   }
 
   @media(max-width: 450px) {
+    text-align: center;
     width 100vw;
   }
 `

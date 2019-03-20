@@ -3,6 +3,8 @@ span.crt-post-username a {
 }
 div.crt-post .crt-post-border {
   box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+  max-width: 375px;
+  margin: auto;
 }
 
 .crt-feed-scroll {
