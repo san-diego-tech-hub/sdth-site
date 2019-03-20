@@ -14,9 +14,8 @@ import {
 const PillarTemplate = ({ data, icon }) => {
   // Pick color based on data.pageTitle (ie. "community", "education", etc.). If pageTitle does not
   // match an expected pillar, default to the FOUNDER_COLOR value used in team/index.js
-  const baseColor = pillarsInfo[data.pageTitle.toLowerCase()].color
-    ? Color(pillarsInfo[data.pageTitle.toLowerCase()].color).desaturate(0.2)
-    : Color("#545CFE").desaturate(0.2)
+  const rawColor = pillarsInfo[data.pageTitle.toLowerCase()].color || "#545CFE"
+  const baseColor = Color(rawColor).desaturate(0.2)
 
   return (
     <Container>

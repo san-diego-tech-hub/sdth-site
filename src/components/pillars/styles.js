@@ -80,7 +80,7 @@ export const LeadsSection = styled.section`
     text-align: center;
 
     h5 {
-      color: ${props => Color(props.color).darken(0.4).toString()}
+      color: ${props => Color(props.color).darken(0.4).toString()};
       font-size: 1.6rem;
       text-align: left;
       text-shadow: 1px 1px 1px rgba(255,255,255,0.25);
