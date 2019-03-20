@@ -225,5 +225,8 @@ const query = graphql`
     sdnedc: file(relativePath: { eq: "sdnedc.png" }) {
       ...childSharp
     }
+    scaleMatrix: file(relativePath: { eq: "scaleMatrix.png" }) {
+      ...childSharp
+    }
   }
 `

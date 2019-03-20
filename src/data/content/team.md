@@ -1,5 +1,5 @@
 ---
-path: "leadership"
+path: "team"
 
 mainTitle: "conduits driving change"
 mainDescription: >-
@@ -15,7 +15,7 @@ founderDescription: >-
   <p>"We should never wait for opportunities to come when we can
   create them for ourselves."</p>
 
-leadership:
+team:
   - leader:
       name: "Jared Sanderson"
       email: "jared@sayvasolutions.com"
