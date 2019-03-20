@@ -21,7 +21,7 @@ const PillarTemplate = ({ data, icon }) => {
   return (
     <Container>
       <PillarInfo>
-        <Img fluid={icon.childImageSharp.fluid} />
+        <Img width="430px" fluid={icon.childImageSharp.fluid} />
         <div>
           <h1>{data.pageTitle}</h1>
           <aside>Pillar of Excellence</aside>
@@ -48,27 +48,29 @@ const PillarTemplate = ({ data, icon }) => {
         >
           <h2>Pillar Leads</h2>
           {data.leads.map(({ lead }, index) => (
-            <div key={lead.name} className="lead">
-              <div>
-                <img
+            <>
+              <div key={lead.name} className="lead">
+                <div>
+                  <img
                   src={require(`../../images/${lead.photo}.jpg`)}
                   width="250"
                   alt={lead.name}
                   style={{ borderRadius: "100%", boxShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)" }}
-                />
-                <div>
-                  <span>{lead.name}</span>
-                  <span className="email">{lead.email}</span>
+                  />
+                  <div>
+                    <span>{lead.name}</span>
+                    <span className="email">{lead.email}</span>
+                  </div>
                 </div>
+                <span style={{ background: "rgba(255,255,255,0.05)", padding: "1.5rem 3rem" }}>
+                  <h5>Biography</h5>
+                  <Html>
+                    {lead.bioDescription}
+                  </Html>
+                </span>
               </div>
-              <span style={{ background: "rgba(255,255,255,0.05)", padding: "1.5rem 3rem" }}>
-                <h5>Biography</h5>
-                <Html>
-                  {lead.bioDescription}
-                </Html>
-              </span>
               {(index < data.leads.length - 1) && <hr />}
-            </div>
+            </>
           ))}
         </LeadsSection>
       )}

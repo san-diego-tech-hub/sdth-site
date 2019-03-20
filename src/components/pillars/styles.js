@@ -9,19 +9,23 @@ export const Container = styled.div`
 export const PillarInfo = styled.section`
   display: grid;
   grid-template-columns: 15rem 1fr;
+
+  aside {
+    font-size: 3.2rem;
+  }
+
   div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding-left: 1.6rem;
   }
+
   h1 {
     font-size: 6.4rem;
     color: #4c4e7a;
   }
-  aside {
-    font-size: 3.2rem;
-  }
+
   @media (max-width: 768px) {
     grid-template-columns: 40% 1fr;
     h1 {
@@ -35,6 +39,7 @@ export const PillarInfo = styled.section`
 
   @media(max-width: 450px) {
     margin: auto;
+    padding: 2rem;
   }
 `
 
@@ -56,33 +61,36 @@ export const LeadsSection = styled.section`
     color: white;
     margin: 2rem 4rem;
   }
+
   p {
-    text-align: left;
     font-size: 1.4rem;
     line-height: 2.4rem;
     text-align: left;
   }
+
   .lead {
     color: white;
     display: grid;
-    grid-template-columns: 20rem 1fr;
-    padding: 4rem 3rem;
-    grid-gap: 5rem;
     font-size: 2.4rem;
-    text-align: center;
+    grid-gap: 5rem;
+    grid-template-columns: 20rem 1fr;
     line-height: 2.4rem;
     margin-bottom: 2.4rem;
+    padding: 4rem 3rem;
+    text-align: center;
+
     h5 {
-      text-transform: uppercase;
-      text-align: left;
-      font-size: 1.6rem;
-      text-shadow: 1px 1px 1px rgba(255,255,255,0.25);
       color: ${props => Color(props.color).darken(0.4).toString()}
+      font-size: 1.6rem;
+      text-align: left;
+      text-shadow: 1px 1px 1px rgba(255,255,255,0.25);
+      text-transform: uppercase;
     }
+
     .email {
-      white-space: nowrap;
       display: block;
       font-size: 1.6rem;
+      white-space: nowrap;
     }
   }
 
@@ -101,4 +109,9 @@ export const LeadsSection = styled.section`
       text-align: center;
     }
   }
+
+  @media (max-width: 400px) {
+    width: 100vw !important;
+  }
+
 `
