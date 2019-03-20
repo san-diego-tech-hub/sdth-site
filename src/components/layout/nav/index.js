@@ -2,7 +2,7 @@ import React from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "gatsby"
 import sdthLogo from "Images/sdth-logo.png"
-import sdthLogoSmall from "Images/ciricle-logo.svg"
+import sdthLogoSmall from "Images/circle-logo.svg"
 import AppContext from "Utils/context"
 import {
   Container,

@@ -30,7 +30,7 @@ const plugins = [
       background_color: "#663399",
       theme_color: "#663399",
       display: "minimal-ui",
-      icon: "./src/images/ciricle-logo.png",
+      icon: "./src/images/circle-logo.png",
     },
   },
   {
@@ -106,7 +106,7 @@ const config = {
       "San Diego Tech Hub represents a movement aimed at changing the perception of the San Diego tech ecosystem. Our focus is to be a conduit for change connecting businesses, organizations, and individuals, leveraging their resources and talents to build a stronger San Diego tech community through collaboration.",
     author: "Claude Jones",
     twitterHandle: "@SanDiegoTechHub",
-    image: "https://www.SanDiegoTechHub.com/ciricle-logo.png"
+    image: "https://www.SanDiegoTechHub.com/circle-logo.png"
   },
   plugins,
 }

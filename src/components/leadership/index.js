@@ -8,7 +8,7 @@ import educationIcon from "Images/icon_education.svg"
 import inclusionIcon from "Images/icon_inclusion.svg"
 import innovationIcon from "Images/icon_innovation.svg"
 import talentIcon from "Images/icon_talent.svg"
-import sdthLogo from "Images/ciricle-logo.svg"
+import sdthLogo from "Images/circle-logo.svg"
 import Html from "Common/Html"
 import { pillarsInfo } from "Utils/constants"
 import {
