@@ -78,10 +78,10 @@ function Team() {
                 }}
               >
                 <img
-                  style={{ margin: 0, marginRight: "1rem" }}
+                  alt="SDTH"
                   height="30px"
                   src={sdthLogo}
-                  alt="SDTH"
+                  style={{ margin: 0, marginRight: "1rem" }}
                 />
                 Founder
               </Link>
@@ -136,7 +136,12 @@ function Team() {
                       textDecoration: "none",
                     }}
                   >
-                    <img src={icon} width="30" alt={leader.pillar} />
+                    <img
+                      alt={leader.pillar}
+                      height="25px"
+                      src={icon}
+                      style={{ margin: 0, marginRight: "0.8rem" }}
+                    />
                     {leader.pillar}
                   </Link>
                 </Label>
