@@ -1,19 +1,19 @@
 import React from "react"
 import PropTypes from "prop-types"
-
-import ExternalLink from "Common/ExternalLink"
-import { MAPS_URL } from "Utils/constants"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Link } from "gatsby"
 import Modal from "react-modal"
+import { Link } from "gatsby"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import moment from "moment"
 import styled from "styled-components"
 import urlencode from "urlencode"
-
+import Color from "color"
 import truncateString from "Utils/truncate"
+import { MAPS_URL } from "Utils/constants"
 import ProposeEvent from "Components/forms/propose-event"
+import ExternalLink from "Common/ExternalLink"
+import Html from "Common/Html"
 
-Modal.setAppElement("#modal")
+Modal.setAppElement("#___gatsby")
 
 const styles = {
   overlay: {
@@ -72,13 +72,12 @@ function EventsComponent({ events }) {
                 {mapLink}
               </div>
 
-              <div
+              <Html
                 title={event.description}
                 style={{ padding: "1.6rem 0", color: "#333" }}
-                dangerouslySetInnerHTML={{
-                  __html: truncateString(event.description || "No description"),
-                }}
-              />
+              >
+                {truncateString(event.description || "No description")}
+              </Html>
             </Event>
           )
         })}
@@ -90,6 +89,21 @@ function EventsComponent({ events }) {
 EventsComponent.propTypes = {
   events: PropTypes.array.isRequired,
 }
+
+const Button = styled.button`
+  background: ${props => props.theme.primary};
+  border: 2px solid transparent;
+  border-radius: 0.5rem;
+  color: white;
+  font-size: 2rem;
+  padding: 1rem;
+  width: 100%;
+  &:hover {
+    background: ${props => Color(props.theme.primary).lighten(0.1).toString()};
+    border: 2px solid #3e1575;
+    cursor: pointer;
+  }
+`
 
 const Container = styled.div`
   display: flex;
@@ -104,24 +118,12 @@ const Container = styled.div`
   }
 `
 
-const Button = styled.button`
-  background: ${props => props.theme.primaryLight};
-  border: 1px solid #2abbf4;
-  border-radius: 0.5rem;
-  color: white;
-  font-size: 2rem;
-  padding: 1rem;
-  width: 100%;
-  &:hover {
-    cursor: pointer;
-  }
-`
-
 const Events = styled.div`
   background: #f5f5f5;
   border-radius: 5px;
   border: 5px solid #f5f5f5;
   border-bottom: 10px solid #f5f5f5;
+  border-top: 10px solid #f5f5f5;
   display: flex;
   flex-direction: column;
   height: 635px;
@@ -154,6 +156,9 @@ const Title = styled.h3`
   color: ${props => props.theme.primaryMuted};
   margin-bottom: 7px;
   font-size: 2rem;
+  &:hover {
+    color: ${props => Color(props.theme.primaryMuted).lighten(0.3).toString()};
+  }
 `
 
 export default EventsComponent

@@ -1,60 +1,81 @@
 import React from "react"
 import Img from "gatsby-image"
 import PropTypes from "prop-types"
+import Html from "Common/Html"
+import Color from "color"
+import { pillarsInfo } from "Utils/constants"
 import {
   Container,
   LeadsSection,
   PillarInfo,
-  PillarSection
+  PillarSection,
 } from "./styles"
 
-const PillarTemplate = ({ data, icon }) => (
-  <Container>
-    <PillarInfo>
-      <Img fluid={icon.childImageSharp.fluid} />
-      <div>
-        <h1>{data.pageTitle}</h1>
-        <aside>Pillar of Excellence</aside>
-      </div>
-    </PillarInfo>
+const PillarTemplate = ({ data, icon }) => {
+  // Pick color based on data.pageTitle (ie. "community", "education", etc.). If pageTitle does not
+  // match an expected pillar, default to the FOUNDER_COLOR value used in team/index.js
+  const rawColor = pillarsInfo[data.pageTitle.toLowerCase()].color || "#545CFE"
+  const baseColor = Color(rawColor).desaturate(0.2)
 
-    <PillarSection>
-      <h2>Purpose</h2>
-      <div dangerouslySetInnerHTML={{ __html: data.purpose }} />
-    </PillarSection>
+  return (
+    <Container>
+      <PillarInfo>
+        <Img width="430px" fluid={icon.childImageSharp.fluid} />
+        <div>
+          <h1>{data.pageTitle}</h1>
+          <aside>Pillar of Excellence</aside>
+        </div>
+      </PillarInfo>
 
-    <PillarSection>
-      <h2>How do we challenge to status quo?</h2>
-      <div dangerouslySetInnerHTML={{ __html: data.challenge }} />
-    </PillarSection>
+      <PillarSection>
+        <h2>Purpose</h2>
+        <Html>
+          {data.purpose}
+        </Html>
+      </PillarSection>
 
-    {data.leads && data.leads[0].name.length > 0 && (
-      <LeadsSection>
-        <h2>Pillar Leads</h2>
-        {data.leads.map((lead) => (
-          <div key={lead.name} className="lead">
-            <div>
-              <img
-                src={require(`../../images/${lead.photo}.jpg`)}
-                width="250"
-                alt={lead.name}
-                style={{ borderRadius: "100%" }}
-              />
-              <div>
-                <span>{lead.name}</span>
-                <span className="email">{lead.email}</span>
+      <PillarSection>
+        <h2>How do we challenge the status quo?</h2>
+        <Html>
+          {data.challenge}
+        </Html>
+      </PillarSection>
+
+      {data.leads && (
+        <LeadsSection
+          color={baseColor.toString()}
+        >
+          <h2>Pillar Leads</h2>
+          {data.leads.map(({ lead }, index) => (
+            <>
+              <div key={lead.name} className="lead">
+                <div>
+                  <img
+                  src={require(`../../images/${lead.photo}.jpg`)}
+                  width="250"
+                  alt={lead.name}
+                  style={{ borderRadius: "100%", boxShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)" }}
+                  />
+                  <div>
+                    <span>{lead.name}</span>
+                    <span className="email">{lead.email}</span>
+                  </div>
+                </div>
+                <span style={{ background: "rgba(255,255,255,0.05)", padding: "1.5rem 3rem" }}>
+                  <h5>Biography</h5>
+                  <Html>
+                    {lead.bioDescription}
+                  </Html>
+                </span>
               </div>
-            </div>
-            <span style={{ padding: ".5rem" }}>
-              <h5>Biography</h5>
-              <div dangerouslySetInnerHTML={{ __html: lead.bio }} />
-            </span>
-          </div>
-        ))}
-      </LeadsSection>
-    )}
-  </Container>
-)
+              {(index < data.leads.length - 1) && <hr />}
+            </>
+          ))}
+        </LeadsSection>
+      )}
+    </Container>
+  )
+}
 
 PillarTemplate.propTypes = {
   data: PropTypes.object,

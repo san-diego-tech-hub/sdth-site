@@ -1,73 +1,79 @@
 import React from "react"
-import { graphql, StaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import Img from "gatsby-image"
-
 import ExternalLink from "Common/ExternalLink"
+import Html from "Common/Html"
 
-const Partners = () => (
-  <StaticQuery
-    query={query}
-    render={({ partnersJson, ...logos }) => {
-      return (
-        <Container>
-          <PartnerSection repeat={4}>
-            <h2>{partnersJson.firstSectionTitle}</h2>
+function Partners() {
+  const {
+    markdownRemark: { frontmatter },
+    ...logos
+  } = useStaticQuery(query)
 
-            <div
-              className="description"
-              dangerouslySetInnerHTML={{ __html: partnersJson.firstSectionDescription }}
-            />
-            <div className="partners">
-              {partnersJson.firstSectionItems.map((company) => {
-                const logo = logos[company.logo]
-                if (!logo) {
-                  return null
-                }
-                return (
-                  <div key={company.name} className="partner">
-                    <ExternalLink href={company.website}>
-                      <Img fluid={logo.childImageSharp.fluid} alt={company.name} />
-                    </ExternalLink>
-                  </div>
-                )
-              })}
-            </div>
-          </PartnerSection>
+  return (
+    <Container>
+      <PartnerSection repeat={4}>
+        <h2>{frontmatter.partnersTitle}</h2>
+        <Html className="description">
+          {frontmatter.partnersDescription}
+        </Html>
+        <div className="partners">
+          {frontmatter.partners.map(({ partner }) => {
+            const logo = logos[partner.logo]
+            if (!logo) {
+              return null
+            }
+            return (
+              <ExternalLink
+                key={partner.name}
+                className="partner"
+                style={{ width: "100%" }}
+                href={partner.website}
+              >
+                <Img
+                  alt={partner.name}
+                  fluid={logo.childImageSharp.fluid}
+                  style={{ width: "100%"  }}
+                />
+              </ExternalLink>
+            )
+          })}
+        </div>
+      </PartnerSection>
 
-          <PartnerSection repeat={2}>
-            <h2>{partnersJson.secondSectionTitle}</h2>
+      <PartnerSection repeat={2}>
+        <h2>{frontmatter.sponsorsTitle}</h2>
+        <Html className="description">
+          {frontmatter.sponsorsDescription}
+        </Html>
+        <div className="partners">
+          {frontmatter.sponsors.map(({ sponsor }) => {
+            const logo = logos[sponsor.logo]
+            if (!logo) {
+              return null
+            }
 
-            <div
-              className="description"
-              dangerouslySetInnerHTML={{ __html: partnersJson.secondSectionDescription }}
-            />
-            <div className="partners">
-              {partnersJson.secondSectionItems.map((company) => {
-                const logo = logos[company.logo]
-                if (!logo) {
-                  return null
-                }
-
-                return (
-                  <div key={company.name} className="partner">
-                    <ExternalLink href={company.website}>
-                      <Img
-                        fluid={logo.childImageSharp.fluid}
-                        alt={company.name}
-                        style={{ maxWidth: "40rem", margin: "auto" }}
-                      />
-                    </ExternalLink>
-                  </div>
-                )
-              })}
-            </div>
-          </PartnerSection>
-        </Container>
-      )
-    }}
-  />
-)
+            return (
+              <ExternalLink
+                key={sponsor.name}
+                className="partner"
+                style={{ width: "100%" }}
+                href={sponsor.website}
+              >
+                <Img
+                  alt={sponsor.name}
+                  fluid={logo.childImageSharp.fluid}
+                  style={{ width: "100%", display: "flex", alignItems: "center" }}
+                />
+              </ExternalLink>
+            )
+          })}
+        </div>
+      </PartnerSection>
+    </Container>
+  )
+}
 
 export default Partners
 
@@ -79,7 +85,7 @@ const Container = styled.div`
     margin: 0 !important;
   }
 
-  @media(max-width: 450px) {
+  @media (max-width: 450px) {
     .description {
       padding: 1rem;
     }
@@ -104,13 +110,37 @@ const PartnerSection = styled.section`
   }
 
   .partners {
-    display: grid;
-    grid-template-columns: repeat(${props => props.repeat || 1}, 1fr);
-    grid-gap: 3.2rem;
+    align-items: stretch;
+    display: flex;
+    flex-wrap: wrap;
     padding-top: 3.2rem;
+    justify-content: center;
 
     .partner {
+      align-items: center;
+      border: 1px solid transparent;
       border-radius: 0.5rem;
+      display: flex;
+      flex-basis: 25%;
+      padding: 3rem 1.5rem;
+
+      &:hover, &:focus {
+        border: 1px solid rgba(0,0,0,0.1);
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+        transform: translate(-2px, -2px);
+      }
+
+      @media (max-width: 698px) {
+        flex-basis: 33%;
+      }
+
+      @media (max-width: 450px) {
+        flex-basis: 50%;
+      }
+
+      @media (max-width: 320px) {
+        flex-basis: 100%;
+      }
     }
   }
 
@@ -130,19 +160,26 @@ const PartnerSection = styled.section`
 
 const query = graphql`
   query PARTNERS_QUERY {
-    partnersJson {
-      firstSectionTitle
-      firstSectionDescription
-      firstSectionItems {
-        name
-        website
-        logo
-      }
-      secondSectionTitle
-      secondSectionDescription
-      secondSectionItems {
-        name
-        logo
+    markdownRemark(frontmatter: { path: { eq: "partners" } }) {
+      frontmatter {
+        partnersTitle
+        partnersDescription
+        partners {
+          partner {
+            name
+            website
+            logo
+          }
+        }
+        sponsorsTitle
+        sponsorsDescription
+        sponsors {
+          sponsor {
+            website
+            name
+            logo
+          }
+        }
       }
     }
 
@@ -186,6 +223,9 @@ const query = graphql`
       ...childSharp
     }
     sdnedc: file(relativePath: { eq: "sdnedc.png" }) {
+      ...childSharp
+    }
+    scaleMatrix: file(relativePath: { eq: "scaleMatrix.png" }) {
       ...childSharp
     }
   }

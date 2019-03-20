@@ -1,31 +1,39 @@
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import SocialAggregator from "Components/social-aggregator"
+import Html from "Common/Html"
 
-const GetInvolved = () => (
-  <StaticQuery
-    query={query}
-    render={({ getInvolvedJson }) => (
-      <Container>
-        <section>
-          <h2>{getInvolvedJson.firstSectionTitle}</h2>
-          <p>{getInvolvedJson.firstSectionDescription}</p>
-        </section>
-        <section>
-          <h2>San Diego Tech Hub In Action</h2>
-          <SocialAggregator />
-        </section>
-      </Container>
-    )}
-  />
-)
+function GetInvolved() {
+  const {
+    markdownRemark: { frontmatter }
+  } = useStaticQuery(query)
+
+  return (
+    <Container>
+      <section style={{ marginBottom: "5rem", padding: "1rem" }}>
+        <h2>{frontmatter.mainTitle}</h2>
+        <Html>
+          {frontmatter.mainDescription}
+        </Html>
+      </section>
+      <section style={{ marginTop: "5rem", padding: 0 }}>
+        <h2>San Diego Tech Hub In Action</h2>
+        <SocialAggregator />
+      </section>
+    </Container>
+  )
+}
+
+export default GetInvolved
 
 const query = graphql`
   query GETINVOLVED_QUERY {
-    getInvolvedJson {
-      firstSectionTitle
-      firstSectionDescription
+    markdownRemark(frontmatter: { path: { eq: "get-involved" } }) {
+      frontmatter {
+        mainTitle
+        mainDescription
+      }
     }
   }
 `
@@ -38,8 +46,7 @@ const Container = styled.main`
   }
 
   @media(max-width: 450px) {
+    text-align: center;
     width 100vw;
   }
 `
-
-export default GetInvolved

@@ -6,31 +6,37 @@ import SEO from "Components/seo"
 import PillarTemplate from "Components/pillars/template"
 import PageTitle from "Common/PageTitle"
 
-export default props => {
-  const { data: { talent, talentJson } } = props
+function TalentPage({ data, ...props }) {
+  const { talent, markdownRemark } = data
   return (
     <Layout pageProps={props}>
-      <SEO title="Talent" keywords={["san diego", "tech", "hub", "pillar", "talent"]} />
-      <PageTitle>
-        Talent
-      </PageTitle>
-      <PillarTemplate data={talentJson} icon={talent} />
+      <SEO
+        title="Talent"
+        keywords={["san diego", "tech", "hub", "pillar", "talent"]}
+      />
+      <PageTitle>Talent</PageTitle>
+      <PillarTemplate data={markdownRemark.frontmatter} icon={talent} />
     </Layout>
   )
 }
 
+export default TalentPage
+
 export const query = graphql`
   query TALENT_QUERY {
-    talentJson {
-      pageTitle
-      purpose
-      goals
-      challenge
-      leads {
-        name
-        email
-        bio
-        photo
+    markdownRemark(frontmatter: { path: { eq: "talent" } }) {
+      frontmatter {
+        pageTitle
+        purpose
+        challenge
+        leads {
+          lead {
+            name
+            email
+            bioDescription
+            photo
+          }
+        }
       }
     }
     talent: file(relativePath: { eq: "talent-page.png" }) {

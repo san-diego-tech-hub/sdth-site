@@ -34,12 +34,28 @@ function SEO({ description, lang, meta, keywords, title }) {
                 content: "website",
               },
               {
+                property: "og:url",
+                content: "https://www.SanDiegoTechHub.com",
+              },
+              {
+                property: "og:image",
+                content: data.site.siteMetadata.image,
+              },
+              {
+                property: "twitter:image",
+                content: data.site.siteMetadata.image,
+              },
+              {
                 name: "twitter:card",
                 content: "summary",
               },
               {
                 name: "twitter:creator",
                 content: data.site.siteMetadata.author,
+              },
+              {
+                name: "twitter:site",
+                content: data.site.siteMetadata.twitterHandle,
               },
               {
                 name: "twitter:title",

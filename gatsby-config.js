@@ -11,15 +11,14 @@ const plugins = [
       path: `${__dirname}/src/images`,
     },
   },
-  "gatsby-transformer-json",
-  "gatsby-transformer-remark",
   {
     resolve: "gatsby-source-filesystem",
     options: {
-      name: "data",
-      path: `${__dirname}/src/data`,
+      name: "content",
+      path: `${__dirname}/src/data/content`,
     },
   },
+  "gatsby-transformer-remark",
   "gatsby-transformer-sharp",
   "gatsby-plugin-sharp",
   {
@@ -31,7 +30,7 @@ const plugins = [
       background_color: "#663399",
       theme_color: "#663399",
       display: "minimal-ui",
-      icon: "./src/images/ciricle-logo.png",
+      icon: "./src/images/circle-logo.png",
     },
   },
   {
@@ -73,6 +72,7 @@ const plugins = [
       entities: ["events", "venues"],
     },
   },
+  "gatsby-plugin-netlify-cms"
 ]
 
 if (process.env.NODE_ENV === "production") {
@@ -105,6 +105,8 @@ const config = {
     description:
       "San Diego Tech Hub represents a movement aimed at changing the perception of the San Diego tech ecosystem. Our focus is to be a conduit for change connecting businesses, organizations, and individuals, leveraging their resources and talents to build a stronger San Diego tech community through collaboration.",
     author: "Claude Jones",
+    twitterHandle: "@SanDiegoTechHub",
+    image: "https://www.SanDiegoTechHub.com/circle-logo.png"
   },
   plugins,
 }

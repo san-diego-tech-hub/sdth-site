@@ -1,10 +1,9 @@
 import React from "react"
-import { Link } from "gatsby"
 import moment from "moment"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-
+import Html from "Common/Html"
 import truncateString from "Utils/truncate"
-import { StyledDetails } from "./styles"
+import { StyledDetails, SeeMore } from "./styles"
 
 function Details({ eventInfo, setEventInfo, ...position }) {
   React.useEffect(() => {
@@ -45,6 +44,7 @@ function Details({ eventInfo, setEventInfo, ...position }) {
         </div>
         <span>
           <button
+            className="close-details"
             type="button"
             onClick={() => setEventInfo(null)}
           >
@@ -54,10 +54,12 @@ function Details({ eventInfo, setEventInfo, ...position }) {
       </aside>
 
       <div className="content">
-        <div dangerouslySetInnerHTML={{ __html: truncateString(eventInfo.event.description) }} />
-        <Link style={{ fontSize: "1.2rem", whiteSpace: "no" }} to={`/event/${eventInfo.event.id}`}>
+        <Html>
+          {truncateString(eventInfo.event.description || "No Description")}
+        </Html>
+        <SeeMore to={`/event/${eventInfo.event.id}`}>
           See more
-        </Link>
+        </SeeMore>
       </div>
     </StyledDetails>
   )

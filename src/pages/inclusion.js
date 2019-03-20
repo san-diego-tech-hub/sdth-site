@@ -6,34 +6,37 @@ import SEO from "Components/seo"
 import PillarTemplate from "Components/pillars/template"
 import PageTitle from "Common/PageTitle"
 
-export default props => {
-  const { data: { inclusion, inclusionJson } } = props
+function InclusionPage({ data, ...props }) {
+  const { inclusion, markdownRemark } = data
   return (
     <Layout pageProps={props}>
-      <SEO title="Inclusion" keywords={["san diego", "tech", "hub", "pillar", "inclusion"]} />
-      <PageTitle>
-        Inclusion
-      </PageTitle>
-      <PillarTemplate
-        data={inclusionJson}
-        icon={inclusion}
+      <SEO
+        title="Inclusion"
+        keywords={["san diego", "tech", "hub", "pillar", "inclusion"]}
       />
+      <PageTitle>Inclusion</PageTitle>
+      <PillarTemplate data={markdownRemark.frontmatter} icon={inclusion} />
     </Layout>
   )
 }
 
+export default InclusionPage
+
 export const query = graphql`
   query INCLUSION_QUERY {
-    inclusionJson {
-      pageTitle
-      purpose
-      goals
-      challenge
-      leads {
-        name
-        email
-        bio
-        photo
+    markdownRemark(frontmatter: { path: { eq: "inclusion" } }) {
+      frontmatter {
+        pageTitle
+        purpose
+        challenge
+        leads {
+          lead {
+            name
+            email
+            bioDescription
+            photo
+          }
+        }
       }
     }
     inclusion: file(relativePath: { eq: "inclusion-page.png" }) {

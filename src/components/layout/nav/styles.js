@@ -10,8 +10,10 @@ export const Container = styled.div`
 `
 
 export const Drop = styled.div`
+  padding: 0 1rem;
   position: relative;
   display: inline-block;
+
   &:hover .content {
     display: block;
   }
@@ -63,6 +65,14 @@ export const Logo = styled.div`
     margin-bottom: 0;
   }
 
+  @media (max-width: 1040px) {
+    display: none;
+  }
+
+  @media (max-width: 900px) {
+    display: block;
+  }
+
   @media (max-width: 450px) {
     display: none;
     width: 100%;
@@ -75,24 +85,11 @@ export const Menu = styled.ul`
   flex-grow: 3;
   font-size: 2rem;
   height: ${NAV_HEIGHT};
-  justify-content: space-around;
+  justify-content: stretch;
   list-style-type: none;
   margin: 0;
   min-width: 915px;
   text-align: center;
-
-  @media (max-width: 990px) {
-    width: 100%;
-    font-size: 1.6rem;
-    padding: 0 2rem;
-    li {
-      white-space: pre-line;
-    }
-    li:not(:last-child)::after {
-      content: '';
-      margin-left: 0;
-    }
-  }
 
   @media(max-width: 900px) {
     display: none;
@@ -109,12 +106,21 @@ export const Nav = styled.nav`
   left: 0;
   right: 0;
   top: 0;
+  transition: box-shadow 0.5s ease-in-out;
   z-index: 2;
 
   a {
     color: #fff;
     display: block;
     text-decoration: none;
+  }
+
+  &.box-shadow {
+    box-shadow:
+      0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+      0px 4px 5px 0px rgba(0, 0, 0, 0.14),
+      0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    transition: box-shadow 0.5s ease-in-out;
   }
 `
 

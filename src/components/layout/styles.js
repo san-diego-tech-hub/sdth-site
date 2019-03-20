@@ -25,10 +25,12 @@ export const Wrapper = styled.div`
       width: 100vw !important;
     }
   }
+
   section:first-child {
     margin-top: 0;
-    padding-top: 5rem;
+    padding-top: 0;
   }
+
   h1,
   h2,
   h3,
@@ -37,9 +39,11 @@ export const Wrapper = styled.div`
   h6 {
     text-transform: uppercase;
   }
+
   h1 {
     font-size: 4rem;
   }
+
   h2 {
     color: ${props => props.theme.primaryMuted};
     font-size: 3.2rem;
@@ -50,6 +54,7 @@ export const Wrapper = styled.div`
       margin: 5rem 10rem;
     }
   }
+
   @media (max-width: 768px) {
     section {
       width: 80%;
