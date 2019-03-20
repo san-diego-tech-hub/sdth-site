@@ -69,6 +69,7 @@ export const Card = styled.div`
 
 export const Header = styled.section`
   @media(max-width: 990px) {
+    padding: 1.5rem;
     padding-top: 0 !important;
     text-align: center;
   }
