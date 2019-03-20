@@ -14,7 +14,8 @@ export const Drop = styled.div`
   position: relative;
   display: inline-block;
 
-  &:hover .content {
+  &:hover .content,
+  &:focus-within .content {
     display: block;
   }
 `
