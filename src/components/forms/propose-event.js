@@ -1,5 +1,6 @@
 import React from "react"
 import moment from "moment"
+import { toast } from "react-toastify"
 import encode from "Utils/encode"
 import { useForm } from "Utils/hooks"
 import { notEmpty, usernameField, emailField } from "Utils/forms"
@@ -45,8 +46,8 @@ function ProposeEvent({ closeModal = NO_OP }) {
     ]
   })
 
-  const handleSubmit = async () => {
-    await fetch("/", {
+  const handleSubmit = () => {
+    fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
@@ -60,9 +61,12 @@ function ProposeEvent({ closeModal = NO_OP }) {
         end: form.end.value,
         description: form.description.value,
       }),
-    }).then(res => console.log("RESULT:", res)).catch(console.error)
-
-    closeModal()
+    })
+      .then(() => {
+        closeModal()
+        toast.success("🚀 New Event Submitted!")
+      })
+      .catch((err) => toast.error(`⚠️ ${err}`))
   }
 
   return (
@@ -70,7 +74,6 @@ function ProposeEvent({ closeModal = NO_OP }) {
       name="event-proposal"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
-      data-testid="propose-event"
       method="post"
       onSubmit={form.onSubmit(handleSubmit)}
       noValidate
@@ -179,8 +182,20 @@ function ProposeEvent({ closeModal = NO_OP }) {
         </ErrorMsg>
       </div>
 
-      <button data-testid="submit" type="submit" className="submit">Propose Event</button>
-      <button type="button" className="cancel" onClick={closeModal}>Cancel</button>
+      <button
+        className="submit"
+        data-testid="submit"
+        type="submit"
+      >
+        Propose Event
+      </button>
+      <button
+        className="cancel"
+        type="button"
+        onClick={closeModal}
+      >
+        Cancel
+      </button>
     </ProposeForm>
   )
 }

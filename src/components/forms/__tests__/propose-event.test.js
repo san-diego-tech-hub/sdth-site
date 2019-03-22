@@ -1,8 +1,7 @@
 import React from "react"
 import { fireEvent, render } from "react-testing-library"
-// import { toast as MockToast } from "react-toastify"
-// import { asyncEvent, fillInput } from "Test/utils"
-import { fillInput } from "Test/utils"
+import { toast as MockToast } from "react-toastify"
+import { asyncEvent, fillInput } from "Test/utils"
 import ProposeEvent from "../propose-event"
 
 jest.mock("react-toastify", () => ({
@@ -26,22 +25,47 @@ const VALID = {
 
 const INVALID = {
   email: "noAtsymbol",
-  end: "2098-03-21T14:00"
+  end: "2098-03-21T14:00" // datetime is *before* VALID.start
+}
+
+function renderProposeEvent() {
+  const { container, getByTestId } = render(<ProposeEvent />)
+  const getById = (id) => container.querySelector(`#${id}`)
+
+  const username = getById("username")
+  const email = getById("email")
+  const eventName = getById("event-name")
+  const location = getById("location")
+  const start = getById("start")
+  const end = getById("end")
+  const description = getById("description")
+  const submit = getByTestId("submit")
+
+  return {
+    username,
+    email,
+    eventName,
+    location,
+    start,
+    end,
+    description,
+    submit,
+    getByTestId
+  }
 }
 
 describe("Validation:", () => {
   test("prevents form submission unless all fields are valid", () => {
-    const { container, getByTestId } = render(<ProposeEvent />)
-    const getById = (id) => container.querySelector(`#${id}`)
-
-    const username = getById("username")
-    const email = getById("email")
-    const eventName = getById("event-name")
-    const location = getById("location")
-    const start = getById("start")
-    const end = getById("end")
-    const description = getById("description")
-    const submit = getByTestId("submit")
+    const {
+      username,
+      email,
+      eventName,
+      location,
+      start,
+      end,
+      description,
+      submit
+    } = renderProposeEvent()
 
     // does NOT submit if username is empty
     fillInput(username, EMPTY) // <<<< EMPTY
@@ -133,17 +157,17 @@ describe("Validation:", () => {
   })
 
   test("displays validation errors", () => {
-    const { container, getByTestId } = render(<ProposeEvent />)
-    const getById = (id) => container.querySelector(`#${id}`)
-
-    const username = getById("username")
-    const email = getById("email")
-    const eventName = getById("event-name")
-    const location = getById("location")
-    const start = getById("start")
-    const end = getById("end")
-    const description = getById("description")
-    const submit = getByTestId("submit")
+    const {
+      username,
+      email,
+      eventName,
+      location,
+      start,
+      end,
+      description,
+      submit,
+      getByTestId
+    } = renderProposeEvent()
 
     const expectError = (field) => {
       expect(getByTestId(`${field}-error`)).not.toBeEmpty()
@@ -220,15 +244,69 @@ describe("Validation:", () => {
 })
 
 describe("Submission results:", () => {
-  xtest("displays success message if submitted successfully", async () => {
+  test("displays success message if submitted successfully", async () => {
+    const {
+      username,
+      email,
+      eventName,
+      location,
+      start,
+      end,
+      description,
+      submit
+    } = renderProposeEvent()
 
+    fillInput(username, VALID.value)
+    fillInput(email, VALID.email)
+    fillInput(eventName, VALID.value)
+    fillInput(location, VALID.value)
+    fillInput(start, VALID.start)
+    fillInput(end, VALID.end)
+    fillInput(description, VALID.value)
+
+    fireEvent.click(submit)
+    await asyncEvent()
+
+    expect(MockToast.success).toHaveBeenCalledTimes(1)
+    expect(MockToast.error).not.toHaveBeenCalled()
   })
 
-  xtest("displays error message if fetch returns an error", async () => {
+  test("displays error message if fetch returns an error", async () => {
+    fetch.mockReject(new Error("Error..."))
 
+    const {
+      username,
+      email,
+      eventName,
+      location,
+      start,
+      end,
+      description,
+      submit
+    } = renderProposeEvent()
+
+    fillInput(username, VALID.value)
+    fillInput(email, VALID.email)
+    fillInput(eventName, VALID.value)
+    fillInput(location, VALID.value)
+    fillInput(start, VALID.start)
+    fillInput(end, VALID.end)
+    fillInput(description, VALID.value)
+
+    fireEvent.click(submit)
+    await asyncEvent()
+
+    expect(MockToast.success).not.toHaveBeenCalled()
+    expect(MockToast.error).toHaveBeenCalledTimes(1)
   })
 
-  xtest("does NOT display any message if there are validation errors", async () => {
+  test("does NOT display any message if there are validation errors", async () => {
+    const { submit } = renderProposeEvent()
 
+    fireEvent.click(submit)
+    await asyncEvent()
+
+    expect(MockToast.success).not.toHaveBeenCalled()
+    expect(MockToast.error).not.toHaveBeenCalled()
   })
 })
