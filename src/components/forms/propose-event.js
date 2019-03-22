@@ -6,7 +6,9 @@ import { notEmpty, usernameField, emailField } from "Utils/forms"
 import ErrorMsg from "Common/ErrorMsg"
 import { ProposeForm } from "./styles"
 
-function ProposeEvent({ closeModal }) {
+const NO_OP = () => {}
+
+function ProposeEvent({ closeModal = NO_OP }) {
   const date = moment().format("YYYY-MM-DDTHH:mm")
 
   const form = useForm({
@@ -58,7 +60,7 @@ function ProposeEvent({ closeModal }) {
         end: form.end.value,
         description: form.description.value,
       }),
-    })
+    }).then(res => console.log("RESULT:", res)).catch(console.error)
 
     closeModal()
   }
@@ -68,21 +70,24 @@ function ProposeEvent({ closeModal }) {
       name="event-proposal"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
+      data-testid="propose-event"
       method="post"
       onSubmit={form.onSubmit(handleSubmit)}
       noValidate
     >
       <div className="input-field">
-        <label htmlFor="user">
+        <label htmlFor="username">
           Your Name
           <input
-            id="user"
+            id="username"
             type="text"
             value={form.username.value}
             onChange={form.username.onChange}
           />
         </label>
-        <ErrorMsg>{form.username.error}</ErrorMsg>
+        <ErrorMsg data-testid="username-error">
+          {form.username.error}
+        </ErrorMsg>
       </div>
 
       <div className="input-field">
@@ -95,7 +100,9 @@ function ProposeEvent({ closeModal }) {
             onChange={form.email.onChange}
           />
         </label>
-        <ErrorMsg>{form.email.error}</ErrorMsg>
+        <ErrorMsg data-testid="email-error">
+          {form.email.error}
+        </ErrorMsg>
       </div>
 
       <div className="input-field">
@@ -108,7 +115,9 @@ function ProposeEvent({ closeModal }) {
             onChange={form.eventName.onChange}
           />
         </label>
-        <ErrorMsg>{form.eventName.error}</ErrorMsg>
+        <ErrorMsg data-testid="event-name-error">
+          {form.eventName.error}
+        </ErrorMsg>
       </div>
 
       <div className="input-field">
@@ -121,7 +130,9 @@ function ProposeEvent({ closeModal }) {
             onChange={form.location.onChange}
           />
         </label>
-        <ErrorMsg>{form.location.error}</ErrorMsg>
+        <ErrorMsg data-testid="location-error">
+          {form.location.error}
+        </ErrorMsg>
       </div>
 
       <div className="input-field">
@@ -134,7 +145,9 @@ function ProposeEvent({ closeModal }) {
             onChange={form.start.onChange}
           />
         </label>
-        <ErrorMsg>{form.start.error}</ErrorMsg>
+        <ErrorMsg data-testid="start-error">
+          {form.start.error}
+        </ErrorMsg>
       </div>
 
       <div className="input-field">
@@ -147,7 +160,9 @@ function ProposeEvent({ closeModal }) {
             onChange={form.end.onChange}
           />
         </label>
-        <ErrorMsg>{form.end.error}</ErrorMsg>
+        <ErrorMsg data-testid="end-error">
+          {form.end.error}
+        </ErrorMsg>
       </div>
 
       <div className="input-field">
@@ -159,10 +174,12 @@ function ProposeEvent({ closeModal }) {
             onChange={form.description.onChange}
           />
         </label>
-        <ErrorMsg>{form.description.error}</ErrorMsg>
+        <ErrorMsg data-testid="description-error">
+          {form.description.error}
+        </ErrorMsg>
       </div>
 
-      <button type="submit" className="submit">Propose Event</button>
+      <button data-testid="submit" type="submit" className="submit">Propose Event</button>
       <button type="button" className="cancel" onClick={closeModal}>Cancel</button>
     </ProposeForm>
   )
