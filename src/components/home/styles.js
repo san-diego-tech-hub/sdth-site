@@ -18,11 +18,6 @@ export const CollabIcon = styled.div`
   width: 20rem;
 `
 
-export const Description = styled.p`
-  font-size: 1.7rem;
-  padding: 0 5rem;
-`
-
 export const PillarDescription = styled.div`
   margin: 15rem auto 5rem;
   max-width: 800px;
