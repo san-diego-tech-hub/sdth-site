@@ -57,7 +57,7 @@ function StayConnected() {
               onChange={form.username.onChange}
             />
           </label>
-          <ErrorMsg data-testid="name-error">
+          <ErrorMsg data-testid="username-error">
             {form.username.error}
           </ErrorMsg>
         </FormField>
