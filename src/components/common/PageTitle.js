@@ -21,7 +21,7 @@ const ConduitsFlow = styled.div`
   width: 100%;
 
   @media(max-width: 450px) {
-    height: 150px;
+    height: 130px;
   }
 `
 
@@ -45,9 +45,9 @@ const H1 = styled.div`
   }
 
   @media (max-width: 450px) {
-    font-size: 4rem;
-    margin-bottom: 0;
-    padding: 2rem;
+    font-size: 3.3rem;
+    margin-bottom: 2.5rem;
+    padding: 1rem;
   }
 `
 
@@ -74,12 +74,14 @@ const WhiteCurve = styled.div`
   border-radius: 50%;
   box-shadow: 0 0 25px rgba(255,255,255,0.5);
   height: 200px;
-  margin-top: -50px;
   margin-left: -10vw;
+  margin-top: -50px;
   width: 120vw;
 
   @media(max-width: 450px) {
-    margin-top: -100px;
+    margin-left: -25vw;
+    margin-top: -120px;
+    width: 150vw;
   }
 `
 

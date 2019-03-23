@@ -1,3 +1,4 @@
+import { Link } from "gatsby"
 import styled from "styled-components"
 
 export const Container = styled.footer`
@@ -9,8 +10,21 @@ export const Container = styled.footer`
 `
 
 export const InnerDiv = styled.div`
+  align-items: center;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   max-width: 1200px;
   width: 100%;
+`
+
+export const InternalLink = styled(Link)`
+  color: ${props => props.theme.primary};
+  font-size: 2rem;
+  font-weight: bolder;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
 `
