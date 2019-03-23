@@ -7,7 +7,11 @@ import PageTitle from "Common/PageTitle"
 
 export default props => (
   <Layout pageProps={props}>
-    <SEO title="Get Involved" keywords={["san diego", "tech", "hub"]} />
+    <SEO
+      title="Get Involved"
+      keywords={["san diego", "tech", "hub", "internships", "nonprofit", "talent", "volunteers"]}
+      canonicalUrlPath="/get-involved"
+    />
     <PageTitle>
       Get Involved
     </PageTitle>
