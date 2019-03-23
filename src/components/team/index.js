@@ -8,7 +8,7 @@ import educationIcon from "Images/icon_education.svg"
 import inclusionIcon from "Images/icon_inclusion.svg"
 import innovationIcon from "Images/icon_innovation.svg"
 import talentIcon from "Images/icon_talent.svg"
-import sdthLogo from "Images/ciricle-logo.svg"
+import sdthLogo from "Images/circle-logo.svg"
 import Html from "Common/Html"
 import { pillarsInfo } from "Utils/constants"
 import {
@@ -32,7 +32,7 @@ const pillarIcons = {
 
 const FOUNDER_COLOR = Color("#545CFE").desaturate(0.2)
 
-function Leadership() {
+function Team() {
   const {
     markdownRemark: { frontmatter },
     ...avatars
@@ -78,10 +78,10 @@ function Leadership() {
                 }}
               >
                 <img
-                  style={{ margin: 0, marginRight: "1rem" }}
+                  alt="SDTH"
                   height="30px"
                   src={sdthLogo}
-                  alt="SDTH"
+                  style={{ margin: 0, marginRight: "1rem" }}
                 />
                 Founder
               </Link>
@@ -111,7 +111,7 @@ function Leadership() {
           </Card>
         </span>
         <PillarLeaders>
-          {frontmatter.leadership.map(({ leader }) => {
+          {frontmatter.team.map(({ leader }) => {
             const icon = pillarIcons[leader.pillar]
             const photo = avatars[leader.photo]
             const baseColor = Color(
@@ -120,20 +120,31 @@ function Leadership() {
 
             return (
               <Card color={baseColor.toString()} key={leader.name}>
-                <Label style={{ background: baseColor.darken(0.2).toString() }}>
+                <Label
+                  style={{
+                    background: baseColor.darken(0.2).toString(),
+                    padding: 0
+                  }}
+                >
                   <Link
                     to={`/${leader.pillar}`}
                     style={{
+                      alignItems: "center",
                       color: "white",
+                      display: "flex",
+                      padding: "1.3rem",
                       textDecoration: "none",
-                      padding: ".3rem",
                     }}
                   >
-                    <img src={icon} width="30" alt={leader.pillar} />
+                    <img
+                      alt={leader.pillar}
+                      height="25px"
+                      src={icon}
+                      style={{ margin: 0, marginRight: "0.8rem" }}
+                    />
                     {leader.pillar}
                   </Link>
                 </Label>
-
                 <AvatarCard>
                   <Img
                     fluid={photo.childImageSharp.fluid}
@@ -171,18 +182,18 @@ function Leadership() {
   )
 }
 
-export default Leadership
+export default Team
 
 const query = graphql`
-  query LeadershipQuery {
-    markdownRemark(frontmatter: { path: { eq: "leadership" } }) {
+  query TeamQuery {
+    markdownRemark(frontmatter: { path: { eq: "team" } }) {
       frontmatter {
         mainTitle
         mainDescription
         founderName
         founderEmail
         founderDescription
-        leadership {
+        team {
           leader {
             name
             email

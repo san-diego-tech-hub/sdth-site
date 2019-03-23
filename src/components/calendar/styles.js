@@ -1,4 +1,16 @@
 import styled from "styled-components"
+import { Link } from "gatsby"
+
+export const SeeMore = styled(Link)`
+  color: ${props => props.theme.primary};
+  font-weight: bolder;
+  font-size: 1.2rem;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`
 
 export const StyledDetails = styled.aside`
   z-index: 1;

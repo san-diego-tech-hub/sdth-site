@@ -65,9 +65,12 @@ sponsors:
       name: "Dynam AI"
       website: "https://www.dynam.ai"
       logo: "dynam"
-
   - sponsor:
       name: "SD North Economic Development Council"
       website: "https://www.sdnedc.org"
       logo: "sdnedc"
+  - sponsor:
+      name: "Scale Matrix"
+      website: "https://www.scalematrix.com"
+      logo: "scaleMatrix"
 ---

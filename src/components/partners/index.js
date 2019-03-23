@@ -25,11 +25,18 @@ function Partners() {
               return null
             }
             return (
-              <div key={partner.name} className="partner">
-                <ExternalLink href={partner.website}>
-                  <Img fluid={logo.childImageSharp.fluid} alt={partner.name} />
-                </ExternalLink>
-              </div>
+              <ExternalLink
+                key={partner.name}
+                className="partner"
+                style={{ width: "100%" }}
+                href={partner.website}
+              >
+                <Img
+                  alt={partner.name}
+                  fluid={logo.childImageSharp.fluid}
+                  style={{ width: "100%"  }}
+                />
+              </ExternalLink>
             )
           })}
         </div>
@@ -48,15 +55,18 @@ function Partners() {
             }
 
             return (
-              <div key={sponsor.name} className="partner">
-                <ExternalLink href={sponsor.website}>
-                  <Img
-                    fluid={logo.childImageSharp.fluid}
-                    alt={sponsor.name}
-                    style={{ maxWidth: "40rem", margin: "auto" }}
-                  />
-                </ExternalLink>
-              </div>
+              <ExternalLink
+                key={sponsor.name}
+                className="partner"
+                style={{ width: "100%" }}
+                href={sponsor.website}
+              >
+                <Img
+                  alt={sponsor.name}
+                  fluid={logo.childImageSharp.fluid}
+                  style={{ width: "100%", display: "flex", alignItems: "center" }}
+                />
+              </ExternalLink>
             )
           })}
         </div>
@@ -100,18 +110,36 @@ const PartnerSection = styled.section`
   }
 
   .partners {
-    display: grid;
-    grid-template-columns: repeat(${props => props.repeat || 1}, 1fr);
-    grid-gap: 3.2rem;
+    align-items: stretch;
+    display: flex;
+    flex-wrap: wrap;
     padding-top: 3.2rem;
-    align-items: center;
+    justify-content: center;
+
     .partner {
-      border: 1px solid rgb(221, 221, 221);
+      align-items: center;
+      border: 1px solid transparent;
       border-radius: 0.5rem;
-      padding: 1rem;
+      display: flex;
+      flex-basis: 25%;
+      padding: 3rem 1.5rem;
+
       &:hover, &:focus {
+        border: 1px solid rgba(0,0,0,0.1);
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
         transform: translate(-2px, -2px);
+      }
+
+      @media (max-width: 698px) {
+        flex-basis: 33%;
+      }
+
+      @media (max-width: 450px) {
+        flex-basis: 50%;
+      }
+
+      @media (max-width: 320px) {
+        flex-basis: 100%;
       }
     }
   }
@@ -195,6 +223,9 @@ const query = graphql`
       ...childSharp
     }
     sdnedc: file(relativePath: { eq: "sdnedc.png" }) {
+      ...childSharp
+    }
+    scaleMatrix: file(relativePath: { eq: "scaleMatrix.png" }) {
       ...childSharp
     }
   }

@@ -2,8 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import moment from "moment"
 import urlencode from "urlencode"
-
-import { MAPS_URL } from "Utils/constants"
+import { MAPS_URL, NAV_HEIGHT } from "Utils/constants"
 import Layout from "Components/layout"
 import ExternalLink from "Components/common/ExternalLink"
 
@@ -71,6 +70,7 @@ export default function EventPage({ pageContext: { event }, ...props }) {
 const Container = styled.div`
   display: flex;
   justify-content: center;
+  margin-top: ${NAV_HEIGHT};
   margin-bottom: 3rem;
   @media(max-width: 767px) {
     flex-wrap: wrap;

@@ -2,11 +2,12 @@
 
 exports[`matches its snapshot 1`] = `
 <div
-  class="sc-bwzfXH cdQkXI"
+  class="sc-bwzfXH rjfgv"
   data-testid="stay-connected"
 >
   <form
     class="sc-htpNat jHeAnK"
+    data-testid="stay-connected-form"
     method="post"
     novalidate=""
   >
@@ -28,7 +29,7 @@ exports[`matches its snapshot 1`] = `
         />
       </label>
       <div
-        data-testid="name-error"
+        data-testid="username-error"
         style="color: red; height: 2rem;"
       />
     </div>
@@ -70,7 +71,7 @@ exports[`matches its snapshot 1`] = `
     </button>
   </form>
   <div
-    class="sc-EHOje hfzWLZ"
+    class="sc-EHOje grnOdI"
   >
     <p>
       Want to be a conduit for change? Join the movement and connect with liked-minded individuals looking to make a difference redefining the San Diego tech scene.
@@ -99,11 +100,11 @@ exports[`matches its snapshot 1`] = `
           />
         </svg>
         <span
-          style="margin-left: 1rem;"
+          class="slack-link"
         >
           Join our Slack 
           <span
-            class="hidden-on-mobile"
+            class="join hidden-on-mobile"
           >
             Community
           </span>
@@ -122,7 +123,7 @@ exports[`matches its snapshot 1`] = `
         style="display: flex; justify-content: space-evenly; width: 75%; margin: auto;"
       >
         <a
-          class="sc-bdVaJa erbOLL"
+          class="social-opacity sc-bdVaJa erbOLL"
           href="https://www.linkedin.com/company/san-diego-tech-hub/"
           rel="noopener noreferrer"
           target="_blank"
@@ -144,7 +145,7 @@ exports[`matches its snapshot 1`] = `
           </svg>
         </a>
         <a
-          class="sc-bdVaJa erbOLL"
+          class="social-opacity sc-bdVaJa erbOLL"
           href="https://www.facebook.com/SanDiegoTechHub/"
           rel="noopener noreferrer"
           target="_blank"
@@ -166,7 +167,7 @@ exports[`matches its snapshot 1`] = `
           </svg>
         </a>
         <a
-          class="sc-bdVaJa erbOLL"
+          class="social-opacity sc-bdVaJa erbOLL"
           href="https://twitter.com/SanDiegoTechHub"
           rel="noopener noreferrer"
           target="_blank"

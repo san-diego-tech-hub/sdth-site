@@ -96,11 +96,7 @@ collections:
                 fields:
                   - { name: "icon", label: "Icon", widget: string }
                   - { name: "header", label: "Header" }
-                  - {
-                      name: "text",
-                      label: "text",
-                      widget: string,
-                    }
+                  - { name: "text", label: "text", widget: string }
 
           - { name: "solutionsTitle", label: "Solutions Title" }
           - {
@@ -118,33 +114,24 @@ collections:
                 fields:
                   - { name: "icon", label: "Icon", widget: string }
                   - { name: "header", label: "Header" }
-                  - {
-                      name: "text",
-                      label: "Text",
-                      widget: string,
-                    }
+                  - { name: "text", label: "Text", widget: string }
 
-      - name: leadership
-        label: Leadership
-        file: "src/data/content/leadership.md"
+      - name: team
+        label: Team
+        file: "src/data/content/team.md"
         fields:
-          - {
-              name: "path",
-              label: "Path",
-              widget: "hidden",
-              default: "leadership",
-            }
+          - { name: "path", label: "Path", widget: "hidden", default: "team" }
           - { name: "mainTitle", label: Main Title" }
           - {
               name: "mainDescription",
               label: Main Description",
               widget: "markdown",
             }
-          - { name: 'founderName', label: 'Founder Name' }
-          - { name: 'founderEmail', label: 'Founder Email' }
-          
-          - label: "Leadership"
-            name: "leadership"
+          - { name: "founderName", label: "Founder Name" }
+          - { name: "founderEmail", label: "Founder Email" }
+
+          - label: "Team"
+            name: "team"
             widget: "list"
             fields:
               - label: "Leader"
@@ -156,152 +143,230 @@ collections:
                   - { name: "pillar", label: "Pillar" }
                   - { name: "photo", label: "Photo" }
                   - { name: "bioDescription", label: "Bio Description" }
-                  
+
       - name: community
         label: Community Pillar
         file: "src/data/content/pillars/community.md"
         fields:
-          - { name: 'path', label: 'Path', widget: 'hidden', default: 'community' }
-          - { name: 'pageTitle', label: 'Page Title' }
-          - { name: 'purpose', label: 'Purppse' }
-          - { name: 'challenge', label: 'Challenge' }
-          - { name: 'goalsDescription', label: 'Goals Description', widget: 'markdown' }
-          - name: 'leads'
-            label: 'Leads'
-            widget: 'list'
+          - {
+              name: "path",
+              label: "Path",
+              widget: "hidden",
+              default: "community",
+            }
+          - { name: "pageTitle", label: "Page Title" }
+          - { name: "purpose", label: "Purppse" }
+          - { name: "challenge", label: "Challenge" }
+          - {
+              name: "goalsDescription",
+              label: "Goals Description",
+              widget: "markdown",
+            }
+          - name: "leads"
+            label: "Leads"
+            widget: "list"
             fields:
-              - label: 'Lead'
-                name: 'lead'
-                widget: 'object'
+              - label: "Lead"
+                name: "lead"
+                widget: "object"
                 fields:
-                  - { name: 'name', label: 'Name' }
-                  - { name: 'email', label: 'Email' }
-                  - { name: 'photo', label: 'Photo' }
-                  - { name: 'bioDescription', label: 'Bio Description', widget: 'markdown' }
+                  - { name: "name", label: "Name" }
+                  - { name: "email", label: "Email" }
+                  - { name: "photo", label: "Photo" }
+                  - {
+                      name: "bioDescription",
+                      label: "Bio Description",
+                      widget: "markdown",
+                    }
 
       - name: education
         label: Education Pillar
         file: "src/data/content/pillars/education.md"
         fields:
-          - { name: 'path', label: 'Path', widget: 'hidden', default: 'education' }
-          - { name: 'pageTitle', label: 'Page Title' }
-          - { name: 'purpose', label: 'Purppse' }
-          - { name: 'challenge', label: 'Challenge' }
-          - { name: 'goalsDescription', label: 'Goals Description', widget: 'markdown' }
-          - name: 'leads'
-            label: 'Leads'
-            widget: 'list'
+          - {
+              name: "path",
+              label: "Path",
+              widget: "hidden",
+              default: "education",
+            }
+          - { name: "pageTitle", label: "Page Title" }
+          - { name: "purpose", label: "Purppse" }
+          - { name: "challenge", label: "Challenge" }
+          - {
+              name: "goalsDescription",
+              label: "Goals Description",
+              widget: "markdown",
+            }
+          - name: "leads"
+            label: "Leads"
+            widget: "list"
             fields:
-              - label: 'Lead'
-                name: 'lead'
-                widget: 'object'
+              - label: "Lead"
+                name: "lead"
+                widget: "object"
                 fields:
-                  - { name: 'name', label: 'Name' }
-                  - { name: 'email', label: 'Email' }
-                  - { name: 'photo', label: 'Photo' }
-                  - { name: 'bioDescription', label: 'Bio Description', widget: 'markdown' }
-                
+                  - { name: "name", label: "Name" }
+                  - { name: "email", label: "Email" }
+                  - { name: "photo", label: "Photo" }
+                  - {
+                      name: "bioDescription",
+                      label: "Bio Description",
+                      widget: "markdown",
+                    }
+
       - name: inclusion
         label: Inclusion Pillar
         file: "src/data/content/pillars/inclusion.md"
         fields:
-          - { name: 'path', label: 'Path', widget: 'hidden', default: 'inclusion' }
-          - { name: 'pageTitle', label: 'Page Title' }
-          - { name: 'purpose', label: 'Purppse' }
-          - { name: 'challenge', label: 'Challenge' }
-          - { name: 'goalsDescription', label: 'Goals Description', widget: 'markdown' }
-          - name: 'leads'
-            label: 'Leads'
-            widget: 'list'
+          - {
+              name: "path",
+              label: "Path",
+              widget: "hidden",
+              default: "inclusion",
+            }
+          - { name: "pageTitle", label: "Page Title" }
+          - { name: "purpose", label: "Purppse" }
+          - { name: "challenge", label: "Challenge" }
+          - {
+              name: "goalsDescription",
+              label: "Goals Description",
+              widget: "markdown",
+            }
+          - name: "leads"
+            label: "Leads"
+            widget: "list"
             fields:
-              - label: 'Lead'
-                name: 'lead'
-                widget: 'object'
+              - label: "Lead"
+                name: "lead"
+                widget: "object"
                 fields:
-                  - { name: 'name', label: 'Name' }
-                  - { name: 'email', label: 'Email' }
-                  - { name: 'photo', label: 'Photo' }
-                  - { name: 'bioDescription', label: 'Bio Description', widget: 'markdown' }
-      
+                  - { name: "name", label: "Name" }
+                  - { name: "email", label: "Email" }
+                  - { name: "photo", label: "Photo" }
+                  - {
+                      name: "bioDescription",
+                      label: "Bio Description",
+                      widget: "markdown",
+                    }
+
       - name: innovation
         label: Innovation Pillar
         file: "src/data/content/pillars/innovation.md"
         fields:
-          - { name: 'path', label: 'Path', widget: 'hidden', default: 'innovation' }
-          - { name: 'pageTitle', label: 'Page Title' }
-          - { name: 'purpose', label: 'Purppse' }
-          - { name: 'challenge', label: 'Challenge' }
-          - { name: 'goalsDescription', label: 'Goals Description', widget: 'markdown' }
-          - name: 'leads'
-            label: 'Leads'
-            widget: 'list'
+          - {
+              name: "path",
+              label: "Path",
+              widget: "hidden",
+              default: "innovation",
+            }
+          - { name: "pageTitle", label: "Page Title" }
+          - { name: "purpose", label: "Purppse" }
+          - { name: "challenge", label: "Challenge" }
+          - {
+              name: "goalsDescription",
+              label: "Goals Description",
+              widget: "markdown",
+            }
+          - name: "leads"
+            label: "Leads"
+            widget: "list"
             fields:
-              - label: 'Lead'
-                name: 'lead'
-                widget: 'object'
+              - label: "Lead"
+                name: "lead"
+                widget: "object"
                 fields:
-                  - { name: 'name', label: 'Name' }
-                  - { name: 'email', label: 'Email' }
-                  - { name: 'photo', label: 'Photo' }
-                  - { name: 'bioDescription', label: 'Bio Description', widget: 'markdown' }
+                  - { name: "name", label: "Name" }
+                  - { name: "email", label: "Email" }
+                  - { name: "photo", label: "Photo" }
+                  - {
+                      name: "bioDescription",
+                      label: "Bio Description",
+                      widget: "markdown",
+                    }
       - name: talent
         label: Talent Pillar
         file: "src/data/content/pillars/talent.md"
         fields:
-          - { name: 'path', label: 'Path', widget: 'hidden', default: 'talent' }
-          - { name: 'pageTitle', label: 'Page Title' }
-          - { name: 'purpose', label: 'Purppse' }
-          - { name: 'challenge', label: 'Challenge' }
-          - { name: 'goalsDescription', label: 'Goals Description', widget: 'markdown' }
-          - name: 'leads'
-            label: 'Leads'
-            widget: 'list'
+          - { name: "path", label: "Path", widget: "hidden", default: "talent" }
+          - { name: "pageTitle", label: "Page Title" }
+          - { name: "purpose", label: "Purppse" }
+          - { name: "challenge", label: "Challenge" }
+          - {
+              name: "goalsDescription",
+              label: "Goals Description",
+              widget: "markdown",
+            }
+          - name: "leads"
+            label: "Leads"
+            widget: "list"
             fields:
-              - label: 'Lead'
-                name: 'lead'
-                widget: 'object'
+              - label: "Lead"
+                name: "lead"
+                widget: "object"
                 fields:
-                  - { name: 'name', label: 'Name' }
-                  - { name: 'email', label: 'Email' }
-                  - { name: 'photo', label: 'Photo' }
-                  - { name: 'bioDescription', label: 'Bio Description', widget: 'markdown' }
-      
+                  - { name: "name", label: "Name" }
+                  - { name: "email", label: "Email" }
+                  - { name: "photo", label: "Photo" }
+                  - {
+                      name: "bioDescription",
+                      label: "Bio Description",
+                      widget: "markdown",
+                    }
+
       - name: get-involved
         label: Get Involved
         file: "src/data/content/get-involved.md"
         fields:
-          - { name: 'path', label: 'Path', widget: 'hidden', default: 'get-involved' }
-          - { name: 'mainTitle', label: 'Main Title' }
-          - { name: 'mainDescription', label: 'Main Description' }
+          - {
+              name: "path",
+              label: "Path",
+              widget: "hidden",
+              default: "get-involved",
+            }
+          - { name: "mainTitle", label: "Main Title" }
+          - { name: "mainDescription", label: "Main Description" }
 
       - name: partners
         label: Partners
         file: "src/data/content/partners.md"
         fields:
-          - { name: 'path', label: 'Path', widget: 'hidden', default: 'partners' }
-          - { name: 'partnersTitle', label: 'Partners Title' }
-          - { name: 'partnersDescription', label: 'Partners Description', widget: 'markdown' }
+          - {
+              name: "path",
+              label: "Path",
+              widget: "hidden",
+              default: "partners",
+            }
+          - { name: "partnersTitle", label: "Partners Title" }
+          - {
+              name: "partnersDescription",
+              label: "Partners Description",
+              widget: "markdown",
+            }
           - name: partners
-            label: 'Partners'
-            widget: 'list'
+            label: "Partners"
+            widget: "list"
             fields:
-              - label: 'Partner'
-                name: 'partner'
-                widget: 'object'
+              - label: "Partner"
+                name: "partner"
+                widget: "object"
                 fields:
-                  - { name: 'name', label: 'Name' }
-                  - { name: 'website', label: 'Website' }
-                  - { name: 'logo', label: 'Logo' }
-          - { name: 'sponsorsTitle', label: 'Sponsors Title' }
-          - { name: 'sponsorsDescription', label: 'Sponsors Description', widget: 'markdown' }
+                  - { name: "name", label: "Name" }
+                  - { name: "website", label: "Website" }
+                  - { name: "logo", label: "Logo" }
+          - { name: "sponsorsTitle", label: "Sponsors Title" }
+          - {
+              name: "sponsorsDescription",
+              label: "Sponsors Description",
+              widget: "markdown",
+            }
           - name: sponsors
-            label: 'Sponsors'
-            widget: 'list'
+            label: "Sponsors"
+            widget: "list"
             fields:
-              - label: 'Sponsor'
-                name: 'sponsor'
-                widget: 'object'
+              - label: "Sponsor"
+                name: "sponsor"
+                widget: "object"
                 fields:
-                  - { name: 'name', label: 'Name' }
-                  - { name: 'website', label: 'Website' }
-                  - { name: 'logo', label: 'Logo' }
+                  - { name: "name", label: "Name" }
+                  - { name: "website", label: "Website" }
+                  - { name: "logo", label: "Logo" }

@@ -25,7 +25,7 @@ const Burger = () => {
       <MenuItem onClick={closeMenu} to="/about">
         About
       </MenuItem>
-      <MenuItem onClick={closeMenu} to="/leadership">
+      <MenuItem onClick={closeMenu} to="/team">
         Team
       </MenuItem>
 

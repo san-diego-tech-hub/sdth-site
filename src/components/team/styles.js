@@ -69,6 +69,7 @@ export const Card = styled.div`
 
 export const Header = styled.section`
   @media(max-width: 990px) {
+    padding: 1.5rem;
     padding-top: 0 !important;
     text-align: center;
   }
@@ -76,20 +77,26 @@ export const Header = styled.section`
 
 export const Label = styled.div`
   align-items: center;
-  display: flex;
-  justify-content: center;
-  height: 42px;
-  padding: 0.2rem 1.5rem 1rem 0.2rem;
-  min-width: 120px;
-  width: fit-content;
-
-  font-size: 1.4rem;
-  color: white;
+  border: 2px solid transparent;
+  border-left: none;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
-  text-transform: capitalize;
+  color: white;
+  display: flex;
+  font-size: 1.4rem;
+  height: 42px;
+  justify-content: center;
   margin-top: 1rem;
+  min-width: 120px;
+  padding: 0.2rem 1.5rem 1rem 0.2rem;
+  text-transform: capitalize;
+  width: fit-content;
+
+  &:hover {
+    border: 2px solid rgba(0,0,0,0.2);
+    border-left: none;
+  }
 
   img {
     margin: 1rem 0 0 0;

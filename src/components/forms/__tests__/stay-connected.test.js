@@ -1,14 +1,19 @@
 import React from "react"
 import { fireEvent, render } from "react-testing-library"
-import { fillInput } from "Test/utils"
-import { library } from "@fortawesome/fontawesome-svg-core"
+import { toast as MockToast } from "react-toastify"
 import MockAddToMailchimp from "gatsby-plugin-mailchimp"
+import { library } from "@fortawesome/fontawesome-svg-core"
 import {
   faFacebookSquare,
   faLinkedin,
   faSlack,
   faTwitterSquare
 } from "@fortawesome/free-brands-svg-icons"
+import {
+  MOCK_INVALID_EMAIL,
+  asyncEvent,
+  fillInput
+} from "Test/utils"
 import StayConnected from "../stay-connected"
 
 library.add(
@@ -19,11 +24,54 @@ library.add(
 )
 
 jest.mock("gatsby-plugin-mailchimp", () => {
-  return jest.fn(() => Promise.resolve({
-    result: "success",
-    msg: "Thanks for subscribing!"
-  }))
+  return jest.fn(email => {
+    const success = {
+      result: "success",
+      msg: "Thanks for subscribing!"
+    }
+
+    const error = {
+      result: "error",
+      msg: "Something went wrong. 😢"
+    }
+
+    const response = email === MOCK_INVALID_EMAIL
+      ? error
+      : success
+
+    return Promise.resolve(response)
+  })
 })
+
+jest.mock("react-toastify", () => ({
+  ToastContainer: jest.fn(() => null),
+  toast: {
+    success: jest.fn(),
+    error: jest.fn()
+  }
+}))
+
+afterEach(jest.clearAllMocks)
+
+const EMPTY = ""
+
+function renderStayConnected() {
+  const { container, getByTestId } = render(<StayConnected />)
+  const getById = (id) => container.querySelector(`#${id}`)
+
+  const username = getById("username")
+  const email = getById("email")
+  const comments = getById("comments")
+  const subscribe = getByTestId("subscribe")
+
+  return {
+    username,
+    email,
+    comments,
+    subscribe,
+    getByTestId
+  }
+}
 
 test("matches its snapshot", () => {
   const { getByTestId } = render(<StayConnected />)
@@ -32,30 +80,31 @@ test("matches its snapshot", () => {
 
 describe("Validation:", () => {
   test("prevents form submission unless name and email are valid", () => {
-    const { getByLabelText, getByTestId } = render(<StayConnected />)
-    const name = getByLabelText(/name/i)
-    const comments = getByLabelText(/comments/i)
-    const email = getByLabelText(/email/i)
-    const subscribe = getByTestId("subscribe")
+    const {
+      username,
+      email,
+      comments,
+      subscribe
+    } = renderStayConnected()
 
-    // does NOT submit if name is blank
-    fillInput(name, "")
+    // does NOT submit if name is empty
+    fillInput(username, EMPTY)
     fillInput(email, "has@symbol")
     fillInput(comments, "a comment")
     fireEvent.click(subscribe)
     expect(MockAddToMailchimp).not.toHaveBeenCalled()
 
     // does NOT submit if email is invalid
-    fillInput(name, "Name")
+    fillInput(username, "Name")
     fillInput(email, "noAtSymbol")
     fillInput(comments, "a comment")
     fireEvent.click(subscribe)
     expect(MockAddToMailchimp).not.toHaveBeenCalled()
 
     // DOES submit if name and email are valid
-    fillInput(name, "Name")
+    fillInput(username, "Name")
     fillInput(email, "has@symbol")
-    fillInput(comments, "")
+    fillInput(comments, EMPTY)
     fireEvent.click(subscribe)
     expect(MockAddToMailchimp).toHaveBeenCalledWith(
       "has@symbol", {
@@ -66,44 +115,108 @@ describe("Validation:", () => {
   })
 
   test("displays validation errors", () => {
-    const { getByLabelText, getByTestId } = render(<StayConnected />)
-    const name = getByLabelText(/name/i)
-    const email = getByLabelText(/email/i)
-    const subscribe = getByTestId("subscribe")
+    const {
+      username,
+      email,
+      subscribe,
+      getByTestId
+    } = renderStayConnected()
+
+    const expectError = (field) => {
+      expect(getByTestId(`${field}-error`)).not.toBeEmpty()
+    }
+
+    const expectNoError = (field) => {
+      expect(getByTestId(`${field}-error`)).toBeEmpty()
+    }
+
 
     // errors are NOT displayed initially
-    expect(getByTestId("name-error")).toBeEmpty()
-    expect(getByTestId("email-error")).toBeEmpty()
+    expectNoError("username")
+    expectNoError("email")
 
     // errors are displayed after submission attempt
     fireEvent.click(subscribe)
-    expect(getByTestId("name-error")).not.toBeEmpty()
-    expect(getByTestId("email-error")).not.toBeEmpty()
+    expectError("username")
+    expectError("email")
 
     // errors disappear when fields become valid
-    fillInput(name, "Name")
-    expect(getByTestId("name-error")).toBeEmpty()
+    fillInput(username, "Name")
+    expectNoError("username")
+
     fillInput(email, "has@symbol")
-    expect(getByTestId("email-error")).toBeEmpty()
+    expectNoError("email")
 
     // errors reappear when fields become invalid
-    fillInput(name, "")
-    expect(getByTestId("name-error")).not.toBeEmpty()
+    fillInput(username, EMPTY)
+    expectError("username")
+
     fillInput(email, "noAtSymbol")
-    expect(getByTestId("email-error")).not.toBeEmpty()
+    expectError("email")
   })
 })
 
-describe("Successful Submission:", () => {
-  xtest("displays success message if subscribed", () => {
+describe("Submission results:", () => {
+  test("displays success message if subscribed", async () => {
+    const {
+      username,
+      email,
+      subscribe
+    } = renderStayConnected()
 
+    fillInput(username, "Name")
+    fillInput(email, "has@symbol")
+    fireEvent.click(subscribe)
+    await asyncEvent()
+
+    expect(MockToast.success).toHaveBeenCalledTimes(1)
+    expect(MockToast.error).not.toHaveBeenCalled()
   })
 
-  xtest("does NOT display success message if validation errors", () => {
+  test("displays error message if MailChimp returns error", async () => {
+    const {
+      username,
+      email,
+      subscribe
+    } = renderStayConnected()
 
+    fillInput(username, "Name")
+    fillInput(email, MOCK_INVALID_EMAIL)
+    fireEvent.click(subscribe)
+    await asyncEvent()
+
+    expect(MockToast.success).not.toHaveBeenCalled()
+    expect(MockToast.error).toHaveBeenCalledTimes(1)
   })
 
-  xtest("resets field values on successful submission", () => {
+  test("does NOT display any message if there are validation errors", async () => {
+    const { subscribe } = renderStayConnected()
 
+    fireEvent.click(subscribe)
+    await asyncEvent()
+
+    expect(MockToast.success).not.toHaveBeenCalled()
+    expect(MockToast.error).not.toHaveBeenCalled()
+  })
+
+  test("resets field values on successful submission", () => {
+    const {
+      username,
+      email,
+      subscribe
+    } = renderStayConnected()
+
+    fillInput(username, "Name")
+    fillInput(email, "has@symbol")
+
+    // fields are populated before submit
+    expect(username.value).toEqual("Name")
+    expect(email.value).toEqual("has@symbol")
+
+    fireEvent.click(subscribe)
+
+    // fields are cleared after successful submit
+    expect(username.value).toEqual("")
+    expect(email.value).toEqual("")
   })
 })

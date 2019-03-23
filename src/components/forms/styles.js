@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import Color from "color"
 
 export const Container = styled.div`
   background: rgb(240, 240, 240);
@@ -13,14 +14,16 @@ export const Container = styled.div`
   padding: 4.8rem;
 
   button {
-    background: #F25AA3;
-    border: solid 2px #F25AA3;
+    background: #F03B92;
+    border: 2px solid transparent;
     border-radius: 0.5rem;
-    color: rgba(245, 245, 245, 1);
+    color: rgb(245, 245, 245);
     margin-top: 2rem;
     padding: 1rem;
     width: 100%;
+
     &:hover {
+      background: ${Color("#F03B92").darken(0.1).toString()};
       border: 2px solid #a31f5e;
       cursor: pointer;
     }
@@ -125,24 +128,25 @@ export const SocialContainer = styled.div`
   flex-direction: column;
   font-size: 1.6rem;
   justify-content: center;
+
+  a {
+    &:hover {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
   button {
     display: block;
     margin: auto;
   }
 
-  a {
-    &:hover { 
-    color: white;
-    text-decoration: none;
-    }
-  }
-  
   .slack-link {
     margin-left: 1rem;
   }
 
   .social-opacity {
-    opacity: 0.7;
+    opacity: 0.8;
     &:hover {
       opacity: 1;
     }
@@ -154,15 +158,23 @@ export const ProposeForm = styled.form`
   height: 100%;
   margin: auto;
   padding: 5rem 2rem;
+
   button {
-    background: ${props => props.theme.primaryLight};
     border: 2px solid transparent;
     border-radius: 0.5rem;
-    color: white;
     margin-top: 2rem;
     padding: 1rem;
     width: 100%;
     &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .submit {
+    background: ${props => props.theme.primaryLight};
+    color: white;
+    &:hover {
+      background: ${props => Color(props.theme.primaryLight).darken(0.1).toString()};
       border: 2px solid #3e1575;
       cursor: pointer;
     }

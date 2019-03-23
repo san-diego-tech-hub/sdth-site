@@ -17,7 +17,7 @@ const pillarIcons = {
 }
 
 const Dropdown = ({ children, items = [], style }) => (
-  <Drop aria-haspopup="true" style={style}>
+  <Drop tabIndex="0" aria-haspopup="true" style={style}>
     {children}
     <DropdownContent className="content">
       {items.map((item) => (
