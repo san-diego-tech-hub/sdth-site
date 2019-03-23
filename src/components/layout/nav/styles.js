@@ -43,7 +43,8 @@ export const DropdownContent = styled.div`
   img {
     margin-right: 0.5rem;
   }
-  a:hover {
+  a:hover,
+  a:focus {
     background-color: rgb(204, 233, 250);
   }
   .innerLink {
