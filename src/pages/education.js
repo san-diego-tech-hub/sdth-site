@@ -14,6 +14,7 @@ function EducationPage({ data, ...props }) {
       <SEO
         title="Education"
         keywords={["san diego", "tech", "hub", "education", "pillar of excellence", "apprenctice program", "michael roberts jr", "aaron gasperi"]}
+        canonicalUrlPath="/education"
       />
       <PageTitle>Education</PageTitle>
       <PillarTemplate data={markdownRemark.frontmatter} icon={education} />

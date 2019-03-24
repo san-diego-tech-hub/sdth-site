@@ -29,7 +29,7 @@ exports[`matches its snapshot 1`] = `
         />
       </label>
       <div
-        data-testid="name-error"
+        data-testid="username-error"
         style="color: red; height: 2rem;"
       />
     </div>

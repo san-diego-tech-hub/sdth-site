@@ -21,8 +21,11 @@ function EventIndex({ data, ...props }) {
 
   return (
     <Layout pageProps={props}>
-      <SEO title="Events" keywords={["san diego", "tech", "hub", "events", "upcoming"]} />
-
+      <SEO
+        title="Events"
+        keywords={["san diego", "tech", "hub", "events", "upcoming", "meeting", "meetup"]}
+        canonicalUrlPath="/events"
+      />
       <PageTitle>
         Events
       </PageTitle>

@@ -11,7 +11,6 @@ import HomeTitle from "./HomeTitle"
 import {
   Collaboration,
   CollabIcon,
-  Description,
   PillarDescription,
   PillarIcon,
   PillarRow,
@@ -49,11 +48,9 @@ function Home() {
       </HomeTitle>
       <Collaboration>
         <h2>{frontmatter.collabTitle}</h2>
-        <Description
-          dangerouslySetInnerHTML={{
-            __html: frontmatter.collabDescription
-          }}
-        />
+        <Html style={{ fontSize: "1.7rem", padding: "0 5rem" }}>
+          {frontmatter.collabDescription}
+        </Html>
       </Collaboration>
 
       <ThreeStep>

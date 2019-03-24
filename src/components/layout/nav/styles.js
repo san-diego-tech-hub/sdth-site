@@ -14,7 +14,8 @@ export const Drop = styled.div`
   position: relative;
   display: inline-block;
 
-  &:hover .content {
+  &:hover .content,
+  &:focus-within .content {
     display: block;
   }
 `
@@ -65,7 +66,7 @@ export const Logo = styled.div`
     margin-bottom: 0;
   }
 
-  @media (max-width: 1040px) {
+  @media (max-width: 1140px) {
     display: none;
   }
 
