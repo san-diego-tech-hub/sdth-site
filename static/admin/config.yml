@@ -370,3 +370,29 @@ collections:
                   - { name: "name", label: "Name" }
                   - { name: "website", label: "Website" }
                   - { name: "logo", label: "Logo" }
+
+      - name: code-of-conduct
+        label: Code of Conduct
+        file: "src/data/content/code-of-conduct.md"
+        fields:
+          - {
+              name: "path",
+              label: "Path",
+              widget: "hidden",
+              default: "code-of-conduct",
+            }
+          - { name: "pageTitle", label: "Page Title" }
+          - name: sections
+            label: "Sections"
+            widget: "list"
+            fields:
+              - label: "Section"
+                name: "section"
+                widget: "object"
+                fields:
+                  - { name: "title", label: "Title" }
+                  - {
+                      name: "contentDescription",
+                      label: "Content Description",
+                      widget: "markdown",
+                    }
