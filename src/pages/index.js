@@ -6,7 +6,10 @@ import Home from "Components/home"
 
 export default props => (
   <Layout pageProps={props}>
-    <SEO title="Home" keywords={["san diego", "tech", "hub"]} />
+    <SEO
+      title="Home"
+      keywords={["san diego", "tech", "hub"]}
+    />
     <Home />
   </Layout>
 )

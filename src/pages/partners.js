@@ -8,7 +8,11 @@ import Partners from "Components/partners"
 function PartnersPage(props) {
   return (
     <Layout pageProps={props}>
-      <SEO title="Partners" keywords={["san diego", "tech", "hub", "partners"]} />
+      <SEO
+        title="Partners"
+        keywords={["san diego", "tech", "hub", "partners"]}
+        canonicalUrlPath="/partners"
+      />
       <PageTitle>Partners</PageTitle>
       <Partners />
     </Layout>
