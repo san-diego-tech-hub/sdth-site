@@ -35,7 +35,7 @@ const Li = styled.li`
   }
 
   a {
-    borderBottom: "1rem solid transparent",
+    border-bottom: 1rem solid transparent;
   }
 
   a.active {
