@@ -20,7 +20,6 @@ export const InnerDiv = styled.div`
 export const InternalLink = styled(Link)`
   color: ${props => props.theme.primary};
   font-size: 2rem;
-  font-weight: bolder;
   text-decoration: none;
 
   &:hover,

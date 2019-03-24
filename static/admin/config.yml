@@ -382,6 +382,7 @@ collections:
               default: "code-of-conduct",
             }
           - { name: "pageTitle", label: "Page Title" }
+          - { name: "header", label: "Header" }
           - name: sections
             label: "Sections"
             widget: "list"

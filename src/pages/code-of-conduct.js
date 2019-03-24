@@ -29,6 +29,7 @@ export const query = graphql`
     markdownRemark(frontmatter: { path: { eq: "code-of-conduct" } }) {
       frontmatter {
         pageTitle
+        header
         sections {
           title
           contentDescription

@@ -1,6 +1,7 @@
 ---
 path: "code-of-conduct"
 pageTitle: "Code of Conduct"
+header: "Citizen Code of Conduct"
 
 sections:
   - section:

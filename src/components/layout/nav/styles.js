@@ -66,7 +66,7 @@ export const Logo = styled.div`
     margin-bottom: 0;
   }
 
-  @media (max-width: 1040px) {
+  @media (max-width: 1140px) {
     display: none;
   }
 
