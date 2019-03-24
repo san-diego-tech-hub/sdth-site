@@ -9,7 +9,6 @@ export default props => (
     <SEO
       title="Home"
       keywords={["san diego", "tech", "hub"]}
-      canonicalUrlPath="/index"
     />
     <Home />
   </Layout>
