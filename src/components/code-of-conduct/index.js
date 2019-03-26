@@ -7,7 +7,9 @@ const CodeOfConduct = ({ data, ...props }) => (
     <Header>{data.header}</Header>
     {data.sections.map((section, i) => (
       <Section key={section.title}>
-        <h2>{`${i + 1}. ${section.title}`}</h2>
+        { section.title
+        && <h2>{`${i}. ${section.title}`}</h2>
+        }
         <Html>
           {section.contentDescription}
         </Html>
