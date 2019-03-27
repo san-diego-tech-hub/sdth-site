@@ -235,10 +235,7 @@ const query = graphql`
     nick: file(relativePath: { eq: "nick.jpg" }) {
       ...childSharp
     }
-    connie: file(relativePath: { eq: "connie.jpg" }) {
-      ...childSharp
-    }
-    jon: file(relativePath: { eq: "jon.jpg" }) {
+    dan: file(relativePath: { eq: "dan.jpg" }) {
       ...childSharp
     }
     claude: file(relativePath: { eq: "claude_2_cropped.png" }) {
