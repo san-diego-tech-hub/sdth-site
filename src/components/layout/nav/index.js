@@ -77,8 +77,7 @@ const Navigation = () => {
                   display: "flex",
                   height: "100%",
                   borderBottom: !active ? "1rem solid #5230B5" : "1rem solid #2ABBF4",
-                  fontWeight: !active ? "" : "700",
-                  paddingTop: "1rem",
+                  fontWeight: !active ? "" : "700"
                 }
 
                 return (
