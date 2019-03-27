@@ -108,7 +108,7 @@ export const Label = styled.div`
   text-transform: capitalize;
   width: fit-content;
 
-  &:hover {
+  &:hover, &:focus-within {
     border: 2px solid rgba(0,0,0,0.2);
     border-left: none;
   }

@@ -26,7 +26,8 @@ div.crt-post .crt-post-border {
   color: #555 !important;
   padding-top: 1rem;
 }
-.crt-post-border:hover {
+.crt-post-border:hover,
+.crt-post-border:focus-within {
   border: 1px solid #aaa !important;
   cursor: pointer;
 }

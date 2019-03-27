@@ -30,7 +30,7 @@ const Li = styled.li`
   margin: 0;
   height: 100%;
 
-  &:hover {
+  &:hover, &:focus-within {
     background: ${Color("#5230B5").lighten(0.2).toString()};
   }
 
@@ -42,7 +42,7 @@ const Li = styled.li`
     font-weight: 700;
     border-bottom: 1rem solid #2ABBF4;
 
-    &:hover {
+    &:hover, &:focus-within {
       background: #5230B5;
       cursor: default;
     }
