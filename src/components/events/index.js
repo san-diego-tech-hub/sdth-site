@@ -19,10 +19,12 @@ const styles = {
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.75)",
     maxHeight: "100vh",
+    maxWidth: "100vw",
+    overflowX: "hidden",
     overflowY: "auto"
   },
   content: {
-    top: "50%",
+    top: "calc(80px + 50%)",
     left: "50%",
     right: "auto",
     bottom: "auto",
