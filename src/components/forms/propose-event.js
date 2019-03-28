@@ -19,29 +19,29 @@ function ProposeEvent({ closeModal = NO_OP }) {
       {
         name: "eventName",
         validate: notEmpty,
-        errorMsg: "Please Enter an Event Name"
+        errorMsg: "Please enter an event name"
       },
       {
         name: "location",
         validate: notEmpty,
-        errorMsg: "Please Enter a Location"
+        errorMsg: "Please enter a location"
       },
       {
         name: "start",
         validate: notEmpty,
-        errorMsg: "Please pick a Start Time",
+        errorMsg: "Please pick a start time",
         initialValue: date
       },
       {
         name: "end",
         validate: val => new Date(val) > new Date(form.start.value),
-        errorMsg: "End Time Must be After Start",
+        errorMsg: "End time must be after start",
         initialValue: date
       },
       {
         name: "description",
         validate: notEmpty,
-        errorMsg: "Please Enter a Description"
+        errorMsg: "Please enter a description"
       }
     ]
   })
@@ -64,7 +64,7 @@ function ProposeEvent({ closeModal = NO_OP }) {
     })
       .then(() => {
         closeModal()
-        toast.success("🚀 New Event Submitted!")
+        toast.success("🚀 New event submitted!")
       })
       .catch((err) => toast.error(`⚠️ ${err}`))
   }
@@ -173,6 +173,7 @@ function ProposeEvent({ closeModal = NO_OP }) {
           Description
           <textarea
             id="description"
+            rows="10"
             value={form.description.value}
             onChange={form.description.onChange}
           />

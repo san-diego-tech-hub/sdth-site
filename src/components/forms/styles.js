@@ -157,6 +157,7 @@ export const ProposeForm = styled.form`
   font-size: 1.4rem;
   height: 100%;
   margin: auto;
+  max-width: 100vw;
   padding: 5rem 2rem;
 
   button {
@@ -182,7 +183,6 @@ export const ProposeForm = styled.form`
 
   label {
     display: block;
-    font-weight: bolder;
     margin-top: 0.8rem;
   }
 
@@ -203,6 +203,8 @@ export const ProposeForm = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-width: 95vw;
+    width: 400px;
   }
 
   .cancel {
@@ -216,6 +218,8 @@ export const ProposeForm = styled.form`
   }
 
   @media (max-width: 450px) {
+    margin: 0;
     margin-top: 260px;
+    padding: 5rem 0;
   }
 `
