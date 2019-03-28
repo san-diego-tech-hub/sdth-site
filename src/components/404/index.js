@@ -12,7 +12,7 @@ function Error404() {
     <Container>
       <section style={{ marginBottom: "5rem", padding: "1rem" }}>
         <h2>{frontmatter.mainTitle}</h2>
-        <Html className="description">
+        <Html>
           {frontmatter.mainDescription}
         </Html>
       </section>
