@@ -13,4 +13,9 @@ leads:
       email: "dan@opensourcemakerlabs.com"
       bioDescription: "<p>Dan is the founder and president of Open Source Maker Labs. He has over 30 years of experience in the Navy, as a Nuclear Engineering Officer, Surface Warfare Officer and Engineering Duty Officer, retiring at the rank of Captain (O-6). He has a bachelor of science degree in mathematics from the Naval Academy, and a master of science degree in computer science from the Naval Postgraduate School. Since leaving active duty, Dan has worked in both the private and public sector in roles of increasing responsibility in program management and budgeting, network architecture, systems engineering, and computer security. Dan is a registered Professional Engineer (Electrical) in the state of Washington, and is a Certified Information Systems Security Professional (CISSP). He is a member of IEEE, IEEE Computer Society, and IEEE Communications Society.</p>"
       photo: "dan"
+  - lead:
+      name: "TBD"
+      email: ""
+      bioDescription: "<p>We're looking for a Leader to join the Innovation Pillar!</p><p>If you're passionate about technology and innovation, and you think you might be interested, please read our <p><a rel='noopener noreferrer' target='_blank' href='/PillarLead_Description.pdf'>Pillar Lead Description</a></p><p>and email</p><p><a rel='noopener noreferrer' target='_blank' href='mailto:claude@sandiegotechhub.com'>claude@sandiegotechhub.com</a></p>"
+      photo: "blank2"
 ---

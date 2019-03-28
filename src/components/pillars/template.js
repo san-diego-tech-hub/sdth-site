@@ -1,10 +1,11 @@
 import React from "react"
 import Img from "gatsby-image"
 import PropTypes from "prop-types"
-import Html from "Common/Html"
 import Color from "color"
 import { pillarsInfo } from "Utils/constants"
+import Html from "Common/Html"
 import {
+  Bio,
   Container,
   LeadsSection,
   PillarInfo,
@@ -47,8 +48,8 @@ const PillarTemplate = ({ data, icon }) => {
         >
           <h2>Pillar Leads</h2>
           {data.leads.map(({ lead }, index) => (
-            <>
-              <div key={lead.name} className="lead">
+            <div key={lead.name}>
+              <div className="lead">
                 <div>
                   <img
                   src={require(`../../images/${lead.photo}.jpg`)}
@@ -62,14 +63,16 @@ const PillarTemplate = ({ data, icon }) => {
                   </div>
                 </div>
                 <span style={{ background: "rgba(255,255,255,0.05)", padding: "1.5rem 3rem" }}>
-                  <h5>Biography</h5>
-                  <Html>
+                  {lead.name !== "TBD"
+                    && <h5>Biography</h5>
+                  }
+                  <Bio>
                     {lead.bioDescription}
-                  </Html>
+                  </Bio>
                 </span>
               </div>
               {(index < data.leads.length - 1) && <hr />}
-            </>
+            </div>
           ))}
         </LeadsSection>
       )}

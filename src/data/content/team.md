@@ -76,4 +76,10 @@ team:
       pillar: "innovation"
       bioDescription: "<p>“We see an incredible amount of innovation and entrepreneurship in this region. From the many microbreweries in the area, to advanced manufacturing companies, to energy and defense industries, to new technology startups – it's an area with incredible economic variety.</p><p>Combined with quality schools in the region, there's potential for significant sustained growth, creating more opportunities for the people that live here. SDTH can be a catalyst to connect people and opportunities in unique ways that truly make a difference.”</p>"
       photo: "dan"
+  - leader:
+      name: "TBD"
+      email: ""
+      pillar: "innovation"
+      bioDescription: "<p>We're looking for a Leader to join the Innovation Pillar!</p>If you're passionate about technology and innovation, and you think you might be interested, please read our <p><a rel='noopener noreferrer' target='_blank' href='/PillarLead_Description.pdf'>Pillar Lead Description</a></p><p>and email</p><p><a rel='noopener noreferrer' target='_blank' href='mailto:claude@sandiegotechhub.com'>claude@sandiegotechhub.com</a></p>"
+      photo: "blank2"
 ---
