@@ -1,5 +1,22 @@
 import styled from "styled-components"
 import Color from "color"
+import Html from "Common/Html"
+
+export const Bio = styled(Html)`
+  a {
+    background: rgba(255,255,255,0.3);
+    color: ${props => props.theme.primary};
+    font-weight: bold;
+    padding: 3px 5px;
+    text-decoration: none;
+    text-shadow: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+`
 
 export const Container = styled.div`
   margin: 0 auto;

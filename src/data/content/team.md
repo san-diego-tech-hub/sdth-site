@@ -80,6 +80,6 @@ team:
       name: "TBD"
       email: ""
       pillar: "innovation"
-      bioDescription: "<p>We're looking for a Leader to join the Innovation Pillar!</p>If you're passionate about technology and innovation, and you think you might be interested, please read our <a rel='noopener noreferrer' target='_blank' href='/PillarLead_Description.pdf'>Pillar Lead Description</a> and email <a rel='noopener noreferrer' target='_blank' href='mailto:claude@sandiegotechhub.com'>claude@sandiegotechhub.com</a></p>"
+      bioDescription: "<p>We're looking for a Leader to join the Innovation Pillar!</p>If you're passionate about technology and innovation, and you think you might be interested, please read our <p><a rel='noopener noreferrer' target='_blank' href='/PillarLead_Description.pdf'>Pillar Lead Description</a></p><p>and email</p><p><a rel='noopener noreferrer' target='_blank' href='mailto:claude@sandiegotechhub.com'>claude@sandiegotechhub.com</a></p>"
       photo: "blank2"
 ---
