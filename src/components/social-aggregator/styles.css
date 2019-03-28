@@ -49,3 +49,7 @@ div.crt-post .crt-post-border {
 .crt-popup-wrapper .crt-popup .crt-popup-footer .crt-post-share i:hover {
   color: rgb(0, 0, 0);
 }
+
+.crt-feed-container .crt-post .crt-post-footer a:focus {
+  opacity: 1;
+}
