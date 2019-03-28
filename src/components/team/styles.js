@@ -14,7 +14,7 @@ export const Blurb = styled.div`
   padding: 1.5rem 3rem;
 
   a {
-    background: rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.2);
     color: ${props => props.theme.primary};
     font-weight: bold;
     padding: 3px 5px;
