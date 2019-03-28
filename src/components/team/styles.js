@@ -12,6 +12,17 @@ export const AvatarCard = styled.div`
 export const Blurb = styled.div`
   background: rgba(255,255,255,0.05);
   padding: 1.5rem 3rem;
+
+  a {
+    color: ${props => props.theme.primary};
+    font-weight: bold;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
 `
 
 export const Card = styled.div`
