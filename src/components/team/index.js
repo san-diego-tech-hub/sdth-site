@@ -158,15 +158,10 @@ function Team() {
                   <div style={{ fontSize: "2rem" }}>{leader.email}</div>
 
                   <div className="card-text">
-                    {leader.bioDescription ? (
+                    {leader.name !== "TBD" && (
                       <Why color={baseColor.darken(0.4).toString()}>
                         Why San Diego Tech Hub Is Important To Me
                       </Why>
-                    ) : (
-                      <div>
-                        Please fill out the form below if you're interested in
-                        becoming a pillar lead
-                      </div>
                     )}
                     <Blurb
                       dangerouslySetInnerHTML={{ __html: leader.bioDescription }}
@@ -242,7 +237,7 @@ const query = graphql`
       ...childSharp
     }
 
-    blank: file(relativePath: { eq: "blank.png" }) {
+    blank2: file(relativePath: { eq: "blank2.png" }) {
       ...childSharp
     }
   }

@@ -12,6 +12,20 @@ export const AvatarCard = styled.div`
 export const Blurb = styled.div`
   background: rgba(255,255,255,0.05);
   padding: 1.5rem 3rem;
+
+  a {
+    background: rgba(255,255,255,0.2);
+    color: ${props => props.theme.primary};
+    font-weight: bold;
+    padding: 3px 5px;
+    text-decoration: none;
+    text-shadow: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
 `
 
 export const Card = styled.div`
@@ -27,8 +41,9 @@ export const Card = styled.div`
     color: white;
     margin-top: 1rem;
     text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
-    div,
-    p {
+
+    p,
+    div {
       font-size: 3rem;
       line-height: 2.4rem;
     }
@@ -40,8 +55,8 @@ export const Card = styled.div`
     color: rgba(255,255,255,0.8);
     text-transform: uppercase;
 
-    div,
-    p {
+    p,
+    div {
       color: white;
       display: block;
       font-size: 1.4rem;
@@ -108,13 +123,11 @@ export const PillarLeaders = styled.span`
   justify-content: center;
   margin: 3.2rem auto 0;
   max-width: 1600px;
-  div,
-  p {
+
+  p,
+  div {
     margin-top: 1.6rem !important;
   }
-  // @media(max-width: 900px) {
-  //   margin: 3.2rem 0 0;
-  // }
 `
 
 export const TeamSection = styled.section`
