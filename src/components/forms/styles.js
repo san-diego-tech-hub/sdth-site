@@ -170,7 +170,12 @@ export const ProposeForm = styled.form`
       cursor: pointer;
     }
   }
-
+  
+  .form-header {
+    font-size: 3rem;
+    padding-top: 2rem;
+    text-align: center;
+  }
   .submit {
     background: ${props => props.theme.primaryLight};
     color: white;
@@ -219,7 +224,7 @@ export const ProposeForm = styled.form`
 
   @media (max-width: 450px) {
     margin: 0;
-    margin-top: 260px;
+    margin-top: 30rem;
     padding: 5rem 0;
   }
 `
