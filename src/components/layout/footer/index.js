@@ -1,8 +1,11 @@
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import { StaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
-
-import { Container, InnerDiv } from "./styles"
+import {
+  Container,
+  InnerDiv,
+  InternalLink
+} from "./styles"
 
 const Footer = () => (
   <Container>
@@ -10,7 +13,13 @@ const Footer = () => (
       query={query}
       render={({ footer }) => (
         <InnerDiv>
-          <Img fluid={footer.childImageSharp.fluid} style={{ width: "30rem" }} />
+          <InternalLink to="/code-of-conduct">
+            Code of Conduct
+          </InternalLink>
+
+          <Link to="/">
+            <Img fluid={footer.childImageSharp.fluid} style={{ width: "30rem" }} />
+          </Link>
         </InnerDiv>
       )}
     />

@@ -71,15 +71,15 @@ team:
       bioDescription: "“Tech companies continue to see San Diego as a place to grow their organizations and also to attract and retain quality talent. I look forward to helping bridge the gap between companies, community and talent and finding fun innovative ways of attracting talent to the city we love!”"
       photo: "kristin"
   - leader:
-      name: "Connie Quach"
-      email: "connie@sandiegotechhub.com"
+      name: "Dan Hendricks"
+      email: "dan@opensourcemakerlabs.com"
       pillar: "innovation"
-      bioDescription: '"I am excited to lead the "Innovation" pillar on behalf of this organization. San Diego is thriving with new ventures and technologies, and we have the talent and passion to grow our tech presence. I want to help connect people to opportunities, and it''s my way of giving back to all my friends who have helped me along the way (but this time, at scale!)."'
-      photo: "connie"
+      bioDescription: "<p>“We see an incredible amount of innovation and entrepreneurship in this region. From the many microbreweries in the area, to advanced manufacturing companies, to energy and defense industries, to new technology startups – it's an area with incredible economic variety.</p><p>Combined with quality schools in the region, there's potential for significant sustained growth, creating more opportunities for the people that live here. SDTH can be a catalyst to connect people and opportunities in unique ways that truly make a difference.”</p>"
+      photo: "dan"
   - leader:
-      name: "Jon Barton"
-      email: "JBarton@TEKsystems.com"
+      name: "TBD"
+      email: ""
       pillar: "innovation"
-      bioDescription: '"The San Diego Tech Hub is important to me because it''s the most pirate of endeavors; we are operating at the edges of San Diego''s Tech community to bring out its most creative, innovative, and inclusive members of established enterprises to create something that challenges the status quo and transforms the community for the better. After all, ''it''s more fun to be a pirate than to join the navy.''"'
-      photo: "jon"
+      bioDescription: "<p>We're looking for a Leader to join the Innovation Pillar!</p>If you're passionate about technology and innovation, and you think you might be interested, please read our <p><a rel='noopener noreferrer' target='_blank' href='/PillarLead_Description.pdf'>Pillar Lead Description</a></p><p>and email</p><p><a rel='noopener noreferrer' target='_blank' href='mailto:claude@sandiegotechhub.com'>claude@sandiegotechhub.com</a></p>"
+      photo: "blank2"
 ---

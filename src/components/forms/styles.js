@@ -22,7 +22,7 @@ export const Container = styled.div`
     padding: 1rem;
     width: 100%;
 
-    &:hover {
+    &:hover, &:focus {
       background: ${Color("#F03B92").darken(0.1).toString()};
       border: 2px solid #a31f5e;
       cursor: pointer;
@@ -130,7 +130,7 @@ export const SocialContainer = styled.div`
   justify-content: center;
 
   a {
-    &:hover {
+    &:hover, &:focus {
       color: white;
       text-decoration: none;
     }
@@ -147,7 +147,7 @@ export const SocialContainer = styled.div`
 
   .social-opacity {
     opacity: 0.8;
-    &:hover {
+    &:hover, &:focus {
       opacity: 1;
     }
   }
@@ -157,6 +157,7 @@ export const ProposeForm = styled.form`
   font-size: 1.4rem;
   height: 100%;
   margin: auto;
+  max-width: 100vw;
   padding: 5rem 2rem;
 
   button {
@@ -173,7 +174,7 @@ export const ProposeForm = styled.form`
   .submit {
     background: ${props => props.theme.primaryLight};
     color: white;
-    &:hover {
+    &:hover, &:focus {
       background: ${props => Color(props.theme.primaryLight).darken(0.1).toString()};
       border: 2px solid #3e1575;
       cursor: pointer;
@@ -182,7 +183,6 @@ export const ProposeForm = styled.form`
 
   label {
     display: block;
-    font-weight: bolder;
     margin-top: 0.8rem;
   }
 
@@ -203,19 +203,23 @@ export const ProposeForm = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-width: 95vw;
+    width: 400px;
   }
 
   .cancel {
     background: white;
     border: 2px solid #ff8787;
     color: #ff8787;
-    &:hover{
+    &:hover, &:focus {
       border: 2px solid #ff0000;
       color: #ff0000;
     }
   }
 
   @media (max-width: 450px) {
+    margin: 0;
     margin-top: 260px;
+    padding: 5rem 0;
   }
 `

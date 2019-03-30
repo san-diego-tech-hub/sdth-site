@@ -43,7 +43,8 @@ export const DropdownContent = styled.div`
   img {
     margin-right: 0.5rem;
   }
-  a:hover {
+  a:hover,
+  a:focus {
     background-color: rgb(204, 233, 250);
   }
   .innerLink {
@@ -66,7 +67,7 @@ export const Logo = styled.div`
     margin-bottom: 0;
   }
 
-  @media (max-width: 1040px) {
+  @media (max-width: 1140px) {
     display: none;
   }
 

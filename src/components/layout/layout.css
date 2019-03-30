@@ -1,5 +1,9 @@
+html,
+body {
+  overflow-x: hidden;
+}
+
 .no-scroll {
   height: 100vh;
   overflow: hidden;
 }
-

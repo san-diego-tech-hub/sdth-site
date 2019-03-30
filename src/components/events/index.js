@@ -19,10 +19,12 @@ const styles = {
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.75)",
     maxHeight: "100vh",
+    maxWidth: "100vw",
+    overflowX: "hidden",
     overflowY: "auto"
   },
   content: {
-    top: "50%",
+    top: "calc(80px + 50%)",
     left: "50%",
     right: "auto",
     bottom: "auto",
@@ -98,7 +100,7 @@ const Button = styled.button`
   font-size: 2rem;
   padding: 1rem;
   width: 100%;
-  &:hover {
+  &:hover, &:focus {
     background: ${props => Color(props.theme.primary).lighten(0.1).toString()};
     border: 2px solid #3e1575;
     cursor: pointer;
@@ -156,7 +158,7 @@ const Title = styled.h3`
   color: ${props => props.theme.primaryMuted};
   margin-bottom: 7px;
   font-size: 2rem;
-  &:hover {
+  &:hover, &:focus {
     color: ${props => Color(props.theme.primaryMuted).lighten(0.3).toString()};
   }
 `

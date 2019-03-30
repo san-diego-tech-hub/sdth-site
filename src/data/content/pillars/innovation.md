@@ -9,13 +9,13 @@ goalsDescription: "<ul><li>Sponsor and host public Hackathons at employers withi
 
 leads:
   - lead:
-      name: "Connie Quach"
-      email: "connie@sandiegotechhub.com"
-      bioDescription: "<p>Prior to joining conDati and being one of the founding members of the company, Connie served over 15 years in senior product management and product marketing roles in both established corporations and venture-funded start-ups in the technology sector. Having a special interest product strategy &amp; go-to-market, she is focused on implementing technologies to improve the customer experience and drive both process efficiencies and sales. Connie holds a business degree from California Polytechnic Pomona and a MBA from California State University, San Marcos. Outside of work, Connie enjoys spending time with her family, keepin&rsquo; afloat with their schedules and trying to squeeze in weekend camping trips or long road trips to National Parks across the US.</p>"
-      photo: "connie"
+      name: "Dan Hendricks"
+      email: "dan@opensourcemakerlabs.com"
+      bioDescription: "<p>Dan is the founder and president of Open Source Maker Labs. He has over 30 years of experience in the Navy, as a Nuclear Engineering Officer, Surface Warfare Officer and Engineering Duty Officer, retiring at the rank of Captain (O-6). He has a bachelor of science degree in mathematics from the Naval Academy, and a master of science degree in computer science from the Naval Postgraduate School. Since leaving active duty, Dan has worked in both the private and public sector in roles of increasing responsibility in program management and budgeting, network architecture, systems engineering, and computer security. Dan is a registered Professional Engineer (Electrical) in the state of Washington, and is a Certified Information Systems Security Professional (CISSP). He is a member of IEEE, IEEE Computer Society, and IEEE Communications Society.</p>"
+      photo: "dan"
   - lead:
-      name: "Jon Barton"
-      email: "JBarton@TEKsystems.com"
-      bioDescription: "<p>Since moving to San Diego at the beginning of 2014, Jon has been working at TEKsystems and getting increasingly involved in the San Diego Tech community. As the Founder of the San Diego Quality Engineering User Group, a partner to the National Foundation for Autism Research, and a Chapter Leader for the San Diego chapter of VetsinTech, he continuously finds new groups to share his strategic insights and professional connections with for the betterment of the community at large with an emphasis on Diversity and Inclusion. Jon is a proud Hoosier, avid non-fiction reader, and movie buff. In his free time he like to perform Improv & Sketch comedy and hosts a monthly pub trivia game in La Jolla.</p>"
-      photo: "jon"
+      name: "TBD"
+      email: ""
+      bioDescription: "<p>We're looking for a Leader to join the Innovation Pillar!</p><p>If you're passionate about technology and innovation, and you think you might be interested, please read our <p><a rel='noopener noreferrer' target='_blank' href='/PillarLead_Description.pdf'>Pillar Lead Description</a></p><p>and email</p><p><a rel='noopener noreferrer' target='_blank' href='mailto:claude@sandiegotechhub.com'>claude@sandiegotechhub.com</a></p>"
+      photo: "blank2"
 ---
