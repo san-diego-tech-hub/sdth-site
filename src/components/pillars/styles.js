@@ -63,10 +63,7 @@ export const PillarInfo = styled.section`
 
 export const PillarSection = styled.section`
   @media(max-width: 450px) {
-<<<<<<< HEAD
-=======
     padding: 10px;
->>>>>>> 50a8f611850d101fe796e9a7eb8d0eb91f0d5bfb
     text-align: center;
   }
 `
