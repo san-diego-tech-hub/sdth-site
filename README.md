@@ -17,8 +17,9 @@ This site was developed with [GatsbyJS](https://www.gatsbyjs.org/) and serves as
    > `git remote add upstream git@github.com:san-diego-tech-hub/sdth-site.git`
 5. Run `cp env.default .env.dev`
 6. Grab the environment variables from a developer in the slack channel.
-7. Run `npm install` to install the project dependencies.
-8. Run `npm start` to start your dev environment.
+7. Install node (if you don't have it already) https://nodejs.org/en/download/
+8. Run `npm install` to install the project dependencies.
+9. Run `npm start` to start your dev environment.
 
 ### Creating a new PR
 
