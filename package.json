@@ -3,6 +3,7 @@
   "private": true,
   "description": "Website for San Diego Tech Hub",
   "version": "0.1.0",
+  "url": "https://www.sandiegotechhub.com",
   "contributors": [
     "Wilmer Guerra <wilmerguerra@outlook.com>",
     "Leeland Clenista",
@@ -65,7 +66,6 @@
     "googleapis": "^37.1.0",
     "moment": "^2.24.0",
     "netlify-cms": "^2.8.0",
-    "npm": "^6.9.0",
     "prop-types": "^15.6.2",
     "react": "^16.8.1",
     "react-big-calendar": "^0.20.3",
