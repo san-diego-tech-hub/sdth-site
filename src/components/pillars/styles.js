@@ -20,7 +20,6 @@ export const Bio = styled(Html)`
 
 export const Container = styled.div`
   margin: 0 auto;
-  padding: 1rem;
   max-width: 1200px;
 `
 

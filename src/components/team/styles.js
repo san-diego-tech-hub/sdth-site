@@ -132,7 +132,7 @@ export const PillarLeaders = styled.span`
 
 export const TeamSection = styled.section`
   margin: 2rem 0 10rem 0 !important;
-  width: 100vw !important;
+  width: 100vw;
   @media(max-width: 600px) {
     padding: 0 !important;
     margin: 0;

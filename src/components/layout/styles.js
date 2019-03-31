@@ -22,7 +22,7 @@ export const Wrapper = styled.div`
     color: ${props => props.theme.gray};
 
     @media(max-width: 450px) {
-      width: 90vw !important;
+      width: 100vw !important;
     }
   }
 
