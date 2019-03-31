@@ -105,6 +105,10 @@ const Button = styled.button`
     border: 2px solid #3e1575;
     cursor: pointer;
   }
+
+  @media (max-width: 1235px) {
+    margin-top: 2rem;
+  }
 `
 
 const Container = styled.div`
