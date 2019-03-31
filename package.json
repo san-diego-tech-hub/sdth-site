@@ -3,6 +3,7 @@
   "private": true,
   "description": "Website for San Diego Tech Hub",
   "version": "0.1.0",
+  "url": "https://www.sandiegotechhub.com",
   "contributors": [
     "Wilmer Guerra <wilmerguerra@outlook.com>",
     "Leeland Clenista",

@@ -105,6 +105,10 @@ const Button = styled.button`
     border: 2px solid #3e1575;
     cursor: pointer;
   }
+
+  @media (max-width: 1235px) {
+    margin-top: 2rem;
+  }
 `
 
 const Container = styled.div`
@@ -112,7 +116,6 @@ const Container = styled.div`
   flex-direction: column;
   flex-wrap: wrap;
   margin-left: 2rem;
-  margin-top: 5rem;
   width: 500px;
 
   @media (max-width: 768px) {
