@@ -3,6 +3,7 @@
   "private": true,
   "description": "Website for San Diego Tech Hub",
   "version": "0.1.0",
+  "url": "https://www.sandiegotechhub.com",
   "contributors": [
     "Wilmer Guerra <wilmerguerra@outlook.com>",
     "Leeland Clenista",
@@ -15,7 +16,7 @@
     "Peter Tiszavolgyi"
   ],
   "scripts": {
-    "build": "LOCAL_BUILD=true gatsby build",
+    "build": "cross-env LOCAL_BUILD=true gatsby build",
     "clearCache": "rm -rf ./.cache",
     "serve": "gatsby serve",
     "start": "gatsby develop",
@@ -86,6 +87,7 @@
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.3.1",
     "babel-preset-gatsby": "^0.1.8",
+    "cross-env": "^5.2.0",
     "eslint": "^5.14.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-loader": "^2.1.2",
