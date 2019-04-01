@@ -6,6 +6,12 @@ export const Collaboration = styled.div`
   margin: 2rem auto 5rem;
   padding: 0 4rem;
   text-align: center;
+  width: 100vw;
+
+  @media (max-width: 450px) {
+    margin-top: -1rem;
+    padding: 0;
+  }
 `
 
 export const CollabIcon = styled.div`
@@ -22,6 +28,7 @@ export const PillarDescription = styled.div`
   margin: 15rem auto 5rem;
   max-width: 800px;
   padding: 0 7rem;
+  width: 100vw;
 
   p {
     font-size: 1.7rem;
@@ -29,6 +36,10 @@ export const PillarDescription = styled.div`
 
   @media(max-width: 990px) {
     text-align: center;
+  }
+
+  @media (max-width: 450px) {
+    padding: 0 5px;
   }
 `
 
@@ -90,8 +101,8 @@ export const PillarRow = styled.aside`
     padding: 0 1rem;
   }
 
-  @media (max-width: 600px) {
-    padding: 1rem;
+  @media (max-width: 990px) {
+    padding: 0 10rem;
   }
 `
 

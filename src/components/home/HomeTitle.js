@@ -45,8 +45,14 @@ const WhiteCurve = styled.div`
   border-radius: 50%;
   box-shadow: 0 0 25px rgba(255,255,255,0.5);
   height: 200px;
+  margin: auto;
   margin-top: -50px;
   width: 120vw;
+
+  @media(max-width: 450px) {
+    margin-top: -5rem;
+    width: 150vw;
+  }
 `
 
 export default HomeTitle
