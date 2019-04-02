@@ -11,7 +11,7 @@ function PartnersPage(props) {
       <SEO
         title="Partners"
         keywords={["san diego", "tech", "hub", "partners"]}
-        canonicalUrlPath="/partners"
+        urlPath="/partners"
       />
       <PageTitle>Partners</PageTitle>
       <Partners />

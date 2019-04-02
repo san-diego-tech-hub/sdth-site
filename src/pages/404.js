@@ -10,7 +10,7 @@ export default props => (
     <SEO
       title="Error 404 - Page not found"
       keywords={["san diego", "tech", "hub", "internships", "nonprofit", "talent", "volunteers"]}
-      canonicalUrlPath="/404"
+      urlPath="/404"
     />
     <PageTitle>
       Page not found

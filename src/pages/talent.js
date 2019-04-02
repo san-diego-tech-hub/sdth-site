@@ -13,7 +13,7 @@ function TalentPage({ data, ...props }) {
       <SEO
         title="Talent"
         keywords={["san diego", "tech", "hub", "pillar", "talent"]}
-        canonicalUrlPath="/talent"
+        urlPath="/talent"
       />
       <PageTitle>Talent</PageTitle>
       <PillarTemplate data={markdownRemark.frontmatter} icon={talent} />
