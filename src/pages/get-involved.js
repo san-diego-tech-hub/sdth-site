@@ -10,7 +10,7 @@ export default props => (
     <SEO
       title="Get Involved"
       keywords={["san diego", "tech", "hub", "internships", "nonprofit", "talent", "volunteers"]}
-      canonicalUrlPath="/get-involved"
+      urlPath="/get-involved"
     />
     <PageTitle>
       Get Involved

@@ -13,7 +13,7 @@ function InnovationPage({ data, ...props }) {
       <SEO
         title="Innovation"
         keywords={["san diego", "tech", "hub", "pillar", "innovation"]}
-        canonicalUrlPath="/innovation"
+        urlPath="/innovation"
       />
       <PageTitle>Innovation</PageTitle>
       <PillarTemplate data={markdownRemark.frontmatter} icon={innovation} />
