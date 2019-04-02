@@ -1,9 +1,16 @@
 {
-  "name": "sd-tech-hub",
+  "name": "sdth-site",
   "private": true,
   "description": "Website for San Diego Tech Hub",
   "version": "0.1.0",
   "url": "https://www.sandiegotechhub.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/san-diego-tech-hub/sdth-site"
+  },
+  "bugs": {
+    "url": "https://github.com/san-diego-tech-hub/sdth-site/issues"
+  },
   "contributors": [
     "Wilmer Guerra <wilmerguerra@outlook.com>",
     "Leeland Clenista",
