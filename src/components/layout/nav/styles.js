@@ -29,7 +29,7 @@ export const DropItem = styled.li`
 
 export const DropdownContent = styled.div`
   background-color: white;
-  border: 0.05rem solid ${props => props.theme.primaryDark};
+  border-radius: 3px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   color: ${props => props.theme.primaryDark};
   display: none;
@@ -45,14 +45,15 @@ export const DropdownContent = styled.div`
   }
   a:hover,
   a:focus {
-    background-color: rgb(204, 233, 250);
+    color: ${props => props.theme.primaryDark};
+    background-color: #F0F0F0;
+    border-radius: 3px;
   }
   .innerLink {
     padding: 0.5rem;
     display: block;
     color: ${props => props.theme.primaryDark};
     text-decoration: none;
-    margin-left: 0.1rem;
   }
 `
 
