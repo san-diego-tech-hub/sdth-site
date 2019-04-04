@@ -48,7 +48,7 @@ function Home() {
       </HomeTitle>
       <Collaboration>
         <h2>{frontmatter.collabTitle}</h2>
-        <Html style={{ fontSize: "1.7rem", padding: "0 5rem" }}>
+        <Html style={{ fontSize: "1.7rem", margin: "0 auto", maxWidth: "500px", padding: "0 1rem" }}>
           {frontmatter.collabDescription}
         </Html>
       </Collaboration>

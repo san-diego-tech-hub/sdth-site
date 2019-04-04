@@ -3,7 +3,7 @@ path: "talent"
 pageTitle: "Talent"
 purpose: "Activate the power of SDTH to connect the right talent with the right opportunities and amplify these outcomes to grow the perception of our tech community globally."
 
-challenge: "<p>Identify local tech companies or startups willing to hire talent from non-traditional backgrounds.</p><p>Identify startups who are willing to transfer equity for internship credits through universities.<br /><br />Create serendipitous opportunities for both tech companies and techies seeking new places to work through the use of technology.</p>"
+challenge: "<p>Identify local tech companies or startups willing to hire talent from non-traditional backgrounds.</p><p>Identify startups who are willing to transfer equity for internship credits through universities.</p><p>Create serendipitous opportunities for both tech companies and techies seeking new places to work through the use of technology.</p>"
 
 goalsDescription: "<ul><li>Get publication in a national news outlet like ReCode that San Diego is not only a place that produces amazing talent, but has some amazing startup success stories.</li><li>Get a real-time talent map built on a mobile app to entice talent to stay and come to San Diego for the ability to connect with one another.</li><li>Approach the different cities of San Diego County to see what space they can donate to make into city run incubators.</li></ul>"
 

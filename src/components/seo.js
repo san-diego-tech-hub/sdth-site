@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { StaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, keywords, title, canonicalUrlPath = "" }) {
+function SEO({ description, lang, meta, keywords, title, urlPath = "" }) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -16,10 +16,23 @@ function SEO({ description, lang, meta, keywords, title, canonicalUrlPath = "" }
             }}
             title={title}
             titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+            script={[
+              {
+                type: "application/ld+json",
+                innerHTML: `{
+                  "headline": "San Diego Tech Hub",
+                  "@type": "Web${urlPath ? "Page" : "Site"}",
+                  "url": "https://www.sandiegotechhub.com${urlPath}",
+                  "name": "San Diego Tech Hub Website",
+                  "description": "SDTH is San Diego's Tech Community Advocacy Group",
+                  "@context": "http://schema.org"
+                }`
+              }
+            ]}
             link={[
               {
                 rel: "canonical",
-                href: `https://www.sandiegotechhub.com${canonicalUrlPath}`,
+                href: `https://www.sandiegotechhub.com${urlPath}`,
               }
             ]}
             meta={[

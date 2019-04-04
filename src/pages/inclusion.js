@@ -13,7 +13,7 @@ function InclusionPage({ data, ...props }) {
       <SEO
         title="Inclusion"
         keywords={["san diego", "tech", "hub", "pillar", "inclusion"]}
-        canonicalUrlPath="/inclusion"
+        urlPath="/inclusion"
       />
       <PageTitle>Inclusion</PageTitle>
       <PillarTemplate data={markdownRemark.frontmatter} icon={inclusion} />

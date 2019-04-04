@@ -22,7 +22,7 @@ export const Container = styled.div`
     padding: 1rem;
     width: 100%;
 
-    &:hover {
+    &:hover, &:focus {
       background: ${Color("#F03B92").darken(0.1).toString()};
       border: 2px solid #a31f5e;
       cursor: pointer;
@@ -130,7 +130,7 @@ export const SocialContainer = styled.div`
   justify-content: center;
 
   a {
-    &:hover {
+    &:hover, &:focus {
       color: white;
       text-decoration: none;
     }
@@ -147,7 +147,7 @@ export const SocialContainer = styled.div`
 
   .social-opacity {
     opacity: 0.8;
-    &:hover {
+    &:hover, &:focus {
       opacity: 1;
     }
   }
@@ -171,10 +171,17 @@ export const ProposeForm = styled.form`
     }
   }
 
+  .form-header {
+    color: ${props => props.theme.primary};
+    font-size: 3rem;
+    padding: 2rem 0;
+    text-align: center;
+  }
+
   .submit {
     background: ${props => props.theme.primaryLight};
     color: white;
-    &:hover {
+    &:hover, &:focus {
       background: ${props => Color(props.theme.primaryLight).darken(0.1).toString()};
       border: 2px solid #3e1575;
       cursor: pointer;
@@ -190,6 +197,7 @@ export const ProposeForm = styled.form`
     border: 1px solid #cccccc;
     border-radius: 0.5rem;
     display: block;
+    font-size: 2rem;
     width: 100%;
   }
 
@@ -211,7 +219,7 @@ export const ProposeForm = styled.form`
     background: white;
     border: 2px solid #ff8787;
     color: #ff8787;
-    &:hover{
+    &:hover, &:focus {
       border: 2px solid #ff0000;
       color: #ff0000;
     }
@@ -219,7 +227,13 @@ export const ProposeForm = styled.form`
 
   @media (max-width: 450px) {
     margin: 0;
-    margin-top: 260px;
+    margin-top: 30rem;
     padding: 5rem 0;
+  }
+
+  @media (max-width: 330px) {
+    .form-header {
+      margin-top: 8rem;
+    }
   }
 `

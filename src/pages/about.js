@@ -10,7 +10,7 @@ export default props => (
     <SEO
       title="About"
       keywords={["san diego", "tech", "hub", "inform", "connect", "empower", "community", "education", "inclusion", "innovation", "talent", "conduit for change", "pillars of excellence"]}
-      canonicalUrlPath="/about"
+      urlPath="/about"
     />
     <PageTitle>
       About

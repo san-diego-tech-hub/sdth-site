@@ -1,21 +1,31 @@
 {
-  "name": "sd-tech-hub",
+  "name": "sdth-site",
   "private": true,
   "description": "Website for San Diego Tech Hub",
   "version": "0.1.0",
+  "url": "https://www.sandiegotechhub.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/san-diego-tech-hub/sdth-site"
+  },
+  "bugs": {
+    "url": "https://github.com/san-diego-tech-hub/sdth-site/issues"
+  },
   "contributors": [
     "Wilmer Guerra <wilmerguerra@outlook.com>",
     "Leeland Clenista",
     "Kevin Brewer <kevinbrewer04@gmail.com>",
     "Nick Peddie",
-    "Joseph Huynh",
+    "Joseph Huynh <joe.huynh@gmail.com>",
     "Adam Funk",
     "Jesse Loftus",
     "Steph Huynh",
-    "Peter Tiszavolgyi"
+    "Peter Tiszavolgyi",
+    "Dragan Lukic",
+    "Erick Ochoa"
   ],
   "scripts": {
-    "build": "LOCAL_BUILD=true gatsby build",
+    "build": "cross-env LOCAL_BUILD=true gatsby build",
     "clearCache": "rm -rf ./.cache",
     "serve": "gatsby serve",
     "start": "gatsby develop",
@@ -52,7 +62,7 @@
     "gatsby-plugin-react-helmet": "^3.0.2",
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
     "gatsby-plugin-remove-trailing-slashes": "^2.0.6",
-    "gatsby-plugin-sharp": "^2.0.30",
+    "gatsby-plugin-sharp": "^2.0.32",
     "gatsby-plugin-styled-components": "^3.0.4",
     "gatsby-plugin-typography": "^2.2.5",
     "gatsby-source-eventbrite": "^1.1.0",
@@ -83,9 +93,11 @@
     "urlencode": "^1.1.0"
   },
   "devDependencies": {
+    "@babel/polyfill": "^7.4.3",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.3.1",
     "babel-preset-gatsby": "^0.1.8",
+    "cross-env": "^5.2.0",
     "eslint": "^5.14.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-loader": "^2.1.2",

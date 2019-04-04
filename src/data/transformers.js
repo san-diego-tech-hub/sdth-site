@@ -7,7 +7,7 @@ function createAddressString(address) {
     "address_1",
     "address_2",
     "city_state",
-    "zipcode"
+    "zipcode",
   ]
 
   return fields
@@ -31,12 +31,12 @@ module.exports = {
       venue: {
         name: null, // Is it possible to add this to Google Calendar Events?
         address: event.location,
-      }
+      },
     }
 
     return {
       model,
-      eventKey
+      eventKey,
     }
   },
 
@@ -54,26 +54,26 @@ module.exports = {
       address_2: event.venue.address_2,
       city_state: [
         event.venue.city,
-        event.venue.state
+        event.venue.state,
       ].filter(Boolean).join(", "),
       zipcode: event.venue.zip,
     }
 
     const model = {
       title: event.name,
-      description: event.description.replace(/src="http:/g, "src=\"https:"),
+      description: (event.description || "").replace(/src="http:/g, "src=\"https:"),
       url: event.link,
       start,
       end,
       venue: {
         name: event.venue.name,
         address: createAddressString(addressFields),
-      }
+      },
     }
 
     return {
       model,
-      eventKey
+      eventKey,
     }
   },
 
@@ -100,7 +100,7 @@ module.exports = {
       address_2: event.venue.address.address_2,
       city_state: [
         event.venue.address.city,
-        event.venue.address.region
+        event.venue.address.region,
       ].filter(Boolean).join(", "),
       zipcode: event.venue.address.postal_code,
     }
@@ -114,12 +114,12 @@ module.exports = {
       venue: {
         name: event.venue.name,
         address: createAddressString(addressFields),
-      }
+      },
     }
 
     return {
       model,
-      eventKey
+      eventKey,
     }
   },
 }

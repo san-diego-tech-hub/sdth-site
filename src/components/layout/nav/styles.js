@@ -9,52 +9,6 @@ export const Container = styled.div`
   width: 100%;
 `
 
-export const Drop = styled.div`
-  padding: 0 1rem;
-  position: relative;
-  display: inline-block;
-
-  &:hover .content,
-  &:focus-within .content {
-    display: block;
-  }
-`
-
-export const DropItem = styled.li`
-  align-items: center;
-  display: flex;
-  height: 100%;
-  margin: 0;
-`
-
-export const DropdownContent = styled.div`
-  background-color: white;
-  border: 0.05rem solid ${props => props.theme.primaryDark};
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  color: ${props => props.theme.primaryDark};
-  display: none;
-  font-weight: normal;
-  min-width: 160px;
-  position: absolute;
-  text-align: left;
-  top: 60px;
-  width: 100%;
-  z-index: 1;
-  img {
-    margin-right: 0.5rem;
-  }
-  a:hover {
-    background-color: rgb(204, 233, 250);
-  }
-  .innerLink {
-    padding: 0.5rem;
-    display: block;
-    color: ${props => props.theme.primaryDark};
-    text-decoration: none;
-    margin-left: 0.1rem;
-  }
-`
-
 export const Logo = styled.div`
   background: white;
   border-radius: 0 0 50px;

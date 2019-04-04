@@ -14,7 +14,7 @@ function CommunityPage({ data, ...props }) {
       <SEO
         title="Community"
         keywords={["san diego", "tech", "hub", "community", "pillar of excellence", "technology ecosystem", "central hub", "mentorship", "jared sanderson", "fred jordan"]}
-        canonicalUrlPath="/community"
+        urlPath="/community"
       />
       <PageTitle>Community</PageTitle>
       <PillarTemplate data={markdownRemark.frontmatter} icon={community} />

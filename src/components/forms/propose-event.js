@@ -78,6 +78,7 @@ function ProposeEvent({ closeModal = NO_OP }) {
       onSubmit={form.onSubmit(handleSubmit)}
       noValidate
     >
+      <div className="form-header">Propose New Event</div>
       <div className="input-field">
         <label htmlFor="username">
           Your Name
