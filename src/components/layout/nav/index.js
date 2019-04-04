@@ -1,12 +1,9 @@
 import React from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Link } from "gatsby"
 import sdthLogo from "Images/sdth-logo.png"
 import sdthLogoSmall from "Images/circle-logo.svg"
-import AppContext from "Utils/context"
 import {
   Container,
-  DropItem,
   Logo,
   SmallLogo,
   Menu,
@@ -15,15 +12,7 @@ import {
 } from "./styles"
 import Burger from "./burger"
 import MenuItem from "./menu-item"
-import Dropdown from "./dropdown"
-
-const items = [
-  { text: "Community", url: "/community", icon: "community" },
-  { text: "Education", url: "/education", icon: "education" },
-  { text: "Inclusion", url: "/inclusion", icon: "inclusion" },
-  { text: "Innovation", url: "/innovation", icon: "innovation" },
-  { text: "Talent", url: "/talent", icon: "talent" },
-]
+import PillarsDropDown from "./pillars-dropdown"
 
 const Navigation = () => {
   const isBrowser = typeof window !== "undefined"
@@ -61,44 +50,14 @@ const Navigation = () => {
         </Logo>
         <Spacer />
         <Menu>
-          <MenuItem to="/about">
-          About
-          </MenuItem>
-          <MenuItem to="/team">
-          Team
-          </MenuItem>
+          <MenuItem to="/about">About</MenuItem>
+          <MenuItem to="/team">Team</MenuItem>
 
-          <DropItem>
-            <AppContext.Consumer>
-              {({ path }) => {
-                const active = items.find(i => i.url === path)
-                const dropStyle = {
-                  alignItems: "center",
-                  display: "flex",
-                  height: "100%",
-                  borderBottom: !active ? "1rem solid #5230B5" : "1rem solid #2ABBF4",
-                  fontWeight: !active ? "" : "700"
-                }
+          <PillarsDropDown />
 
-                return (
-                  <Dropdown items={items} style={dropStyle}>
-                    <span>
-                    PILLARS of EXCELLENCE <FontAwesomeIcon icon="caret-down" />
-                    </span>
-                  </Dropdown>
-                )
-              }}
-            </AppContext.Consumer>
-          </DropItem>
-          <MenuItem to="/get-involved">
-          Get Involved
-          </MenuItem>
-          <MenuItem to="/events">
-          Events
-          </MenuItem>
-          <MenuItem to="/partners">
-          Our Partners
-          </MenuItem>
+          <MenuItem to="/get-involved">Get Involved</MenuItem>
+          <MenuItem to="/events">Events</MenuItem>
+          <MenuItem to="/partners">Our Partners</MenuItem>
         </Menu>
       </Container>
     </Nav>
