@@ -116,8 +116,8 @@ collections:
                   - { name: "header", label: "Header" }
                   - { name: "text", label: "Text", widget: string }
 
-      - name: team
-        label: Team
+      - label: Team
+        name: team
         file: "src/data/content/team.md"
         fields:
           - { name: "path", label: "Path", widget: "hidden", default: "team" }
@@ -155,7 +155,7 @@ collections:
               default: "community",
             }
           - { name: "pageTitle", label: "Page Title" }
-          - { name: "purpose", label: "Purppse" }
+          - { name: "purpose", label: "Purpose" }
           - { name: "challenge", label: "Challenge" }
           - {
               name: "goalsDescription",
@@ -190,7 +190,7 @@ collections:
               default: "education",
             }
           - { name: "pageTitle", label: "Page Title" }
-          - { name: "purpose", label: "Purppse" }
+          - { name: "purpose", label: "Purpose" }
           - { name: "challenge", label: "Challenge" }
           - {
               name: "goalsDescription",
@@ -225,7 +225,7 @@ collections:
               default: "inclusion",
             }
           - { name: "pageTitle", label: "Page Title" }
-          - { name: "purpose", label: "Purppse" }
+          - { name: "purpose", label: "Purpose" }
           - { name: "challenge", label: "Challenge" }
           - {
               name: "goalsDescription",
@@ -260,7 +260,7 @@ collections:
               default: "innovation",
             }
           - { name: "pageTitle", label: "Page Title" }
-          - { name: "purpose", label: "Purppse" }
+          - { name: "purpose", label: "Purpose" }
           - { name: "challenge", label: "Challenge" }
           - {
               name: "goalsDescription",
@@ -289,7 +289,7 @@ collections:
         fields:
           - { name: "path", label: "Path", widget: "hidden", default: "talent" }
           - { name: "pageTitle", label: "Page Title" }
-          - { name: "purpose", label: "Purppse" }
+          - { name: "purpose", label: "Purpose" }
           - { name: "challenge", label: "Challenge" }
           - {
               name: "goalsDescription",

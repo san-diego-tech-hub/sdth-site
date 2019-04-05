@@ -19,7 +19,14 @@ import {
   RebuildSection
 } from "./styles"
 
-const icons = { goals, heart, tasks, silos, judge, conversations }
+const icons = {
+  goals,
+  heart,
+  tasks,
+  silos,
+  judge,
+  conversations
+}
 
 function About() {
   const {
@@ -139,16 +146,16 @@ function About() {
           </span>
 
           <span>
-            {frontmatter.solutionsItems.map(({ solutionsItem }) => (
-              <div className="rebuild-panel" key={solutionsItem.header}>
+            {frontmatter.solutionsItems.map(({ solutionItem }) => (
+              <div className="rebuild-panel" key={solutionItem.header}>
                 <img
-                  src={icons[solutionsItem.icon]}
-                  alt={solutionsItem.header}
+                  src={icons[solutionItem.icon]}
+                  alt={solutionItem.header}
                   width="100"
                 />
                 <span>
-                  <h4>{solutionsItem.header}</h4>
-                  <p>{solutionsItem.text}</p>
+                  <h4>{solutionItem.header}</h4>
+                  <p>{solutionItem.text}</p>
                 </span>
               </div>
             ))}
@@ -178,7 +185,7 @@ const aboutQuery = graphql`
         solutionsTitle
         solutionsDescription
         solutionsItems {
-          solutionsItem {
+          solutionItem {
             icon
             header
             text
