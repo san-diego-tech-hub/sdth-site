@@ -31,8 +31,10 @@ export const query = graphql`
         pageTitle
         header
         sections {
-          title
-          contentDescription
+          section {
+            title
+            contentDescription
+          }
         }
       }
     }

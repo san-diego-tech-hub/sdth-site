@@ -387,8 +387,8 @@ collections:
             label: "Sections"
             widget: "list"
             fields:
-              - label: "Section"
-                name: "section"
+              - name: "section"
+                label: "Section"
                 widget: "object"
                 fields:
                   - { name: "title", label: "Title" }

@@ -5,8 +5,8 @@ import Html from "Common/Html"
 const CodeOfConduct = ({ data, ...props }) => (
   <Container {...props}>
     <Header>{data.header}</Header>
-    {data.sections.map((section, i) => (
-      <Section key={section.title}>
+    {data.sections.map(({ section }, i) => (
+      <Section key={section.title || i}>
         { section.title
         && <h2>{`${i}. ${section.title}`}</h2>
         }
