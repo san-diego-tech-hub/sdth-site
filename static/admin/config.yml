@@ -82,7 +82,7 @@ collections:
             }
           - { name: "challengesTitle", label: "Challenges Title" }
           - {
-              name: "chaellengesDescription",
+              name: "challengesDescription",
               label: "Challenges Description",
               widget: "markdown",
             }
