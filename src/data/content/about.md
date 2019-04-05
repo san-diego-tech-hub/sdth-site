@@ -16,22 +16,22 @@ aboutDescription: >-
 
   **We are Conduits.  We are Change.  We are San Diego.**
 
-
 challengesTitle: "solving challenges in our tech ecosystem"
 challengesDescription: >-
+
   The path forward will be challenging, but with a community of individual leaders working together, we all can help address the three issues San Diego Tech Hub feels is hindering our tech ecosystem.
 
 challengesItems:
   - challengesItem:
-      icon: 'silos'
+      icon: "silos"
       header: "siloed environment"
       text: "Businesses, Organizations, and Individuals are isolated from each other preventing true end to end collaboration."
   - challengesItem:
-      icon: 'conversations'
+      icon: "conversations"
       header: "biased opinons"
       text: "Lack of consistency based on preconceived notions about something or someone that may be favorable or unfavorable based on circumstance."
   - challengesItem:
-      icon: 'judge'
+      icon: "judge"
       header: "status quo"
       text: "The willingness to blindly follow and preserve the existing state of affairs without question."
 
@@ -40,16 +40,16 @@ solutionsDescription: >-
   Our goal is to help Rebuild, Uplift, and Inspire communities and the people within them.  These are the core founder principles that started with the Elevate Foundation and are translated to drive the WHY, HOW, and WHAT vision of San Diego Tech Hub.
 
 solutionsItems:
-  - solutionsItem:
+  - solutionItem:
       icon: "heart"
       header: "Why: the Purpose"
       text: "Build a stronger San Diego tech community"
-  - solutionsItem:
-      icon: 'tasks'
+  - solutionItem:
+      icon: "tasks"
       header: "How: the Process"
       text: "Evangelize our community, promote collaboration, and amplify our tech presence"
-  - solutionsItem:
-      icon: 'goals'
+  - solutionItem:
+      icon: "goals"
       header: "What: the Result"
       text: "Drive meaningful change through the five pillars of tech excellence to enable a thriving San Diego tech community"
 ---
