@@ -28,7 +28,7 @@ const styles = {
     left: "50%",
     right: "auto",
     bottom: "auto",
-    marginBottom: "+60%",
+    marginBottom: "10%",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)"
   },
