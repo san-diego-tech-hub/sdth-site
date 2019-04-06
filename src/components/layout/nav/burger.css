@@ -1,6 +1,6 @@
 /* Position and sizing of burger button */
 .bm-burger-button {
-  position: fixed;
+ position: fixed; 
   width: 36px;
   height: 30px;
   right: 36px;
@@ -65,6 +65,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 /* Individual item */
 .bm-item {
   display: inline-block;
+  outline: none;
 }
 
 /* Styling of overlay */
