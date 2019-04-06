@@ -24,10 +24,11 @@ const styles = {
     overflowY: "auto"
   },
   content: {
-    top: "calc(80px + 50%)",
+    top: "calc(60rem + 5%)",
     left: "50%",
     right: "auto",
     bottom: "auto",
+    marginBottom: "10%",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)"
   },
