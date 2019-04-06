@@ -10,18 +10,19 @@ This site was developed with [GatsbyJS](https://www.gatsbyjs.org/) and serves as
 
 ### Getting Started
 
-1. Fork the project
-2. Clone your fork
-3. Make sure you are in the right directory: `cd sdth-site`
+1. Fork the project ![Fork The Project](src/images/forkbutton.png)
+2. Retrieve the clone URL ![Copy Clone URL](src/images/gitclone.png) Clone your fork:
+   > `git clone ssh:https://github.com/san-diego-tech-hub/sdth-site.git`
+3. Create a directory (a folder) on your computer where you will keep your copy of the SDTH Website. And make sure you are in the right directory: `cd sdth-site`
 4. Add an `upstream` remote for keeping your local repository up-to-date:
    > `git remote add upstream git@github.com:san-diego-tech-hub/sdth-site.git`
 5. Run `cp env.default .env.dev`
 6. Grab the environment variables from a developer in the slack channel.
-7. Install node (if you don't have it already) https://nodejs.org/en/download/
+7. Install node (if you don't have it already) https://nodejs.org/en/download/. (Alternatively, if you have Homebrew installed on your machine you can type into your terminal "brew install node" to install nodejs.)
 8. Run `npm install` to install the project dependencies.
 9. Run `npm start` to start your dev environment.
 
-### Creating a new PR
+### Creating a new pull request
 
 1. Make sure you are on the `development` branch, and you have pulled the latest changes.
 
@@ -41,4 +42,4 @@ This site was developed with [GatsbyJS](https://www.gatsbyjs.org/) and serves as
 
 5. Push your branch to your fork: `git push -u origin [BRANCH NAME]`
 
-6. Open a new PR against the `development` branch from your fork using the GitHub user interface.
+6. Open a new pull request against the `development` branch from your fork using the GitHub user interface.
