@@ -67,7 +67,7 @@ export const Container = styled.div`
   }
 
   @media(max-width: 450px) {
-    padding: 10px;
+    
     .hidden-on-mobile {
       display: none
     }
@@ -158,7 +158,7 @@ export const ProposeForm = styled.form`
   height: 100%;
   margin: auto;
   max-width: 100vw;
-  padding: 5rem 2rem;
+  padding: 2rem 2rem;
 
   button {
     border: 2px solid transparent;
@@ -227,13 +227,7 @@ export const ProposeForm = styled.form`
 
   @media (max-width: 450px) {
     margin: 0;
-    margin-top: 30rem;
-    padding: 5rem 0;
+    padding: 0 0;
   }
-
-  @media (max-width: 330px) {
-    .form-header {
-      margin-top: 8rem;
-    }
-  }
+  
 `
