@@ -1,4 +1,4 @@
-if (process.env.LOCAL_BUILD || process.env.NODE_ENV === "development") {
+if (process.env.LOCAL_BUILD || process.env.NODE_ENV !== "production") {
   require("dotenv").config({ path: ".env.dev" })
 }
 
@@ -72,7 +72,7 @@ const plugins = [
       entities: ["events", "venues"],
     },
   },
-  "gatsby-plugin-netlify-cms"
+  "gatsby-plugin-netlify-cms",
 ]
 
 if (process.env.NODE_ENV === "production") {
@@ -106,7 +106,7 @@ const config = {
       "San Diego Tech Hub represents a movement aimed at changing the perception of the San Diego tech ecosystem. Our focus is to be a conduit for change connecting businesses, organizations, and individuals, leveraging their resources and talents to build a stronger San Diego tech community through collaboration.",
     author: "Claude Jones",
     twitterHandle: "@SanDiegoTechHub",
-    image: "https://www.SanDiegoTechHub.com/circle-logo.png"
+    image: "https://www.SanDiegoTechHub.com/circle-logo.png",
   },
   plugins,
 }

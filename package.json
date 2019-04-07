@@ -29,7 +29,8 @@
     "clearCache": "rm -rf ./.cache",
     "serve": "gatsby serve",
     "start": "gatsby develop",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "test:visual": "jest -c jest.visual.config.js --runInBand"
   },
   "husky": {
     "hooks": {
@@ -110,7 +111,10 @@
     "jest": "^24.3.1",
     "jest-dom": "^3.1.2",
     "jest-fetch-mock": "^2.1.1",
+    "jest-image-snapshot": "^2.8.1",
+    "jest-puppeteer": "^4.1.0",
     "lint-staged": "^8.1.4",
+    "puppeteer": "^1.14.0",
     "react-testing-library": "^6.0.0"
   },
   "license": "MIT"
