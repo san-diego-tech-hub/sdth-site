@@ -10,20 +10,32 @@ This site was developed with [GatsbyJS](https://www.gatsbyjs.org/) and serves as
 
 ### Getting Started
 
-1. Fork the project (this copies the SDTH Website repository to your GitHub account) ![Fork The Project](src/images/forkbutton.png)
-2. Create a folder on your computer where you'll save your local repository of the SDTH Website. Navigate to that folder in your terminal:
- > cd [file path to your local folder]
-Optional: confirm in terminal that you are in the correct folder:
- > pwd
+1. Fork the project (this copies the SDTH Website repository to your GitHub account)
+
+![Fork The Project](src/images/forkbutton.png)
+
+2. Create a new folder on your computer where you'll save your local repository of the SDTH Website. Enter this operation into terminal to navigate to your folder:
+ > 'cd [your file path to new local folder]'
+ 
+Optional: Enter this operation into terminal to confirm you are correct folder:
+ > 'pwd'
+
 3. Clone your fork (copies your GitHub SDTH Website repository to your local computer):
    > `git clone https://github.com/san-diego-tech-hub/sdth-site.git`
-4. Make sure you are in the right directory: `cd sdth-site`
+
+4. Confirm you are in the right directory in terminal: `cd sdth-site`
+
 5. Add an `upstream` remote for keeping your local repository up-to-date:
    > `git remote add upstream git@github.com:san-diego-tech-hub/sdth-site.git`
+
 6. Run `cp env.default .env.dev`
+
 7. Grab the environment variables from a developer in the slack channel.
+
 8. Install node (if you don't have it already) https://nodejs.org/en/download/. (Alternatively, if you have Homebrew installed on your machine you can type into your terminal "brew install node" to install nodejs.)
+
 9. Run `npm install` to install the project dependencies.
+
 10. Run `npm start` to start your dev environment.
 
 ### Creating a new pull request
