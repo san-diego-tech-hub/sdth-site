@@ -30,6 +30,10 @@ const icons = {
   conversations
 }
 
+const images = {
+  claude2,
+}
+
 function About() {
   const {
     markdownRemark: { frontmatter }
