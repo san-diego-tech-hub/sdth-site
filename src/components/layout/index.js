@@ -33,7 +33,7 @@ const Layout = ({ children, pageProps }) => (
   <ThemeProvider theme={theme}>
     <AppContext.Provider value={{ path: pageProps.location.pathname }}>
       <div style={{ maxWidth: "100vw", overflowX: "hidden" }}>
-        <ToastContainer autoClose={6000} />
+        <ToastContainer className="toast" autoClose={6000} />
         <Nav />
 
         <Wrapper>{children}</Wrapper>
