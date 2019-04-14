@@ -17,7 +17,7 @@ collections:
         fields:
           - { name: "path", label: "Path", widget: "hidden", default: "home" }
           - { name: "mainTitle", label: "Main Title" }
-          - {
+           - {
               name: "mainDescription",
               label: "Main Description",
               widget: "markdown",
@@ -74,6 +74,28 @@ collections:
         fields:
           - { name: "path", label: "Path", widget: "hidden", default: "about" }
           - { name: "mainTitle", label: "Main Title" }
+          - {
+              name: "mainDescription",
+              label: "Main Description",
+              widget: "markdown",
+            }
+          - label: "Main Items"
+            name: "mainItems"
+            widget: "list"
+            fields:
+              - label: "Main Item"
+                name: "mainItem"
+                widget: "object"
+                fields:
+                  - { name: "image", label: "Image", widget: string }
+          - {
+              name: "claude2",
+              widget: image,
+              default: "Images/claude_2.png",
+              media_library:
+                config:
+                  multiple: true
+            } 
           - { name: "aboutTitle", label: "About Title" }
           - {
               name: "aboutDescription",
