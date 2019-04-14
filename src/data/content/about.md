@@ -59,6 +59,12 @@ founderDescription2: >-
     create them for ourselves."
   </p>
 
+
+mainItems:
+  - mainItem:
+      image: "claude2"
+
+      
 aboutTitle: "San Diego Tech Hub"
 aboutDescription: >-
 
