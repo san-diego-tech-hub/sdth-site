@@ -89,22 +89,6 @@ collections:
               name: "founderDescription2",
               label: "Founder Description2",
               widget: "markdown",
-          - label: "Main Items"
-            name: "mainItems"
-            widget: "list"
-            fields:
-              - label: "Main Item"
-                name: "mainItem"
-                widget: "object"
-                fields:
-                  - { name: "image", label: "Image", widget: string }
-          - {
-              name: "claude2",
-              widget: image,
-              default: "Images/claude_2.png",
-              media_library:
-                config:
-                  multiple: true
             }
           - { name: "aboutTitle", label: "About Title" }
           - {
