@@ -28,10 +28,6 @@ const icons = {
   conversations
 }
 
-const images = {
-  claude2,
-}
-
 function About() {
   const {
     markdownRemark: { frontmatter }
@@ -51,18 +47,14 @@ function About() {
             width="200"
           />
         </p>
-        <Html>{frontmatter.mainDescription}</Html>
-        <div>
-          {frontmatter.mainItems.map(({ mainItem }) => {
-            const imgMain = images[mainItem.image]
-            return (
-              <div key={imgMain.image}>
-                <img src={imgMain} alt={mainItem.image} style={{ float: "right", width: "200px" }} />
-
-              </div>
-            )
-          })}
-        </div>
+        <Html>{frontmatter.mainDescription1}</Html>
+        <img
+          src={claude2}
+          style={{ float: "right" }}
+          alt="Young Claude Jones"
+          width="200"
+        />
+        <Html>{frontmatter.mainDescription2}</Html>
         <div style={{ clear: "both" }} />
       </FounderSection>
 
@@ -134,12 +126,8 @@ const aboutQuery = graphql`
     markdownRemark(frontmatter: { path: { eq: "about" } }) {
       frontmatter {
         mainTitle
-        mainDescription
-        mainItems {
-          mainItem {
-            image
-          }
-        }
+        mainDescription1
+        mainDescription2
         aboutTitle
         aboutDescription
         challengesTitle

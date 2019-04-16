@@ -75,19 +75,10 @@ collections:
           - { name: "path", label: "Path", widget: "hidden", default: "about" }
           - { name: "mainTitle", label: "Main Title" }
           - {
-              name: "mainDescription",
-              label: "Main Description",
+              name: "mainDescription1",
+              label: "Main Description1",
               widget: "markdown",
             }
-          - label: "Main Items"
-            name: "mainItems"
-            widget: "list"
-            fields:
-              - label: "Main Item"
-                name: "mainItem"
-                widget: "object"
-                fields:
-                  - { name: "image", label: "Image", widget: string }
           - {
               name: "claude2",
               widget: image,
