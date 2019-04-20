@@ -8,14 +8,16 @@ import innovationIcon from "Images/icon_innovation.svg"
 import talentIcon from "Images/icon_talent.svg"
 import Html from "Common/Html"
 import HomeTitle from "./HomeTitle"
+import Carousel from "./Carousel"
 import {
+  CarouselStyle,
   Collaboration,
   CollabIcon,
   PillarDescription,
   PillarIcon,
   PillarRow,
   ThreeStep,
-  WhatIsSDTH
+  WhatIsSDTH,
 } from "./styles"
 
 const pillarIcons = {
@@ -23,7 +25,7 @@ const pillarIcons = {
   education: educationIcon,
   inclusion: inclusionIcon,
   innovation: innovationIcon,
-  talent: talentIcon
+  talent: talentIcon,
 }
 
 function Home() {
@@ -46,6 +48,11 @@ function Home() {
           </div>
         </WhatIsSDTH>
       </HomeTitle>
+
+      <CarouselStyle className="no-top-margin">
+        <Carousel />
+      </CarouselStyle>
+
       <Collaboration>
         <h2>{frontmatter.collabTitle}</h2>
         <Html style={{ fontSize: "1.7rem", margin: "0 auto", maxWidth: "500px", padding: "0 1rem" }}>
