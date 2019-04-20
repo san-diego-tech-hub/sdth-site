@@ -20,7 +20,7 @@ export const StyledDetails = styled.aside`
   max-width: 30rem;
   font-size: 1.6rem;
   position: absolute;
-  top: ${props => props.y}px;
+  top: ${props => props.y}px; 
   left: ${props => props.x}px;
 
   .header {
@@ -48,7 +48,7 @@ export const StyledDetails = styled.aside`
       color: white;
     }
     .close-details {
-        color: rgba(255, 255, 255, 0.5);
+       color: rgba(255, 255, 255, 0.5);
         margin-left: 15px;
         padding: 5px 10px;
         &:hover {
