@@ -178,3 +178,20 @@ export const WhatIsSDTH = styled.div`
     width: 100vw;
   }
 `
+
+export const CarouselStyle = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40rem;
+  width: 100vw !important;
+  
+  &.no-top-margin {
+    margin-top: 0;
+  }
+
+  @media (max-width: 1160px) {
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+`
