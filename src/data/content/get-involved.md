@@ -37,7 +37,7 @@ allPrograms:
       contactEmail: "tbd@test.com"
       signUpForms:
         - form:
-            label: "Sign Up"
+            label: "Start Your Own OSS"
             url: "signupforthis.com"
       description: >-
 
@@ -58,4 +58,18 @@ allPrograms:
       description: >-
 
         Program needs a description.
+
+    - program:
+        name: "Be The Boss"
+        logo: "betheboss"
+        contactName: "TDB"
+        contactEmail: "tbd@test.com"
+        signUpForms:
+          - form:
+              label: "Get Involved"
+              url: "https://forms.gle/oDkc45NEppHWjxsc8"
+        description: >-
+
+          Program needs a description.
+
 ---
