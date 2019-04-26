@@ -325,6 +325,29 @@ collections:
             }
           - { name: "mainTitle", label: "Main Title" }
           - { name: "mainDescription", label: "Main Description" }
+          - name: "allPrograms"
+            label: "All Programs"
+            widget: "list"
+            fields:
+              - label: "Program"
+                name: "program"
+                widget: "object"
+                fields:
+                  - { name: "name", label: "Name" }
+                  - { name: "logo", label: "Logo" }
+                  - { name: "contactName", label: "Contact Name" }
+                  - { name: "contactEmail", label: "Contact Email" }
+                  - name: "signUpForms"
+                    label: "Sign Up Forms"
+                    widget: "list"
+                    fields:
+                      - { name: "label", label: "Label" }
+                      - { name: "url", label: "URL" }
+                  - {
+                      name: "description",
+                      label: "Description",
+                      widget: "markdown",
+                    }
 
       - name: partners
         label: Partners

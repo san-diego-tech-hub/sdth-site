@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import SocialAggregator from "Components/social-aggregator"
 import Html from "Common/Html"
+import ExternalLink from "Common/ExternalLink"
 
 function GetInvolved() {
   const {
@@ -17,6 +18,20 @@ function GetInvolved() {
           {frontmatter.mainDescription}
         </Html>
       </section>
+      {frontmatter.allPrograms.map(({ program }) => (
+        <div key={program.name}>
+          <h3>{program.name}</h3>
+          <Html>{program.description}</Html>
+          {program.signUpForms.map(({ form }) => (
+            <ExternalLink key={form.label} href={`https://${form.url}`}>
+              <button type="button">{form.label}</button>
+            </ExternalLink>
+          ))}
+          <p>
+            Contact: <ExternalLink href={`mailto:${program.contactEmail}`}>{program.contactName}</ExternalLink>
+          </p>
+        </div>
+      ))}
       <section style={{ marginTop: "5rem", padding: 0 }}>
         <h2>San Diego Tech Hub In Action</h2>
         <SocialAggregator />
@@ -33,6 +48,21 @@ const query = graphql`
       frontmatter {
         mainTitle
         mainDescription
+        allPrograms {
+          program {
+            name
+            logo
+            contactName
+            contactEmail
+            description
+            signUpForms {
+              form {
+                label
+                url
+              }
+            }
+          }
+        }
       }
     }
   }
