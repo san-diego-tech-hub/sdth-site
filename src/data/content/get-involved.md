@@ -7,8 +7,14 @@ allPrograms:
   - program:
       name: "Sponsor / Partner Network"
       logo: "sponsorpartner"
-      contactName: "TDB"
-      contactEmail: "tbd@test.com"
+      pointsOfContact:
+        - contact:
+          name: "Some Name"
+          email: "somename@email.com"
+        - contact:
+          name: "Some Name"
+          email: "somename@email.com"
+
       signUpForms:
         - form:
             label: "Sign Up"
@@ -20,8 +26,10 @@ allPrograms:
   - program:
       name: "SDTH Tech Talks"
       logo: "sdtechtalks"
-      contactName: "TDB"
-      contactEmail: "tbd@test.com"
+      pointsOfContact:
+        - contact:
+          name: "Some Name"
+          email: "somename@email.com"
       signUpForms:
         - form:
             label: "Sign Up"
@@ -33,8 +41,10 @@ allPrograms:
   - program:
       name: "Open Source Saturday"
       logo: "oss"
-      contactName: "TDB"
-      contactEmail: "tbd@test.com"
+      pointsOfContact:
+        - contact:
+          name: "Some Name"
+          email: "somename@email.com"
       signUpForms:
         - form:
             label: "Start Your Own OSS"
@@ -46,8 +56,10 @@ allPrograms:
   - program:
       name: "Mentorship Program"
       logo: "mentorship"
-      contactName: "TDB"
-      contactEmail: "tbd@test.com"
+      pointsOfContact:
+        - contact:
+          name: "Some Name"
+          email: "somename@email.com"
       signUpForms:
         - form:
             label: "Be a Mentor"
@@ -59,17 +71,18 @@ allPrograms:
 
         Program needs a description.
 
-    - program:
-        name: "Be The Boss"
-        logo: "betheboss"
-        contactName: "TDB"
-        contactEmail: "tbd@test.com"
-        signUpForms:
-          - form:
-              label: "Get Involved"
-              url: "https://forms.gle/oDkc45NEppHWjxsc8"
-        description: >-
+  - program:
+      name: "Be The Boss"
+      logo: "betheboss"
+      pointsOfContact:
+        - contact:
+          name: "Some Name"
+          email: "somename@email.com"
+      signUpForms:
+        - form:
+            label: "Get Involved"
+            url: "https://forms.gle/oDkc45NEppHWjxsc8"
+      description: >-
 
-          Program needs a description.
-
+        Program needs a description.
 ---

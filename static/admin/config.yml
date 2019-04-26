@@ -335,14 +335,25 @@ collections:
                 fields:
                   - { name: "name", label: "Name" }
                   - { name: "logo", label: "Logo" }
-                  - { name: "contactName", label: "Contact Name" }
-                  - { name: "contactEmail", label: "Contact Email" }
+                  - name: "pointsOfContact"
+                    label: "Points of Contact"
+                    widget: "list"
+                    fields:
+                      - name: "contact"
+                        label: "Contact"
+                        widget: "object"
+                        fields:
+                          - { name: "name", label: "Name" }
+                          - { name: "email", label: "Email" }
                   - name: "signUpForms"
                     label: "Sign Up Forms"
                     widget: "list"
                     fields:
-                      - { name: "label", label: "Label" }
-                      - { name: "url", label: "URL" }
+                      - name: "form"
+                        label: "Form"
+                        widget: "object"
+                          - { name: "label", label: "Label" }
+                          - { name: "url", label: "URL" }
                   - {
                       name: "description",
                       label: "Description",

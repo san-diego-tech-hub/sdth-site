@@ -52,9 +52,13 @@ const query = graphql`
           program {
             name
             logo
-            contactName
-            contactEmail
             description
+            pointsOfContact {
+              contact {
+                name
+                email
+              }
+            }
             signUpForms {
               form {
                 label
