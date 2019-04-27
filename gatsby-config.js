@@ -8,7 +8,28 @@ const plugins = [
     resolve: "gatsby-source-filesystem",
     options: {
       name: "images",
-      path: `${__dirname}/src/images`,
+      path: `${__dirname}/src/images/misc`,
+    },
+  },
+  {
+    resolve: "gatsby-source-filesystem",
+    options: {
+      name: "team",
+      path: `${__dirname}/src/images/team`,
+    },
+  },
+  {
+    resolve: "gatsby-source-filesystem",
+    options: {
+      name: "partnerLogos",
+      path: `${__dirname}/src/images/partnerLogos`,
+    },
+  },
+  {
+    resolve: "gatsby-source-filesystem",
+    options: {
+      name: "sponsorLogos",
+      path: `${__dirname}/src/images/sponsorLogos`,
     },
   },
   {
@@ -30,7 +51,7 @@ const plugins = [
       background_color: "#663399",
       theme_color: "#663399",
       display: "minimal-ui",
-      icon: "./src/images/circle-logo.png",
+      icon: "./src/images/misc/circle-logo.png",
     },
   },
   {

@@ -31,7 +31,7 @@ function GetInvolved() {
             <p>Contact:</p>
             {
               program.pointsOfContact.map(({ contact }) => (
-                <p>
+                <p key={contact.name}>
                   <ExternalLink href={`mailto:${contact.email}`}>{contact.name}</ExternalLink>
                 </p>
               ))

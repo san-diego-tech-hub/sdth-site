@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import conduitsFlow from "Images/conduits-flow.svg"
+import conduitsFlow from "Images/misc/conduits-flow.svg"
 import { NAV_HEIGHT } from "Utils/constants"
 
 const PageTitle = ({ children, ...props }) => (
