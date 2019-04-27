@@ -228,5 +228,8 @@ const query = graphql`
     scaleMatrix: file(relativePath: { eq: "scaleMatrix.png" }) {
       ...childSharp
     }
+    ais: file(relativePath: { eq: "ais-logo.jpg" }) {
+      ...childSharp
+    }
   }
 `
