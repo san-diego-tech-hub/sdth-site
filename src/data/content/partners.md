@@ -73,4 +73,8 @@ sponsors:
       name: "Scale Matrix"
       website: "https://www.scalematrix.com"
       logo: "scaleMatrix"
+  - sponsor:
+      name: "AIS"
+      website: "https://www.americanis.net/"
+      logo: "ais"
 ---
