@@ -35,6 +35,13 @@ const plugins = [
   {
     resolve: "gatsby-source-filesystem",
     options: {
+      name: "initiativeLogos",
+      path: `${__dirname}/src/images/initiatives`,
+    },
+  },
+  {
+    resolve: "gatsby-source-filesystem",
+    options: {
       name: "content",
       path: `${__dirname}/src/data/content`,
     },

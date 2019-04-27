@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import Img from "gatsby-image"
+import { aggregateImages } from "Utils"
 import ExternalLink from "Common/ExternalLink"
 import Html from "Common/Html"
 
@@ -12,15 +13,8 @@ function Partners() {
     sponsorLogos
   } = useStaticQuery(query)
 
-  const partnerImages = partnerLogos.edges.reduce((obj, edge) => ({
-    ...obj,
-    [edge.node.relativePath.replace(/\..+$/, "")]: edge.node.childImageSharp.fluid
-  }), {})
-
-  const sponsorImages = sponsorLogos.edges.reduce((obj, edge) => ({
-    ...obj,
-    [edge.node.relativePath.replace(/\..+$/, "")]: edge.node.childImageSharp.fluid
-  }), {})
+  const partnerImages = aggregateImages(partnerLogos)
+  const sponsorImages = aggregateImages(sponsorLogos)
 
   return (
     <Container>

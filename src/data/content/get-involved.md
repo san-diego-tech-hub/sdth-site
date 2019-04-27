@@ -4,7 +4,6 @@ mainTitle: "be part of the movement"
 mainDescription: "Whether you are a student looking for internships, a nonprofit hosting great events, an expert looking to give back, or a company looking for talent, San Diego Tech Hub exists to help you plug in to the resources you need to be successful in San Diego. All services are free of charge and this effort is led by tech volunteers."
 
 allPrograms:
-
   - program:
       name: "Be The Boss"
       logo: "betheboss"
@@ -48,17 +47,17 @@ allPrograms:
             url: "docs.google.com/forms/d/e/1FAIpQLSejdDCKxo6qAyrdLPR9nOmYv8GvJzTfE8lXTR27j_E1ApZj_g/viewform"
       description: >-
 
-          The Bright Ideas Hackathon program is a series of Hackathons that will give underprivileged youth aged 13-18 exposure to creating apps or digital product ideas that bridge the digital and physical world with mobile technology and bluetooth low energy beacons. All skill levels are encouraged to participate. Volunteers will be available to help with designing the UI/UX as well as development.
+        The Bright Ideas Hackathon program is a series of Hackathons that will give underprivileged youth aged 13-18 exposure to creating apps or digital product ideas that bridge the digital and physical world with mobile technology and bluetooth low energy beacons. All skill levels are encouraged to participate. Volunteers will be available to help with designing the UI/UX as well as development.
 
-          Teams will be organized within 3 age groups (under 14, under 16 and under 18). Any participant may join a team in an older age bracket.
+        Teams will be organized within 3 age groups (under 14, under 16 and under 18). Any participant may join a team in an older age bracket.
 
-          Final submissions will be judged based on innovation, teamwork, communication, and implementation.
+        Final submissions will be judged based on innovation, teamwork, communication, and implementation.
 
-          The winning teams from each event will have an opportunity to have local developers (open source community members and college/code school students) assist them in building out their project/idea as an open source project.
+        The winning teams from each event will have an opportunity to have local developers (open source community members and college/code school students) assist them in building out their project/idea as an open source project.
 
-          How to Get Involved:
+        How to Get Involved:
 
-          We're looking for volunteers and sponsors. See signup form.
+        We're looking for volunteers and sponsors. See signup form.
 
   - program:
       name: "Launch Pad"
@@ -119,7 +118,7 @@ allPrograms:
 
   - program:
       name: "Open Source Saturday"
-      logo: "oss"
+      logo: "opensource"
       pointsOfContact:
         - contact:
             name: "Kevin Brewer"
@@ -194,15 +193,15 @@ allPrograms:
       name: "SDTH Tech Talks"
       logo: "sdtechtalks"
       pointsOfContact:
-      - contact:
-          name: "Ryan Rusnak"
-          email: "ryan@airspacetechnologies.com"
-      - contact:
-          name: "Shane Chapman"
-          email: "shane.chapman@live.com"
-      - contact:
-          name: "Claude Jones"
-          email: "claude@sandiegotechhub.com"
+        - contact:
+            name: "Ryan Rusnak"
+            email: "ryan@airspacetechnologies.com"
+        - contact:
+            name: "Shane Chapman"
+            email: "shane.chapman@live.com"
+        - contact:
+            name: "Claude Jones"
+            email: "claude@sandiegotechhub.com"
       signUpForms:
         - form:
             label: "Sign Up"
@@ -219,15 +218,15 @@ allPrograms:
       name: "Sponsorship / Partnership"
       logo: "sponsorpartner"
       pointsOfContact:
-      - contact:
-          name: "Fred Jordan"
-          email: "fred.jordan@randstadusa.com"
-      - contact:
-          name: "Jared Sanderson"
-          email: "jared@sayvasolutions.com"
-      - contact:
-          name: "Alex Wenz"
-          email: "alex@tech-talent.com"
+        - contact:
+            name: "Fred Jordan"
+            email: "fred.jordan@randstadusa.com"
+        - contact:
+            name: "Jared Sanderson"
+            email: "jared@sayvasolutions.com"
+        - contact:
+            name: "Alex Wenz"
+            email: "alex@tech-talent.com"
       signUpForms:
         - form:
             label: "Sign Up"

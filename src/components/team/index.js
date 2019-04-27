@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import Color from "color"
+import { aggregateImages } from "Utils"
 
 import communityIcon from "Images/misc/icon_community.svg"
 import educationIcon from "Images/misc/icon_education.svg"
@@ -38,10 +39,7 @@ function Team() {
     teamPhotos
   } = useStaticQuery(query)
 
-  const avatars = teamPhotos.edges.reduce((obj, edge) => ({
-    ...obj,
-    [edge.node.relativePath.replace(/\..+$/, "")]: edge.node.childImageSharp.fluid
-  }), {})
+  const avatars = aggregateImages(teamPhotos)
 
   return (
     <main>
