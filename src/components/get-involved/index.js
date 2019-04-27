@@ -27,13 +27,16 @@ function GetInvolved() {
               <button type="button">{form.label}</button>
             </ExternalLink>
           ))}
-          {
-            program.pointsOfContact.map(({ contact }) => (
-              <p>
-                Contact: <ExternalLink href={`mailto:${contact.email}`}>{contact.name}</ExternalLink>
-              </p>
-            ))
-          }
+          <div>
+            <p>Contact:</p>
+            {
+              program.pointsOfContact.map(({ contact }) => (
+                <p>
+                  <ExternalLink href={`mailto:${contact.email}`}>{contact.name}</ExternalLink>
+                </p>
+              ))
+            }
+          </div>
         </div>
       ))}
       <section style={{ marginTop: "5rem", padding: 0 }}>
