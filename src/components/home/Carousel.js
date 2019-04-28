@@ -1,17 +1,27 @@
 import React from "react"
 import NukaCarousel from "nuka-carousel"
-import spotlight1 from "Images/spotlight/bassanio-peters.jpeg"
-import spotlight2 from "Images/spotlight/eriberto-garcia.jpeg"
+import carousel1 from "Images/carousel/bassanio.png"
+import carousel2 from "Images/carousel/eriberto.png"
+import carousel3 from "Images/carousel/teresa.png"
+import carousel4 from "Images/carousel/oss.png"
 
 const Carousel = () => {
   return (
-    <NukaCarousel autoplay wrapAround>
-      <img alt="spotlight" src={spotlight1} />
-      <img alt="spotlight" src={spotlight2} />
-      <img alt="spotlight" src="https://placehold.it/500x300" />
-      <img alt="spotlight" src="https://placehold.it/500x300" />
-      <img alt="spotlight" src="https://placehold.it/500x300" />
-      <img alt="spotlight" src="https://placehold.it/500x300" />
+    <NukaCarousel
+        autoplay
+        autoplayInterval={9000}
+        wrapAround
+        renderCenterLeftControls={({ previousSlide }) => (
+          <button type="button" onClick={previousSlide}>P</button>
+        )}
+        renderCenterRightControls={({ nextSlide }) => (
+          <button type="button" onClick={nextSlide}>N</button>
+        )}
+    >
+      <img alt="spotlight" src={carousel1} />
+      <img alt="spotlight" src={carousel2} />
+      <img alt="spotlight" src={carousel3} />
+      <img alt="spotlight" src={carousel4} />
     </NukaCarousel>
   )
 }
