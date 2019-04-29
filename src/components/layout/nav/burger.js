@@ -22,6 +22,9 @@ const Burger = () => {
         }
       }}
     >
+      <Cta onClick={closeMenu} to="/get-involved">
+        Get Involved
+      </Cta>
       <MenuItem onClick={closeMenu} to="/about">
         About
       </MenuItem>
@@ -54,9 +57,6 @@ const Burger = () => {
       <MenuItem onClick={closeMenu} to="/partners">
         Our Partners
       </MenuItem>
-      <Cta onClick={closeMenu} to="/get-involved">
-        Get Involved
-      </Cta>
     </BurgerMenu>
   )
 }
