@@ -130,6 +130,7 @@ export const ProgramContainer = styled.div`
     background: #eee;
     font-size: 1.8rem;
     padding: 5rem 2rem;
+    text-align: left;
   }
 `
 
