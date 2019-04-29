@@ -1,11 +1,11 @@
 import React from "react"
 import Img from "gatsby-image"
 import { graphql, useStaticQuery } from "gatsby"
-import communityIcon from "Images/icon_community.svg"
-import educationIcon from "Images/icon_education.svg"
-import inclusionIcon from "Images/icon_inclusion.svg"
-import innovationIcon from "Images/icon_innovation.svg"
-import talentIcon from "Images/icon_talent.svg"
+import communityIcon from "Images/misc/icon_community.svg"
+import educationIcon from "Images/misc/icon_education.svg"
+import inclusionIcon from "Images/misc/icon_inclusion.svg"
+import innovationIcon from "Images/misc/icon_innovation.svg"
+import talentIcon from "Images/misc/icon_talent.svg"
 import Html from "Common/Html"
 import HomeTitle from "./HomeTitle"
 import {
@@ -135,7 +135,6 @@ const homeQuery = graphql`
     connect: file(relativePath: { eq: "connect-new.png" }) {
       ...childSharp
     }
-
     empower: file(relativePath: { eq: "empower-new.png" }) {
       ...childSharp
     }

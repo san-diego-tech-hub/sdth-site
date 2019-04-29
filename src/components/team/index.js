@@ -2,13 +2,14 @@ import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Img from "gatsby-image"
 import Color from "color"
+import { aggregateImages } from "Utils"
 
-import communityIcon from "Images/icon_community.svg"
-import educationIcon from "Images/icon_education.svg"
-import inclusionIcon from "Images/icon_inclusion.svg"
-import innovationIcon from "Images/icon_innovation.svg"
-import talentIcon from "Images/icon_talent.svg"
-import sdthLogo from "Images/circle-logo.svg"
+import communityIcon from "Images/misc/icon_community.svg"
+import educationIcon from "Images/misc/icon_education.svg"
+import inclusionIcon from "Images/misc/icon_inclusion.svg"
+import innovationIcon from "Images/misc/icon_innovation.svg"
+import talentIcon from "Images/misc/icon_talent.svg"
+import sdthLogo from "Images/misc/circle-logo.svg"
 import Html from "Common/Html"
 import { pillarsInfo } from "Utils/constants"
 import {
@@ -35,8 +36,10 @@ const FOUNDER_COLOR = Color("#545CFE").desaturate(0.2)
 function Team() {
   const {
     markdownRemark: { frontmatter },
-    ...avatars
+    teamPhotos
   } = useStaticQuery(query)
+
+  const avatars = aggregateImages(teamPhotos)
 
   return (
     <main>
@@ -88,7 +91,7 @@ function Team() {
             </Label>
             <AvatarCard style={{ marginTop: "1rem" }}>
               <Img
-                fluid={avatars.claude.childImageSharp.fluid}
+                fluid={avatars.claude_2_cropped}
                 alt={frontmatter.founderName}
               />
             </AvatarCard>
@@ -113,7 +116,6 @@ function Team() {
         <PillarLeaders>
           {frontmatter.team.map(({ leader }) => {
             const icon = pillarIcons[leader.pillar]
-            const photo = avatars[leader.photo]
             const baseColor = Color(
               pillarsInfo[leader.pillar].color,
             ).desaturate(0.2)
@@ -147,7 +149,7 @@ function Team() {
                 </Label>
                 <AvatarCard>
                   <Img
-                    fluid={photo.childImageSharp.fluid}
+                    fluid={avatars[leader.photo]}
                     alt={leader.name}
                     style={{ borderRadius: "100%" }}
                   />
@@ -200,45 +202,13 @@ const query = graphql`
       }
     }
 
-    avatar: file(relativePath: { eq: "avatar.png" }) {
-      ...childSharp
-    }
-    jared: file(relativePath: { eq: "jared.jpg" }) {
-      ...childSharp
-    }
-    fred_2: file(relativePath: { eq: "fred_2.jpg" }) {
-      ...childSharp
-    }
-    aaron_gasperi: file(relativePath: { eq: "aaron_gasperi.jpg" }) {
-      ...childSharp
-    }
-    roberts_michael_2: file(relativePath: { eq: "roberts_michael_2.jpg" }) {
-      ...childSharp
-    }
-    christie: file(relativePath: { eq: "christie.jpg" }) {
-      ...childSharp
-    }
-    anh_2: file(relativePath: { eq: "anh_2.jpg" }) {
-      ...childSharp
-    }
-    yashar: file(relativePath: { eq: "yashar.jpg" }) {
-      ...childSharp
-    }
-    kristin: file(relativePath: { eq: "kristin.jpg" }) {
-      ...childSharp
-    }
-    nick: file(relativePath: { eq: "nick.jpg" }) {
-      ...childSharp
-    }
-    dan: file(relativePath: { eq: "dan.jpg" }) {
-      ...childSharp
-    }
-    claude: file(relativePath: { eq: "claude_2_cropped.png" }) {
-      ...childSharp
-    }
-
-    blank2: file(relativePath: { eq: "blank2.png" }) {
-      ...childSharp
+    teamPhotos: allFile(filter: { sourceInstanceName: { eq: "team" } }) {
+      edges {
+        node {
+          relativePath
+          ...childSharp
+        }
+      }
     }
   }
 `

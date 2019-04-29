@@ -2,14 +2,19 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 import Img from "gatsby-image"
+import { aggregateImages } from "Utils"
 import ExternalLink from "Common/ExternalLink"
 import Html from "Common/Html"
 
 function Partners() {
   const {
     markdownRemark: { frontmatter },
-    ...logos
+    partnerLogos,
+    sponsorLogos
   } = useStaticQuery(query)
+
+  const partnerImages = aggregateImages(partnerLogos)
+  const sponsorImages = aggregateImages(sponsorLogos)
 
   return (
     <Container>
@@ -19,26 +24,20 @@ function Partners() {
           {frontmatter.partnersDescription}
         </Html>
         <div className="partners">
-          {frontmatter.partners.map(({ partner }) => {
-            const logo = logos[partner.logo]
-            if (!logo) {
-              return null
-            }
-            return (
-              <ExternalLink
-                key={partner.name}
-                className="partner"
-                style={{ width: "100%" }}
-                href={partner.website}
-              >
-                <Img
-                  alt={partner.name}
-                  fluid={logo.childImageSharp.fluid}
-                  style={{ width: "100%"  }}
-                />
-              </ExternalLink>
-            )
-          })}
+          {frontmatter.partners.map(({ partner }) => (
+            <ExternalLink
+              key={partner.name}
+              className="partner"
+              style={{ width: "100%" }}
+              href={partner.website}
+            >
+              <Img
+                alt={partner.name}
+                fluid={partnerImages[partner.logo]}
+                style={{ width: "100%"  }}
+              />
+            </ExternalLink>
+          ))}
         </div>
       </PartnerSection>
 
@@ -48,27 +47,20 @@ function Partners() {
           {frontmatter.sponsorsDescription}
         </Html>
         <div className="partners">
-          {frontmatter.sponsors.map(({ sponsor }) => {
-            const logo = logos[sponsor.logo]
-            if (!logo) {
-              return null
-            }
-
-            return (
-              <ExternalLink
-                key={sponsor.name}
-                className="partner"
-                style={{ width: "100%" }}
-                href={sponsor.website}
-              >
-                <Img
-                  alt={sponsor.name}
-                  fluid={logo.childImageSharp.fluid}
-                  style={{ width: "100%", display: "flex", alignItems: "center" }}
-                />
-              </ExternalLink>
-            )
-          })}
+          {frontmatter.sponsors.map(({ sponsor }) => (
+            <ExternalLink
+              key={sponsor.name}
+              className="partner"
+              style={{ width: "100%" }}
+              href={sponsor.website}
+            >
+              <Img
+                alt={sponsor.name}
+                fluid={sponsorImages[sponsor.logo]}
+                style={{ width: "100%", display: "flex", alignItems: "center" }}
+              />
+            </ExternalLink>
+          ))}
         </div>
       </PartnerSection>
     </Container>
@@ -183,53 +175,22 @@ const query = graphql`
       }
     }
 
-    sdlc: file(relativePath: { eq: "sdlc.png" }) {
-      ...childSharp
+    partnerLogos: allFile(filter: { sourceInstanceName: { eq: "partnerLogos" } }) {
+      edges {
+        node {
+          relativePath
+          ...childSharp
+        }
+      }
     }
-    carlsbad: file(relativePath: { eq: "carlsbad.png" }) {
-      ...childSharp
-    }
-    vusd: file(relativePath: { eq: "vusd.png" }) {
-      ...childSharp
-    }
-    alliance: file(relativePath: { eq: "alliance.png" }) {
-      ...childSharp
-    }
-    innovate: file(relativePath: { eq: "innovate.png" }) {
-      ...childSharp
-    }
-    top_execs: file(relativePath: { eq: "top_execs.png" }) {
-      ...childSharp
-    }
-    sd_regional: file(relativePath: { eq: "sd_regional.png" }) {
-      ...childSharp
-    }
-    workforce: file(relativePath: { eq: "workforce.png" }) {
-      ...childSharp
-    }
-    ucsd: file(relativePath: { eq: "ucsd.png" }) {
-      ...childSharp
-    }
-    sdff: file(relativePath: { eq: "sdff.png" }) {
-      ...childSharp
-    }
-    dynam: file(relativePath: { eq: "dynam.png" }) {
-      ...childSharp
-    }
-    hnm: file(relativePath: { eq: "hnm.png" }) {
-      ...childSharp
-    }
-    operationcode: file(relativePath: { eq: "operationcode.png" }) {
-      ...childSharp
-    }
-    sdnedc: file(relativePath: { eq: "sdnedc.png" }) {
-      ...childSharp
-    }
-    scaleMatrix: file(relativePath: { eq: "scaleMatrix.png" }) {
-      ...childSharp
-    }
-    ais: file(relativePath: { eq: "ais-logo.jpg" }) {
-      ...childSharp
+
+    sponsorLogos: allFile(filter: { sourceInstanceName: { eq: "sponsorLogos" } }) {
+      edges {
+        node {
+          relativePath
+          ...childSharp
+        }
+      }
     }
   }
 `

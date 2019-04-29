@@ -4,7 +4,7 @@ const AvatarCard = ({ lead }) => (
   <div>
     <img
       width="150"
-      src={require(`../../images/${lead.photo}.png`)}
+      src={require(`../../images/team/${lead.photo}.png`)}
       alt={`${lead.name}'s Avatar`}
     />
     <h4>{lead.name}</h4>

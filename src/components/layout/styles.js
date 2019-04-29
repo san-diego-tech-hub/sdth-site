@@ -9,6 +9,8 @@ export const theme = {
   primaryWhite: "#e7d7fe",
   secondary: "#f25aa3",
   gray: "rgb(115, 115, 115)",
+  green: "#82BD24",
+  greenLight: "#92CD34"
 }
 
 export const Wrapper = styled.div`
