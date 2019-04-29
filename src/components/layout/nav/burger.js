@@ -48,18 +48,28 @@ const Burger = () => {
         Talent
       </MenuItem>
 
-      <MenuItem onClick={closeMenu} to="/get-involved">
-        Get Involved
-      </MenuItem>
       <MenuItem onClick={closeMenu} to="/events">
         Events
       </MenuItem>
       <MenuItem onClick={closeMenu} to="/partners">
         Our Partners
       </MenuItem>
+      <Cta onClick={closeMenu} to="/get-involved">
+        Get Involved
+      </Cta>
     </BurgerMenu>
   )
 }
+
+const Cta = styled(Link)`
+  background: ${props => props.theme.greenDark};
+  border-radius: 5px;
+  font-size: 2rem;
+  margin: 3rem 0;
+  padding: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+`
 
 const MenuItem = styled(Link)`
   font-size: 2rem;

@@ -10,14 +10,15 @@ const Carousel = ({ images }) => {
         autoplay
         autoplayInterval={9000}
         wrapAround
+        easing="easeQuadInOut"
         renderCenterLeftControls={({ previousSlide }) => (
           <Button type="button" onClick={previousSlide}>
-            <FontAwesomeIcon icon="chevron-left" style={{ }} />
+            <FontAwesomeIcon icon="chevron-left" />
           </Button>
         )}
         renderCenterRightControls={({ nextSlide }) => (
           <Button type="button" onClick={nextSlide}>
-            <FontAwesomeIcon icon="chevron-right" style={{ }} />
+            <FontAwesomeIcon icon="chevron-right" />
           </Button>
         )}
         renderBottomCenterControls={null}
