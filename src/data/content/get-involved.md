@@ -68,7 +68,7 @@ allPrograms:
             email: "claude@sandiegotechhub.com"
       signUpForms:
         - form:
-            label: "Sign Up"
+            label: "Get Involved"
             url: "docs.google.com/forms/d/e/1FAIpQLSdiQP1ccPst7SczWQl7WY6UBsv3YtJFYY_dtsRqWhsWesIkwA/viewform"
       description: >-
 
