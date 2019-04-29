@@ -9,6 +9,7 @@ import talentIcon from "Images/misc/icon_talent.svg"
 import Html from "Common/Html"
 import HomeTitle from "./HomeTitle"
 import Carousel from "./Carousel"
+import GetInvolved from "./GetInvolved"
 import {
   CarouselStyle,
   Collaboration,
@@ -53,6 +54,8 @@ function Home() {
       <CarouselStyle className="no-top-margin">
         <Carousel images={carouselImages.edges} />
       </CarouselStyle>
+
+      <GetInvolved />
 
       <Collaboration>
         <h2>{frontmatter.collabTitle}</h2>
