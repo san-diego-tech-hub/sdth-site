@@ -1,17 +1,12 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
 import { aggregateImages } from "Utils"
 import SocialAggregator from "Components/social-aggregator"
 import Html from "Common/Html"
-import ExternalLink from "Common/ExternalLink"
+import Program from "./Program"
 import {
   Container,
-  Contacts,
-  Program,
   ProgramContainer,
-  SignUpButton,
-  SubContainer
 } from "./styles"
 
 function GetInvolved() {
@@ -32,31 +27,11 @@ function GetInvolved() {
       </section>
       <ProgramContainer>
         {frontmatter.allPrograms.map(({ program }) => (
-          <Program key={program.name}>
-            <Img
-            alt={`${program.name} logo`}
-            fluid={logos[program.logo]}
-            style={{ margin: "0 auto 2.5rem", width: "300px" }}
-            />
-            <Html className="program-description">{program.description}</Html>
-            <SubContainer>
-              {program.signUpForms.map(({ form }) => (
-                <ExternalLink key={form.label} href={`https://${form.url}`}>
-                  <SignUpButton type="button">{form.label}</SignUpButton>
-                </ExternalLink>
-              ))}
-            </SubContainer>
-            <Contacts>
-              <p>Contact:</p>
-              {
-              program.pointsOfContact.map(({ contact }) => (
-                <p key={contact.name}>
-                  <ExternalLink href={`mailto:${contact.email}`}>{contact.name}</ExternalLink>
-                </p>
-              ))
-            }
-            </Contacts>
-          </Program>
+          <Program
+            key={program.name}
+            program={program}
+            logo={logos[program.logo]}
+          />
         ))}
       </ProgramContainer>
 
