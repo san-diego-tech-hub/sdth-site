@@ -68,7 +68,7 @@ export const LogoContainer = styled.div`
   align-items: center;
   display: flex;
   justify-content: center;
-  height: 350px;
+  height: 280px;
 `
 
 export const ProgramCard = styled.div`

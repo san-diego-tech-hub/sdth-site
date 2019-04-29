@@ -31,6 +31,7 @@ const pillarIcons = {
 function Home() {
   const {
     markdownRemark: { frontmatter },
+    carouselImages,
     ...icons
   } = useStaticQuery(homeQuery)
 
@@ -50,7 +51,7 @@ function Home() {
       </HomeTitle>
 
       <CarouselStyle className="no-top-margin">
-        <Carousel />
+        <Carousel images={carouselImages.edges} />
       </CarouselStyle>
 
       <Collaboration>
@@ -139,12 +140,23 @@ const homeQuery = graphql`
       }
     }
 
+    carouselImages: allFile(filter: { sourceInstanceName: { eq: "carouselImages" } }) {
+      edges {
+        node {
+          relativePath
+          ...childSharp
+        }
+      }
+    }
+
     connect: file(relativePath: { eq: "connect-new.png" }) {
       ...childSharp
     }
+
     empower: file(relativePath: { eq: "empower-new.png" }) {
       ...childSharp
     }
+
     inform: file(relativePath: { eq: "inform-new.png" }) {
       ...childSharp
     }

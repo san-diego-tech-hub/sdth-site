@@ -1,29 +1,48 @@
 import React from "react"
 import NukaCarousel from "nuka-carousel"
-import carousel1 from "Images/carousel/bassanio.png"
-import carousel2 from "Images/carousel/eriberto.png"
-import carousel3 from "Images/carousel/teresa.png"
-import carousel4 from "Images/carousel/oss.png"
+import styled from "styled-components"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import Img from "gatsby-image"
 
-const Carousel = () => {
+const Carousel = ({ images }) => {
   return (
     <NukaCarousel
         autoplay
         autoplayInterval={9000}
         wrapAround
         renderCenterLeftControls={({ previousSlide }) => (
-          <button type="button" onClick={previousSlide}>P</button>
+          <Button type="button" onClick={previousSlide}>
+            <FontAwesomeIcon icon="chevron-left" style={{ }} />
+          </Button>
         )}
         renderCenterRightControls={({ nextSlide }) => (
-          <button type="button" onClick={nextSlide}>N</button>
+          <Button type="button" onClick={nextSlide}>
+            <FontAwesomeIcon icon="chevron-right" style={{ }} />
+          </Button>
         )}
+        renderBottomCenterControls={null}
     >
-      <img alt="spotlight" src={carousel1} />
-      <img alt="spotlight" src={carousel2} />
-      <img alt="spotlight" src={carousel3} />
-      <img alt="spotlight" src={carousel4} />
+      {images.map(({ node }) => {
+        return (
+          <Img
+            key={node.relativePath}
+            alt="Carousel Image"
+            fluid={node.childImageSharp.fluid}
+          />
+        )
+      })}
     </NukaCarousel>
   )
 }
+
+const Button = styled.button`
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.8);
+
+  &:hover {
+    cursor: pointer;
+  }
+`
 
 export default Carousel

@@ -14,6 +14,13 @@ const plugins = [
   {
     resolve: "gatsby-source-filesystem",
     options: {
+      name: "carouselImages",
+      path: `${__dirname}/src/images/carousel`,
+    },
+  },
+  {
+    resolve: "gatsby-source-filesystem",
+    options: {
       name: "team",
       path: `${__dirname}/src/images/team`,
     },
