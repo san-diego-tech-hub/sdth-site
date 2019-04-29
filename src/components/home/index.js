@@ -8,14 +8,16 @@ import innovationIcon from "Images/misc/icon_innovation.svg"
 import talentIcon from "Images/misc/icon_talent.svg"
 import Html from "Common/Html"
 import HomeTitle from "./HomeTitle"
+import Carousel from "./Carousel"
 import {
+  CarouselStyle,
   Collaboration,
   CollabIcon,
   PillarDescription,
   PillarIcon,
   PillarRow,
   ThreeStep,
-  WhatIsSDTH
+  WhatIsSDTH,
 } from "./styles"
 
 const pillarIcons = {
@@ -23,12 +25,13 @@ const pillarIcons = {
   education: educationIcon,
   inclusion: inclusionIcon,
   innovation: innovationIcon,
-  talent: talentIcon
+  talent: talentIcon,
 }
 
 function Home() {
   const {
     markdownRemark: { frontmatter },
+    carouselImages,
     ...icons
   } = useStaticQuery(homeQuery)
 
@@ -46,6 +49,11 @@ function Home() {
           </div>
         </WhatIsSDTH>
       </HomeTitle>
+
+      <CarouselStyle className="no-top-margin">
+        <Carousel images={carouselImages.edges} />
+      </CarouselStyle>
+
       <Collaboration>
         <h2>{frontmatter.collabTitle}</h2>
         <Html style={{ fontSize: "1.7rem", margin: "0 auto", maxWidth: "500px", padding: "0 1rem" }}>
@@ -132,12 +140,23 @@ const homeQuery = graphql`
       }
     }
 
+    carouselImages: allFile(filter: { sourceInstanceName: { eq: "carouselImages" } }) {
+      edges {
+        node {
+          relativePath
+          ...childSharp
+        }
+      }
+    }
+
     connect: file(relativePath: { eq: "connect-new.png" }) {
       ...childSharp
     }
+
     empower: file(relativePath: { eq: "empower-new.png" }) {
       ...childSharp
     }
+
     inform: file(relativePath: { eq: "inform-new.png" }) {
       ...childSharp
     }

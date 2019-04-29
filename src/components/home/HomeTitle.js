@@ -18,8 +18,16 @@ const ConduitsFlow = styled.div`
   margin-top: ${NAV_HEIGHT};
   width: 100%;
 
-  @media(max-width: 415px) {
-    height: 350px;
+  @media(max-width: 1200px) {
+    height: 200px;
+  }
+
+  @media(max-width: 500px) {
+    height: 250px;
+  }
+
+  @media(max-width: 350px) {
+    height: 300px;
   }
 `
 
@@ -49,9 +57,8 @@ const WhiteCurve = styled.div`
   margin-top: -50px;
   width: 120vw;
 
-  @media(max-width: 450px) {
-    margin-top: -5rem;
-    width: 150vw;
+  @media(max-width: 1200px) {
+    display: none;
   }
 `
 

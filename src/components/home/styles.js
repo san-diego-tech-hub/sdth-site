@@ -1,6 +1,25 @@
 import styled from "styled-components"
 import { Link } from "gatsby"
 
+export const CarouselStyle = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40rem;
+  width: 100vw !important;
+
+  &.no-top-margin {
+    margin-top: 0;
+  }
+
+  @media (max-width: 1600px) {
+    padding: 0 20rem;
+  }
+
+  @media (max-width: 1200px) {
+    padding: 0;
+  }
+`
 export const Collaboration = styled.div`
   max-width: 800px;
   margin: 2rem auto 5rem;
@@ -169,12 +188,25 @@ export const WhatIsSDTH = styled.div`
     margin-left: 25%;
   }
 
+  @media(max-width: 1200px) {
+    margin-bottom: -13rem;
+  }
+
   @media(max-width: 1040px) {
     margin-left: 0;
   }
 
   @media(max-width: 500px) {
+    margin-bottom: -9rem;
     padding: 0 2rem;
     width: 100vw;
+  }
+
+  @media(max-width: 415px) {
+    margin-bottom: -10.5rem;
+  }
+
+  @media(max-width: 350px) {
+    margin-bottom: -10.5rem;
   }
 `
