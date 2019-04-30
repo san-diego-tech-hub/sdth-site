@@ -171,39 +171,39 @@ allPrograms:
             url: "docs.google.com/forms/d/e/1FAIpQLSeUiRKfZQfcWKS-P9UHilxhKbj5FRyQ0bnxgLlmjSC1ZzUvtw/viewform"
       description: >-
 
-          <p>The SDTH Network is a community driven project aimed at connecting needs to opportunities. There are two points to the network:</p>
+        <p>The SDTH Network is a community driven project aimed at connecting needs to opportunities. There are two points to the network:</p>
 
-          <ol>
-            <li>Community: This includes individuals, businesses, organizations that have an interest in finding jobs, sourcing talent or making a difference.</li>
+        <ol>
+          <li>Community: This includes individuals, businesses, organizations that have an interest in finding jobs, sourcing talent or making a difference.</li>
 
-            <li>Needs and Opportunities: This includes providing resources, experience, and access to events based on the need of the community.</li>
-          </ol>
+          <li>Needs and Opportunities: This includes providing resources, experience, and access to events based on the need of the community.</li>
+        </ol>
 
-          <p>The problems we want to solve include:</p>
+        <p>The problems we want to solve include:</p>
 
-          <ol>
-            <li>Help talent (i.e., skilled, transitioning, or new) find qualified jobs with no friction or barrier to entry.</li>
+        <ol>
+          <li>Help talent (i.e., skilled, transitioning, or new) find qualified jobs with no friction or barrier to entry.</li>
 
-            <li>Provide free or discounted resources (i.e., collaboration space, food, speakers, other services) to individuals in need.</li>
+          <li>Provide free or discounted resources (i.e., collaboration space, food, speakers, other services) to individuals in need.</li>
 
-            <li>Promote the concept of collaboration over competition by providing visibility to various program and events encouraging partnerships.<li>
-          </ol>
+          <li>Promote the concept of collaboration over competition by providing visibility to various program and events encouraging partnerships.<li>
+        </ol>
 
-          <p>How to get involved:</p>
+        <p>How to get involved:</p>
 
-          <p>The scope for Phase 1 is focused on helping qualified talent find jobs with no friction or barrier to entry.</p>
+        <p>The scope for Phase 1 is focused on helping qualified talent find jobs with no friction or barrier to entry.</p>
 
-          <p>As part of this, we are currently doing user sessions to understand needs and pain points for:</p>
+        <p>As part of this, we are currently doing user sessions to understand needs and pain points for:</p>
 
-          <ol>
-            <li>Individuals (trying to find a job across various skill sets/experiences)</li>
+        <ol>
+          <li>Individuals (trying to find a job across various skill sets/experiences)</li>
 
-            <li>Businesses (looking for talent that matches their needs)</li>
+          <li>Businesses (looking for talent that matches their needs)</li>
 
-            <li>Educational Institutions (seeking to find the right criteria to ensure students are marketable for the workforce)</li>
-          </ol>
+          <li>Educational Institutions (seeking to find the right criteria to ensure students are marketable for the workforce)</li>
+        </ol>
 
-          <p>If you are interested in being part of the user group to gather requirements for this program, fill out the signup form.<p>
+        <p>If you are interested in being part of the user group to gather requirements for this program, fill out the signup form.<p>
 
   - program:
       name: "SDTH Tech Talks"
