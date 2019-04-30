@@ -186,7 +186,7 @@ allPrograms:
 
           <li>Provide free or discounted resources (i.e., collaboration space, food, speakers, other services) to individuals in need.</li>
 
-          <li>Promote the concept of collaboration over competition by providing visibility to various program and events encouraging partnerships.<li>
+          <li>Promote the concept of collaboration over competition by providing visibility to various program and events encouraging partnerships.</li>
         </ol>
 
         <p>How to get involved:</p>
