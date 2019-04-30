@@ -8,7 +8,7 @@ const Carousel = ({ images }) => {
   return (
     <NukaCarousel
         autoplay
-        autoplayInterval={9000}
+        autoplayInterval={10000}
         wrapAround
         easing="easeQuadInOut"
         renderCenterLeftControls={({ previousSlide }) => (

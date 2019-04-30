@@ -84,19 +84,19 @@ export const ProgramCard = styled.div`
   margin: 1.5rem 1rem;
   width: 30%;
 
-  .closed {
-    display: none;
-    height: 0px;
+  .details {
+    max-height: 0px;
     overflow: hidden;
-    transition: height 1s ease-out;
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
   }
 
   .open {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: fit-content;
-    transition: height 1s ease-out;
+    max-height: 1500px;
+    opacity: 1;
   }
 
   a {

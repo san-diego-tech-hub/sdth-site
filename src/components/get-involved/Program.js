@@ -38,7 +38,7 @@ function Program({ logo, program }) {
         <Spacer />
         <ToggleDetails onClick={toggleDetails}>{isOpen ? "HIDE" : "SEE"} DETAILS</ToggleDetails>
       </CardHeader>
-      <div className={isOpen ? "open" : "closed"}>
+      <div className={`details ${isOpen ? "open" : ""}`}>
         <Html className="program-description">{program.description}</Html>
         <Spacer />
         <Contacts>
