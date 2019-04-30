@@ -150,7 +150,7 @@ allPrograms:
 
         <p>If you are an open source maintainer, or if you are familiar with a particular project, Open Source Saturday is a great opportunity to onboard new contributors. If you are a new developer who would like to learn how to contribute to open source, you will find experienced contributors who can provide guidance. If you are an experienced developer yourself, you will find a motivating, collaborative atmosphere to have fun making new contributions. And if you are not a programmer, the group could use your insights into visual design, user experience, accessibility, and more.</p>
 
-        <p><b>HOW TO GET INVOLVED:</b></p>
+        <p><b>How to get involved:</b></p>
 
         <ol>
           <li>Attend Open Source Saturday from 10AM - 2PM at <a rel="noopener noreferrer" target="_blank" href="https://maps.app.goo.gl/a34HK">Open Source Maker Labs in Vista</a></li>
@@ -253,7 +253,7 @@ allPrograms:
 
         <p>Our program is about creating a hub of sponsors to support organizations within the San Diego technology ecosystem.</p>
 
-        <p><b>HOW TO GET INVOLVED:</b></p>
+        <p><b>How to get involved:</b></p>
 
         <p>Reach out to one of the community pillar members who can answer how your institution can support our initiative.</p>
 ---
