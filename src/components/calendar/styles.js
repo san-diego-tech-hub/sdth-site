@@ -30,16 +30,19 @@ export const StyledDetails = styled.aside`
     background: ${props => props.theme.primary};
     color: white;
     padding: 1.6rem;
+
     div {
       display: flex;
       flex-direction: column;
       text-align: left;
     }
+
     .start {
       font-size: 1rem;
       font-weight: normal;
       display: inline;
     }
+
     button {
       padding: 0;
       border-radius: 0.5rem;
@@ -47,15 +50,16 @@ export const StyledDetails = styled.aside`
       background: none;
       color: white;
     }
+
     .close-details {
-        color: rgba(255, 255, 255, 0.5);
-        margin-left: 15px;
-        padding: 5px 10px;
-        &:hover {
-          color: white;
-          cursor: pointer;
-        }
+      color: rgba(255, 255, 255, 0.5);
+      margin-left: 15px;
+      padding: 5px 10px;
+      &:hover {
+        color: white;
+        cursor: pointer;
       }
+    }
   }
   .content {
     font-size: 1.2rem;

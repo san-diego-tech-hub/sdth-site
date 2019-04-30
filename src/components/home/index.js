@@ -1,21 +1,24 @@
 import React from "react"
 import Img from "gatsby-image"
 import { graphql, useStaticQuery } from "gatsby"
-import communityIcon from "Images/icon_community.svg"
-import educationIcon from "Images/icon_education.svg"
-import inclusionIcon from "Images/icon_inclusion.svg"
-import innovationIcon from "Images/icon_innovation.svg"
-import talentIcon from "Images/icon_talent.svg"
+import communityIcon from "Images/misc/icon_community.svg"
+import educationIcon from "Images/misc/icon_education.svg"
+import inclusionIcon from "Images/misc/icon_inclusion.svg"
+import innovationIcon from "Images/misc/icon_innovation.svg"
+import talentIcon from "Images/misc/icon_talent.svg"
 import Html from "Common/Html"
 import HomeTitle from "./HomeTitle"
+import Carousel from "./Carousel"
+import GetInvolved from "./GetInvolved"
 import {
+  CarouselStyle,
   Collaboration,
   CollabIcon,
   PillarDescription,
   PillarIcon,
   PillarRow,
   ThreeStep,
-  WhatIsSDTH
+  WhatIsSDTH,
 } from "./styles"
 
 const pillarIcons = {
@@ -23,12 +26,13 @@ const pillarIcons = {
   education: educationIcon,
   inclusion: inclusionIcon,
   innovation: innovationIcon,
-  talent: talentIcon
+  talent: talentIcon,
 }
 
 function Home() {
   const {
     markdownRemark: { frontmatter },
+    carouselImages,
     ...icons
   } = useStaticQuery(homeQuery)
 
@@ -46,6 +50,13 @@ function Home() {
           </div>
         </WhatIsSDTH>
       </HomeTitle>
+
+      <CarouselStyle className="no-top-margin">
+        <Carousel images={carouselImages.edges} />
+      </CarouselStyle>
+
+      <GetInvolved />
+
       <Collaboration>
         <h2>{frontmatter.collabTitle}</h2>
         <Html style={{ fontSize: "1.7rem", margin: "0 auto", maxWidth: "500px", padding: "0 1rem" }}>
@@ -132,6 +143,15 @@ const homeQuery = graphql`
       }
     }
 
+    carouselImages: allFile(filter: { sourceInstanceName: { eq: "carouselImages" } }) {
+      edges {
+        node {
+          relativePath
+          ...childSharp
+        }
+      }
+    }
+
     connect: file(relativePath: { eq: "connect-new.png" }) {
       ...childSharp
     }
@@ -139,6 +159,7 @@ const homeQuery = graphql`
     empower: file(relativePath: { eq: "empower-new.png" }) {
       ...childSharp
     }
+
     inform: file(relativePath: { eq: "inform-new.png" }) {
       ...childSharp
     }
