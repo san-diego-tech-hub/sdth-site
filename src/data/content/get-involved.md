@@ -20,13 +20,17 @@ allPrograms:
             url: "docs.google.com/forms/d/e/1FAIpQLSeIj25U0pLgLsuud0JWSAxQs_3mkcLI0PCC0pdAmePZb-o1Xg/viewform"
       description: >-
 
-        <p>The Be the Boss program targets passionate underrepresented youth that do not readily have access to business and entrepreneurial resources.</p>
+        <p>The goal of the Be the Boss program is to show that being an entrepreneur doesn’t take a lot of money or fancy degrees.</p>
 
-        <p>The vision is to create a network on young entrepreneurs that will learn from one another, each others, and spread the message that anyone can be their own boss.</p>
+        <p>The six week program is targeted at passionate underrepresented youth that do not readily have access to business and entrepreneurial resources to help them formulate a legitimate business idea.</p>
 
-        <p><b>How to get involved:</b></p>
+        <p>The vision is to create a network of young entrepreneurs that will learn from one another, teach each other, and spread the message that anyone can be their own boss.</p>
 
-        <p>We are currently preparing for our pilot program which starts in June. Click the button above to fill out the online form, and we will be in contact.</p>
+        <p>In this program, the students will learn the skills to take a passion, build a pitch, learn marketing techniques, and make their business idea a reality.  The goal is to build confidence, pride, and hope for these students.</p>
+
+        <p>How to get involved:</p>
+
+        <p>We are currently preparing for our pilot program which starts in June. Click the button above to fill out the online form, and we will be in contact to fill in any remaining spots.</p>
 
   - program:
       name: "Bright Ideas"
@@ -72,18 +76,20 @@ allPrograms:
             url: "docs.google.com/forms/d/e/1FAIpQLSdiQP1ccPst7SczWQl7WY6UBsv3YtJFYY_dtsRqWhsWesIkwA/viewform"
       description: >-
 
-        <p>The LaunchPad program is geared to helping startup companies and young entrepreneur build the fundamental knowledge towards a successful launch based by giving access to free resources and support.</p>
+        <p>The LaunchPad program is geared towards helping startup companies and entrepreneurs build the fundamental knowledge required to launch a successful company.</p>
 
-        <p>The end goal is to prepare you to pitch your idea in front of investors for funding. Either way, the knowledge gain will be able to set you on the right path creating your own destiny.</p>
+        <p>Our goal is to provide access to free resources and support in building a pitch deck, defining a marketing plan, and doing any competitive analytics.  Basically we want to help make sure your idea is sound.</p>
 
-        <p>There are multiple ways you can get involved.</p>
+        <p>Success for this program is getting you to the stage where you can present your idea in front of investors for potential funding.  With the knowledge gained, you will have the ability to set your own path of creating your destiny.</p>
+
+        <p>There are multiple ways you can get involved:</p>
 
         <ol>
-          <li>We are looking for your startup and entrepreneurs that want to be part of the program as we are currently preparing for our pilot launch.</li>
+          <li>We are looking for startup and entrepreneurs that want to be part of the program as we are currently preparing for our pilot launch.</li>
 
-          <li>We are looking mentors and coaches.</li>
+          <li>We are looking individuals and companies to help be mentors and coaches.</li>
 
-          <li>We are looking for inventors.</p>
+          <li>We are looking for partner inventors.</li>
         </ol>
 
         <p>If you would like to get involved in this program, please sign up and someone will be in contact with you.</p>
@@ -144,7 +150,7 @@ allPrograms:
 
         <p>If you are an open source maintainer, or if you are familiar with a particular project, Open Source Saturday is a great opportunity to onboard new contributors. If you are a new developer who would like to learn how to contribute to open source, you will find experienced contributors who can provide guidance. If you are an experienced developer yourself, you will find a motivating, collaborative atmosphere to have fun making new contributions. And if you are not a programmer, the group could use your insights into visual design, user experience, accessibility, and more.</p>
 
-        <p><b>How to get involved:</b></p>
+        <p><b>HOW TO GET INVOLVED:</b></p>
 
         <ol>
           <li>Attend Open Source Saturday from 10AM - 2PM at <a rel="noopener noreferrer" target="_blank" href="https://maps.app.goo.gl/a34HK">Open Source Maker Labs in Vista</a></li>
@@ -165,37 +171,39 @@ allPrograms:
             url: "docs.google.com/forms/d/e/1FAIpQLSeUiRKfZQfcWKS-P9UHilxhKbj5FRyQ0bnxgLlmjSC1ZzUvtw/viewform"
       description: >-
 
-        <p>The SDTH Network is a community driven project aimed at connecting needs to opportunities. There are two points to the network:</p>
+          <p>The SDTH Network is a community driven project aimed at connecting needs to opportunities. There are two points to the network:</p>
 
-        <ol>
-          <li>Community: This includes individuals, businesses, organizations that have an interest in finding jobs, sourcing talent or making a difference.</li>
+          <ol>
+            <li>Community: This includes individuals, businesses, organizations that have an interest in finding jobs, sourcing talent or making a difference.</li>
 
-          <li>Needs and Opportunities: This includes providing resources, experience, and access to events based on the community need.</li>
-        </ol>
+            <li>Needs and Opportunities: This includes providing resources, experience, and access to events based on the need of the community.</li>
+          </ol>
 
-        <p>The problems we want to solve include:</p>
+          <p>The problems we want to solve include:</p>
 
-        <ol>
-          <li>Help talent (i.e., skilled, transitioning, or new) and qualified jobs with no friction or barrier to entry.</li>
+          <ol>
+            <li>Help talent (i.e., skilled, transitioning, or new) find qualified jobs with no friction or barrier to entry.</li>
 
-          <li>Provide free or discounted resources (i.e., collaboration space, food, speakers, other services) to individuals in need.</li>
+            <li>Provide free or discounted resources (i.e., collaboration space, food, speakers, other services) to individuals in need.</li>
 
-          <li>Promote the concept of collaboration over competition by providing visibility to various program and events encouraging partnerships.</li>
-        </ol>
+            <li>Promote the concept of collaboration over competition by providing visibility to various program and events encouraging partnerships.<li>
+          </ol>
 
-        <p><b>How to get involved:</b></p>
+          <p>How to get involved:</p>
 
-        <p>The development team is focused on helping qualified talent find jobs with no friction or barrier to entry.</p>
+          <p>The scope for Phase 1 is focused on helping qualified talent find jobs with no friction or barrier to entry.</p>
 
-        <p>As part of this, we are currently doing a user sessions to understand needs and pain points for:</p>
+          <p>As part of this, we are currently doing user sessions to understand needs and pain points for:</p>
 
-        <ol>
-          <li>individuals (trying to find a job across various skill sets/experiences)</li>
-          <li>businesses (looking for talent that matches their needs), and educational</li>
-          <li>institutions (seeking to find the right criteria to ensure their students are marketable for the workforce)</li>
-        </ol>
+          <ol>
+            <li>Individuals (trying to find a job across various skill sets/experiences)</li>
 
-        <p>If you are interested in being part of the user group to gather requirements for this program, fill out the signup form.</p>
+            <li>Businesses (looking for talent that matches their needs)</li>
+
+            <li>Educational Institutions (seeking to find the right criteria to ensure students are marketable for the workforce)</li>
+          </ol>
+
+          <p>If you are interested in being part of the user group to gather requirements for this program, fill out the signup form.<p>
 
   - program:
       name: "SDTH Tech Talks"
@@ -245,7 +253,7 @@ allPrograms:
 
         <p>Our program is about creating a hub of sponsors to support organizations within the San Diego technology ecosystem.</p>
 
-        <p><b>How to get involved:</b></p>
+        <p><b>HOW TO GET INVOLVED:</b></p>
 
-        <p>Reach out to one of the community pillar members who can answer how your institution can support our initiative</p>
+        <p>Reach out to one of the community pillar members who can answer how your institution can support our initiative.</p>
 ---
