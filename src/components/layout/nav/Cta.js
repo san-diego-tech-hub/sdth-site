@@ -32,7 +32,7 @@ const Li = styled.li`
   a {
     background: ${props => props.theme.greenDark};
     border-bottom: 1rem solid transparent;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 3px 3px 4px rgba(0,0,0,0.2);
 
     &:hover, &:focus-within {
