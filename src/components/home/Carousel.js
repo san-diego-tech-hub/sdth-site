@@ -12,12 +12,12 @@ const Carousel = ({ images }) => {
         wrapAround
         easing="easeQuadInOut"
         renderCenterLeftControls={({ previousSlide }) => (
-          <Button type="button" onClick={previousSlide}>
+          <Button aria-label="previous image" type="button" onClick={previousSlide}>
             <FontAwesomeIcon icon="chevron-left" />
           </Button>
         )}
         renderCenterRightControls={({ nextSlide }) => (
-          <Button type="button" onClick={nextSlide}>
+          <Button aria-label="next image" type="button" onClick={nextSlide}>
             <FontAwesomeIcon icon="chevron-right" />
           </Button>
         )}
