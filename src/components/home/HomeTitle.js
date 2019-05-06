@@ -14,21 +14,9 @@ const HomeTitle = ({ children }) => (
 
 const ConduitsFlow = styled.div`
   background: linear-gradient(#5230B5, 70%, #814AC6);
-  height: 300px;
+  height: 100px;
   margin-top: ${NAV_HEIGHT};
   width: 100%;
-
-  @media(max-width: 1200px) {
-    height: 200px;
-  }
-
-  @media(max-width: 500px) {
-    height: 250px;
-  }
-
-  @media(max-width: 350px) {
-    height: 300px;
-  }
 `
 
 const Img = styled.div`
@@ -40,12 +28,6 @@ const Img = styled.div`
   flex-direction: column;
   height: 100%;
   justify-content: flex-end;
-  padding: 10rem;
-
-  @media (max-width: 900px) {
-    background-position-y: -5rem;
-    padding: 10rem 0;
-  }
 `
 
 const WhiteCurve = styled.div`
@@ -56,10 +38,6 @@ const WhiteCurve = styled.div`
   margin: auto;
   margin-top: -50px;
   width: 120vw;
-
-  @media(max-width: 1200px) {
-    display: none;
-  }
 `
 
 export default HomeTitle

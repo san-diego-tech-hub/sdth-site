@@ -9,6 +9,7 @@ import talentIcon from "Images/misc/icon_talent.svg"
 import Html from "Common/Html"
 import HomeTitle from "./HomeTitle"
 import Carousel from "./Carousel"
+import Video from "./Video"
 import GetInvolved from "./GetInvolved"
 import {
   CarouselStyle,
@@ -18,7 +19,6 @@ import {
   PillarIcon,
   PillarRow,
   ThreeStep,
-  WhatIsSDTH,
 } from "./styles"
 
 const pillarIcons = {
@@ -38,22 +38,20 @@ function Home() {
 
   return (
     <main>
-      <HomeTitle>
-        <WhatIsSDTH>
-          <div style={{ maxWidth: "570px", zIndex: 2 }}>
-            <h2 style={{ color: "white" }}>
-              {frontmatter.mainTitle}
-            </h2>
-            <Html style={{ fontSize: "1.5rem" }}>
-              {frontmatter.mainDescription}
-            </Html>
-          </div>
-        </WhatIsSDTH>
-      </HomeTitle>
+      <HomeTitle />
+
+      <Video />
 
       <CarouselStyle className="no-top-margin">
         <Carousel images={carouselImages.edges} />
       </CarouselStyle>
+
+      <Collaboration>
+        <h2>{frontmatter.mainTitle}?</h2>
+        <Html style={{ fontSize: "1.7rem", margin: "0 auto" }}>
+          {frontmatter.mainDescription}
+        </Html>
+      </Collaboration>
 
       <GetInvolved />
 
