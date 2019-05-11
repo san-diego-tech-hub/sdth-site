@@ -9,7 +9,6 @@ const Video = () => {
     <VideoStyle>
       <iframe
         title="What is San Diego Tech Hub?"
-        src="https://player.vimeo.com/video/333343580?byline=0&portrait=0"
         width={VIDEO_WIDTH}
         height={VIDEO_HEIGHT}
         allow="autoplay; fullscreen"
@@ -25,12 +24,12 @@ const VideoStyle = styled.section`
   justify-content: center;
   width: 100vw !important;
   margin-top: 15px !important;
-  
+
   iframe {
     box-shadow: 3px 3px 5px grey;
     border: 0;
   }
-  
+
   @media (max-width: ${VIDEO_WIDTH}px) {
     iframe {
       box-shadow: none;

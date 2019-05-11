@@ -1,6 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
 import { graphql, useStaticQuery } from "gatsby"
+import ReactPlayer from "react-player"
 import communityIcon from "Images/misc/icon_community.svg"
 import educationIcon from "Images/misc/icon_education.svg"
 import inclusionIcon from "Images/misc/icon_inclusion.svg"
@@ -9,7 +10,7 @@ import talentIcon from "Images/misc/icon_talent.svg"
 import Html from "Common/Html"
 import HomeTitle from "./HomeTitle"
 import Carousel from "./Carousel"
-import Video from "./Video"
+// import Video from "./Video"
 import GetInvolved from "./GetInvolved"
 import {
   CarouselStyle,
@@ -40,7 +41,7 @@ function Home() {
     <main>
       <HomeTitle />
 
-      <Video />
+      <ReactPlayer width="90%" url="https://player.vimeo.com/video/333343580?byline=0&portrait=0" />
 
       <CarouselStyle className="no-top-margin">
         <Carousel images={carouselImages.edges} />
