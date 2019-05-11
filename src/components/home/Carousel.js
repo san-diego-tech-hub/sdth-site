@@ -4,8 +4,8 @@ import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Img from "gatsby-image"
 
-const Carousel = ({ images }) => {
-  return (
+const Carousel = ({ images }) => (
+  <Container>
     <NukaCarousel
         autoplay
         autoplayInterval={10000}
@@ -33,8 +33,19 @@ const Carousel = ({ images }) => {
         )
       })}
     </NukaCarousel>
-  )
-}
+  </Container>
+)
+
+const Container = styled.div`
+  margin: 7rem auto;
+  max-width: 1200px;
+  width: 60%;
+
+  @media (max-width: 960px) {
+    margin-top: 2rem;
+    width: 100vw;
+  }
+`
 
 const Button = styled.button`
   background: transparent;

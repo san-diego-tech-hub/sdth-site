@@ -352,6 +352,7 @@ collections:
                       - name: "form"
                         label: "Form"
                         widget: "object"
+                        fields:
                           - { name: "label", label: "Label" }
                           - { name: "url", label: "URL" }
                   - {

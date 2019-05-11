@@ -17,6 +17,10 @@ const ConduitsFlow = styled.div`
   height: 100px;
   margin-top: ${NAV_HEIGHT};
   width: 100%;
+
+  @media (max-width: 960px) {
+    height: 0;
+  }
 `
 
 const Img = styled.div`
@@ -38,6 +42,10 @@ const WhiteCurve = styled.div`
   margin: auto;
   margin-top: -50px;
   width: 120vw;
+
+  @media (max-width: 960px) {
+    display: none;
+  }
 `
 
 export default HomeTitle
