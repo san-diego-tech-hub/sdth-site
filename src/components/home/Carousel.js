@@ -37,7 +37,7 @@ const Carousel = ({ images }) => (
 )
 
 const Container = styled.div`
-  margin: 7rem auto;
+  margin: 0 auto;
   max-width: 1200px;
   width: 60%;
 

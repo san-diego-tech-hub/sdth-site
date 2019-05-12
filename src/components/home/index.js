@@ -40,16 +40,8 @@ function Home() {
       <HomeTitle />
 
       <Video />
-      <Carousel images={carouselImages.edges} />
-
-      <Collaboration>
-        <h2>{frontmatter.mainTitle}?</h2>
-        <Html style={{ fontSize: "1.7rem", margin: "0 auto" }}>
-          {frontmatter.mainDescription}
-        </Html>
-      </Collaboration>
-
       <GetInvolved />
+      <Carousel images={carouselImages.edges} />
 
       <Collaboration>
         <h2>{frontmatter.collabTitle}</h2>
