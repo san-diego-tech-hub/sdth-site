@@ -1,34 +1,19 @@
 import styled from "styled-components"
 import { Link } from "gatsby"
 
-export const CarouselStyle = styled.section`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 40rem;
-  width: 100vw !important;
-
-  &.no-top-margin {
-    margin-top: 0;
-  }
-
-  @media (max-width: 1600px) {
-    padding: 0 20rem;
-  }
-
-  @media (max-width: 1200px) {
-    padding: 0;
-  }
-`
 export const Collaboration = styled.div`
   max-width: 800px;
-  margin: 2rem auto 5rem;
+  margin: 9rem auto 0;
   padding: 0 4rem;
   text-align: center;
   width: 100vw;
 
+  p {
+    margin: 0;
+  }
+
   @media (max-width: 450px) {
-    margin-top: -1rem;
+    margin-top: 3rem;
     padding: 0;
   }
 `
@@ -144,11 +129,12 @@ export const ThreeStep = styled.section`
   h3 {
     font-size: 3.2rem;
     margin-top: 1.6rem;
-    color: ${props => props.theme.primaryDark};
+    color: ${props => props.theme.primaryMuted};
     font-weight: normal;
   }
 
   .description {
+    color: #444;
     font-size: 1.6rem;
     text-align: center;
   }

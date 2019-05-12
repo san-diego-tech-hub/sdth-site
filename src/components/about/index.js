@@ -16,7 +16,8 @@ import {
   ChallengesSection,
   FounderSection,
   RebuildContent,
-  RebuildSection
+  RebuildSection,
+  WhatisSDTH
 } from "./styles"
 
 const icons = {
@@ -35,6 +36,13 @@ function About() {
 
   return (
     <main>
+      <WhatisSDTH>
+        <h2>{frontmatter.whatisSDTHTitle}</h2>
+        <Html style={{ fontSize: "1.7rem", margin: "0 auto" }}>
+          {frontmatter.whatisSDTHDescription}
+        </Html>
+      </WhatisSDTH>
+
       <FounderSection>
         <h2>{frontmatter.mainTitle}</h2>
 
@@ -170,6 +178,8 @@ const aboutQuery = graphql`
   query ABOUT_QUERY {
     markdownRemark(frontmatter: { path: { eq: "about" } }) {
       frontmatter {
+        whatisSDTHTitle
+        whatisSDTHDescription
         mainTitle
         aboutTitle
         aboutDescription

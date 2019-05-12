@@ -4,20 +4,20 @@ import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Img from "gatsby-image"
 
-const Carousel = ({ images }) => {
-  return (
+const Carousel = ({ images }) => (
+  <Container>
     <NukaCarousel
         autoplay
         autoplayInterval={10000}
         wrapAround
         easing="easeQuadInOut"
         renderCenterLeftControls={({ previousSlide }) => (
-          <Button type="button" onClick={previousSlide}>
+          <Button aria-label="previous image" type="button" onClick={previousSlide}>
             <FontAwesomeIcon icon="chevron-left" />
           </Button>
         )}
         renderCenterRightControls={({ nextSlide }) => (
-          <Button type="button" onClick={nextSlide}>
+          <Button aria-label="next image" type="button" onClick={nextSlide}>
             <FontAwesomeIcon icon="chevron-right" />
           </Button>
         )}
@@ -33,8 +33,19 @@ const Carousel = ({ images }) => {
         )
       })}
     </NukaCarousel>
-  )
-}
+  </Container>
+)
+
+const Container = styled.div`
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 60%;
+
+  @media (max-width: 960px) {
+    margin-top: 2rem;
+    width: 100vw;
+  }
+`
 
 const Button = styled.button`
   background: transparent;

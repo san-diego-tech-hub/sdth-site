@@ -16,7 +16,7 @@ const Button = styled(Link)`
   box-shadow: 2px 2px 3px rgba(0,0,0,0.2);
   color: white;
   font-size: 2.5rem;
-  margin: 0 auto 5rem;
+  margin: 0 auto;
   padding: 1rem 4rem;
   text-decoration: none;
 
@@ -29,6 +29,7 @@ const Button = styled(Link)`
 const Container = styled.div`
   display: flex;
   justify-content: center;
+  margin: 4rem 0;
 `
 
 export default GetInvolved

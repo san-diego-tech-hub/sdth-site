@@ -1,6 +1,10 @@
 ---
 path: "about"
 
+whatisSDTHTitle: What is San Diego Tech Hub?
+whatisSDTHDescription: >-
+  San Diego Tech Hub represents a movement aimed at changing the perception of the San Diego tech ecosystem.  Our focus is to be a conduit for change connecting businesses, organizations, and individuals, leveraging their resources and talents to build a stronger San Diego tech community through collaboration.
+
 mainTitle: "Founder's Story"
 aboutTitle: "San Diego Tech Hub"
 aboutDescription: >-
