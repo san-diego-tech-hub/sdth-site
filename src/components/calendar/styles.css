@@ -16,14 +16,14 @@
 }
 
 .rbc-calendar .rbc-toolbar {
-  background: #623aac;
+  background: #5833b6;
   border-radius: 5px;
   padding: 1rem;
   justify-content: flex-start;
 }
 
 .rbc-calendar .rbc-toolbar .rbc-btn-group button {
-  background-color: #623aac;
+  background-color: #5833b6;
   color: #ffffff;
 }
 
