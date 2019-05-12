@@ -165,8 +165,13 @@ export const WhatisSDTH = styled.div`
   text-align: center;
   width: 100vw;
 
+  p {
+    color: #555;
+    font-size: 2rem;
+  }
+
   @media (max-width: 450px) {
     margin-top: -1rem;
-    padding: 0;
+    padding: 5px;
   }
 `
