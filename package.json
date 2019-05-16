@@ -83,6 +83,7 @@
     "react-dom": "^16.8.1",
     "react-helmet": "^5.2.0",
     "react-modal": "^3.8.1",
+    "react-responsive-embed": "^2.1.0",
     "react-reveal": "^1.2.2",
     "react-toastify": "^4.5.2",
     "react-typography": "^0.16.18",
