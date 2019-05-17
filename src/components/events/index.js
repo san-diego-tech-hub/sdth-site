@@ -94,7 +94,7 @@ EventsComponent.propTypes = {
 }
 
 const Button = styled.button`
-  background: ${props => props.theme.lightPurple};
+  background: #5833b6;
   border: 2px solid transparent;
   border-radius: 0.5rem;
   color: white;
