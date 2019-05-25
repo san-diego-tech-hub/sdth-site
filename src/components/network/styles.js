@@ -1,8 +1,6 @@
 import styled from "styled-components"
 
-
 export const NetworkContainer = styled.div`
-
 margin: 0 auto;
 max-width: 1200px;
 width: 1200px;
@@ -55,7 +53,7 @@ export const NetworkSection = styled.section`
     position: relative;
     display: block;
     height: 50vh;
-    color: white; 
+    color: white;
     opacity: 1;
     margin-top: -35vh;
     margin-left: 0;
@@ -64,13 +62,13 @@ export const NetworkSection = styled.section`
   .network-logo {
     display: block;
     height: 23vh;
-    color: white; 
+    color: white;
     opacity: 1;
     margin: -5vh auto;
   }
   .network-subHeading {
     color: white;
-    font-size: 1.6rem; 
+    font-size: 1.6rem;
   }
 `
 
