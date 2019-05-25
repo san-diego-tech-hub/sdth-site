@@ -22,7 +22,8 @@
     "Steph Huynh",
     "Peter Tiszavolgyi",
     "Dragan Lukic",
-    "Erick Ochoa"
+    "Erick Ochoa",
+    "Sashank Pindiproli"
   ],
   "scripts": {
     "build": "cross-env LOCAL_BUILD=true gatsby build",
