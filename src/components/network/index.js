@@ -6,15 +6,6 @@ import {
   NetworkContainer, NetworkSection, NetworkLinks
 } from "./styles"
 
-/* const icons = {
-  goals,
-  heart,
-  tasks,
-  silos,
-  judge,
-  conversations
-} */
-
 function Network() {
   return (
     <main>
