@@ -107,7 +107,19 @@ const plugins = [
       entities: ["events", "venues"],
     },
   },
-  "gatsby-plugin-netlify-cms"
+  "gatsby-plugin-netlify-cms",
+  {
+    resolve: "gatsby-source-graphql",
+    options: {
+      typeName: "HASURA",
+      fieldName: "hasura",
+      url: "https://sdth-db.herokuapp.com/v1/graphql",
+      headers: {
+        "x-hasura-admin-secret": process.env.GATSBY_HASURA_ADMIN_SECRET,
+      },
+      refetchInterval: 10,
+    },
+  }
 ]
 
 if (process.env.NODE_ENV === "production") {
