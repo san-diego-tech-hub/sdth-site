@@ -94,7 +94,7 @@ EventsComponent.propTypes = {
 }
 
 const Button = styled.button`
-  background: ${props => props.theme.primary};
+  background: #5833b6;
   border: 2px solid transparent;
   border-radius: 0.5rem;
   color: white;
@@ -102,7 +102,7 @@ const Button = styled.button`
   padding: 1rem;
   width: 100%;
   &:hover, &:focus {
-    background: ${props => Color(props.theme.primary).lighten(0.1).toString()};
+    background: ${props => Color(props.theme.lightPurple).lighten(0.1).toString()};
     border: 2px solid #3e1575;
     cursor: pointer;
   }

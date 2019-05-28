@@ -157,3 +157,21 @@ export const RebuildContent = styled.section`
     }
   }
 `
+
+export const WhatisSDTH = styled.div`
+  max-width: 800px;
+  margin: 2rem auto 5rem;
+  padding: 0 4rem;
+  text-align: center;
+  width: 100vw;
+
+  p {
+    color: #555;
+    font-size: 2rem;
+  }
+
+  @media (max-width: 450px) {
+    margin-top: -1rem;
+    padding: 5px;
+  }
+`

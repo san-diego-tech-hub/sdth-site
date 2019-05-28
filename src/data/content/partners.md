@@ -50,6 +50,10 @@ partners:
       name: "Operation Code"
       website: "https://operationcode.org/"
       logo: "operationcode"
+  - partner:
+      name: "Startup San Diego"
+      website: "https://sandiegostartupweek.com/"
+      logo: "startupsd"
 
 sponsorsTitle: "Sponsorship Organization"
 sponsorsDescription: >-
@@ -73,4 +77,8 @@ sponsors:
       name: "Scale Matrix"
       website: "https://www.scalematrix.com"
       logo: "scaleMatrix"
+  - sponsor:
+      name: "AIS"
+      website: "https://www.americanis.net/"
+      logo: "ais"
 ---

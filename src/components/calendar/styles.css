@@ -9,6 +9,36 @@
   border: 1.5px solid transparent !important;
 }
 
+.rbc-toolbar .rbc-toolbar-label {
+  color: #ffffff;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.rbc-calendar .rbc-toolbar {
+  background: #5833b6;
+  border-radius: 5px;
+  padding: 1rem;
+  justify-content: flex-start;
+}
+
+.rbc-calendar .rbc-toolbar .rbc-btn-group button {
+  background-color: #5833b6;
+  color: #ffffff;
+}
+
+.rbc-calendar .rbc-toolbar .rbc-btn-group button:hover,
+.rbc-calendar .rbc-toolbar .rbc-btn-group button:focus,
+.rbc-calendar .rbc-toolbar .rbc-btn-group span button.rbc-active {
+  background-color: #ffffff;
+  color: #5230b5;
+}
+
+.rbc-calendar .rbc-toolbar .rbc-btn-group button.rbc-active {
+  background-color: #ffffff;
+  color: #5230b5;
+}
+
 .rbc-event:hover,
 .rbc-event:focus {
   background-color: #1d9e57 !important;
@@ -26,11 +56,6 @@
   border: 1.5px solid #18633a;
 }
 
-.rbc-active {
-  background-color: #5230b5 !important;
-  color: white !important;
-}
-
 .rbc-toolbar .rbc-btn-group button:hover {
   cursor: pointer;
 }
@@ -40,4 +65,20 @@
   position: fixed;
   height: 100%;
   width: 100%;
+}
+
+@media screen and (max-width: 590px) {
+  .rbc-toolbar {
+    flex-direction: column;
+  }
+
+  .rbc-toolbar .rbc-toolbar-label {
+    margin: 0.5rem 0;
+    order: 1;
+  }
+
+  .rbc-toolbar .rbc-btn-group {
+    margin: 0.5rem 0;
+    order: 2;
+  }
 }

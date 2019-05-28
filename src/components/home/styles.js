@@ -3,13 +3,17 @@ import { Link } from "gatsby"
 
 export const Collaboration = styled.div`
   max-width: 800px;
-  margin: 2rem auto 5rem;
+  margin: 9rem auto 0;
   padding: 0 4rem;
   text-align: center;
   width: 100vw;
 
+  p {
+    margin: 0;
+  }
+
   @media (max-width: 450px) {
-    margin-top: -1rem;
+    margin-top: 3rem;
     padding: 0;
   }
 `
@@ -125,11 +129,12 @@ export const ThreeStep = styled.section`
   h3 {
     font-size: 3.2rem;
     margin-top: 1.6rem;
-    color: ${props => props.theme.primaryDark};
+    color: ${props => props.theme.primaryMuted};
     font-weight: normal;
   }
 
   .description {
+    color: #444;
     font-size: 1.6rem;
     text-align: center;
   }
@@ -169,12 +174,25 @@ export const WhatIsSDTH = styled.div`
     margin-left: 25%;
   }
 
+  @media(max-width: 1200px) {
+    margin-bottom: -13rem;
+  }
+
   @media(max-width: 1040px) {
     margin-left: 0;
   }
 
   @media(max-width: 500px) {
+    margin-bottom: -9rem;
     padding: 0 2rem;
     width: 100vw;
+  }
+
+  @media(max-width: 415px) {
+    margin-bottom: -10.5rem;
+  }
+
+  @media(max-width: 350px) {
+    margin-bottom: -10.5rem;
   }
 `

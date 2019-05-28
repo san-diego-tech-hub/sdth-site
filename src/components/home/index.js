@@ -1,13 +1,16 @@
 import React from "react"
 import Img from "gatsby-image"
 import { graphql, useStaticQuery } from "gatsby"
-import communityIcon from "Images/icon_community.svg"
-import educationIcon from "Images/icon_education.svg"
-import inclusionIcon from "Images/icon_inclusion.svg"
-import innovationIcon from "Images/icon_innovation.svg"
-import talentIcon from "Images/icon_talent.svg"
+import communityIcon from "Images/misc/icon_community.svg"
+import educationIcon from "Images/misc/icon_education.svg"
+import inclusionIcon from "Images/misc/icon_inclusion.svg"
+import innovationIcon from "Images/misc/icon_innovation.svg"
+import talentIcon from "Images/misc/icon_talent.svg"
 import Html from "Common/Html"
 import HomeTitle from "./HomeTitle"
+import Carousel from "./Carousel"
+import Video from "./Video"
+import GetInvolved from "./GetInvolved"
 import {
   Collaboration,
   CollabIcon,
@@ -15,7 +18,6 @@ import {
   PillarIcon,
   PillarRow,
   ThreeStep,
-  WhatIsSDTH
 } from "./styles"
 
 const pillarIcons = {
@@ -23,29 +25,24 @@ const pillarIcons = {
   education: educationIcon,
   inclusion: inclusionIcon,
   innovation: innovationIcon,
-  talent: talentIcon
+  talent: talentIcon,
 }
 
 function Home() {
   const {
     markdownRemark: { frontmatter },
+    carouselImages,
     ...icons
   } = useStaticQuery(homeQuery)
 
   return (
     <main>
-      <HomeTitle>
-        <WhatIsSDTH>
-          <div style={{ maxWidth: "570px", zIndex: 2 }}>
-            <h2 style={{ color: "white" }}>
-              {frontmatter.mainTitle}
-            </h2>
-            <Html style={{ fontSize: "1.5rem" }}>
-              {frontmatter.mainDescription}
-            </Html>
-          </div>
-        </WhatIsSDTH>
-      </HomeTitle>
+      <HomeTitle />
+
+      <Video />
+      <GetInvolved />
+      <Carousel images={carouselImages.edges} />
+
       <Collaboration>
         <h2>{frontmatter.collabTitle}</h2>
         <Html style={{ fontSize: "1.7rem", margin: "0 auto", maxWidth: "500px", padding: "0 1rem" }}>
@@ -132,6 +129,15 @@ const homeQuery = graphql`
       }
     }
 
+    carouselImages: allFile(filter: { sourceInstanceName: { eq: "carouselImages" } }) {
+      edges {
+        node {
+          relativePath
+          ...childSharp
+        }
+      }
+    }
+
     connect: file(relativePath: { eq: "connect-new.png" }) {
       ...childSharp
     }
@@ -139,6 +145,7 @@ const homeQuery = graphql`
     empower: file(relativePath: { eq: "empower-new.png" }) {
       ...childSharp
     }
+
     inform: file(relativePath: { eq: "inform-new.png" }) {
       ...childSharp
     }

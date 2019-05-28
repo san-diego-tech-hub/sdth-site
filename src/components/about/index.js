@@ -1,13 +1,13 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import claude1 from "Images/claude_1.png"
-import claude2 from "Images/claude_2.png"
-import goals from "Images/goals.svg"
-import heart from "Images/heart.svg"
-import tasks from "Images/tasks.svg"
-import silos from "Images/silos.svg"
-import judge from "Images/judge.svg"
-import conversations from "Images/conversations.svg"
+import claude1 from "Images/misc/claude_1.png"
+import claude2 from "Images/team/claude_2.png"
+import goals from "Images/misc/goals.svg"
+import heart from "Images/misc/heart.svg"
+import tasks from "Images/misc/tasks.svg"
+import silos from "Images/misc/silos.svg"
+import judge from "Images/misc/judge.svg"
+import conversations from "Images/misc/conversations.svg"
 import Html from "Common/Html"
 
 import {
@@ -17,7 +17,8 @@ import {
   ChallengesSection,
   FounderSection,
   RebuildContent,
-  RebuildSection
+  RebuildSection,
+  WhatisSDTH
 } from "./styles"
 
 const icons = {
@@ -36,6 +37,13 @@ function About() {
 
   return (
     <main>
+      <WhatisSDTH>
+        <h2>{frontmatter.whatisSDTHTitle}</h2>
+        <Html style={{ fontSize: "1.7rem", margin: "0 auto" }}>
+          {frontmatter.whatisSDTHDescription}
+        </Html>
+      </WhatisSDTH>
+
       <FounderSection>
         <h2>{frontmatter.mainTitle}</h2>
         <p>
@@ -125,6 +133,8 @@ const aboutQuery = graphql`
   query ABOUT_QUERY {
     markdownRemark(frontmatter: { path: { eq: "about" } }) {
       frontmatter {
+        whatisSDTHTitle
+        whatisSDTHDescription
         mainTitle
         mainDescription1
         mainDescription2

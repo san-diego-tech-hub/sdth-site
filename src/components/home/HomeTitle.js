@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import conduitsFlow from "Images/conduits-flow.svg"
+import conduitsFlow from "Images/misc/conduits-flow.svg"
 import { NAV_HEIGHT } from "Utils/constants"
 
 const HomeTitle = ({ children }) => (
@@ -14,12 +14,12 @@ const HomeTitle = ({ children }) => (
 
 const ConduitsFlow = styled.div`
   background: linear-gradient(#5230B5, 70%, #814AC6);
-  height: 300px;
+  height: 100px;
   margin-top: ${NAV_HEIGHT};
   width: 100%;
 
-  @media(max-width: 415px) {
-    height: 350px;
+  @media (max-width: 960px) {
+    height: 0;
   }
 `
 
@@ -32,12 +32,6 @@ const Img = styled.div`
   flex-direction: column;
   height: 100%;
   justify-content: flex-end;
-  padding: 10rem;
-
-  @media (max-width: 900px) {
-    background-position-y: -5rem;
-    padding: 10rem 0;
-  }
 `
 
 const WhiteCurve = styled.div`
@@ -49,9 +43,8 @@ const WhiteCurve = styled.div`
   margin-top: -50px;
   width: 120vw;
 
-  @media(max-width: 450px) {
-    margin-top: -5rem;
-    width: 150vw;
+  @media (max-width: 960px) {
+    display: none;
   }
 `
 

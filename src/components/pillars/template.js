@@ -52,7 +52,7 @@ const PillarTemplate = ({ data, icon }) => {
               <div className="lead">
                 <div>
                   <img
-                  src={require(`../../images/${lead.photo}.jpg`)}
+                  src={require(`../../images/team/${lead.photo}.jpg`)}
                   width="250"
                   alt={lead.name}
                   style={{ borderRadius: "100%", boxShadow: "2px 2px 5px rgba(0, 0, 0, 0.3)" }}

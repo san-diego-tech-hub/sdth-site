@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
-import sdthLogo from "Images/sdth-logo.png"
-import sdthLogoSmall from "Images/circle-logo.svg"
+import sdthLogo from "Images/misc/sdth-logo.png"
+import sdthLogoSmall from "Images/misc/circle-logo.svg"
 import {
   Container,
   Logo,
@@ -12,6 +12,7 @@ import {
 } from "./styles"
 import Burger from "./burger"
 import MenuItem from "./menu-item"
+import Cta from "./Cta"
 import PillarsDropDown from "./pillars-dropdown"
 
 const Navigation = () => {
@@ -55,9 +56,9 @@ const Navigation = () => {
 
           <PillarsDropDown />
 
-          <MenuItem to="/get-involved">Get Involved</MenuItem>
           <MenuItem to="/events">Events</MenuItem>
           <MenuItem to="/partners">Our Partners</MenuItem>
+          <Cta to="/get-involved">Get Involved</Cta>
         </Menu>
       </Container>
     </Nav>

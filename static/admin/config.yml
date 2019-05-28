@@ -16,12 +16,6 @@ collections:
         file: "src/data/content/home.md"
         fields:
           - { name: "path", label: "Path", widget: "hidden", default: "home" }
-          - { name: "mainTitle", label: "Main Title" }
-           - {
-              name: "mainDescription",
-              label: "Main Description",
-              widget: "markdown",
-            }
           - { name: "collabTitle", label: "Collab Title" }
           - {
               name: "collabDescription",
@@ -73,6 +67,12 @@ collections:
         file: "src/data/content/about.md"
         fields:
           - { name: "path", label: "Path", widget: "hidden", default: "about" }
+          - { name: "whatisSDTHTitle", label: "What is SDTH Title" }
+          - {
+              name: "whatisSDTHDescription",
+              label: "What is SDTH Description",
+              widget: "markdown",
+            }
           - { name: "mainTitle", label: "Main Title" }
           - {
               name: "mainDescription1",
@@ -335,6 +335,41 @@ collections:
             }
           - { name: "mainTitle", label: "Main Title" }
           - { name: "mainDescription", label: "Main Description" }
+          - name: "allPrograms"
+            label: "All Programs"
+            widget: "list"
+            fields:
+              - label: "Program"
+                name: "program"
+                widget: "object"
+                fields:
+                  - { name: "name", label: "Name" }
+                  - { name: "logo", label: "Logo" }
+                  - name: "pointsOfContact"
+                    label: "Points of Contact"
+                    widget: "list"
+                    fields:
+                      - name: "contact"
+                        label: "Contact"
+                        widget: "object"
+                        fields:
+                          - { name: "name", label: "Name" }
+                          - { name: "email", label: "Email" }
+                  - name: "signUpForms"
+                    label: "Sign Up Forms"
+                    widget: "list"
+                    fields:
+                      - name: "form"
+                        label: "Form"
+                        widget: "object"
+                        fields:
+                          - { name: "label", label: "Label" }
+                          - { name: "url", label: "URL" }
+                  - {
+                      name: "description",
+                      label: "Description",
+                      widget: "markdown",
+                    }
 
       - name: partners
         label: Partners
