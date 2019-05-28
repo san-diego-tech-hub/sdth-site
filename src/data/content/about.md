@@ -2,8 +2,10 @@
 path: "about"
 
 mainTitle: "Founder's Story"
+image: claude_2.png
 mainDescription1: >-
 
+        
         <p>
           Claude Jones has a passion for creating opportunities for others to
           succeed. This passion was shaped by the adversities he faced in his
@@ -33,30 +35,28 @@ mainDescription1: >-
           opportunities for him to take advantage of various situations. And
           through his blessings he would like to pay it forward by creating
           opportunities for others that might need a helping hand.
+        
         </p>
 
-        
-mainDescription2: >-
+mainDescription2: >-     
+        <p>
+          Today, Claude Jones is a seasoned technical leader with over 15 years
+          of experience. He is currently the site lead for Walmart Labs in
+          Carlsbad helping to contribute to the growing tech culture here in San
+          Diego. In addition, Claude continues to pay it forward. In his spare
+          time he runs the Elevate Foundation, an organization he started
+          focused on giving back to the community by helping others in need. He
+          started The Practical Leadership Guy where he offers free services for
+          motivational speaking, life coaching, and his thoughts through his
+          blog to encouraging others to be the best they can be.
+        </p>
+        <p>
+          Claude sees San Diego Tech Hub as an extension of his passions to
+          continue bringing people together for the greater good. In Claude's
+          own words "We should never wait for opportunities to come when we can
+          create them for ourselves."
+        </p>
 
-  <p>
-    Today, Claude Jones is a seasoned technical leader with over 15 years
-    of experience. He is currently the site lead for Walmart Labs in
-    Carlsbad helping to contribute to the growing tech culture here in San
-    Diego. In addition, Claude continues to pay it forward. In his spare
-    time he runs the Elevate Foundation, an organization he started
-    focused on giving back to the community by helping others in need. He
-    started The Practical Leadership Guy where he offers free services for
-    motivational speaking, life coaching, and his thoughts through his
-    blog to encouraging others to be the best they can be.
-  </p>
-  <p>
-    Claude sees San Diego Tech Hub as an extension of his passions to
-    continue bringing people together for the greater good. In Claude's
-    own words "We should never wait for opportunities to come when we can
-    create them for ourselves."
-  </p>
-
-      
 aboutTitle: "San Diego Tech Hub"
 aboutDescription: >-
 

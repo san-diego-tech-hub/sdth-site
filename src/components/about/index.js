@@ -9,6 +9,7 @@ import silos from "Images/silos.svg"
 import judge from "Images/judge.svg"
 import conversations from "Images/conversations.svg"
 import Html from "Common/Html"
+
 import {
   AboutSection,
   AboutContent,
@@ -37,8 +38,6 @@ function About() {
     <main>
       <FounderSection>
         <h2>{frontmatter.mainTitle}</h2>
-
-
         <p>
           <img
             src={claude1}
@@ -48,6 +47,7 @@ function About() {
           />
         </p>
         <Html>{frontmatter.mainDescription1}</Html>
+
         <img
           src={claude2}
           style={{ float: "right" }}
@@ -128,6 +128,8 @@ const aboutQuery = graphql`
         mainTitle
         mainDescription1
         mainDescription2
+        image 
+ 
         aboutTitle
         aboutDescription
         challengesTitle

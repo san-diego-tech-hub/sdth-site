@@ -80,13 +80,10 @@ collections:
               widget: "markdown",
             }
           - {
-              name: "claude2",
-              widget: image,
-              default: "Images/claude_2.png",
-              media_library:
-                config:
-                  multiple: true
-            } 
+              name: "mainDescription2",
+              label: "Main Description2",
+              widget: "markdown",
+            }
           - { name: "aboutTitle", label: "About Title" }
           - {
               name: "aboutDescription",

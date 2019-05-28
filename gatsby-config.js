@@ -18,9 +18,23 @@ const plugins = [
       path: `${__dirname}/src/data/content`,
     },
   },
-  "gatsby-transformer-remark",
+  "gatsby-remark-copy-linked-files",
   "gatsby-transformer-sharp",
   "gatsby-plugin-sharp",
+  "gatsby-transformer-remark",
+  {
+    resolve: "gatsby-transformer-remark",
+    options: {
+      plugins: [
+        {
+          resolve: "gatsby-remark-images",
+          options: {
+            maxwidth: 970,
+          },
+        },
+      ],
+    },
+  },
   {
     resolve: "gatsby-plugin-manifest",
     options: {
