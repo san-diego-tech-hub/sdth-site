@@ -70,7 +70,6 @@
     "gatsby-plugin-sharp": "^2.1.1",
     "gatsby-plugin-styled-components": "^3.0.4",
     "gatsby-plugin-typography": "^2.2.5",
-    "gatsby-remark-copy-linked-files": "^2.0.12",
     "gatsby-remark-images": "^3.0.13",
     "gatsby-source-eventbrite": "^1.1.0",
     "gatsby-source-graphql": "^2.0.18",
