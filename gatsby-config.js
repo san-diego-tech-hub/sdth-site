@@ -57,19 +57,6 @@ const plugins = [
   "gatsby-plugin-sharp",
   "gatsby-transformer-remark",
   {
-    resolve: "gatsby-transformer-remark",
-    options: {
-      plugins: [
-        {
-          resolve: "gatsby-remark-images",
-          options: {
-            maxwidth: 970,
-          },
-        },
-      ],
-    },
-  },
-  {
     resolve: "gatsby-plugin-manifest",
     options: {
       name: "San Diego Tech Hub",
