@@ -53,7 +53,6 @@ const plugins = [
       path: `${__dirname}/src/data/content`,
     },
   },
-  "gatsby-remark-copy-linked-files",
   "gatsby-transformer-sharp",
   "gatsby-plugin-sharp",
   "gatsby-transformer-remark",

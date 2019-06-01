@@ -45,7 +45,7 @@ function About() {
       </WhatisSDTH>
 
       <FounderSection>
-        <h2>{frontmatter.mainTitle}</h2>
+        <h2>{frontmatter.founderTitle}</h2>
         <p>
           <img
             src={claude1}
@@ -54,15 +54,15 @@ function About() {
             width="200"
           />
         </p>
-        <Html>{frontmatter.mainDescription1}</Html>
+        <Html>{frontmatter.founderDescription1}</Html>
 
         <img
           src={claude2}
-          style={{ float: "right" }}
+          style={{ float: "right", margin: 0 }}
           alt="Young Claude Jones"
           width="200"
         />
-        <Html>{frontmatter.mainDescription2}</Html>
+        <Html>{frontmatter.founderDescription2}</Html>
         <div style={{ clear: "both" }} />
       </FounderSection>
 
@@ -135,11 +135,10 @@ const aboutQuery = graphql`
       frontmatter {
         whatisSDTHTitle
         whatisSDTHDescription
-        mainTitle
-        mainDescription1
-        mainDescription2
-        image 
- 
+        founderTitle
+        founderDescription1
+        founderDescription2
+
         aboutTitle
         aboutDescription
         challengesTitle

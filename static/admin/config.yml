@@ -73,15 +73,15 @@ collections:
               label: "What is SDTH Description",
               widget: "markdown",
             }
-          - { name: "mainTitle", label: "Main Title" }
+          - { name: "founderTitle", label: "Founder Title" }
           - {
-              name: "mainDescription1",
-              label: "Main Description1",
+              name: "founderDescription1",
+              label: "Founder Description1",
               widget: "markdown",
             }
           - {
-              name: "mainDescription2",
-              label: "Main Description2",
+              name: "founderDescription2",
+              label: "Founder Description2",
               widget: "markdown",
             }
           - { name: "aboutTitle", label: "About Title" }
