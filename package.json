@@ -75,6 +75,7 @@
     "gatsby-source-filesystem": "^2.0.37",
     "gatsby-source-meetup": "0.0.1",
     "gatsby-transformer-json": "^2.1.6",
+    "gatsby-transformer-remark": "^2.3.12",
     "gatsby-transformer-sharp": "^2.1.19",
     "google-maps-react": "^2.0.2",
     "googleapis": "^37.1.0",
