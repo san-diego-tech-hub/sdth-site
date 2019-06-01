@@ -58,7 +58,7 @@ function About() {
 
         <img
           src={claude2}
-          style={{ float: "left", marginRight: "1rem" }}
+          style={{ float: "right", margin: 0 }}
           alt="Young Claude Jones"
           width="200"
         />

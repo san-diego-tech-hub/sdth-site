@@ -58,7 +58,7 @@ founderDescription2: >-
     own words "We should never wait for opportunities to come when we can
     create them for ourselves."
   </p>
-      
+
 aboutTitle: "San Diego Tech Hub"
 aboutDescription: >-
 
