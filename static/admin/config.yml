@@ -16,12 +16,6 @@ collections:
         file: "src/data/content/home.md"
         fields:
           - { name: "path", label: "Path", widget: "hidden", default: "home" }
-          - { name: "mainTitle", label: "Main Title" }
-           - {
-              name: "mainDescription",
-              label: "Main Description",
-              widget: "markdown",
-            }
           - { name: "collabTitle", label: "Collab Title" }
           - {
               name: "collabDescription",
