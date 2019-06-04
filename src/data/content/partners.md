@@ -62,6 +62,10 @@ sponsorsDescription: >-
 
 sponsors:
   - sponsor:
+      name: "Sayva"
+      website: "https://sayvasolutions.com"
+      logo: "sayva"
+  - sponsor:
       name: "HNM Systems, Inc"
       website: "http://www.hnmsystems.com"
       logo: "hnm"
