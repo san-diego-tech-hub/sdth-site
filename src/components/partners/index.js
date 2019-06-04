@@ -18,29 +18,6 @@ function Partners() {
 
   return (
     <Container>
-      <PartnerSection repeat={4}>
-        <h2>{frontmatter.partnersTitle}</h2>
-        <Html className="description">
-          {frontmatter.partnersDescription}
-        </Html>
-        <div className="partners">
-          {frontmatter.partners.map(({ partner }) => (
-            <ExternalLink
-              key={partner.name}
-              className="partner"
-              style={{ width: "100%" }}
-              href={partner.website}
-            >
-              <Img
-                alt={partner.name}
-                fluid={partnerImages[partner.logo]}
-                style={{ width: "100%"  }}
-              />
-            </ExternalLink>
-          ))}
-        </div>
-      </PartnerSection>
-
       <PartnerSection repeat={2}>
         <h2>{frontmatter.sponsorsTitle}</h2>
         <Html className="description">
@@ -58,6 +35,29 @@ function Partners() {
                 alt={sponsor.name}
                 fluid={sponsorImages[sponsor.logo]}
                 style={{ width: "100%", display: "flex", alignItems: "center" }}
+              />
+            </ExternalLink>
+          ))}
+        </div>
+      </PartnerSection>
+
+      <PartnerSection repeat={4}>
+        <h2>{frontmatter.partnersTitle}</h2>
+        <Html className="description">
+          {frontmatter.partnersDescription}
+        </Html>
+        <div className="partners">
+          {frontmatter.partners.map(({ partner }) => (
+            <ExternalLink
+              key={partner.name}
+              className="partner"
+              style={{ width: "100%" }}
+              href={partner.website}
+            >
+              <Img
+                alt={partner.name}
+                fluid={partnerImages[partner.logo]}
+                style={{ width: "100%"  }}
               />
             </ExternalLink>
           ))}
