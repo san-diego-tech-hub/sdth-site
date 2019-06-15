@@ -12,7 +12,6 @@ This site was developed with [GatsbyJS](https://www.gatsbyjs.org/) and serves as
 
 - [git](https://git-scm.com/downloads)
 - [node](https://nodejs.org/en/download)
-- [nvm] (https://github.com/nvm-sh/nvm)
 
 ### Getting Started
 
@@ -34,12 +33,9 @@ This site was developed with [GatsbyJS](https://www.gatsbyjs.org/) and serves as
 
 6. Grab the environment variables from a developer in the [slack channel](https://join.slack.com/t/sandiegotechhub/shared_invite/enQtNTI1MDA2NjQyNDcwLTRhYmFhOGZlNzQyZWQ0NmJjMTEzNGE1YjI1NTJmY2RhZjVmYjBjNDAyYmI4MDZkNTM4MzMwM2JmYWQzOGVkYjY)
 
+7. Run `npm ci` to install the project dependencies
 
-7. Run `nvm use` use the version of node identified in `.nvmrc`
-
-8. Run `npm ci` to install the project dependencies
-
-9. Run `npm start` to start your dev environment
+8. Run `npm start` to start your dev environment
 
 ### Creating a new pull request
 
