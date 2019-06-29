@@ -1,30 +1,34 @@
 import React from "react"
-import network from "Images/initiatives/network.png"
-import conduits from "Images/misc/conduits-flow.png"
+import { useStaticQuery, graphql } from "gatsby"
+import SearchBar from "./SearchBar"
 
 import {
-  NetworkContainer, NetworkSection, NetworkLinks
+  NetworkContainer,
+  Header,
+  Logo
 } from "./styles"
 
 function Network() {
+  const {
+    networkLogo
+  } = useStaticQuery(networkQuery)
+
   return (
-    <main>
-      <NetworkContainer>
-        <img className="conduits-flow-illustration" src={conduits} alt="Conduits Icon" />
-        <NetworkSection>
-          <img className="conduits-flow-illustration" src={conduits} alt="Conduits Icon" />
-          <img className="network-logo" src={network} alt="Network Icon" />
-        </NetworkSection>
-        <NetworkLinks>
-          <ul>
-            <li><a href="#">Resource</a></li>
-            <li><a href="#">Experience</a></li>
-            <li><a href="#">Events</a></li>
-          </ul>
-        </NetworkLinks>
-      </NetworkContainer>
-    </main>
+    <NetworkContainer>
+      <Header>
+        <Logo fluid={networkLogo.childImageSharp.fluid} alt="SDTH Network" />
+        <SearchBar />
+      </Header>
+    </NetworkContainer>
   )
 }
+
+const networkQuery = graphql`
+  query NETWORK_QUERY {
+    networkLogo: file(relativePath: { eq: "network.png" }) {
+      ...childSharp
+    }
+  }
+`
 
 export default Network
