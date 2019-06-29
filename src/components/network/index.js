@@ -1,5 +1,6 @@
 import React from "react"
 import SearchBar from "./SearchBar"
+import NetworkSearchResults from "./NetworkSearchResults"
 
 import {
   NetworkContainer,
@@ -14,6 +15,7 @@ function Network() {
         <Title>Network</Title>
         <SearchBar />
       </Header>
+      <NetworkSearchResults />
     </NetworkContainer>
   )
 }
