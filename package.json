@@ -44,8 +44,8 @@
     ]
   },
   "engines": {
-    "node": "11.5",
-    "npm": "6.4.1"
+    "node": "10.16",
+    "npm": "6.9"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.12",
