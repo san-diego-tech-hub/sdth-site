@@ -109,11 +109,8 @@ allPrograms:
             email: "ahmadpour@gmail.com"
       signUpForms:
         - form:
-            label: "Mentor Sign Up"
-            url: "docs.google.com/forms/d/e/1FAIpQLSfi0POikehE2ktX-JASXwtr4VJobTv-VkLVpmhpW7vF_uDO2A/viewform"
-        - form:
-            label: "Mentee Sign Up"
-            url: "docs.google.com/forms/d/e/1FAIpQLScDpaoOPxkkb7loTCsYyy7ZCH1OVCKCEGSXpZx3sOJxfndWAw/viewform"
+            label: "Mentor | Mentee Sign Up"
+            url: "www.bit.ly/SDTHMentorship_site"
       description: >-
 
         <p>Our purpose is to connect San Diego Tech Hub members to local mentorship programs to support education and career progression resulting in a stronger tech community.</p>
