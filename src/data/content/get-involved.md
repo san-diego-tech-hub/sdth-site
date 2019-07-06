@@ -166,6 +166,10 @@ allPrograms:
         - form:
             label: "Join the User Group"
             url: "docs.google.com/forms/d/e/1FAIpQLSeUiRKfZQfcWKS-P9UHilxhKbj5FRyQ0bnxgLlmjSC1ZzUvtw/viewform"
+        - form:
+            label: "Add a Tech Venue"
+            url: "forms.gle/YG579h19EZn8nMc87"
+
       description: >-
 
         <p>The SDTH Network is a community driven project aimed at connecting needs to opportunities. There are two points to the network:</p>
