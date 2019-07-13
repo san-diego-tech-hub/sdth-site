@@ -85,6 +85,7 @@ const DateTime = styled.span`
 const Description = styled.div`
   font-size: 2rem;
   margin-bottom: 3rem;
+  max-width: 100vw;
   padding: 10px;
   text-align: left;
 `

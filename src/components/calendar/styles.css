@@ -1,5 +1,9 @@
 /* This is needed to override react-big-calendar */
 
+.rbc-calendar {
+  margin-bottom: 0.5rem;
+}
+
 .rbc-month-view {
   z-index: 0;
 }

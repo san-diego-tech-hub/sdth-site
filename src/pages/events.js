@@ -65,7 +65,7 @@ export const query = graphql`
 `
 
 const Container = styled.div`
-  align-items: center;
+  align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
