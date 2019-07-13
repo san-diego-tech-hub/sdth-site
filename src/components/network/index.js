@@ -1,6 +1,7 @@
 import React from "react"
 import SearchBar from "./SearchBar"
 import NetworkSearchResults from "./NetworkSearchResults"
+import resultList from "./spaces.json"
 
 import {
   NetworkContainer,
@@ -15,7 +16,7 @@ function Network() {
         <Title>Network</Title>
         <SearchBar />
       </Header>
-      <NetworkSearchResults />
+      <NetworkSearchResults resultList={resultList} />
     </NetworkContainer>
   )
 }
