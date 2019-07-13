@@ -5,7 +5,7 @@ import styled from "styled-components"
 const Video = () => (
   <Container>
     <ResponsiveEmbed
-      allowfullscreen
+      allowFullScreen
       src="https://player.vimeo.com/video/333343580?byline=0&portrait=0"
     />
   </Container>

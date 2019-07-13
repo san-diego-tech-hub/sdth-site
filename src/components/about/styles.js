@@ -166,7 +166,7 @@ export const WhatisSDTH = styled.div`
   width: 100vw;
 
   p {
-    color: #555;
+    color: #656565;
     font-size: 2rem;
   }
 
