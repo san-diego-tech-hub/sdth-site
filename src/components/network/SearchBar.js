@@ -1,5 +1,4 @@
 import React from "react"
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styled from "styled-components"
 
 const SearchBar = () => (
@@ -12,7 +11,6 @@ const SearchBar = () => (
         <option value="2">Food Sponsors</option>
         <option value="3">Mentors</option>
       </select>
-      {/* <FontAwesomeIcon icon="caret-down" /> */}
     </Selector>
     <Search type="text" />
   </Container>
