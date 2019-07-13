@@ -1,14 +1,13 @@
 import React from "react"
 import ExternalLink from "Common/ExternalLink"
 import {
-  LabelDefault
-} from "Common/Labels"
+  Label
+} from "Common/Label"
 
 import amenitiesMap from "./amenities.json"
-import spacesData from "./spaces.json"
 
 import {
-  NetworkSearchResultsDiv, LocationSearchResult, PlacesSearchResultsSection
+  Container, LocationSearchResult, PlacesSearchResultsSection
 } from "./styles"
 
 function convertCostToString(cost) {
@@ -18,14 +17,25 @@ function convertCostToString(cost) {
 function AmenitiesList({ amenities }) {
   const amenitiesLabels =  amenities.map(amenity => {
     return (
-      <li style={{ display: "inline-block" }}><LabelDefault style={{ backgroundColor: "#adadad", color: "#ffffff" }}>{amenitiesMap[amenity]}</LabelDefault></li>
+      <li style={{ display: "inline-block" }}>
+        <Label>{amenitiesMap[amenity]}</Label>
+      </li>
     )
   })
   return <ul style={{ listStyle: "none" }}>{amenitiesLabels}</ul>
 }
 
-function LocationSearchResultCard({ imageUrl, name, amenities, description,
-  capacity, rating, ratingCount, cost }) {
+function LocationSearchResultCard({
+  amenities,
+  capacity,
+  cost,
+  description,
+  imageUrl,
+  name,
+  rating,
+  ratingCount,
+
+}) {
   return (
     <LocationSearchResult>
       <div className="imgCol">
@@ -40,7 +50,7 @@ function LocationSearchResultCard({ imageUrl, name, amenities, description,
       </div>
       <div className="actionCol">
         <div style={{ display: "flex", flexDirection: "column", alignContent: "space-between", alignItems: "center" }}>
-          <LabelDefault style={{ color: "white", backgroundColor: "#2ecd7a" }}>{convertCostToString(cost)}</LabelDefault>
+          <Label bgColor="#2ecd7a">{convertCostToString(cost)}</Label>
           <ExternalLink style={{ color: "#248ABA", display: "block" }} aria-label={name} href="https://twitter.com/SanDiegoTechHub">View details</ExternalLink>
         </div>
       </div>
@@ -48,21 +58,14 @@ function LocationSearchResultCard({ imageUrl, name, amenities, description,
   )
 }
 
-function PlacesSearchResults({ spaces }) {
+export default function NetworkSearchResults({ resultList }) {
   return (
-    <PlacesSearchResultsSection>
-      {spaces.map(space => {
-        return <LocationSearchResultCard {...space} key={space.name} />
-      }) }
-    </PlacesSearchResultsSection>
-  )
-}
-
-
-export default function NetworkSearchResults() {
-  return (
-    <NetworkSearchResultsDiv>
-      <PlacesSearchResults spaces={spacesData} />
-    </NetworkSearchResultsDiv>
+    <Container>
+      <PlacesSearchResultsSection>
+        {resultList.map(result => {
+          return <LocationSearchResultCard {...result} key={result.name} />
+        }) }
+      </PlacesSearchResultsSection>
+    </Container>
   )
 }

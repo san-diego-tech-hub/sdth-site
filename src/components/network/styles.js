@@ -21,7 +21,7 @@ export const Title = styled.h1`
   text-shadow: 1px 1px 5px rgba(0,0,0,0.3);
 `
 
-export const NetworkSearchResultsDiv = styled.div`
+export const Container = styled.div`
 background-color: #f2f3f2;
 `
 
