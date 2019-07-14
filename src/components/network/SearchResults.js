@@ -1,12 +1,18 @@
 import React from "react"
 import styled from "styled-components"
-import LocationCard from "./LocationCard"
+import Resources from "./resources"
 
-export default function SearchResults({ resultList }) {
+export default function SearchResults({ results }) {
+  const resourceType = Object.keys(results)[0]
+  const ResourceCard = Resources[resourceType]
+  const resultList = results[resourceType]
+
   return (
     <Container>
       <ResultList>
-        {resultList.map(result => <LocationCard {...result} key={result.name} />)}
+        {resultList
+          .map(resource => <ResourceCard {...resource} key={resource.id} />)
+        }
       </ResultList>
     </Container>
   )
