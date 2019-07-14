@@ -66,6 +66,10 @@ sponsors:
       website: "https://sayvasolutions.com"
       logo: "sayva"
   - sponsor:
+      name: "Qimia"
+      website: "https://qimia.io/index.html"
+      logo: "qimia"
+  - sponsor:
       name: "HNM Systems, Inc"
       website: "http://www.hnmsystems.com"
       logo: "hnm"

@@ -92,7 +92,7 @@ challengesItems:
       header: "status quo"
       text: "The willingness to blindly follow and preserve the existing state of affairs without question."
 
-solutionsTitle: "rebuild communities. uplift individuals. insire others."
+solutionsTitle: "rebuild communities. uplift individuals. inspire others."
 solutionsDescription: >-
   Our goal is to help Rebuild, Uplift, and Inspire communities and the people within them.  These are the core founder principles that started with the Elevate Foundation and are translated to drive the WHY, HOW, and WHAT vision of San Diego Tech Hub.
 
