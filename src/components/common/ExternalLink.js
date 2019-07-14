@@ -14,7 +14,7 @@ export default function ExternalLink({ children, ...props }) {
 }
 
 const Link = styled.a`
-  color: ${props => props.theme.primaryDark};
+  color: ${props => props.color || props.theme.primaryDark};
   text-decoration: none;
   z-index: 0 !important;
   &:hover {
