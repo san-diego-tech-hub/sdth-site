@@ -9,6 +9,7 @@ export const Label = styled.span`
   display: flex;
   font-size: 1.4rem;
   justify-content: center;
+  margin: 3px;
   padding: 0.2rem 2.5rem;
   text-transform: capitalize;
   width: fit-content;
