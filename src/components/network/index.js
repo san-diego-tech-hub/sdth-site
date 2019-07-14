@@ -1,21 +1,42 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { NAV_HEIGHT } from "Utils/constants"
 import SearchBar from "./SearchBar"
 import SearchResults from "./SearchResults"
-import resultList from "./spaces.json"
 
 export default function Network() {
+  const { hasura } = useStaticQuery(hasuraQuery)
+
   return (
     <Container>
       <Header>
         <Title>Network</Title>
         <SearchBar />
       </Header>
-      <SearchResults resultList={resultList} />
+      <SearchResults results={hasura} />
     </Container>
   )
 }
+
+const hasuraQuery = graphql`
+  query HASURA_QUERY {
+    hasura {
+      codeSchool {
+        address
+        description
+        email
+        id
+        linkedin
+        facebook
+        name
+        phoneNumber
+        imageUrl
+        website
+      }
+    }
+  }
+`
 
 const Container = styled.main`
   margin: ${NAV_HEIGHT} auto;
