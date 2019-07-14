@@ -44,25 +44,13 @@ export default function LocationCard({
         <Cost>
           {cost ? `$${cost}` : "FREE"}
         </Cost>
-        <ExternalLink
-          aria-label={name}
-          href={sourceUrl}
-          style={{ color: "#248ABA", display: "block" }}
-        >
+        <ExternalLink aria-label={name} color="#248ABA" href={sourceUrl}>
           View details
         </ExternalLink>
       </ActionColumn>
     </Container>
   )
 }
-
-const AmenitiesList = styled.ul`
-  list-style: none;
-
-  li {
-    display: inline-block;
-  }
-`
 
 const ImageColumn = styled.div`
   align-items: flex-start;
@@ -84,6 +72,22 @@ const ActionColumn = styled.div`
   flex: 0.25;
   flex-direction: column;
   justify-content: center;
+`
+
+const AmenitiesList = styled.ul`
+  list-style: none;
+
+  li {
+    display: inline-block;
+  }
+`
+
+const Cost = styled(Label)`
+  background-color: #2ecd7a;
+`
+
+const Description = styled.div`
+  margin: 20px 0;
 `
 
 const Container = styled.div`
@@ -112,12 +116,4 @@ const Container = styled.div`
   @media(max-width: 600px) {
     margin: 1rem 0;
   }
-`
-
-const Cost = styled(Label)`
-  background-color: #2ecd7a;
-`
-
-const Description = styled.div`
-  margin: 20px 0;
 `
