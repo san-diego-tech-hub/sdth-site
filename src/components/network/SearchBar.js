@@ -55,6 +55,7 @@ const Selector = styled.div`
 
     @media(max-width: 990px) {
       background: linear-gradient(#eee, #fff, #eee);
+      height: 40px;
       width: 101vw;
     }
   }
