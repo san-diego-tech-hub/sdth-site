@@ -11,7 +11,13 @@ leads:
   - lead:
       name: "Yashar Ahmadpour"
       email: "ahmadpour@gmail.com"
-      bioDescription: "<p>Yashar was born and raised in Sweden to a Chilean mother and Persian father. As a result, he is a polyglot that can identify with many cultures. In 1996, he and his family moved here and called California home. </p><p>Yashar is a dreamer by heart, but who early on learned that dreaming is not enough, and that you must take action to realize your dreams. This is what led him to found three companies, of which all three received funding, and had products built and shipped. In his spare time, he loves traveling with his family, and visiting the Safari Park with his daughter as much as possible. He has a passion to help others solve problems, and to make tomorrow better, which is why he decided to join SDTH to give back to the community that has given him so much. </p><p>Today you can find him leading product at a local VC firm &ndash;&nbsp;Analytics Ventures under their Venture Studio side where he works with a team of brilliant A.I. scientists and engineers alike to shape the future of A.I. </p>"
+      bioDescription: >-
+        <p>Yashar was born and raised in Sweden to a Chilean mother and Persian father. As a result, he is a polyglot that can identify with many cultures. In 1996, he and his family moved here and called California home.</p>
+
+        <p>Yashar is a dreamer by heart, but who early on learned that dreaming is not enough, and that you must take action to realize your dreams. This is what led him to found three companies, of which all three received funding, and had products built and shipped. In his spare time, he loves traveling with his family, and spending as much time with them as possible. He has a passion to help others solve problems, and to make tomorrow better, which is why he decided to join SDTH to give back to the community that has given him so much.</p>
+
+        <p>During the day you can find Yashar leading product as the Director of Product Management at Perspectium, a fully funded successful startup in San Diego. He is also mentoring local techies, those looking to making a career switch, advising startups, or other. You can connect with him for mentoring on the <a target="_blank" rel="noopener noreferrer" href="https://www.smorgborg.com/6310b729-e306-4c78-9892-a176b93d28d9?activeTab=mentoring">SDTH MentorBot platform</a>, or on <a target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/yashara">LinkedIn</a>.</p>
+
       photo: "yashar"
   - lead:
       name: "Nick Parisi"
