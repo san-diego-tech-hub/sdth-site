@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import ExternalLink from "Common/ExternalLink"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 export default function CodeSchoolCard({
   address,
@@ -24,22 +25,22 @@ export default function CodeSchoolCard({
         <p>{address}</p>
 
         <Description>{description}</Description>
-
-        {(linkedin || facebook) && (
-          <div>Social Media:</div>
-        )}
         <AmenitiesList>
           {linkedin
             && (
             <li key={linkedin}>
-              <ExternalLink href={linkedin}>LinkedIn</ExternalLink>
+              <ExternalLink href={linkedin}>
+                <FontAwesomeIcon size="2x" icon={["fab", "linkedin"]} color="#0077B5" />
+              </ExternalLink>
             </li>
             )
           }
           {facebook
             && (
             <li key={facebook}>
-              <ExternalLink href={facebook}>Facebook</ExternalLink>
+              <ExternalLink href={facebook}>
+                <FontAwesomeIcon size="2x" icon={["fab", "facebook-square"]} color="#0077B5" />
+              </ExternalLink>
             </li>
             )
           }
@@ -84,6 +85,7 @@ const AmenitiesList = styled.ul`
 
   li {
     display: inline-block;
+    margin-right: 15px;
   }
 `
 
