@@ -7,13 +7,16 @@ export default function CodeSchoolCard({
   address,
   description,
   email,
-  linkedin,
-  facebook,
   name,
   phoneNumber,
   imageUrl,
+  socialMedia,
   website
 }) {
+  const ICONS = {
+    linkedin: "linkedin",
+    facebook: "facebook-square"
+  }
   return (
     <Container>
       <ImageColumn>
@@ -26,23 +29,21 @@ export default function CodeSchoolCard({
 
         <Description>{description}</Description>
         <AmenitiesList>
-          {linkedin
-            && (
-            <li key={linkedin}>
-              <ExternalLink href={linkedin}>
-                <FontAwesomeIcon size="2x" icon={["fab", "linkedin"]} color="#0077B5" />
-              </ExternalLink>
-            </li>
-            )
-          }
-          {facebook
-            && (
-            <li key={facebook}>
-              <ExternalLink href={facebook}>
-                <FontAwesomeIcon size="2x" icon={["fab", "facebook-square"]} color="#0077B5" />
-              </ExternalLink>
-            </li>
-            )
+          {
+            socialMedia.map((url) => {
+              if (!url) return ""
+              const platform = (url.match(/https:\/\/(www\.)?([^.]+)\..*/) || [null, null, ""])[2]
+              const icon = ICONS[platform]
+              if (!platform) return ""
+
+              return (
+                <li key={platform}>
+                  <ExternalLink href={url}>
+                    <FontAwesomeIcon size="2x" icon={["fab", icon]} color="#0077B5" />
+                  </ExternalLink>
+                </li>
+              )
+            })
           }
         </AmenitiesList>
       </ContentColumn>

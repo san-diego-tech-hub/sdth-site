@@ -27,11 +27,10 @@ const hasuraQuery = graphql`
         description
         email
         id
-        linkedin
-        facebook
         name
         phoneNumber
         imageUrl
+        socialMedia
         website
       }
     }
