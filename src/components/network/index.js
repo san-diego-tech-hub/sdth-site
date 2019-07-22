@@ -13,7 +13,10 @@ export default function Network() {
     <Container>
       <Header>
         <Title>Network</Title>
-        <SearchBar setFilterText={e => setFilterText(e.target.value)} filterText={filterText} />
+        <SearchBar
+          filterText={filterText}
+          setFilterText={e => setFilterText(e.target.value)}
+        />
       </Header>
       <SearchResults results={hasura} filterText={filterText} />
     </Container>
