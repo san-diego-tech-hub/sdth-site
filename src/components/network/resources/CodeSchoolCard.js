@@ -1,7 +1,8 @@
 import React from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styled from "styled-components"
 import ExternalLink from "Common/ExternalLink"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { urlToSocialIcon } from "./util"
 
 export default function CodeSchoolCard({
   address,
@@ -13,10 +14,6 @@ export default function CodeSchoolCard({
   socialMedia,
   website
 }) {
-  const ICONS = {
-    linkedin: "linkedin",
-    facebook: "facebook-square"
-  }
   return (
     <Container>
       <ImageColumn>
@@ -31,13 +28,11 @@ export default function CodeSchoolCard({
         <AmenitiesList>
           {
             socialMedia.map((url) => {
-              if (!url) return ""
-              const platform = (url.match(/https:\/\/(www\.)?([^.]+)\..*/) || [null, null, ""])[2]
-              const icon = ICONS[platform]
-              if (!platform) return ""
+              const icon = urlToSocialIcon(url)
+              if (!icon) return ""
 
               return (
-                <li key={platform}>
+                <li key={icon}>
                   <ExternalLink href={url}>
                     <FontAwesomeIcon size="2x" icon={["fab", icon]} color="#0077B5" />
                   </ExternalLink>
