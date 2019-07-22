@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { NAV_HEIGHT } from "Utils/constants"
@@ -7,14 +7,18 @@ import SearchResults from "./SearchResults"
 
 export default function Network() {
   const { hasura } = useStaticQuery(hasuraQuery)
+  const [filterText, setFilterText] = useState("")
 
   return (
     <Container>
       <Header>
         <Title>Network</Title>
-        <SearchBar />
+        <SearchBar
+          filterText={filterText}
+          setFilterText={e => setFilterText(e.target.value)}
+        />
       </Header>
-      <SearchResults results={hasura} />
+      <SearchResults results={hasura} filterText={filterText} />
     </Container>
   )
 }

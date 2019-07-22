@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import Resources from "./resources"
 
-export default function SearchResults({ results }) {
+export default function SearchResults({ results, filterText }) {
   const resourceType = Object.keys(results)[0]
   const ResourceCard = Resources[resourceType]
   const resultList = results[resourceType]
@@ -11,6 +11,7 @@ export default function SearchResults({ results }) {
     <Container>
       <ResultList>
         {resultList
+          .filter(resource => resource.name.toLowerCase().includes(filterText.toLowerCase()))
           .map(resource => <ResourceCard {...resource} key={resource.id} />)
         }
       </ResultList>
