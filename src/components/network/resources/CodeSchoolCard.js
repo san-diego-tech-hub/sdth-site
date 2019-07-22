@@ -1,16 +1,17 @@
 import React from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styled from "styled-components"
 import ExternalLink from "Common/ExternalLink"
+import { urlToSocialIcon } from "./util"
 
 export default function CodeSchoolCard({
   address,
   description,
   email,
-  linkedin,
-  facebook,
   name,
   phoneNumber,
   imageUrl,
+  socialMedia,
   website
 }) {
   return (
@@ -24,24 +25,20 @@ export default function CodeSchoolCard({
         <p>{address}</p>
 
         <Description>{description}</Description>
-
-        {(linkedin || facebook) && (
-          <div>Social Media:</div>
-        )}
         <AmenitiesList>
-          {linkedin
-            && (
-            <li key={linkedin}>
-              <ExternalLink href={linkedin}>LinkedIn</ExternalLink>
-            </li>
-            )
-          }
-          {facebook
-            && (
-            <li key={facebook}>
-              <ExternalLink href={facebook}>Facebook</ExternalLink>
-            </li>
-            )
+          {
+            socialMedia.map((url) => {
+              const icon = urlToSocialIcon(url)
+              if (!icon) return ""
+
+              return (
+                <li key={icon}>
+                  <ExternalLink href={url}>
+                    <FontAwesomeIcon size="2x" icon={["fab", icon]} color="#0077B5" />
+                  </ExternalLink>
+                </li>
+              )
+            })
           }
         </AmenitiesList>
       </ContentColumn>
@@ -84,6 +81,7 @@ const AmenitiesList = styled.ul`
 
   li {
     display: inline-block;
+    margin-right: 15px;
   }
 `
 
