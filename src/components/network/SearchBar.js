@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-const SearchBar = ({ setFilterText }) => (
+const SearchBar = ({ filterText, setFilterText }) => (
   <Container>
     <BookEnd />
     <Selector>
@@ -12,7 +12,7 @@ const SearchBar = ({ setFilterText }) => (
         <option value="3">Mentors</option>
       </select>
     </Selector>
-    <Search type="text" onChange={setFilterText} />
+    <Search type="text" onChange={setFilterText} value={filterText} />
   </Container>
 )
 
