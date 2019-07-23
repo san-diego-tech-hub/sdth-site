@@ -5,6 +5,25 @@ import { NAV_HEIGHT } from "Utils/constants"
 import SearchBar from "./SearchBar"
 import SearchResults from "./SearchResults"
 
+function GoogleMap({ resourceType }) {
+  let id
+  if (resourceType === "codeSchool") {
+    id = "1umjck4O4CFh8XjLqskK0Xb2NeAehDS70&z=10"
+  } else if (resourceType === "venue") {
+    id = "1YlOiAqHsgnOPHNZUzCaoyQhYBDbzWlrV"
+  } else {
+    return null
+  }
+  return (
+    <iframe
+        title="Code Schools"
+        src={`https://www.google.com/maps/d/u/0/embed?mid=${id}`}
+        width="100%"
+        height="300px"
+    />
+  )
+}
+
 export default function Network() {
   const { hasura } = useStaticQuery(hasuraQuery)
   const [filterText, setFilterText] = useState("")
@@ -22,12 +41,7 @@ export default function Network() {
           setResourceType={e => setResourceType(e.target.value)}
         />
       </Header>
-      <iframe
-        title="Code Schools"
-        src="https://www.google.com/maps/d/u/0/embed?mid=1umjck4O4CFh8XjLqskK0Xb2NeAehDS70&z=10"
-        width="100%"
-        height="300px"
-      />
+      <GoogleMap resourceType={resourceType} />
       <SearchResults
         filterText={filterText}
         results={{ [resourceType]: results }}
