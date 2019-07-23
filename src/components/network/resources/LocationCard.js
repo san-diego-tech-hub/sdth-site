@@ -1,18 +1,23 @@
 import React from "react"
 import styled from "styled-components"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import ExternalLink from "Common/ExternalLink"
 import { Label } from "Common/Label"
+import { urlToSocialIcon } from "./util"
 
 export default function LocationCard({
+  address,
   amenities,
   capacity,
+  contactEmail,
+  contactName,
+  // contactPhone,
   cost,
   description,
   imageUrl,
   name,
-  rating,
-  ratingCount,
-  sourceUrl
+  socialMedia,
+  website
 }) {
   return (
     <Container>
@@ -24,27 +29,43 @@ export default function LocationCard({
         <h2>{name}</h2>
         <div>
           Capacity: {capacity}
-          <br />
-          {rating} Stars ({ratingCount})
         </div>
 
+        <Description>{address}</Description>
         <Description>{description}</Description>
 
-        <div>Amenities:</div>
-        <AmenitiesList>
+        <List>
           {amenities.map(amenity => (
             <li key={amenity}>
               <Label>{amenity}</Label>
             </li>
           ))}
-        </AmenitiesList>
+        </List>
+        <List>
+          {
+            socialMedia.map((url) => {
+              const icon = urlToSocialIcon(url)
+              if (!icon) return ""
+
+              return (
+                <li key={icon}>
+                  <ExternalLink href={url}>
+                    <FontAwesomeIcon size="2x" icon={["fab", icon]} color="#0077B5" />
+                  </ExternalLink>
+                </li>
+              )
+            })
+          }
+        </List>
       </ContentColumn>
 
       <ActionColumn>
         <Cost>
           {cost ? `$${cost}` : "FREE"}
         </Cost>
-        <ExternalLink aria-label={name} color="#248ABA" href={sourceUrl}>
+        <p>{contactName}</p>
+        <ExternalLink href={`mailto:${contactEmail}`}>{contactEmail}</ExternalLink>
+        <ExternalLink aria-label={name} color="#248ABA" href={website}>
           View details
         </ExternalLink>
       </ActionColumn>
@@ -74,7 +95,7 @@ const ActionColumn = styled.div`
   justify-content: center;
 `
 
-const AmenitiesList = styled.ul`
+const List = styled.ul`
   list-style: none;
 
   li {
