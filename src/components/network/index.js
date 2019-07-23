@@ -18,6 +18,12 @@ export default function Network() {
           setFilterText={e => setFilterText(e.target.value)}
         />
       </Header>
+      <iframe
+        title="Code Schools"
+        src="https://www.google.com/maps/d/u/0/embed?mid=1umjck4O4CFh8XjLqskK0Xb2NeAehDS70&z=10"
+        width="100%"
+        height="300px"
+      />
       <SearchResults results={hasura} filterText={filterText} />
     </Container>
   )
