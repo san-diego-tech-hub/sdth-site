@@ -1,20 +1,35 @@
 import React from "react"
 import styled from "styled-components"
 
-const SearchBar = ({ filterText, setFilterText }) => (
-  <Container>
-    <BookEnd />
-    <Selector>
-      <select>
-        <option value="0">Code Schools</option>
-        <option value="1">Venues</option>
-        <option value="2">Food Sponsors</option>
-        <option value="3">Mentors</option>
-      </select>
-    </Selector>
-    <Search type="text" onChange={setFilterText} value={filterText} />
-  </Container>
-)
+const SearchBar = ({
+  filterText,
+  setFilterText,
+  resourceType,
+  setResourceType
+}) => {
+  return (
+    <Container>
+      <BookEnd />
+      <Selector value={resourceType}>
+        <select onChange={setResourceType}>
+          <option value="codeSchool">
+            Code Schools
+          </option>
+          <option value="venue">
+            Venues
+          </option>
+          <option value="sponsor">
+            Sponsors
+          </option>
+          <option value="mentorMentee">
+            Mentors/Mentees
+          </option>
+        </select>
+      </Selector>
+      <Search type="text" onChange={setFilterText} value={filterText} />
+    </Container>
+  )
+}
 
 const BookEnd = styled.div`
   background: white;

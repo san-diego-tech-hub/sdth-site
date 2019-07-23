@@ -8,6 +8,8 @@ import SearchResults from "./SearchResults"
 export default function Network() {
   const { hasura } = useStaticQuery(hasuraQuery)
   const [filterText, setFilterText] = useState("")
+  const [resourceType, setResourceType] = useState("codeSchool")
+  const results = hasura[resourceType]
 
   return (
     <Container>
@@ -16,6 +18,8 @@ export default function Network() {
         <SearchBar
           filterText={filterText}
           setFilterText={e => setFilterText(e.target.value)}
+          resourceType={resourceType}
+          setResourceType={e => setResourceType(e.target.value)}
         />
       </Header>
       <iframe
@@ -24,7 +28,10 @@ export default function Network() {
         width="100%"
         height="300px"
       />
-      <SearchResults results={hasura} filterText={filterText} />
+      <SearchResults
+        filterText={filterText}
+        results={{ [resourceType]: results }}
+      />
     </Container>
   )
 }
@@ -40,6 +47,21 @@ const hasuraQuery = graphql`
         name
         phoneNumber
         imageUrl
+        socialMedia
+        website
+      }
+      venue {
+        address
+        amenities
+        capacity
+        contactEmail
+        contactName
+        contactPhone
+        cost
+        description
+        id
+        imageUrl
+        name
         socialMedia
         website
       }

@@ -11,8 +11,10 @@ export default function SearchResults({ results, filterText }) {
     <Container>
       <ResultList>
         {resultList
-          .filter(resource => resource.name.toLowerCase().includes(filterText.toLowerCase()))
-          .map(resource => <ResourceCard {...resource} key={resource.id} />)
+          ? resultList
+            .filter(resource => resource.name.toLowerCase().includes(filterText.toLowerCase()))
+            .map(resource => <ResourceCard {...resource} key={resource.id} />)
+          : <div style={{ fontSize: "5rem", padding: "20px", textAlign: "center" }}>No results <span aria-label="thinking-face" role="img">🧐</span></div>
         }
       </ResultList>
     </Container>

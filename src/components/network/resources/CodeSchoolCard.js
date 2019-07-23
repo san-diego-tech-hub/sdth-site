@@ -25,7 +25,7 @@ export default function CodeSchoolCard({
         <p>{address}</p>
 
         <Description>{description}</Description>
-        <AmenitiesList>
+        <List>
           {
             socialMedia.map((url) => {
               const icon = urlToSocialIcon(url)
@@ -40,7 +40,7 @@ export default function CodeSchoolCard({
               )
             })
           }
-        </AmenitiesList>
+        </List>
       </ContentColumn>
 
       <ActionColumn>
@@ -76,7 +76,7 @@ const ActionColumn = styled.div`
   justify-content: center;
 `
 
-const AmenitiesList = styled.ul`
+const List = styled.ul`
   list-style: none;
 
   li {
