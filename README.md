@@ -12,7 +12,6 @@ This site was developed with [GatsbyJS](https://www.gatsbyjs.org/) and serves as
 
 - [git](https://git-scm.com/downloads)
 - [node](https://nodejs.org/en/download)
-- [nvm] (https://github.com/nvm-sh/nvm)
 
 ### Getting Started
 
