@@ -26,7 +26,7 @@ leads:
       photo: "nick"
   - lead:
       name: "Kristin Schaer"
-      email: "kristin@sandiegotechhub.com"
+      email: "kristinschaer@gmail.com"
       bioDescription: "<p>Kristin is a Midwest Native who brings more than 15 years in the IT Staffing and Recruiting industry. Kristin began her career as a recruiter and quickly moved up through the Recruitment hierarchy to Vice President of Recruiting and Operations where she led and started a local IT Division within San Diego. Under her leadership,&nbsp;the company expanded throughout California and throughout the United States.</p><p>Kristin is currently Managing Director at HNM Systems, Inc., where she directs and controls the Emerging Technology division&rsquo;s strategic vision, operations and growth. Kristin influence&rsquo;s the recruiting strategy and focuses on the continued improvement of HNM&rsquo;s fulfillment, customer satisfaction and loyalty.</p><p>Kristin holds a Bachelor&rsquo;s Degree in Biology and Entrepreneurial Studies from Carthage College in Kenosha, Wisconsin. She is an active member of Sage Executive Group in San Diego. Kristin is passionate about giving back and serving, she is an active member of The Arthritis Foundation and leads the HNM Cares program which gives HNM employees the opportunity to give back throughout San Diego. She is also a mother of three beautiful girls and a dedicated wife.</p>"
       photo: "kristin"
 ---
