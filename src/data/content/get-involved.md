@@ -103,7 +103,7 @@ allPrograms:
             email: "nparisi@gmail.com"
         - contact:
             name: "Kristin Schaer"
-            email: "kschaer@hnmsystems.com"
+            email: "kristinschaer@gmail.com"
         - contact:
             name: "Yashar Ahmadpour"
             email: "ahmadpour@gmail.com"
