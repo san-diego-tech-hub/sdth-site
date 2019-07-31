@@ -66,7 +66,7 @@ team:
       photo: "nick"
   - leader:
       name: "Kristin Schaer"
-      email: "kristin@sandiegotechhub.com"
+      email: "kristinschaer@gmail.com"
       pillar: "talent"
       bioDescription: "“Tech companies continue to see San Diego as a place to grow their organizations and also to attract and retain quality talent. I look forward to helping bridge the gap between companies, community and talent and finding fun innovative ways of attracting talent to the city we love!”"
       photo: "kristin"
