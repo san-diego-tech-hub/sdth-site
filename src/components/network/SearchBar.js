@@ -24,6 +24,12 @@ const SearchBar = ({
           <option value="mentorMentee">
             Mentors/Mentees
           </option>
+          <option value="jobCandidates">
+            Job Candidates
+          </option>
+          <option value="speaker">
+            Speakers
+          </option>
         </select>
       </Selector>
       <Search type="text" onChange={setFilterText} value={filterText} />

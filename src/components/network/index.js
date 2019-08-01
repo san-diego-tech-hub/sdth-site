@@ -61,6 +61,32 @@ const hasuraQuery = graphql`
         socialMedia
         website
       }
+      jobCandidate {
+        name
+        id
+        description
+        imageUrl
+        socialMedia
+        website
+        email
+      }
+      speaker {
+        name
+        id
+        description
+        imageUrl
+        email
+      }
+      sponsor {
+        name
+        id
+        description
+        imageUrl
+        address
+        website
+        socialMedia
+        email
+      }
     }
   }
 `
