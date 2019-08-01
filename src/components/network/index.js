@@ -69,6 +69,7 @@ const hasuraQuery = graphql`
         socialMedia
         website
         email
+        phoneNumber
       }
       speaker {
         name
@@ -76,6 +77,8 @@ const hasuraQuery = graphql`
         description
         imageUrl
         email
+        website
+        socialMedia
       }
       sponsor {
         name

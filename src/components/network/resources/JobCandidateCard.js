@@ -10,7 +10,8 @@ export default function JobCandidateCard({
   description,
   website,
   socialMedia,
-  email
+  email,
+  phoneNumber
 }) {
   return (
     <Container>
@@ -42,6 +43,7 @@ export default function JobCandidateCard({
       </ContentColumn>
 
       <ActionColumn>
+        <p>{phoneNumber}</p>
         <p>{email}</p>
         <ExternalLink aria-label={name} color="#248ABA" href={website}>
           Portfolio

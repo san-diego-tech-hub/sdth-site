@@ -24,7 +24,7 @@ const SearchBar = ({
           <option value="mentorMentee">
             Mentors/Mentees
           </option>
-          <option value="jobCandidates">
+          <option value="jobCandidate">
             Job Candidates
           </option>
           <option value="speaker">
