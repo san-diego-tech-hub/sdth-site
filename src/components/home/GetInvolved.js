@@ -29,7 +29,7 @@ const Button = styled(Link)`
 const Container = styled.div`
   display: flex;
   justify-content: center;
-  margin: 4rem 0;
+  margin: 2rem 0;
 `
 
 export default GetInvolved
