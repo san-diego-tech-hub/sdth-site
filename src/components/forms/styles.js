@@ -12,7 +12,11 @@ export const Container = styled.div`
   margin: 0 20rem 5rem 20rem;
   margin-bottom: 3.2rem;
   padding: 4.8rem;
-
+  
+  .bigScreen {
+    font-size: 3rem;
+  }
+  
   button {
     background: #F03B92;
     border: 2px solid transparent;
