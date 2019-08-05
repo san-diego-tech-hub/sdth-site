@@ -26,9 +26,9 @@ const PillarsDropdown = () => {
 
   return (
     <Drop tabIndex="0" aria-haspopup="true" active={isAnyActive}>
-      <span>
-        PILLARS of EXCELLENCE <FontAwesomeIcon icon="caret-down" />
-      </span>
+      <Label>
+        PILLARS <CaretIcon icon="caret-down" />
+      </Label>
       <DropdownLinks className="content">
         {pillarList.map((pillar) => {
           const pillarPath = `/${pillar.name.toLowerCase()}`
@@ -54,6 +54,14 @@ const PillarsDropdown = () => {
   )
 }
 
+export const CaretIcon = styled(FontAwesomeIcon)`
+  margin-left: 5px;
+`
+
+export const Label = styled.div`
+  width: 100%;
+`
+
 export const Drop = styled.li`
   align-items: center;
   border-bottom: ${props => {
@@ -62,6 +70,8 @@ export const Drop = styled.li`
       : "1rem solid transparent"
   }};
   display: flex;
+  text-align: center;
+  flex-grow: 1;
   height: 100%;
   margin: 0;
   padding: 0 1rem;

@@ -19,15 +19,13 @@ function StayConnected() {
   const form = useForm({
     fields: [
       usernameField,
-      emailField,
-      { name: "comments" }
+      emailField
     ]
   })
 
   const handleSubmit = async () => {
     const res = await addToMailChimp(form.email.value, {
-      NAME: form.username.value,
-      COMMENTS: form.comments.value
+      NAME: form.username.value
     })
 
     if (res.result === "success") {
@@ -47,7 +45,7 @@ function StayConnected() {
         onSubmit={form.onSubmit(handleSubmit)}
         noValidate
       >
-        <FormTitle className="bigScreen">Stay Connected</FormTitle>
+        <FormTitle className="bigScreen">Sign up for monthly newsletter</FormTitle>
         <FormField>
           <label htmlFor="username">
             Name:
@@ -75,18 +73,8 @@ function StayConnected() {
             {form.email.error}
           </ErrorMsg>
         </FormField>
-        <FormField>
-          <label htmlFor="comments">
-            Comments:
-            <textarea
-              id="comments"
-              value={form.comments.value}
-              onChange={form.comments.onChange}
-            />
-          </label>
-        </FormField>
         <button data-testid="subscribe" type="submit">
-          Join the Movement
+          Sign Up
         </button>
       </Form>
       <SocialContainer>
