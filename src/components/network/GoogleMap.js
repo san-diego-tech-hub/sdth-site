@@ -1,25 +1,48 @@
-import React from "react"
-import styled from "styled-components"
+import React, { Component } from "react"
+import { Map, GoogleApiWrapper, Marker } from "google-maps-react"
 
-export default function GoogleMap({ resourceType }) {
-  let id
-  if (resourceType === "codeSchool") {
-    id = "1umjck4O4CFh8XjLqskK0Xb2NeAehDS70&z=10"
-  } else if (resourceType === "venue") {
-    id = "1YlOiAqHsgnOPHNZUzCaoyQhYBDbzWlrV"
-  } else {
-    return null
+export class GoogleMap extends Component {
+  displayMarkers = () => {
+    const { results, resourceType, filterText } = this.props
+    const resultList = results[resourceType]
+    const filteredResults = (resultList || [])
+      .filter(resource => resource.name.toLowerCase().includes(filterText.toLowerCase()))
+    return filteredResults.map((result, index) => {
+      if (result.coordinates != null) {
+        return (
+          <Marker key={result.id}
+            id={index}
+            position={{
+              lat: result.coordinates[0],
+              lng: result.coordinates[1]
+            }}
+          />
+        )
+      }
+      return null
+    })
   }
-  return (
-    <IFrame
-        title="Code Schools"
-        src={`https://www.google.com/maps/d/u/0/embed?mid=${id}`}
-        width="100%"
-        height="300px"
-    />
-  )
+
+  render() {
+    const { google } = this.props
+    return (
+      <Map
+          google={google}
+          zoom={8}
+          style={mapStyles}
+          initialCenter={{ lat: 32.7157, lng: -117.1611 }}
+      >
+        {this.displayMarkers()}
+      </Map>
+    )
+  }
 }
 
-const IFrame = styled.iframe`
-  margin-bottom: 0;
-`
+export default GoogleApiWrapper({
+  apiKey: process.env.GATSBY_GOOGLE_MAPS_API_KEY
+})(GoogleMap)
+
+const mapStyles = {
+  width: "100%",
+  height: "300px"
+}
