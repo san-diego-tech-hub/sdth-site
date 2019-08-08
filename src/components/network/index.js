@@ -65,7 +65,6 @@ const hasuraQuery = graphql`
         name
         id
         description
-        imageUrl
         socialMedia
         website
         email

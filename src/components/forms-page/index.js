@@ -2,11 +2,39 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Html from "Common/Html"
+import gql from "graphql-tag"
+import { Query } from "react-apollo"
+import { useMutation } from "@apollo/react-hooks"
 
 function FormsPage() {
   const {
     markdownRemark: { frontmatter }
   } = useStaticQuery(query)
+
+  const GET_CODESCHOOL = gql`
+  {
+    codeSchool(where: {id: {_eq: 1}}) {
+      name
+    }
+  }
+  `
+
+  const ADD_CODESCHOOL = gql`
+  mutation insert_codeSchool {
+    insert_codeSchool (objects: [{name: "WHOOPSIES", id: 11}]) {
+      returning {
+        id
+        name
+      }
+    }
+  }
+  `
+
+  const handleButton = (e) => {
+    e.preventDefault()
+    const [insert_codeSchool] = useMutation(ADD_CODESCHOOL)
+    insert_codeSchool({ variables: { name: "WHOOPSIES", id: 11 } })
+  }
 
   return (
     <Container>
@@ -16,6 +44,16 @@ function FormsPage() {
           <Html>
             {frontmatter.mainDescription}
           </Html>
+          {/* get code school query */}
+          <Query query={GET_CODESCHOOL}>
+            {({ data, loading, error }) => {
+              if (loading) return "Loading..."
+              if (error) return `Error! ${error.message}`
+              console.log(data)
+              return <p>{ data.codeSchool[0].name }</p>
+            }}
+          </Query>
+          <button type="button" onClick={handleButton}>TEST ME</button>
         </div>
         <ButtonGroup>
           <div className="btn-group">
