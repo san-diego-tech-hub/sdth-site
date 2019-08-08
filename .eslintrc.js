@@ -16,6 +16,7 @@ module.exports = {
     "import/no-cycle": 0,
     "import/no-dynamic-require": 0,
     "import/no-extraneous-dependencies": 0,
+    "import/no-named-as-default": 0,
     "import/no-unresolved": 0,
     "import/no-useless-path-segments": 0,
     "import/no-webpack-loader-syntax": 0,

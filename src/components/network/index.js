@@ -23,7 +23,13 @@ export default function Network() {
           setResourceType={e => setResourceType(e.target.value)}
         />
       </Header>
-      <GoogleMap resourceType={resourceType} />
+      <MapContainer>
+        <GoogleMap
+        filterText={filterText}
+        resourceType={resourceType}
+        results={{ [resourceType]: results }}
+        />
+      </MapContainer>
       <SearchResults
         filterText={filterText}
         results={{ [resourceType]: results }}
@@ -45,6 +51,7 @@ const hasuraQuery = graphql`
         imageUrl
         socialMedia
         website
+        coordinates
       }
       venue {
         address
@@ -60,6 +67,7 @@ const hasuraQuery = graphql`
         name
         socialMedia
         website
+        coordinates
       }
       jobCandidate {
         name
@@ -98,6 +106,11 @@ const Container = styled.main`
   margin: ${NAV_HEIGHT} auto;
   padding: 0;
   width: 100vw;
+}
+`
+
+const MapContainer = styled.div`
+  margin-bottom: 320px;
 }
 `
 
