@@ -23,13 +23,15 @@ export default function Network() {
           setResourceType={e => setResourceType(e.target.value)}
         />
       </Header>
+
       <MapContainer>
         <GoogleMap
-        filterText={filterText}
-        resourceType={resourceType}
-        results={{ [resourceType]: results }}
+          filterText={filterText}
+          resourceType={resourceType}
+          results={{ [resourceType]: results }}
         />
       </MapContainer>
+
       <SearchResults
         filterText={filterText}
         results={{ [resourceType]: results }}
@@ -73,7 +75,7 @@ const hasuraQuery = graphql`
         name
         id
         description
-        imageUrl
+        # imageUrl
         socialMedia
         website
         email
@@ -110,8 +112,7 @@ const Container = styled.main`
 `
 
 const MapContainer = styled.div`
-  margin-bottom: 320px;
-}
+  margin-bottom: 304px;
 `
 
 const Header = styled.div`
