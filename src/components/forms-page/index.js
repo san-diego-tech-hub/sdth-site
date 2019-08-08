@@ -2,48 +2,12 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Html from "Common/Html"
-import gql from "graphql-tag"
-import { Query, Mutation } from "react-apollo"
+import jobSeekers from "../forms/job-seekers"
 
 function FormsPage() {
   const {
     markdownRemark: { frontmatter }
   } = useStaticQuery(query)
-
-  const GET_CODESCHOOL = gql`
-  {
-    codeSchool(where: {id: {_eq: 1}}) {
-      name
-    }
-  }
-  `
-
-  const ADD_JOB_CANDIDATE = gql`
-  mutation {
-    insert_jobCandidate (
-      objects: [
-        {
-          name: "firstName lastName",
-          id: 2,
-          email: "email@address.com",
-          socialMedia: ["https://www.linkedin.com/company/sandiegocodeschool", "wwwoawjfoaiwjef.comawoefij.com"]
-          website: "test@test.com",
-          imageUrl: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-        }
-      ]
-    ) 
-    {
-      returning {
-        name
-        id
-        email
-        socialMedia
-        website
-        imageUrl
-      }
-    }
-  }
-  `
 
   return (
     <Container>
@@ -53,25 +17,6 @@ function FormsPage() {
           <Html>
             {frontmatter.mainDescription}
           </Html>
-          {/* get code school query */}
-          <Query query={GET_CODESCHOOL}>
-            {({ data, loading, error }) => {
-              if (loading) return "Loading..."
-              if (error) return `Error! ${error.message}`
-              return <p>{ data.codeSchool[0].name }</p>
-            }}
-          </Query>
-
-          <Mutation mutation={ADD_JOB_CANDIDATE}>
-            {addJobCandidate => (
-              <button type="button" onClick={addJobCandidate}>
-                TEST
-              </button>
-            )}
-          </Mutation>
-
-
-          {/* <button type="button" onClick={useMutation(ADD_CODESCHOOL)}>TEST ME</button> */}
         </div>
         <ButtonGroup>
           <div className="btn-group">
@@ -79,11 +24,10 @@ function FormsPage() {
             <button type="button">Venue</button>
             <button type="button">Sponsor</button>
             <button type="button">Speaker</button>
-            <button type="button">Code School</button>
           </div>
         </ButtonGroup>
       </section>
-      {/* form component goes here */}
+      {jobSeekers()}
     </Container>
   )
 }
