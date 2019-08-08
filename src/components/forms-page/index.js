@@ -3,8 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Html from "Common/Html"
 import gql from "graphql-tag"
-import { Query } from "react-apollo"
-import { useMutation } from "@apollo/react-hooks"
+import { Query, Mutation } from "react-apollo"
 
 function FormsPage() {
   const {
@@ -19,22 +18,32 @@ function FormsPage() {
   }
   `
 
-  const ADD_CODESCHOOL = gql`
-  mutation insert_codeSchool {
-    insert_codeSchool (objects: [{name: "WHOOPSIES", id: 11}]) {
+  const ADD_JOB_CANDIDATE = gql`
+  mutation {
+    insert_jobCandidate (
+      objects: [
+        {
+          name: "firstName lastName",
+          id: 2,
+          email: "email@address.com",
+          socialMedia: ["https://www.linkedin.com/company/sandiegocodeschool", "wwwoawjfoaiwjef.comawoefij.com"]
+          website: "test@test.com",
+          imageUrl: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+        }
+      ]
+    ) 
+    {
       returning {
-        id
         name
+        id
+        email
+        socialMedia
+        website
+        imageUrl
       }
     }
   }
   `
-
-  const handleButton = (e) => {
-    e.preventDefault()
-    const [insert_codeSchool] = useMutation(ADD_CODESCHOOL)
-    insert_codeSchool({ variables: { name: "WHOOPSIES", id: 11 } })
-  }
 
   return (
     <Container>
@@ -49,11 +58,20 @@ function FormsPage() {
             {({ data, loading, error }) => {
               if (loading) return "Loading..."
               if (error) return `Error! ${error.message}`
-              console.log(data)
               return <p>{ data.codeSchool[0].name }</p>
             }}
           </Query>
-          <button type="button" onClick={handleButton}>TEST ME</button>
+
+          <Mutation mutation={ADD_JOB_CANDIDATE}>
+            {addJobCandidate => (
+              <button type="button" onClick={addJobCandidate}>
+                TEST
+              </button>
+            )}
+          </Mutation>
+
+
+          {/* <button type="button" onClick={useMutation(ADD_CODESCHOOL)}>TEST ME</button> */}
         </div>
         <ButtonGroup>
           <div className="btn-group">

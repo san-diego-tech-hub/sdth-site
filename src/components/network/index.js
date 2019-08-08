@@ -69,6 +69,7 @@ const hasuraQuery = graphql`
         website
         email
         phoneNumber
+        imageUrl
       }
       speaker {
         name
