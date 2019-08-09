@@ -2,6 +2,7 @@ import { useForm } from "Utils/hooks"
 import React from "react"
 import ErrorMsg from "Common/ErrorMsg"
 import styled from "styled-components"
+import Color from "color"
 import gql from "graphql-tag"
 import { Mutation } from "react-apollo"
 import {
@@ -63,7 +64,7 @@ export default function jobSeekers() {
         noValidate
       >
         <label htmlFor="name">
-          Full Name:
+          Full Name
         </label>
         <input
           id="name"
@@ -76,7 +77,7 @@ export default function jobSeekers() {
           {form.name.error}
         </ErrorMsg>
         <label htmlFor="email">
-          Email:
+          Email
         </label>
         <input
           id="email"
@@ -89,7 +90,7 @@ export default function jobSeekers() {
           {form.email.error}
         </ErrorMsg>
         <label htmlFor="phone">
-            Phone Number:
+            Phone Number
         </label>
         <input
           id="phone"
@@ -102,9 +103,9 @@ export default function jobSeekers() {
           {form.phone.error}
         </ErrorMsg>
         <label htmlFor="website">
-          Website/Portfolio:
+          Website/Portfolio
         </label>
-        <p><small><i>Please include full url (ex. https://www.google.com)</i></small></p>
+        <p><small><i>Please include full url (ex. https://www.sandiegotechhub.com/)</i></small></p>
         <input
           id="website"
           value={form.website.value}
@@ -115,7 +116,7 @@ export default function jobSeekers() {
           {form.website.error}
         </ErrorMsg>
         <label htmlFor="social">
-            LinkedIn:
+            LinkedIn
         </label>
         <input
           id="social"
@@ -125,7 +126,7 @@ export default function jobSeekers() {
         />
         <br />
         <label htmlFor="description">
-          Tell us a little about yourself:
+          Tell us a little about yourself
         </label>
         <p><small><i>What are you looking for? Describe your skillset.</i></small></p>
         <textarea
@@ -157,23 +158,72 @@ const Container = styled.div`
   display: grid;
   font-size: 2rem;
   grid-gap: 2rem;
-  margin: 0 20rem 5rem 20rem;
+  margin: 0 auto;
   margin-bottom: 3.2rem;
   padding: 4.8rem;
+  width: 69%;
+
   .bigScreen {
     font-size: 3rem;
+  }
+
+  button {
+    background: #F03B92;
+    border: 2px solid transparent;
+    border-radius: 0.5rem;
+    color: rgb(245, 245, 245);
+    margin-top: 2rem;
+    padding: 1rem;
+    width: 100%;
+
+    &:hover, &:focus {
+      background: ${Color("#F03B92").darken(0.1).toString()};
+      border: 2px solid #a31f5e;
+      cursor: pointer;
+    }
+  }
+
+  @media (max-width: 990px) {
+    border-right: none;
+    font-size: 2rem;
+    padding: 3rem;
+  }
+
+  @media (max-width: 667px) {
+    border-right: none;
+    font-size: 2rem;
+    margin-top: 2.4rem;
+    padding: 3rem 1rem 1rem 1rem;
+    width: 100%;
   }
 `
 
 const Form = styled.form`
+  
   display: flex;
   flex-direction: column;
+
   label {
     color: ${props => props.theme.primaryMuted};
     font-size: 2rem;
   }
+
   button {
     padding: 1rem;
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+
+  @media (max-width: 990px) {
+    border-right: none;
+    font-size: 2rem;
+  }
+
+  @media (max-width: 667px) {
+    border-right: none;
+    font-size: 2rem;
   }
 `
 
