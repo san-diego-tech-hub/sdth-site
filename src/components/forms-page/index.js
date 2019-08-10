@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Html from "Common/Html"
-import jobSeekers from "../forms/job-seekers"
+import JobSeekersForm from "../forms/job-seekers"
 
 function FormsPage() {
   const {
@@ -27,7 +27,7 @@ function FormsPage() {
           </div>
         </ButtonGroup>
       </section>
-      {jobSeekers()}
+      <JobSeekersForm />
     </Container>
   )
 }

@@ -1,10 +1,11 @@
-import { useForm } from "Utils/hooks"
 import React from "react"
-import ErrorMsg from "Common/ErrorMsg"
-import styled from "styled-components"
 import Color from "color"
+import styled from "styled-components"
 import gql from "graphql-tag"
 import { Mutation } from "react-apollo"
+import { toast } from "react-toastify"
+import ErrorMsg from "Common/ErrorMsg"
+import { useForm } from "Utils/hooks"
 import {
   nameField,
   emailField,
@@ -14,7 +15,7 @@ import {
   descriptionField
 } from "Utils/forms"
 
-export default function jobSeekers() {
+export default function JobSeekersForm() {
   const form = useForm({
     fields: [
       nameField,
@@ -55,94 +56,106 @@ export default function jobSeekers() {
     }
     `
 
+  const handleSubmit = () => {
+    toast.success("🚀 Thank you for contributing to the network!")
+  }
+
   return (
     <Container data-testid="job-seekers">
       <FormTitle className="bigScreen">Looking for work?</FormTitle>
       <Form
         data-testid="job-seekers-form"
-        method="post"
+        method="POST"
+        onSubmit={form.onSubmit(handleSubmit)}
         noValidate
       >
         <label htmlFor="name">
           Full Name
+          <input
+            id="name"
+            type="text"
+            value={form.name.value}
+            onChange={form.name.onChange}
+            required
+          />
         </label>
-        <input
-          id="name"
-          type="text"
-          value={form.name.value}
-          onChange={form.name.onChange}
-          required
-        />
         <ErrorMsg data-testid="name-error">
           {form.name.error}
         </ErrorMsg>
+
         <label htmlFor="email">
           Email
+          <input
+            id="email"
+            type="email"
+            value={form.email.value}
+            onChange={form.email.onChange}
+            required
+          />
         </label>
-        <input
-          id="email"
-          type="email"
-          value={form.email.value}
-          onChange={form.email.onChange}
-          required
-        />
         <ErrorMsg data-testid="email-error">
           {form.email.error}
         </ErrorMsg>
+
         <label htmlFor="phone">
-            Phone Number
+          Phone Number
+          <input
+            id="phone"
+            type="phone"
+            value={form.phone.value}
+            onChange={form.phone.onChange}
+            required
+          />
         </label>
-        <input
-          id="phone"
-          type="phone"
-          value={form.phone.value}
-          onChange={form.phone.onChange}
-          required
-        />
         <ErrorMsg data-testid="phone-error">
           {form.phone.error}
         </ErrorMsg>
+
         <label htmlFor="website">
           Website/Portfolio
+          <p><small><i>Please include full url (ex. https://www.sandiegotechhub.com/)</i></small></p>
+          <input
+            id="website"
+            value={form.website.value}
+            onChange={form.website.onChange}
+            required
+          />
         </label>
-        <p><small><i>Please include full url (ex. https://www.sandiegotechhub.com/)</i></small></p>
-        <input
-          id="website"
-          value={form.website.value}
-          onChange={form.website.onChange}
-          required
-        />
         <ErrorMsg data-testid="website-error">
           {form.website.error}
         </ErrorMsg>
+
         <label htmlFor="social">
-            LinkedIn
+          LinkedIn
+          <input
+            id="social"
+            value={form.social.value}
+            onChange={form.social.onChange}
+            required
+          />
         </label>
-        <input
-          id="social"
-          value={form.social.value}
-          onChange={form.social.onChange}
-          required
-        />
+
         <br />
+
         <label htmlFor="description">
           Tell us a little about yourself
+          <p><small><i>What are you looking for? Describe your skillset.</i></small></p>
+          <textarea
+            id="description"
+            className="form-control"
+            value={form.description.value}
+            onChange={form.description.onChange}
+            required
+          />
         </label>
-        <p><small><i>What are you looking for? Describe your skillset.</i></small></p>
-        <textarea
-          id="description"
-          className="form-control"
-          value={form.description.value}
-          onChange={form.description.onChange}
-          required
-        />
         <ErrorMsg data-testid="description-error">
           {form.description.error}
         </ErrorMsg>
+
         <Mutation mutation={ADD_JOB_CANDIDATE}>
           {addJobCandidate => (
-            <button type="button" onClick={addJobCandidate}>
-              Sign Up
+            <button type="submit" onClick={addJobCandidate}>
+              Submit
             </button>
           )}
         </Mutation>
@@ -199,19 +212,25 @@ const Container = styled.div`
 `
 
 const Form = styled.form`
-  
+
   display: flex;
   flex-direction: column;
 
   label {
     color: ${props => props.theme.primaryMuted};
     font-size: 2rem;
+    margin-top: 20px;
   }
 
   button {
     padding: 1rem;
   }
-  
+
+  input, textarea {
+    display: block;
+    width: 100%;
+  }
+
   textarea {
     resize: vertical;
   }
@@ -231,4 +250,5 @@ const FormTitle = styled.h2`
   color: ${props => props.theme.primaryMuted};
   font-size: 3.2rem;
   text-align: center;
+  margin-bottom: 0;
 `
