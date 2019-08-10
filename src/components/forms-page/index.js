@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Html from "Common/Html"
+import jobSeekers from "../forms/job-seekers"
 
 function FormsPage() {
   const {
@@ -10,7 +11,7 @@ function FormsPage() {
 
   return (
     <Container>
-      <section style={{ marginBottom: "5rem", padding: "1rem" }}>
+      <section style={{ marginBottom: "3rem", padding: "1rem" }}>
         <div style={{ textAlign: "center" }}>
           <h2>{frontmatter.mainTitle}</h2>
           <Html>
@@ -23,11 +24,10 @@ function FormsPage() {
             <button type="button">Venue</button>
             <button type="button">Sponsor</button>
             <button type="button">Speaker</button>
-            <button type="button">Code School</button>
           </div>
         </ButtonGroup>
       </section>
-      {/* form component goes here */}
+      {jobSeekers()}
     </Container>
   )
 }
@@ -73,6 +73,16 @@ const ButtonGroup = styled.div`
 
   .btn-group button:hover {
     background-color: #3c237d;
+  }
+
+  @media(max-width: 990px) {
+    text-align: center;
+    width: 100%;
+  }
+
+  @media(max-width: 667px) {
+    text-align: center;
+    width: 100%;
   }
 
   @media(max-width: 450px) {
