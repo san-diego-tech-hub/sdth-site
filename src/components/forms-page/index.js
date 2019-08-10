@@ -2,6 +2,10 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Html from "Common/Html"
+import jobSeekers from "../forms/job-seekers"
+import venues from "../forms/venues"
+import speakers from "../forms/speakers"
+import sponsors from "../forms/sponsors"
 
 function FormsPage() {
   const {
@@ -23,11 +27,10 @@ function FormsPage() {
             <button type="button">Venue</button>
             <button type="button">Sponsor</button>
             <button type="button">Speaker</button>
-            <button type="button">Code School</button>
           </div>
         </ButtonGroup>
       </section>
-      {/* form component goes here */}
+      {speakers()}
     </Container>
   )
 }
@@ -60,8 +63,8 @@ const Container = styled.main`
 `
 
 const ButtonGroup = styled.div`
-  text-align: center;
-
+  text-align: center;​
+  
   .btn-group button {
     background-color: #5833b6;
     border: 1px solid #3c237d;
@@ -74,7 +77,17 @@ const ButtonGroup = styled.div`
   .btn-group button:hover {
     background-color: #3c237d;
   }
-
+  ​
+  @media(max-width: 990px) {
+    text-align: center;
+    width: 100%;
+  }
+​
+  @media(max-width: 667px) {
+    text-align: center;
+    width: 100%;
+  }
+​
   @media(max-width: 450px) {
     text-align: center;
   }
