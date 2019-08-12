@@ -45,108 +45,108 @@ export default function sponsors() {
       >
         <label htmlFor="name">
           Name*
+          <input
+            id="name"
+            type="text"
+            value={form.name.value}
+            onChange={form.name.onChange}
+            required
+          />
         </label>
-        <input
-          id="name"
-          type="text"
-          value={form.name.value}
-          onChange={form.name.onChange}
-          required
-        />
         <ErrorMsg data-testid="name-error">
           {form.name.error}
         </ErrorMsg>
         <label htmlFor="email">
           Email*
+          <input
+            id="email"
+            type="email"
+            value={form.email.value}
+            onChange={form.email.onChange}
+            required
+          />
         </label>
-        <input
-          id="email"
-          type="email"
-          value={form.email.value}
-          onChange={form.email.onChange}
-          required
-        />
         <ErrorMsg data-testid="email-error">
           {form.email.error}
         </ErrorMsg>
         <label htmlFor="address">
           Company Address
+          <input
+            id="address"
+            value={form.address.value}
+            onChange={form.address.onChange}
+          />
         </label>
-        <input
-          id="address"
-          value={form.address.value}
-          onChange={form.address.onChange}
-        />
         <ErrorMsg data-testid="address-error">
           {form.address.error}
         </ErrorMsg>
         <label htmlFor="website">
           Website
+          <p><small><i>Please include full url (ex. https://www.sandiegotechhub.com)</i></small></p>
+          <input
+            id="website"
+            value={form.website.value}
+            onChange={form.website.onChange}
+          />
         </label>
-        <p><small><i>Please include full url (ex. https://www.sandiegotechhub.com)</i></small></p>
-        <input
-          id="website"
-          value={form.website.value}
-          onChange={form.website.onChange}
-        />
         <ErrorMsg data-testid="website-error">
           {form.website.error}
         </ErrorMsg>
         <label htmlFor="linkedin">
           LinkedIn
+          <input
+            id="linkedin"
+            value={form.linkedin.value}
+            onChange={form.linkedin.onChange}
+          />
         </label>
-        <input
-          id="linkedin"
-          value={form.linkedin.value}
-          onChange={form.linkedin.onChange}
-        />
         <ErrorMsg data-testid="linkedin-error">
           {form.linkedin.error}
         </ErrorMsg>
         <label htmlFor="facebook">
           Facebook
+          <input
+            id="facebook"
+            value={form.facebook.value}
+            onChange={form.facebook.onChange}
+          />
         </label>
-        <input
-          id="facebook"
-          value={form.facebook.value}
-          onChange={form.facebook.onChange}
-        />
         <ErrorMsg data-testid="facebook-error">
           {form.facebook.error}
         </ErrorMsg>
         <label htmlFor="twitter">
           Twitter
+          <input
+            id="twitter"
+            value={form.twitter.value}
+            onChange={form.twitter.onChange}
+          />
         </label>
-        <input
-          id="twitter"
-          value={form.twitter.value}
-          onChange={form.twitter.onChange}
-        />
         <ErrorMsg data-testid="twitter-error">
           {form.twitter.error}
         </ErrorMsg>
         <label htmlFor="description">
           Who are you?*
+          <p><small><i>What do you do? Why do you want to contribute?</i></small></p>
+          <textarea
+            id="description"
+            className="form-control"
+            value={form.description.value}
+            onChange={form.description.onChange}
+            required
+          />
         </label>
-        <p><small><i>What do you do? Why do you want to contribute?</i></small></p>
-        <textarea
-          id="description"
-          className="form-control"
-          value={form.description.value}
-          onChange={form.description.onChange}
-          required
-        />
         <ErrorMsg data-testid="description-error">
           {form.description.error}
         </ErrorMsg>
         <label htmlFor="image">
           Image URL
+          <input
+            id="image"
+            value={form.image.value}
+            onChange={form.image.onChange}
+          />
         </label>
-        <input
-          id="image"
-          value={form.image.value}
-          onChange={form.image.onChange}
-        />
         <ErrorMsg data-testid="image-error">
           {form.image.error}
         </ErrorMsg>

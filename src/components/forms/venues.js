@@ -55,167 +55,167 @@ export default function jobSeekers() {
       >
         <label htmlFor="venue-name">
           Venue Name*
+          <input
+            id="venue-name"
+            type="text"
+            value={form.venueName.value}
+            onChange={form.venueName.onChange}
+            required
+          />
         </label>
-        <input
-          id="venue-name"
-          type="text"
-          value={form.venueName.value}
-          onChange={form.venueName.onChange}
-          required
-        />
         <ErrorMsg data-testid="name-error">
           {form.venueName.error}
         </ErrorMsg>
         <label htmlFor="address">
           Venue Address*
+          <input
+            id="address"
+            type="text"
+            value={form.address.value}
+            onChange={form.address.onChange}
+            required
+          />
         </label>
-        <input
-          id="address"
-          type="text"
-          value={form.address.value}
-          onChange={form.address.onChange}
-          required
-        />
         <ErrorMsg data-testid="address-error">
           {form.address.error}
         </ErrorMsg>
         <label htmlFor="name">
           Contact Name*
+          <input
+            id="name"
+            type="text"
+            value={form.name.value}
+            onChange={form.name.onChange}
+            required
+          />
         </label>
-        <input
-          id="name"
-          type="text"
-          value={form.name.value}
-          onChange={form.name.onChange}
-          required
-        />
         <ErrorMsg data-testid="name-error">
           {form.name.error}
         </ErrorMsg>
         <label htmlFor="email">
           Contact Email*
+          <input
+            id="email"
+            type="email"
+            value={form.email.value}
+            onChange={form.email.onChange}
+            required
+          />
         </label>
-        <input
-          id="email"
-          type="email"
-          value={form.email.value}
-          onChange={form.email.onChange}
-          required
-        />
         <ErrorMsg data-testid="email-error">
           {form.email.error}
         </ErrorMsg>
         <label htmlFor="phone">
           Contact Phone Number
+          <input
+            id="phone"
+            type="phone"
+            value={form.contactPhone.value}
+            onChange={form.contactPhone.onChange}
+          />
         </label>
-        <input
-          id="phone"
-          type="phone"
-          value={form.contactPhone.value}
-          onChange={form.contactPhone.onChange}
-        />
         <ErrorMsg data-testid="phone-error">
           {form.contactPhone.error}
         </ErrorMsg>
         <label htmlFor="website">
           Website
+          <p><small><i>Please include full url (ex. https://www.sandiegotechhub.com)</i></small></p>
+          <input
+            id="website"
+            value={form.website.value}
+            onChange={form.website.onChange}
+          />
         </label>
-        <p><small><i>Please include full url (ex. https://www.google.com)</i></small></p>
-        <input
-          id="website"
-          value={form.website.value}
-          onChange={form.website.onChange}
-        />
         <ErrorMsg data-testid="website-error">
           {form.website.error}
         </ErrorMsg>
         <label htmlFor="facebook">
           Facebook page
+          <input
+            id="facebook"
+            value={form.facebook.value}
+            onChange={form.facebook.onChange}
+          />
         </label>
-        <input
-          id="facebook"
-          value={form.facebook.value}
-          onChange={form.facebook.onChange}
-        />
         <ErrorMsg data-testid="facebook-error">
           {form.facebook.error}
         </ErrorMsg>
         <label htmlFor="linkedin">
           LinkedIn
+          <input
+            id="linkedin"
+            value={form.linkedin.value}
+            onChange={form.linkedin.onChange}
+          />
         </label>
-        <input
-          id="linkedin"
-          value={form.linkedin.value}
-          onChange={form.linkedin.onChange}
-        />
         <ErrorMsg data-testid="linkedin-error">
           {form.linkedin.error}
         </ErrorMsg>
         <label htmlFor="twitter">
           Twitter
+          <input
+            id="twitter"
+            value={form.twitter.value}
+            onChange={form.twitter.onChange}
+          />
         </label>
-        <input
-          id="twitter"
-          value={form.twitter.value}
-          onChange={form.twitter.onChange}
-        />
         <ErrorMsg data-testid="twitter-error">
           {form.twitter.error}
         </ErrorMsg>
         <label htmlFor="image">
           Image URL
+          <input
+            id="image"
+            value={form.image.value}
+            onChange={form.image.onChange}
+          />
         </label>
-        <input
-          id="image"
-          value={form.image.value}
-          onChange={form.image.onChange}
-        />
         <ErrorMsg data-testid="image-error">
           {form.image.error}
         </ErrorMsg>
         <label htmlFor="amenities">
           Amenities
+          <input
+            id="amenities"
+            value={form.amenities.value}
+            onChange={form.amenities.onChange}
+          />
         </label>
-        <input
-          id="amenities"
-          value={form.amenities.value}
-          onChange={form.amenities.onChange}
-        />
         <ErrorMsg data-testid="amenities-error">
           {form.amenities.error}
         </ErrorMsg>
         <label htmlFor="cost">
           Venue fee
+          <input
+            id="cost"
+            type="text"
+            value={form.cost.value}
+            onChange={form.cost.onChange}
+          />
         </label>
-        <input
-          id="cost"
-          type="text"
-          value={form.cost.value}
-          onChange={form.cost.onChange}
-        />
         <ErrorMsg data-testid="cost-error">
           {form.cost.error}
         </ErrorMsg>
         <label htmlFor="capacity">
           Venue capacity*
+          <input
+            id="capacity"
+            value={form.capacity.value}
+            onChange={form.capacity.onChange}
+            required
+          />
         </label>
-        <input
-          id="capacity"
-          value={form.capacity.value}
-          onChange={form.capacity.onChange}
-          required
-        />
         <ErrorMsg data-testid="capacity-error">
           {form.capacity.error}
         </ErrorMsg>
         <label htmlFor="description">
           Description
+          <textarea
+            id="description"
+            value={form.description.value}
+            onChange={form.description.onChange}
+          />
         </label>
-        <textarea
-          id="description"
-          value={form.description.value}
-          onChange={form.description.onChange}
-        />
         <ErrorMsg data-testid="description-error">
           {form.description.error}
         </ErrorMsg>

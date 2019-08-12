@@ -68,88 +68,88 @@ export default function jobSeekers() {
       >
         <label htmlFor="name">
           Full Name*
+          <input
+            id="name"
+            type="text"
+            value={form.name.value}
+            onChange={form.name.onChange}
+            required
+          />
         </label>
-        <input
-          id="name"
-          type="text"
-          value={form.name.value}
-          onChange={form.name.onChange}
-          required
-        />
         <ErrorMsg data-testid="name-error">
           {form.name.error}
         </ErrorMsg>
         <label htmlFor="email">
           Email*
+          <input
+            id="email"
+            type="email"
+            value={form.email.value}
+            onChange={form.email.onChange}
+            required
+          />
         </label>
-        <input
-          id="email"
-          type="email"
-          value={form.email.value}
-          onChange={form.email.onChange}
-          required
-        />
         <ErrorMsg data-testid="email-error">
           {form.email.error}
         </ErrorMsg>
         <label htmlFor="phone">
-            Phone Number*
+          Phone Number*
+          <input
+            id="phone"
+            type="phone"
+            value={form.phone.value}
+            onChange={form.phone.onChange}
+            required
+          />
         </label>
-        <input
-          id="phone"
-          type="phone"
-          value={form.phone.value}
-          onChange={form.phone.onChange}
-          required
-        />
         <ErrorMsg data-testid="phone-error">
           {form.phone.error}
         </ErrorMsg>
         <label htmlFor="website">
           Website/Portfolio
-        </label>
         <p><small><i>Please include full url (ex. https://www.sandiegotechhub.com)</i></small></p>
-        <input
-          id="website"
-          value={form.website.value}
-          onChange={form.website.onChange}
-        />
+          <input
+            id="website"
+            value={form.website.value}
+            onChange={form.website.onChange}
+          />
+        </label>
         <ErrorMsg data-testid="website-error">
           {form.website.error}
         </ErrorMsg>
         <label htmlFor="linkedin">
-            LinkedIn
+          LinkedIn
+          <input
+            id="linkedin"
+            value={form.linkedin.value}
+            onChange={form.linkedin.onChange}
+          />
         </label>
-        <input
-          id="linkedin"
-          value={form.linkedin.value}
-          onChange={form.linkedin.onChange}
-        />
         <ErrorMsg data-testid="linkedin-error">
           {form.linkedin.error}
         </ErrorMsg>
         <label htmlFor="github">
           Github
+          <input
+            id="github"
+            value={form.github.value}
+            onChange={form.github.onChange}
+          />
         </label>
-        <input
-          id="github"
-          value={form.github.value}
-          onChange={form.github.onChange}
-        />
         <ErrorMsg data-testid="github-error">
           {form.github.error}
         </ErrorMsg>
         <label htmlFor="description">
           Tell us a little about yourself*
+          <p><small><i>What are you looking for? Describe your skillset.</i></small></p>
+          <textarea
+            id="description"
+            className="form-control"
+            value={form.description.value}
+            onChange={form.description.onChange}
+            required
+          />
         </label>
-        <p><small><i>What are you looking for? Describe your skillset.</i></small></p>
-        <textarea
-          id="description"
-          className="form-control"
-          value={form.description.value}
-          onChange={form.description.onChange}
-          required
-        />
         <ErrorMsg data-testid="description-error">
           {form.description.error}
         </ErrorMsg>
