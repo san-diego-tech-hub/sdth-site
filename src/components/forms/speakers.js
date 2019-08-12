@@ -57,7 +57,7 @@ export default function SpeakersForm() {
         <ErrorMsg data-testid="username-error">
           {form.username.error}
         </ErrorMsg>
-        
+
         <label htmlFor="email">
           Email*
           <input
@@ -71,7 +71,7 @@ export default function SpeakersForm() {
         <ErrorMsg data-testid="email-error">
           {form.email.error}
         </ErrorMsg>
-        
+
         <label htmlFor="website">
           Website
           <p><small><i>Please include full url (ex. https://www.sandiegotechhub.com)</i></small></p>
@@ -84,7 +84,7 @@ export default function SpeakersForm() {
         <ErrorMsg data-testid="website-error">
           {form.website.error}
         </ErrorMsg>
-        
+
         <label htmlFor="linkedin">
           LinkedIn
           <input
@@ -96,7 +96,7 @@ export default function SpeakersForm() {
         <ErrorMsg data-testid="linkedin-error">
           {form.linkedin.error}
         </ErrorMsg>
-        
+
         <label htmlFor="facebook">
           Facebook
           <input
@@ -108,7 +108,7 @@ export default function SpeakersForm() {
         <ErrorMsg data-testid="facebook-error">
           {form.facebook.error}
         </ErrorMsg>
-        
+
         <label htmlFor="twitter">
           Twitter
           <input
@@ -120,7 +120,7 @@ export default function SpeakersForm() {
         <ErrorMsg data-testid="twitter-error">
           {form.twitter.error}
         </ErrorMsg>
-        
+
         <label htmlFor="description">
           Who are you?*
           <p><small><i>Tell us a little about you and what you want to speak about</i></small></p>
@@ -135,7 +135,7 @@ export default function SpeakersForm() {
         <ErrorMsg data-testid="description-error">
           {form.description.error}
         </ErrorMsg>
-        
+
         <label htmlFor="image">
           Image URL
           <input
@@ -147,7 +147,7 @@ export default function SpeakersForm() {
         <ErrorMsg data-testid="image-error">
           {form.image.error}
         </ErrorMsg>
-        
+
         <button type="submit">
           Submit
         </button>

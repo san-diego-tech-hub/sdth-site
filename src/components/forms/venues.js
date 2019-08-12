@@ -69,7 +69,7 @@ export default function VenuesForm() {
         <ErrorMsg data-testid="name-error">
           {form.venueName.error}
         </ErrorMsg>
-        
+
         <label htmlFor="address">
           Venue Address*
           <input
@@ -83,7 +83,7 @@ export default function VenuesForm() {
         <ErrorMsg data-testid="address-error">
           {form.address.error}
         </ErrorMsg>
-        
+
         <label htmlFor="username">
           Contact Name*
           <input
@@ -97,7 +97,7 @@ export default function VenuesForm() {
         <ErrorMsg data-testid="username-error">
           {form.username.error}
         </ErrorMsg>
-        
+
         <label htmlFor="email">
           Contact Email*
           <input
@@ -111,7 +111,7 @@ export default function VenuesForm() {
         <ErrorMsg data-testid="email-error">
           {form.email.error}
         </ErrorMsg>
-        
+
         <label htmlFor="phone">
           Contact Phone Number
           <input
@@ -124,7 +124,7 @@ export default function VenuesForm() {
         <ErrorMsg data-testid="phone-error">
           {form.contactPhone.error}
         </ErrorMsg>
-        
+
         <label htmlFor="website">
           Website
           <p><small><i>Please include full url (ex. https://www.sandiegotechhub.com)</i></small></p>
@@ -137,7 +137,7 @@ export default function VenuesForm() {
         <ErrorMsg data-testid="website-error">
           {form.website.error}
         </ErrorMsg>
-        
+
         <label htmlFor="facebook">
           Facebook page
           <input
@@ -149,7 +149,7 @@ export default function VenuesForm() {
         <ErrorMsg data-testid="facebook-error">
           {form.facebook.error}
         </ErrorMsg>
-        
+
         <label htmlFor="linkedin">
           LinkedIn
           <input
@@ -161,7 +161,7 @@ export default function VenuesForm() {
         <ErrorMsg data-testid="linkedin-error">
           {form.linkedin.error}
         </ErrorMsg>
-        
+
         <label htmlFor="twitter">
           Twitter
           <input
@@ -173,7 +173,7 @@ export default function VenuesForm() {
         <ErrorMsg data-testid="twitter-error">
           {form.twitter.error}
         </ErrorMsg>
-        
+
         <label htmlFor="image">
           Image URL
           <input
@@ -185,7 +185,7 @@ export default function VenuesForm() {
         <ErrorMsg data-testid="image-error">
           {form.image.error}
         </ErrorMsg>
-        
+
         <label htmlFor="amenities">
           Amenities
           <p><small><i>Seperate each item with a comma,</i><br />
@@ -200,7 +200,7 @@ export default function VenuesForm() {
         <ErrorMsg data-testid="amenities-error">
           {form.amenities.error}
         </ErrorMsg>
-        
+
         <label htmlFor="cost">
           Venue fee
           <input
@@ -213,7 +213,7 @@ export default function VenuesForm() {
         <ErrorMsg data-testid="cost-error">
           {form.cost.error}
         </ErrorMsg>
-        
+
         <label htmlFor="capacity">
           Venue capacity*
           <input
@@ -226,7 +226,7 @@ export default function VenuesForm() {
         <ErrorMsg data-testid="capacity-error">
           {form.capacity.error}
         </ErrorMsg>
-        
+
         <label htmlFor="description">
           Description
           <textarea
@@ -238,7 +238,7 @@ export default function VenuesForm() {
         <ErrorMsg data-testid="description-error">
           {form.description.error}
         </ErrorMsg>
-        
+
         <button type="submit">
           Submit
         </button>

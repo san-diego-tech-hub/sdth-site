@@ -84,7 +84,7 @@ export default function JobSeekersForm() {
         <ErrorMsg data-testid="name-error">
           {form.name.error}
         </ErrorMsg>
-        
+
         <label htmlFor="email">
           Email*
           <input
@@ -98,7 +98,7 @@ export default function JobSeekersForm() {
         <ErrorMsg data-testid="email-error">
           {form.email.error}
         </ErrorMsg>
-        
+
         <label htmlFor="phone">
           Phone Number*
           <input
@@ -112,7 +112,7 @@ export default function JobSeekersForm() {
         <ErrorMsg data-testid="phone-error">
           {form.phone.error}
         </ErrorMsg>
-        
+
         <label htmlFor="website">
           Website/Portfolio
           <p><small><i>Please include full url (ex. https://www.sandiegotechhub.com)</i></small></p>
@@ -125,7 +125,7 @@ export default function JobSeekersForm() {
         <ErrorMsg data-testid="website-error">
           {form.website.error}
         </ErrorMsg>
-        
+
         <label htmlFor="linkedin">
           LinkedIn
           <input
@@ -137,7 +137,7 @@ export default function JobSeekersForm() {
         <ErrorMsg data-testid="linkedin-error">
           {form.linkedin.error}
         </ErrorMsg>
-        
+
         <label htmlFor="github">
           Github
           <input
@@ -149,7 +149,7 @@ export default function JobSeekersForm() {
         <ErrorMsg data-testid="github-error">
           {form.github.error}
         </ErrorMsg>
-        
+
         <label htmlFor="description">
           Tell us a little about yourself*
           <p><small><i>What are you looking for? Describe your skillset.</i></small></p>
@@ -164,7 +164,7 @@ export default function JobSeekersForm() {
         <ErrorMsg data-testid="description-error">
           {form.description.error}
         </ErrorMsg>
-        
+
         <Mutation mutation={ADD_JOB_CANDIDATE}>
           {addJobCandidate => (
             <button type="submit" onClick={addJobCandidate}>
@@ -189,7 +189,7 @@ const Container = styled.div`
   padding: 4.8rem;
   width: 69%;
 
-    .bigScreen {
+  .bigScreen {
     font-size: 3rem;
   }
 

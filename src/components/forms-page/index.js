@@ -30,7 +30,7 @@ function FormsPage() {
             <button type="button">Speaker</button>
           </div>
         </ButtonGroup>
-        </section>
+      </section>
       <JobSeekersForm />
     </Container>
   )
@@ -65,7 +65,7 @@ const Container = styled.main`
 
 const ButtonGroup = styled.div`
   text-align: center;
-  
+
   .btn-group button {
     background-color: #5833b6;
     border: 1px solid #3c237d;
@@ -78,7 +78,7 @@ const ButtonGroup = styled.div`
   .btn-group button:hover {
     background-color: #3c237d;
   }
-  
+
   @media(max-width: 990px) {
     text-align: center;
     width: 100%;
@@ -88,7 +88,7 @@ const ButtonGroup = styled.div`
     text-align: center;
     width: 100%;
   }
-  
+
   @media(max-width: 450px) {
     text-align: center;
   }
