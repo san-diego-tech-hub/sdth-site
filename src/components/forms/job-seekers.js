@@ -1,28 +1,29 @@
+import { useForm } from "Utils/hooks"
 import React from "react"
-import Color from "color"
+import ErrorMsg from "Common/ErrorMsg"
 import styled from "styled-components"
 import gql from "graphql-tag"
 import { Mutation } from "react-apollo"
-import { toast } from "react-toastify"
-import ErrorMsg from "Common/ErrorMsg"
-import { useForm } from "Utils/hooks"
+import Color from "color"
 import {
   nameField,
   emailField,
   phoneField,
   websiteField,
-  socialField,
+  linkedinField,
+  githubField,
   descriptionField
 } from "Utils/forms"
 
-export default function JobSeekersForm() {
+export default function JobSeekers() {
   const form = useForm({
     fields: [
       nameField,
       emailField,
       phoneField,
       websiteField,
-      socialField,
+      linkedinField,
+      githubField,
       descriptionField
     ]
   })
@@ -37,7 +38,7 @@ export default function JobSeekersForm() {
             phoneNumber: "${form.phone.value}"
             website: "${form.website.value}",
             description: "${form.description.value}"
-            socialMedia: ["${form.social.value}"]
+            socialMedia: ["${form.linkedin.value}", "${form.github.value}"]
             imageUrl: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
           }
         ]
@@ -56,21 +57,17 @@ export default function JobSeekersForm() {
     }
     `
 
-  const handleSubmit = () => {
-    toast.success("🚀 Thank you for contributing to the network!")
-  }
-
   return (
     <Container data-testid="job-seekers">
       <FormTitle className="bigScreen">Looking for work?</FormTitle>
+      <p><small><i>fields marked with an asterisk(*) are required</i></small></p>
       <Form
         data-testid="job-seekers-form"
-        method="POST"
-        onSubmit={form.onSubmit(handleSubmit)}
+        method="post"
         noValidate
       >
         <label htmlFor="name">
-          Full Name
+          Full Name*
           <input
             id="name"
             type="text"
@@ -82,9 +79,8 @@ export default function JobSeekersForm() {
         <ErrorMsg data-testid="name-error">
           {form.name.error}
         </ErrorMsg>
-
         <label htmlFor="email">
-          Email
+          Email*
           <input
             id="email"
             type="email"
@@ -96,9 +92,8 @@ export default function JobSeekersForm() {
         <ErrorMsg data-testid="email-error">
           {form.email.error}
         </ErrorMsg>
-
         <label htmlFor="phone">
-          Phone Number
+          Phone Number*
           <input
             id="phone"
             type="phone"
@@ -110,35 +105,42 @@ export default function JobSeekersForm() {
         <ErrorMsg data-testid="phone-error">
           {form.phone.error}
         </ErrorMsg>
-
         <label htmlFor="website">
           Website/Portfolio
-          <p><small><i>Please include full url (ex. https://www.sandiegotechhub.com/)</i></small></p>
+          <p><small><i>Please include full url (ex. https://www.sandiegotechhub.com)</i></small></p>
           <input
             id="website"
             value={form.website.value}
             onChange={form.website.onChange}
-            required
           />
         </label>
         <ErrorMsg data-testid="website-error">
           {form.website.error}
         </ErrorMsg>
-
-        <label htmlFor="social">
+        <label htmlFor="linkedin">
           LinkedIn
           <input
-            id="social"
-            value={form.social.value}
-            onChange={form.social.onChange}
-            required
+            id="linkedin"
+            value={form.linkedin.value}
+            onChange={form.linkedin.onChange}
           />
         </label>
-
-        <br />
-
+        <ErrorMsg data-testid="linkedin-error">
+          {form.linkedin.error}
+        </ErrorMsg>
+        <label htmlFor="github">
+          Github
+          <input
+            id="github"
+            value={form.github.value}
+            onChange={form.github.onChange}
+          />
+        </label>
+        <ErrorMsg data-testid="github-error">
+          {form.github.error}
+        </ErrorMsg>
         <label htmlFor="description">
-          Tell us a little about yourself
+          Tell us a little about yourself*
           <p><small><i>What are you looking for? Describe your skillset.</i></small></p>
           <textarea
             id="description"
@@ -151,11 +153,10 @@ export default function JobSeekersForm() {
         <ErrorMsg data-testid="description-error">
           {form.description.error}
         </ErrorMsg>
-
         <Mutation mutation={ADD_JOB_CANDIDATE}>
           {addJobCandidate => (
-            <button type="submit" onClick={addJobCandidate}>
-              Submit
+            <button type="button" onClick={addJobCandidate}>
+              Sign Up
             </button>
           )}
         </Mutation>
@@ -176,7 +177,7 @@ const Container = styled.div`
   padding: 4.8rem;
   width: 69%;
 
-  .bigScreen {
+    .bigScreen {
     font-size: 3rem;
   }
 
@@ -212,25 +213,18 @@ const Container = styled.div`
 `
 
 const Form = styled.form`
-
   display: flex;
   flex-direction: column;
 
   label {
     color: ${props => props.theme.primaryMuted};
     font-size: 2rem;
-    margin-top: 20px;
   }
 
   button {
     padding: 1rem;
   }
-
-  input, textarea {
-    display: block;
-    width: 100%;
-  }
-
+  
   textarea {
     resize: vertical;
   }
@@ -250,5 +244,4 @@ const FormTitle = styled.h2`
   color: ${props => props.theme.primaryMuted};
   font-size: 3.2rem;
   text-align: center;
-  margin-bottom: 0;
 `
