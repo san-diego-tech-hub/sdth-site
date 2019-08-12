@@ -10,10 +10,6 @@ export const usernameField = {
   errorMsg: "Please enter your name"
 }
 
-export const socialField = {
-  name: "social"
-}
-
 export const emailField = {
   name: "email",
   validate: isValidEmail,
@@ -26,6 +22,11 @@ export const nameField = {
   errorMsg: "Name field cannot be blank"
 }
 
+export const contactPhoneField = {
+  name: "contactPhone",
+  errorMsg: ""
+}
+
 export const phoneField = {
   name: "phone",
   validate: isValidPhone,
@@ -33,11 +34,65 @@ export const phoneField = {
 }
 
 export const websiteField = {
-  name: "website"
+  name: "website",
+  errorMsg: ""
 }
 
 export const descriptionField = {
   name: "description",
   validate: notEmpty,
   errorMsg: "Briefly describe yourself, your skills, and what you're looking for."
+}
+
+export const venueNameField = {
+  name: "venueName",
+  validate: notEmpty,
+  errorMsg: "Venue name cannot be blank"
+}
+
+export const addressField = {
+  name: "address",
+  validate: notEmpty,
+  errorMsg: "Address field cannot be blank"
+}
+
+export const facebookField = {
+  name: "facebook",
+  errorMsg: ""
+}
+
+export const linkedinField = {
+  name: "linkedin",
+  errorMsg: ""
+}
+
+export const githubField = {
+  name: "github",
+  errorMsg: ""
+}
+
+export const twitterField = {
+  name: "twitter",
+  errorMsg: ""
+}
+
+export const imageUrlField = {
+  name: "image",
+  errorMsg: ""
+}
+
+export const amenitiesField = {
+  name: "amenities",
+  errorMsg: ""
+}
+
+export const costField = {
+  name: "cost",
+  errorMsg: ""
+}
+
+export const capacityField = {
+  name: "capacity",
+  validate: notEmpty,
+  errorMsg: "Capacity field cannot be empty"
 }

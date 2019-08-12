@@ -12,7 +12,34 @@ export default function Network() {
   const [resourceType, setResourceType] = useState("codeSchool")
   const results = hasura[resourceType]
 
-  return (
+  if(resourceType == "codeSchool" || resourceType == "venue"){
+    return (
+      <Container>
+        <Header>
+          <Title>Network</Title>
+          <SearchBar
+            filterText={filterText}
+            setFilterText={e => setFilterText(e.target.value)}
+            resourceType={resourceType}
+            setResourceType={e => setResourceType(e.target.value)}
+          />
+        </Header>
+
+        <MapContainer>
+          <GoogleMap
+            filterText={filterText}
+            resourceType={resourceType}
+            results={{ [resourceType]: results }}
+          />
+        </MapContainer>
+        <SearchResults
+          filterText={filterText}
+          results={{ [resourceType]: results }}
+        />
+      </Container>
+    )
+  }
+  else return(
     <Container>
       <Header>
         <Title>Network</Title>
@@ -23,15 +50,6 @@ export default function Network() {
           setResourceType={e => setResourceType(e.target.value)}
         />
       </Header>
-
-      <MapContainer>
-        <GoogleMap
-          filterText={filterText}
-          resourceType={resourceType}
-          results={{ [resourceType]: results }}
-        />
-      </MapContainer>
-
       <SearchResults
         filterText={filterText}
         results={{ [resourceType]: results }}
@@ -112,7 +130,8 @@ const Container = styled.main`
 `
 
 const MapContainer = styled.div`
-  margin-bottom: 304px;
+  height: 305px;
+  width: 100%;
 `
 
 const Header = styled.div`

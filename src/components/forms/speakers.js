@@ -8,61 +8,36 @@ import Color from "color"
 import {
   nameField,
   emailField,
-  phoneField,
   websiteField,
   linkedinField,
-  githubField,
-  descriptionField
+  facebookField,
+  twitterField,
+  descriptionField,
+  imageUrlField
 } from "Utils/forms"
 
-export default function jobSeekers() {
+export default function speakers() {
   const form = useForm({
     fields: [
       nameField,
       emailField,
-      phoneField,
       websiteField,
       linkedinField,
-      githubField,
-      descriptionField
+      facebookField,
+      twitterField,
+      descriptionField,
+      imageUrlField
     ]
   })
 
-  const ADD_JOB_CANDIDATE = gql`
-    mutation {
-      insert_jobCandidate (
-        objects: [
-          {
-            name: "${form.name.value}",
-            email: "${form.email.value}",
-            phoneNumber: "${form.phone.value}"
-            website: "${form.website.value}",
-            description: "${form.description.value}"
-            socialMedia: ["${form.linkedin.value}", "${form.github.value}"]
-            imageUrl: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-          }
-        ]
-      )
-      {
-        returning {
-          name
-          email
-          website
-          description
-          imageUrl
-          socialMedia
-          id
-        }
-      }
-    }
-    `
+  // const ADD_JOB_CANDIDATE = gql``
 
   return (
-    <Container data-testid="job-seekers">
-      <FormTitle className="bigScreen">Looking for work?</FormTitle>
+    <Container data-testid="speakers">
+      <FormTitle className="bigScreen">Want to speak at an event?</FormTitle>
       <p><small><i>fields marked with an asterisk(*) are required</i></small></p>
       <Form
-        data-testid="job-seekers-form"
+        data-testid="speakers-form"
         method="post"
         noValidate
       >
@@ -92,21 +67,8 @@ export default function jobSeekers() {
         <ErrorMsg data-testid="email-error">
           {form.email.error}
         </ErrorMsg>
-        <label htmlFor="phone">
-            Phone Number*
-        </label>
-        <input
-          id="phone"
-          type="phone"
-          value={form.phone.value}
-          onChange={form.phone.onChange}
-          required
-        />
-        <ErrorMsg data-testid="phone-error">
-          {form.phone.error}
-        </ErrorMsg>
         <label htmlFor="website">
-          Website/Portfolio
+          Website
         </label>
         <p><small><i>Please include full url (ex. https://www.sandiegotechhub.com)</i></small></p>
         <input
@@ -118,7 +80,7 @@ export default function jobSeekers() {
           {form.website.error}
         </ErrorMsg>
         <label htmlFor="linkedin">
-            LinkedIn
+          LinkedIn
         </label>
         <input
           id="linkedin"
@@ -128,21 +90,32 @@ export default function jobSeekers() {
         <ErrorMsg data-testid="linkedin-error">
           {form.linkedin.error}
         </ErrorMsg>
-        <label htmlFor="github">
-          Github
+        <label htmlFor="facebook">
+          Facebook
         </label>
         <input
-          id="github"
-          value={form.github.value}
-          onChange={form.github.onChange}
+          id="facebook"
+          value={form.facebook.value}
+          onChange={form.facebook.onChange}
         />
-        <ErrorMsg data-testid="github-error">
-          {form.github.error}
+        <ErrorMsg data-testid="facebook-error">
+          {form.facebook.error}
+        </ErrorMsg>
+        <label htmlFor="twitter">
+          Twitter
+        </label>
+        <input
+          id="twitter"
+          value={form.twitter.value}
+          onChange={form.twitter.onChange}
+        />
+        <ErrorMsg data-testid="twitter-error">
+          {form.twitter.error}
         </ErrorMsg>
         <label htmlFor="description">
-          Tell us a little about yourself*
+          Who are you?*
         </label>
-        <p><small><i>What are you looking for? Describe your skillset.</i></small></p>
+        <p><small><i>Tell us about yourself, what are your qualifications? What are you passionate about? What do you want to speak about?</i></small></p>
         <textarea
           id="description"
           className="form-control"
@@ -153,13 +126,20 @@ export default function jobSeekers() {
         <ErrorMsg data-testid="description-error">
           {form.description.error}
         </ErrorMsg>
-        <Mutation mutation={ADD_JOB_CANDIDATE}>
-          {addJobCandidate => (
-            <button type="button" onClick={addJobCandidate}>
-              Sign Up
-            </button>
-          )}
-        </Mutation>
+        <label htmlFor="image">
+          Image URL
+        </label>
+        <input
+          id="image"
+          value={form.image.value}
+          onChange={form.image.onChange}
+        />
+        <ErrorMsg data-testid="image-error">
+          {form.image.error}
+        </ErrorMsg>
+        <button type="button">
+          Sign Up
+        </button>
       </Form>
     </Container>
   )
@@ -176,11 +156,11 @@ const Container = styled.div`
   margin-bottom: 3.2rem;
   padding: 4.8rem;
   width: 69%;
-  ​
+​
   .bigScreen {
     font-size: 3rem;
   }
-​
+
   button {
     background: #F03B92;
     border: 2px solid transparent;
@@ -189,7 +169,7 @@ const Container = styled.div`
     margin-top: 2rem;
     padding: 1rem;
     width: 100%;
-​
+    ​
     &:hover, &:focus {
       background: ${Color("#F03B92").darken(0.1).toString()};
       border: 2px solid #a31f5e;
@@ -215,16 +195,16 @@ const Container = styled.div`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-​
+
   label {
     color: ${props => props.theme.primaryMuted};
     font-size: 2rem;
   }
-​
+
   button {
     padding: 1rem;
   }
-  
+
   textarea {
     resize: vertical;
   }
