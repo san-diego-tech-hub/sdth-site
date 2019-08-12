@@ -16,6 +16,7 @@ import {
   faFacebookSquare,
   faTwitterSquare,
   faSlack,
+  faGithubSquare,
 } from "@fortawesome/free-brands-svg-icons"
 import Footer from "./footer"
 import Nav from "./nav"
@@ -34,7 +35,8 @@ library.add(
   faLinkedin,
   faMapMarker,
   faSlack,
-  faTwitterSquare
+  faTwitterSquare,
+  faGithubSquare
 )
 
 const Layout = ({ children, pageProps }) => (

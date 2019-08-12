@@ -1,6 +1,7 @@
 const ICONS = {
   linkedin: "linkedin",
-  facebook: "facebook-square"
+  facebook: "facebook-square",
+  github: "github-square"
 }
 
 export const urlToSocialIcon = (url) => {

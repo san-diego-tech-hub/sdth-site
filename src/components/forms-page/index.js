@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Html from "Common/Html"
@@ -8,6 +8,46 @@ function FormsPage() {
   const {
     markdownRemark: { frontmatter }
   } = useStaticQuery(query)
+
+  const [jobClicked, setJobClicked] = useState(false)
+  const [venueClicked, setVenueClicked] = useState(false)
+  const [speakerClicked, setSpeakerClicked] = useState(false)
+  const [sponsorClicked, setSponsorClicked] = useState(false)
+
+  const handleButton = (formType) => {
+    // e.preventDefault()
+    switch (formType) {
+      case "jobSeeker":
+        console.log("job pressed")
+        setJobClicked(true)
+        setVenueClicked(false)
+        setSponsorClicked(false)
+        setSpeakerClicked(false)
+        break
+      case "venue":
+        console.log("venue pressed")
+        setVenueClicked(true)
+        setJobClicked(false)
+        setSponsorClicked(false)
+        setSpeakerClicked(false)
+        break
+      case "sponsor":
+        console.log("sponsor pressed")
+        setSponsorClicked(true)
+        setJobClicked(false)
+        setVenueClicked(false)
+        setSpeakerClicked(false)
+        break
+      case "speaker":
+        console.log("speaker pressed")
+        setSpeakerClicked(true)
+        setJobClicked(false)
+        setVenueClicked(false)
+        setSponsorClicked(false)
+        break
+      default:
+    }
+  }
 
   return (
     <Container>
@@ -20,14 +60,17 @@ function FormsPage() {
         </div>
         <ButtonGroup>
           <div className="btn-group">
-            <button type="button">Job Seeker</button>
-            <button type="button">Venue</button>
-            <button type="button">Sponsor</button>
-            <button type="button">Speaker</button>
+            <button type="button" onClick={() => handleButton("jobSeeker")}>Job Seeker</button>
+            <button type="button" onClick={() => handleButton("venue")}>Venue</button>
+            <button type="button" onClick={() => handleButton("sponsor")}>Sponsor</button>
+            <button type="button" onClick={() => handleButton("speaker")}>Speaker</button>
           </div>
         </ButtonGroup>
       </section>
-      <JobSeekersForm />
+      { jobClicked && <JobSeekersForm /> }
+      { venueClicked && <div>hello world</div> }
+      { sponsorClicked && <div>there it is</div> }
+      { speakerClicked && <div>dancing queen</div> }
     </Container>
   )
 }
