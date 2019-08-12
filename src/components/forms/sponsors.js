@@ -6,73 +6,48 @@ import { toast } from "react-toastify"
 import ErrorMsg from "Common/ErrorMsg"
 import { useForm } from "Utils/hooks"
 import {
-  nameField,
+  usernameField,
   emailField,
-  phoneField,
+  addressField,
   websiteField,
   linkedinField,
-  githubField,
-  descriptionField
+  facebookField,
+  twitterField,
+  descriptionField,
+  imageUrlField
 } from "Utils/forms"
 
-export default function JobSeekersForm() {
+export default function SponsorsForm() {
   const form = useForm({
     fields: [
-      nameField,
+      usernameField,
       emailField,
-      phoneField,
+      addressField,
       websiteField,
       linkedinField,
-      githubField,
-      descriptionField
+      facebookField,
+      twitterField,
+      descriptionField,
+      imageUrlField
     ]
   })
-
-  const ADD_JOB_CANDIDATE = gql`
-    mutation {
-      insert_jobCandidate (
-        objects: [
-          {
-            name: "${form.name.value}",
-            email: "${form.email.value}",
-            phoneNumber: "${form.phone.value}"
-            website: "${form.website.value}",
-            description: "${form.description.value}"
-            socialMedia: ["${form.linkedin.value}", "${form.github.value}"]
-            imageUrl: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-          }
-        ]
-      )
-      {
-        returning {
-          name
-          email
-          website
-          description
-          imageUrl
-          socialMedia
-          id
-        }
-      }
-    }
-    `
 
   const handleSubmit = () => {
     toast.success("🚀 Thank you for contributing to the network!")
   }
 
   return (
-    <Container data-testid="job-seekers">
-      <FormTitle className="bigScreen">Looking for work?</FormTitle>
+    <Container data-testid="sponsors">
+      <FormTitle className="bigScreen">Want to sponsor an event?</FormTitle>
       <p><small><i>fields marked with an asterisk(*) are required</i></small></p>
       <Form
-        data-testid="job-seekers-form"
+        data-testid="sponsors-form"
         method="POST"
         onSubmit={form.onSubmit(handleSubmit)}
         noValidate
       >
         <label htmlFor="name">
-          Full Name*
+          Name*
           <input
             id="name"
             type="text"
@@ -84,7 +59,7 @@ export default function JobSeekersForm() {
         <ErrorMsg data-testid="name-error">
           {form.name.error}
         </ErrorMsg>
-        
+
         <label htmlFor="email">
           Email*
           <input
@@ -98,23 +73,21 @@ export default function JobSeekersForm() {
         <ErrorMsg data-testid="email-error">
           {form.email.error}
         </ErrorMsg>
-        
-        <label htmlFor="phone">
-          Phone Number*
+
+        <label htmlFor="address">
+          Company Address
           <input
-            id="phone"
-            type="phone"
-            value={form.phone.value}
-            onChange={form.phone.onChange}
-            required
+            id="address"
+            value={form.address.value}
+            onChange={form.address.onChange}
           />
         </label>
-        <ErrorMsg data-testid="phone-error">
-          {form.phone.error}
+        <ErrorMsg data-testid="address-error">
+          {form.address.error}
         </ErrorMsg>
-        
+
         <label htmlFor="website">
-          Website/Portfolio
+          Website
           <p><small><i>Please include full url (ex. https://www.sandiegotechhub.com)</i></small></p>
           <input
             id="website"
@@ -125,7 +98,7 @@ export default function JobSeekersForm() {
         <ErrorMsg data-testid="website-error">
           {form.website.error}
         </ErrorMsg>
-        
+
         <label htmlFor="linkedin">
           LinkedIn
           <input
@@ -137,22 +110,34 @@ export default function JobSeekersForm() {
         <ErrorMsg data-testid="linkedin-error">
           {form.linkedin.error}
         </ErrorMsg>
-        
-        <label htmlFor="github">
-          Github
+
+        <label htmlFor="facebook">
+          Facebook
           <input
-            id="github"
-            value={form.github.value}
-            onChange={form.github.onChange}
+            id="facebook"
+            value={form.facebook.value}
+            onChange={form.facebook.onChange}
           />
         </label>
-        <ErrorMsg data-testid="github-error">
-          {form.github.error}
+        <ErrorMsg data-testid="facebook-error">
+          {form.facebook.error}
         </ErrorMsg>
-        
+
+        <label htmlFor="twitter">
+          Twitter
+          <input
+            id="twitter"
+            value={form.twitter.value}
+            onChange={form.twitter.onChange}
+          />
+        </label>
+        <ErrorMsg data-testid="twitter-error">
+          {form.twitter.error}
+        </ErrorMsg>
+
         <label htmlFor="description">
-          Tell us a little about yourself*
-          <p><small><i>What are you looking for? Describe your skillset.</i></small></p>
+          Who are you?*
+          <p><small><i>What do you do? Why do you want to contribute?</i></small></p>
           <textarea
             id="description"
             className="form-control"
@@ -164,14 +149,22 @@ export default function JobSeekersForm() {
         <ErrorMsg data-testid="description-error">
           {form.description.error}
         </ErrorMsg>
-        
-        <Mutation mutation={ADD_JOB_CANDIDATE}>
-          {addJobCandidate => (
-            <button type="submit" onClick={addJobCandidate}>
-              Submit
-            </button>
-          )}
-        </Mutation>
+
+        <label htmlFor="image">
+          Image URL
+          <input
+            id="image"
+            value={form.image.value}
+            onChange={form.image.onChange}
+          />
+        </label>
+        <ErrorMsg data-testid="image-error">
+          {form.image.error}
+        </ErrorMsg>
+
+        <button type="submit">
+          Submit
+        </button>
       </Form>
     </Container>
   )
@@ -188,8 +181,8 @@ const Container = styled.div`
   margin-bottom: 3.2rem;
   padding: 4.8rem;
   width: 69%;
-
-    .bigScreen {
+​
+  .bigScreen {
     font-size: 3rem;
   }
 
@@ -201,20 +194,20 @@ const Container = styled.div`
     margin-top: 2rem;
     padding: 1rem;
     width: 100%;
-
+    ​
     &:hover, &:focus {
       background: ${Color("#F03B92").darken(0.1).toString()};
       border: 2px solid #a31f5e;
       cursor: pointer;
     }
   }
-
+​
   @media (max-width: 990px) {
     border-right: none;
     font-size: 2rem;
     padding: 3rem;
   }
-
+​
   @media (max-width: 667px) {
     border-right: none;
     font-size: 2rem;
@@ -236,11 +229,11 @@ const Form = styled.form`
   button {
     padding: 1rem;
   }
-  
+
   textarea {
     resize: vertical;
   }
-
+​
   @media (max-width: 990px) {
     border-right: none;
     font-size: 2rem;

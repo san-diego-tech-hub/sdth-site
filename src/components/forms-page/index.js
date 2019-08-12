@@ -2,7 +2,11 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Html from "Common/Html"
+// import the form you want to display here
 import JobSeekersForm from "../forms/job-seekers"
+// import VenuesForm from "../forms/venues"
+// import SpeakersForm from "../forms/speakers"
+// import SponsorsForm from "../forms/sponsors"
 
 function FormsPage() {
   const {
@@ -11,7 +15,7 @@ function FormsPage() {
 
   return (
     <Container>
-      <section style={{ marginBottom: "3rem", padding: "1rem" }}>
+      <section style={{ marginBottom: "5rem", padding: "1rem" }}>
         <div style={{ textAlign: "center" }}>
           <h2>{frontmatter.mainTitle}</h2>
           <Html>
@@ -26,7 +30,7 @@ function FormsPage() {
             <button type="button">Speaker</button>
           </div>
         </ButtonGroup>
-      </section>
+        </section>
       <JobSeekersForm />
     </Container>
   )
@@ -61,7 +65,7 @@ const Container = styled.main`
 
 const ButtonGroup = styled.div`
   text-align: center;
-
+  
   .btn-group button {
     background-color: #5833b6;
     border: 1px solid #3c237d;
@@ -74,7 +78,7 @@ const ButtonGroup = styled.div`
   .btn-group button:hover {
     background-color: #3c237d;
   }
-
+  
   @media(max-width: 990px) {
     text-align: center;
     width: 100%;
@@ -84,7 +88,7 @@ const ButtonGroup = styled.div`
     text-align: center;
     width: 100%;
   }
-
+  
   @media(max-width: 450px) {
     text-align: center;
   }
