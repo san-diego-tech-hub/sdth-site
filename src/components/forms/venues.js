@@ -262,6 +262,11 @@ const Container = styled.div`
     font-size: 3rem;
   }
 
+  input, label, textarea {
+    display: block;
+    width: 100%;
+  }
+
   button {
     background: #F03B92;
     border: 2px solid transparent;
