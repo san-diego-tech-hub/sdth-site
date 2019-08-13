@@ -1,4 +1,3 @@
-import { useForm } from "Utils/hooks"
 import React from "react"
 import styled from "styled-components"
 import Color from "color"
@@ -181,7 +180,7 @@ const Container = styled.div`
   margin-bottom: 3.2rem;
   padding: 4.8rem;
   width: 69%;
-​
+
   .bigScreen {
     font-size: 3rem;
   }
@@ -194,20 +193,20 @@ const Container = styled.div`
     margin-top: 2rem;
     padding: 1rem;
     width: 100%;
-    ​
+
     &:hover, &:focus {
       background: ${Color("#F03B92").darken(0.1).toString()};
       border: 2px solid #a31f5e;
       cursor: pointer;
     }
   }
-​
+
   @media (max-width: 990px) {
     border-right: none;
     font-size: 2rem;
     padding: 3rem;
   }
-​
+
   @media (max-width: 667px) {
     border-right: none;
     font-size: 2rem;
@@ -233,8 +232,14 @@ const Form = styled.form`
   textarea {
     resize: vertical;
   }
-​
+
   @media (max-width: 990px) {
     border-right: none;
     font-size: 2rem;
   }
+`
+
+const FormTitle = styled.h2`
+  color: ${props => props.theme.primaryMuted};
+  font-size: 3.2rem;
+`

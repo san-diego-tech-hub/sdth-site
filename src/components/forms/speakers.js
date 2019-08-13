@@ -1,4 +1,3 @@
-import { useForm } from "Utils/hooks"
 import React from "react"
 import styled from "styled-components"
 import Color from "color"
@@ -224,4 +223,9 @@ const Form = styled.form`
     border-right: none;
     font-size: 2rem;
   }
+`
 
+const FormTitle = styled.h2`
+  color: ${props => props.theme.primaryMuted};
+  font-size: 3.2rem;
+`

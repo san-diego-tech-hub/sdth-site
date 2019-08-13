@@ -1,12 +1,13 @@
-import { useForm } from "Utils/hooks"
 import React from "react"
 import styled from "styled-components"
 import Color from "color"
+import gql from "graphql-tag"
+import { Mutation } from "react-apollo"
 import { toast } from "react-toastify"
 import ErrorMsg from "Common/ErrorMsg"
 import { useForm } from "Utils/hooks"
 import {
-  nameField,
+  usernameField,
   emailField,
   phoneField,
   websiteField,
@@ -18,7 +19,7 @@ import {
 export default function JobSeekersForm() {
   const form = useForm({
     fields: [
-      nameField,
+      usernameField,
       emailField,
       phoneField,
       websiteField,
@@ -33,7 +34,7 @@ export default function JobSeekersForm() {
       insert_jobCandidate (
         objects: [
           {
-            name: "${form.name.value}",
+            name: "${form.username.value}",
             email: "${form.email.value}",
             phoneNumber: "${form.phone.value}"
             website: "${form.website.value}",
@@ -71,18 +72,18 @@ export default function JobSeekersForm() {
         onSubmit={form.onSubmit(handleSubmit)}
         noValidate
       >
-        <label htmlFor="name">
+        <label htmlFor="username">
           Full Name*
           <input
-            id="name"
+            id="username"
             type="text"
-            value={form.name.value}
-            onChange={form.name.onChange}
+            value={form.username.value}
+            onChange={form.username.onChange}
             required
           />
         </label>
-        <ErrorMsg data-testid="name-error">
-          {form.name.error}
+        <ErrorMsg data-testid="username-error">
+          {form.username.error}
         </ErrorMsg>
 
         <label htmlFor="email">
@@ -245,3 +246,9 @@ const Form = styled.form`
     border-right: none;
     font-size: 2rem;
   }
+`
+
+const FormTitle = styled.h2`
+  color: ${props => props.theme.primaryMuted};
+  font-size: 3.2rem;
+`
