@@ -2,7 +2,10 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Html from "Common/Html"
-import jobSeekers from "../forms/job-seekers"
+import JobSeekersForm from "../forms/job-seekers"
+import VenuesForm from "../forms/venues"
+import SpeakersForm from "../forms/speakers"
+import SponsorsForm from "../forms/sponsors"
 
 function FormsPage() {
   const {
@@ -11,7 +14,7 @@ function FormsPage() {
 
   return (
     <Container>
-      <section style={{ marginBottom: "3rem", padding: "1rem" }}>
+      <section style={{ marginBottom: "5rem", padding: "1rem" }}>
         <div style={{ textAlign: "center" }}>
           <h2>{frontmatter.mainTitle}</h2>
           <Html>
@@ -27,7 +30,7 @@ function FormsPage() {
           </div>
         </ButtonGroup>
       </section>
-      {jobSeekers()}
+      <JobSeekersForm />
     </Container>
   )
 }
@@ -71,8 +74,13 @@ const ButtonGroup = styled.div`
     display: inline-block;
   }
 
+
   .btn-group button:hover {
     background-color: #3c237d;
+  }
+
+  .btn-group button:focus {
+    outline: none;
   }
 
   @media(max-width: 990px) {
