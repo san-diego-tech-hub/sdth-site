@@ -7,7 +7,8 @@ import {
   faFacebookSquare,
   faLinkedin,
   faSlack,
-  faTwitterSquare
+  faTwitterSquare,
+  faGithubSquare
 } from "@fortawesome/free-brands-svg-icons"
 import {
   MOCK_INVALID_EMAIL,
@@ -20,7 +21,8 @@ library.add(
   faFacebookSquare,
   faLinkedin,
   faSlack,
-  faTwitterSquare
+  faTwitterSquare,
+  faGithubSquare
 )
 
 jest.mock("gatsby-plugin-mailchimp", () => {

@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import Color from "color"
+import styled from "styled-components"
 import gql from "graphql-tag"
 import { Mutation } from "react-apollo"
 import { toast } from "react-toastify"
@@ -126,7 +127,7 @@ export default function JobSeekersForm() {
         <ErrorMsg data-testid="website-error">
           {form.website.error}
         </ErrorMsg>
-
+                                                
         <label htmlFor="linkedin">
           LinkedIn
           <input
@@ -237,12 +238,18 @@ const Form = styled.form`
   label {
     color: ${props => props.theme.primaryMuted};
     font-size: 2rem;
+    margin-top: 20px;
   }
 
   button {
     padding: 1rem;
   }
-  
+
+  input, textarea {
+    display: block;
+    width: 100%;
+  }
+
   textarea {
     resize: vertical;
   }
@@ -256,4 +263,6 @@ const Form = styled.form`
 const FormTitle = styled.h2`
   color: ${props => props.theme.primaryMuted};
   font-size: 3.2rem;
+  text-align: center;
+  margin-bottom: 0;
 `
