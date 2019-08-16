@@ -186,10 +186,8 @@ export default function VenuesForm() {
         </ErrorMsg>
 
         <label htmlFor="amenities">
-          Amenities
-          <p><small><i>Seperate each item with a comma,</i><br />
-            <i>use underscores instead of spaces (i.e. free_wifi, food, projector)</i><br />
-            <i>do not use any other special characters (@#$%*^& etc)</i></small></p>
+          Amenities*
+          <p><small><i>Seperate each item with a comma</i></small></p>
           <input
             id="amenities"
             value={form.amenities.value}
