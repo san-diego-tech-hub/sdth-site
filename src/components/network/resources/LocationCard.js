@@ -35,9 +35,10 @@ export default function LocationCard({
         <Description>{description}</Description>
 
         <List>
-          {amenities.map(amenity => (
+          {amenities.split(",").map(amenity => (
             <li key={amenity}>
               <Label>{amenity}</Label>
+
             </li>
           ))}
         </List>
@@ -100,6 +101,7 @@ const List = styled.ul`
 
   li {
     display: inline-block;
+    margin-right: 15px;
   }
 `
 

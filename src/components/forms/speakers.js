@@ -1,47 +1,47 @@
+import { useForm } from "Utils/hooks"
 import React from "react"
-import styled from "styled-components"
-import Color from "color"
+import ErrorMsg from "Common/ErrorMsg"
 import styled from "styled-components"
 import gql from "graphql-tag"
 import { Mutation } from "react-apollo"
+import Color from "color"
 import { toast } from "react-toastify"
-import ErrorMsg from "Common/ErrorMsg"
-import { useForm } from "Utils/hooks"
 import {
   usernameField,
   emailField,
-  phoneField,
   websiteField,
   linkedinField,
-  githubField,
-  descriptionField
+  facebookField,
+  twitterField,
+  descriptionField,
+  imageUrlField
 } from "Utils/forms"
 
-export default function JobSeekersForm() {
+export default function SpeakersForm() {
   const form = useForm({
     fields: [
       usernameField,
       emailField,
-      phoneField,
       websiteField,
       linkedinField,
-      githubField,
-      descriptionField
+      facebookField,
+      twitterField,
+      descriptionField,
+      imageUrlField
     ]
   })
 
-  const ADD_JOB_CANDIDATE = gql`
+  const ADD_SPEAKER = gql`
     mutation {
-      insert_jobCandidate (
+      insert_speaker (
         objects: [
           {
             name: "${form.username.value}",
             email: "${form.email.value}",
-            phoneNumber: "${form.phone.value}"
             website: "${form.website.value}",
+            socialMedia: ["${form.facebook.value}", "${form.linkedin.value}", "${form.twitter.value}"],
+            imageUrl: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
             description: "${form.description.value}"
-            socialMedia: ["${form.linkedin.value}", "${form.github.value}"]
-            imageUrl: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
           }
         ]
       )
@@ -50,25 +50,24 @@ export default function JobSeekersForm() {
           name
           email
           website
-          description
-          imageUrl
           socialMedia
+          imageUrl
+          description
           id
         }
       }
     }
-    `
-
+  `
   const handleSubmit = () => {
     toast.success("🚀 Thank you for contributing to the network!")
   }
 
   return (
-    <Container data-testid="job-seekers">
-      <FormTitle className="bigScreen">Looking for work?</FormTitle>
+    <Container data-testid="speakers">
+      <FormTitle className="bigScreen">Want to speak at an event?</FormTitle>
       <p><small><i>fields marked with an asterisk(*) are required</i></small></p>
       <Form
-        data-testid="job-seekers-form"
+        data-testid="speakers-form"
         method="POST"
         onSubmit={form.onSubmit(handleSubmit)}
         noValidate
@@ -101,22 +100,8 @@ export default function JobSeekersForm() {
           {form.email.error}
         </ErrorMsg>
 
-        <label htmlFor="phone">
-          Phone Number*
-          <input
-            id="phone"
-            type="phone"
-            value={form.phone.value}
-            onChange={form.phone.onChange}
-            required
-          />
-        </label>
-        <ErrorMsg data-testid="phone-error">
-          {form.phone.error}
-        </ErrorMsg>
-
         <label htmlFor="website">
-          Website/Portfolio
+          Website
           <p><small><i>Please include full url (ex. https://www.sandiegotechhub.com)</i></small></p>
           <input
             id="website"
@@ -127,7 +112,7 @@ export default function JobSeekersForm() {
         <ErrorMsg data-testid="website-error">
           {form.website.error}
         </ErrorMsg>
-                                                
+
         <label htmlFor="linkedin">
           LinkedIn
           <input
@@ -140,21 +125,33 @@ export default function JobSeekersForm() {
           {form.linkedin.error}
         </ErrorMsg>
 
-        <label htmlFor="github">
-          Github
+        <label htmlFor="facebook">
+          Facebook
           <input
-            id="github"
-            value={form.github.value}
-            onChange={form.github.onChange}
+            id="facebook"
+            value={form.facebook.value}
+            onChange={form.facebook.onChange}
           />
         </label>
-        <ErrorMsg data-testid="github-error">
-          {form.github.error}
+        <ErrorMsg data-testid="facebook-error">
+          {form.facebook.error}
+        </ErrorMsg>
+
+        <label htmlFor="twitter">
+          Twitter
+          <input
+            id="twitter"
+            value={form.twitter.value}
+            onChange={form.twitter.onChange}
+          />
+        </label>
+        <ErrorMsg data-testid="twitter-error">
+          {form.twitter.error}
         </ErrorMsg>
 
         <label htmlFor="description">
-          Tell us a little about yourself*
-          <p><small><i>What are you looking for? Describe your skillset.</i></small></p>
+          Who are you?*
+          <p><small><i>Tell us a little about you and what you want to speak about</i></small></p>
           <textarea
             id="description"
             className="form-control"
@@ -167,9 +164,21 @@ export default function JobSeekersForm() {
           {form.description.error}
         </ErrorMsg>
 
-        <Mutation mutation={ADD_JOB_CANDIDATE}>
-          {addJobCandidate => (
-            <button type="submit" onClick={addJobCandidate}>
+        <label htmlFor="image">
+          Image URL
+          <input
+            id="image"
+            value={form.image.value}
+            onChange={form.image.onChange}
+          />
+        </label>
+        <ErrorMsg data-testid="image-error">
+          {form.image.error}
+        </ErrorMsg>
+
+        <Mutation mutation={ADD_SPEAKER}>
+          {addSpeaker => (
+            <button type="submit" onClick={addSpeaker}>
               Submit
             </button>
           )}
@@ -208,7 +217,7 @@ const Container = styled.div`
     margin-top: 2rem;
     padding: 1rem;
     width: 100%;
-
+    
     &:hover, &:focus {
       background: ${Color("#F03B92").darken(0.1).toString()};
       border: 2px solid #a31f5e;
@@ -234,20 +243,13 @@ const Container = styled.div`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-
   label {
     color: ${props => props.theme.primaryMuted};
     font-size: 2rem;
-    margin-top: 20px;
   }
 
   button {
     padding: 1rem;
-  }
-
-  input, textarea {
-    display: block;
-    width: 100%;
   }
 
   textarea {
@@ -258,11 +260,15 @@ const Form = styled.form`
     border-right: none;
     font-size: 2rem;
   }
+
+  @media (max-width: 667px) {
+    border-right: none;
+    font-size: 2rem;
+  }
 `
 
 const FormTitle = styled.h2`
   color: ${props => props.theme.primaryMuted};
   font-size: 3.2rem;
   text-align: center;
-  margin-bottom: 0;
 `
