@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
 import Color from "color"
-import styled from "styled-components"
 import gql from "graphql-tag"
 import { Mutation } from "react-apollo"
 import { toast } from "react-toastify"
@@ -127,7 +126,7 @@ export default function JobSeekersForm() {
         <ErrorMsg data-testid="website-error">
           {form.website.error}
         </ErrorMsg>
-                                                
+
         <label htmlFor="linkedin">
           LinkedIn
           <input

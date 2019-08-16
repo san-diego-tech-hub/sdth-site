@@ -18,31 +18,26 @@ function FormsPage() {
   const [sponsorClicked, setSponsorClicked] = useState(false)
 
   const handleButton = (formType) => {
-    // e.preventDefault()
     switch (formType) {
       case "jobSeeker":
-        console.log("job pressed")
         setJobClicked(true)
         setVenueClicked(false)
         setSponsorClicked(false)
         setSpeakerClicked(false)
         break
       case "venue":
-        console.log("venue pressed")
         setVenueClicked(true)
         setJobClicked(false)
         setSponsorClicked(false)
         setSpeakerClicked(false)
         break
       case "sponsor":
-        console.log("sponsor pressed")
         setSponsorClicked(true)
         setJobClicked(false)
         setVenueClicked(false)
         setSpeakerClicked(false)
         break
       case "speaker":
-        console.log("speaker pressed")
         setSpeakerClicked(true)
         setJobClicked(false)
         setVenueClicked(false)
@@ -72,9 +67,9 @@ function FormsPage() {
       </section>
 
       { jobClicked && <JobSeekersForm /> }
-      { venueClicked && <div>hello world</div> }
-      { sponsorClicked && <div>there it is</div> }
-      { speakerClicked && <div>dancing queen</div> }
+      { venueClicked && <VenuesForm /> }
+      { sponsorClicked && <SponsorsForm />  }
+      { speakerClicked && <SpeakersForm />  }
 
     </Container>
   )
