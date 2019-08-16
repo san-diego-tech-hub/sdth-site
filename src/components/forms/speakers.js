@@ -36,7 +36,7 @@ export default function SpeakersForm() {
   return (
     <Container data-testid="speakers">
       <FormTitle className="bigScreen">Want to speak at an event?</FormTitle>
-      <p><small><i>fields marked with an asterisk(*) are required</i></small></p>
+      <p style={{ alignText: "center" }}><small><i>fields marked with an asterisk(*) are required</i></small></p>
       <Form
         data-testid="speakers-form"
         method="POST"
@@ -233,4 +233,6 @@ const Form = styled.form`
 const FormTitle = styled.h2`
   color: ${props => props.theme.primaryMuted};
   font-size: 3.2rem;
+  text-align: center;
+  margin-bottom: 0;
 `

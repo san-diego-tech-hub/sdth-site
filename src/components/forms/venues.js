@@ -48,7 +48,7 @@ export default function VenuesForm() {
   return (
     <Container data-testid="venues">
       <FormTitle className="bigScreen">Interested in hosting an event?</FormTitle>
-      <p><small><i>fields marked with an asterisk(*) are required</i></small></p>
+      <p style={{ alignText: "center" }}><small><i>fields marked with an asterisk(*) are required</i></small></p>
       <Form
         data-testid="venues-form"
         method="POST"
@@ -328,4 +328,5 @@ const FormTitle = styled.h2`
   color: ${props => props.theme.primaryMuted};
   font-size: 3.2rem;
   text-align: center;
+  margin-bottom: 0;
 `
