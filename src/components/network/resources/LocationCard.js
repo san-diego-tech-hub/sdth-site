@@ -11,7 +11,6 @@ export default function LocationCard({
   capacity,
   contactEmail,
   contactName,
-  // contactPhone,
   cost,
   description,
   imageUrl,

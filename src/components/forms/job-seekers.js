@@ -65,7 +65,7 @@ export default function JobSeekersForm() {
   return (
     <Container data-testid="job-seekers">
       <FormTitle className="bigScreen">Looking for work?</FormTitle>
-      <p><small><i>fields marked with an asterisk(*) are required</i></small></p>
+      <p style={{ textAlign: "center" }}><small><i>fields marked with an asterisk(*) are required</i></small></p>
       <Form
         data-testid="job-seekers-form"
         method="POST"
@@ -237,7 +237,6 @@ const Form = styled.form`
   label {
     color: ${props => props.theme.primaryMuted};
     font-size: 2rem;
-    margin-top: 20px;
   }
 
   button {

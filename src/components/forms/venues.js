@@ -90,7 +90,7 @@ export default function VenuesForm() {
   return (
     <Container data-testid="venues">
       <FormTitle className="bigScreen">Interested in hosting an event?</FormTitle>
-      <p><small><i>fields marked with an asterisk(*) are required</i></small></p>
+      <p style={{ textAlign: "center" }}><small><i>fields marked with an asterisk(*) are required</i></small></p>
       <Form
         data-testid="venues-form"
         method="POST"
@@ -321,6 +321,7 @@ const Container = styled.div`
     margin-top: 2rem;
     padding: 1rem;
     width: 100%;
+
     &:hover, &:focus {
       background: ${Color("#F03B92").darken(0.1).toString()};
       border: 2px solid #a31f5e;
@@ -346,6 +347,7 @@ const Container = styled.div`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
+
   label {
     color: ${props => props.theme.primaryMuted};
     font-size: 2rem;
@@ -374,4 +376,5 @@ const FormTitle = styled.h2`
   color: ${props => props.theme.primaryMuted};
   font-size: 3.2rem;
   text-align: center;
+  margin-bottom: 0;
 `
