@@ -1,17 +1,55 @@
-import React from "react"
+import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Html from "Common/Html"
 import JobSeekersForm from "../forms/job-seekers"
+import VenuesForm from "../forms/venues"
+import SpeakersForm from "../forms/speakers"
+import SponsorsForm from "../forms/sponsors"
 
 function FormsPage() {
   const {
     markdownRemark: { frontmatter }
   } = useStaticQuery(query)
 
+  const [jobClicked, setJobClicked] = useState(false)
+  const [venueClicked, setVenueClicked] = useState(false)
+  const [speakerClicked, setSpeakerClicked] = useState(false)
+  const [sponsorClicked, setSponsorClicked] = useState(false)
+
+  const handleButton = (formType) => {
+    switch (formType) {
+      case "jobSeeker":
+        setJobClicked(true)
+        setVenueClicked(false)
+        setSponsorClicked(false)
+        setSpeakerClicked(false)
+        break
+      case "venue":
+        setVenueClicked(true)
+        setJobClicked(false)
+        setSponsorClicked(false)
+        setSpeakerClicked(false)
+        break
+      case "sponsor":
+        setSponsorClicked(true)
+        setJobClicked(false)
+        setVenueClicked(false)
+        setSpeakerClicked(false)
+        break
+      case "speaker":
+        setSpeakerClicked(true)
+        setJobClicked(false)
+        setVenueClicked(false)
+        setSponsorClicked(false)
+        break
+      default:
+    }
+  }
+
   return (
     <Container>
-      <section style={{ marginBottom: "3rem", padding: "1rem" }}>
+      <section style={{ marginBottom: "5rem", padding: "1rem" }}>
         <div style={{ textAlign: "center" }}>
           <h2>{frontmatter.mainTitle}</h2>
           <Html>
@@ -20,14 +58,19 @@ function FormsPage() {
         </div>
         <ButtonGroup>
           <div className="btn-group">
-            <button type="button">Job Seeker</button>
-            <button type="button">Venue</button>
-            <button type="button">Sponsor</button>
-            <button type="button">Speaker</button>
+            <button type="button" onClick={() => handleButton("jobSeeker")}>Job Seeker</button>
+            <button type="button" onClick={() => handleButton("venue")}>Venue</button>
+            <button type="button" onClick={() => handleButton("sponsor")}>Sponsor</button>
+            <button type="button" onClick={() => handleButton("speaker")}>Speaker</button>
           </div>
         </ButtonGroup>
       </section>
-      <JobSeekersForm />
+
+      { jobClicked && <JobSeekersForm /> }
+      { venueClicked && <VenuesForm /> }
+      { sponsorClicked && <SponsorsForm />  }
+      { speakerClicked && <SpeakersForm />  }
+
     </Container>
   )
 }
@@ -71,8 +114,13 @@ const ButtonGroup = styled.div`
     display: inline-block;
   }
 
+
   .btn-group button:hover {
     background-color: #3c237d;
+  }
+
+  .btn-group button:focus {
+    outline: none;
   }
 
   @media(max-width: 990px) {

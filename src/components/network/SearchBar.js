@@ -72,7 +72,7 @@ const Selector = styled.div`
     height: 65px;
     position: relative;
     text-align: center;
-    width: 200px;
+    width: 190px;
 
     @media(max-width: 990px) {
       background: linear-gradient(#eee, #fff, #eee);
