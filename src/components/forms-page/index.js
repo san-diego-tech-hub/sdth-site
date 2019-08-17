@@ -3,55 +3,29 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Html from "Common/Html"
 import JobSeekersForm from "../forms/job-seekers"
+import VenuesForm from "../forms/venues"
+import SpeakersForm from "../forms/speakers"
+import SponsorsForm from "../forms/sponsors"
 
 function FormsPage() {
   const {
     markdownRemark: { frontmatter }
   } = useStaticQuery(query)
 
-  const [jobClicked, setJobClicked] = useState(false)
-  const [venueClicked, setVenueClicked] = useState(false)
-  const [speakerClicked, setSpeakerClicked] = useState(false)
-  const [sponsorClicked, setSponsorClicked] = useState(false)
+  const [activeForm, setActiveForm] = useState("jobSeeker")
 
-  const handleButton = (formType) => {
-    // e.preventDefault()
-    switch (formType) {
-      case "jobSeeker":
-        console.log("job pressed")
-        setJobClicked(true)
-        setVenueClicked(false)
-        setSponsorClicked(false)
-        setSpeakerClicked(false)
-        break
-      case "venue":
-        console.log("venue pressed")
-        setVenueClicked(true)
-        setJobClicked(false)
-        setSponsorClicked(false)
-        setSpeakerClicked(false)
-        break
-      case "sponsor":
-        console.log("sponsor pressed")
-        setSponsorClicked(true)
-        setJobClicked(false)
-        setVenueClicked(false)
-        setSpeakerClicked(false)
-        break
-      case "speaker":
-        console.log("speaker pressed")
-        setSpeakerClicked(true)
-        setJobClicked(false)
-        setVenueClicked(false)
-        setSponsorClicked(false)
-        break
-      default:
-    }
+  const FORMS = {
+    jobSeeker: JobSeekersForm,
+    venue: VenuesForm,
+    speaker: SpeakersForm,
+    sponsor: SponsorsForm
   }
+
+  const ResourceForm = FORMS[activeForm]
 
   return (
     <Container>
-      <section style={{ marginBottom: "3rem", padding: "1rem" }}>
+      <section style={{ marginBottom: "5rem", padding: "1rem" }}>
         <div style={{ textAlign: "center" }}>
           <h2>{frontmatter.mainTitle}</h2>
           <Html>
@@ -60,17 +34,16 @@ function FormsPage() {
         </div>
         <ButtonGroup>
           <div className="btn-group">
-            <button type="button" onClick={() => handleButton("jobSeeker")}>Job Seeker</button>
-            <button type="button" onClick={() => handleButton("venue")}>Venue</button>
-            <button type="button" onClick={() => handleButton("sponsor")}>Sponsor</button>
-            <button type="button" onClick={() => handleButton("speaker")}>Speaker</button>
+            <button type="button" onClick={() => setActiveForm("jobSeeker")}>Job Seeker</button>
+            <button type="button" onClick={() => setActiveForm("venue")}>Venue</button>
+            <button type="button" onClick={() => setActiveForm("sponsor")}>Sponsor</button>
+            <button type="button" onClick={() => setActiveForm("speaker")}>Speaker</button>
           </div>
         </ButtonGroup>
       </section>
-      { jobClicked && <JobSeekersForm /> }
-      { venueClicked && <div>hello world</div> }
-      { sponsorClicked && <div>there it is</div> }
-      { speakerClicked && <div>dancing queen</div> }
+
+      <ResourceForm />
+
     </Container>
   )
 }
@@ -114,8 +87,13 @@ const ButtonGroup = styled.div`
     display: inline-block;
   }
 
+
   .btn-group button:hover {
     background-color: #3c237d;
+  }
+
+  .btn-group button:focus {
+    outline: none;
   }
 
   @media(max-width: 990px) {

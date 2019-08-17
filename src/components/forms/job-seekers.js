@@ -1,28 +1,30 @@
 import React from "react"
-import Color from "color"
 import styled from "styled-components"
+import Color from "color"
 import gql from "graphql-tag"
 import { Mutation } from "react-apollo"
 import { toast } from "react-toastify"
 import ErrorMsg from "Common/ErrorMsg"
 import { useForm } from "Utils/hooks"
 import {
-  nameField,
+  usernameField,
   emailField,
   phoneField,
   websiteField,
-  socialField,
+  linkedinField,
+  githubField,
   descriptionField
 } from "Utils/forms"
 
 export default function JobSeekersForm() {
   const form = useForm({
     fields: [
-      nameField,
+      usernameField,
       emailField,
       phoneField,
       websiteField,
-      socialField,
+      linkedinField,
+      githubField,
       descriptionField
     ]
   })
@@ -32,12 +34,12 @@ export default function JobSeekersForm() {
       insert_jobCandidate (
         objects: [
           {
-            name: "${form.name.value}",
+            name: "${form.username.value}",
             email: "${form.email.value}",
             phoneNumber: "${form.phone.value}"
             website: "${form.website.value}",
             description: "${form.description.value}"
-            socialMedia: ["${form.social.value}"]
+            socialMedia: ["${form.linkedin.value}", "${form.github.value}"]
             imageUrl: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
           }
         ]
@@ -63,28 +65,29 @@ export default function JobSeekersForm() {
   return (
     <Container data-testid="job-seekers">
       <FormTitle className="bigScreen">Looking for work?</FormTitle>
+      <p style={{ textAlign: "center" }}><small><i>fields marked with an asterisk(*) are required</i></small></p>
       <Form
         data-testid="job-seekers-form"
         method="POST"
         onSubmit={form.onSubmit(handleSubmit)}
         noValidate
       >
-        <label htmlFor="name">
-          Full Name
+        <label htmlFor="username">
+          Full Name*
           <input
-            id="name"
+            id="username"
             type="text"
-            value={form.name.value}
-            onChange={form.name.onChange}
+            value={form.username.value}
+            onChange={form.username.onChange}
             required
           />
         </label>
-        <ErrorMsg data-testid="name-error">
-          {form.name.error}
+        <ErrorMsg data-testid="username-error">
+          {form.username.error}
         </ErrorMsg>
 
         <label htmlFor="email">
-          Email
+          Email*
           <input
             id="email"
             type="email"
@@ -98,7 +101,7 @@ export default function JobSeekersForm() {
         </ErrorMsg>
 
         <label htmlFor="phone">
-          Phone Number
+          Phone Number*
           <input
             id="phone"
             type="phone"
@@ -113,32 +116,43 @@ export default function JobSeekersForm() {
 
         <label htmlFor="website">
           Website/Portfolio
-          <p><small><i>Please include full url (ex. https://www.sandiegotechhub.com/)</i></small></p>
+          <p><small><i>Please include full url (ex. https://www.sandiegotechhub.com)</i></small></p>
           <input
             id="website"
             value={form.website.value}
             onChange={form.website.onChange}
-            required
           />
         </label>
         <ErrorMsg data-testid="website-error">
           {form.website.error}
         </ErrorMsg>
 
-        <label htmlFor="social">
+        <label htmlFor="linkedin">
           LinkedIn
           <input
-            id="social"
-            value={form.social.value}
-            onChange={form.social.onChange}
-            required
+            id="linkedin"
+            value={form.linkedin.value}
+            onChange={form.linkedin.onChange}
           />
         </label>
+        <ErrorMsg data-testid="linkedin-error">
+          {form.linkedin.error}
+        </ErrorMsg>
 
-        <br />
+        <label htmlFor="github">
+          Github
+          <input
+            id="github"
+            value={form.github.value}
+            onChange={form.github.onChange}
+          />
+        </label>
+        <ErrorMsg data-testid="github-error">
+          {form.github.error}
+        </ErrorMsg>
 
         <label htmlFor="description">
-          Tell us a little about yourself
+          Tell us a little about yourself*
           <p><small><i>What are you looking for? Describe your skillset.</i></small></p>
           <textarea
             id="description"
@@ -180,6 +194,11 @@ const Container = styled.div`
     font-size: 3rem;
   }
 
+  input, label, textarea {
+    display: block;
+    width: 100%;
+  }
+
   button {
     background: #F03B92;
     border: 2px solid transparent;
@@ -212,14 +231,12 @@ const Container = styled.div`
 `
 
 const Form = styled.form`
-
   display: flex;
   flex-direction: column;
 
   label {
     color: ${props => props.theme.primaryMuted};
     font-size: 2rem;
-    margin-top: 20px;
   }
 
   button {
@@ -236,11 +253,6 @@ const Form = styled.form`
   }
 
   @media (max-width: 990px) {
-    border-right: none;
-    font-size: 2rem;
-  }
-
-  @media (max-width: 667px) {
     border-right: none;
     font-size: 2rem;
   }

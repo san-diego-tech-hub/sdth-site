@@ -24,14 +24,17 @@ export default function Network() {
         />
       </Header>
 
-      <MapContainer>
-        <GoogleMap
-          filterText={filterText}
-          resourceType={resourceType}
-          results={{ [resourceType]: results }}
-        />
-      </MapContainer>
-
+      {(resourceType === "codeSchool" || resourceType === "venue")
+        && (
+        <MapContainer>
+          <GoogleMap
+            filterText={filterText}
+            resourceType={resourceType}
+            results={{ [resourceType]: results }}
+          />
+        </MapContainer>
+        )
+      }
       <SearchResults
         filterText={filterText}
         results={{ [resourceType]: results }}
@@ -112,7 +115,8 @@ const Container = styled.main`
 `
 
 const MapContainer = styled.div`
-  margin-bottom: 304px;
+  height: 305px;
+  width: 100%;
 `
 
 const Header = styled.div`

@@ -7,58 +7,40 @@ import { toast } from "react-toastify"
 import { useForm } from "Utils/hooks"
 import ErrorMsg from "Common/ErrorMsg"
 import {
-  venueNameField,
-  addressField,
   usernameField,
   emailField,
   websiteField,
-  facebookField,
   linkedinField,
+  facebookField,
   twitterField,
-  contactPhoneField,
-  imageUrlField,
-  amenitiesField,
-  costField,
-  capacityField,
-  descriptionField
+  descriptionField,
+  imageUrlField
 } from "Utils/forms"
 
-export default function VenuesForm() {
+export default function SpeakersForm() {
   const form = useForm({
     fields: [
-      venueNameField,
-      addressField,
       usernameField,
       emailField,
       websiteField,
-      facebookField,
       linkedinField,
+      facebookField,
       twitterField,
-      contactPhoneField,
-      imageUrlField,
-      amenitiesField,
-      costField,
-      capacityField,
-      descriptionField
+      descriptionField,
+      imageUrlField
     ]
   })
 
-  const ADD_VENUE = gql`
+  const ADD_SPEAKER = gql`
     mutation {
-      insert_venue (
+      insert_speaker (
         objects: [
           {
-            name: "${form.venueName.value}",
-            address: "${form.address.value}",
-            contactName: "${form.username.value}",
-            contactEmail: "${form.email.value}",
-            contactPhone: "${form.contactPhone.value}",
+            name: "${form.username.value}",
+            email: "${form.email.value}",
             website: "${form.website.value}",
             socialMedia: ["${form.facebook.value}", "${form.linkedin.value}", "${form.twitter.value}"],
             imageUrl: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
-            amenities: "${form.amenities.value}",
-            cost: "${form.cost.value}",
-            capacity: "${form.capacity.value}",
             description: "${form.description.value}"
           }
         ]
@@ -66,67 +48,32 @@ export default function VenuesForm() {
       {
         returning {
           name
-          address
-          contactName
-          contactEmail
-          contactPhone
+          email
           website
           socialMedia
           imageUrl
-          amenities
-          cost
-          capacity
           description
           id
         }
       }
     }
   `
-
   const handleSubmit = () => {
     toast.success("🚀 Thank you for contributing to the network!")
   }
 
   return (
-    <Container data-testid="venues">
-      <FormTitle className="bigScreen">Interested in hosting an event?</FormTitle>
+    <Container data-testid="speakers">
+      <FormTitle className="bigScreen">Want to speak at an event?</FormTitle>
       <p style={{ textAlign: "center" }}><small><i>fields marked with an asterisk(*) are required</i></small></p>
       <Form
-        data-testid="venues-form"
+        data-testid="speakers-form"
         method="POST"
         onSubmit={form.onSubmit(handleSubmit)}
         noValidate
       >
-        <label htmlFor="venue-name">
-          Venue Name*
-          <input
-            id="venue-name"
-            type="text"
-            value={form.venueName.value}
-            onChange={form.venueName.onChange}
-            required
-          />
-        </label>
-        <ErrorMsg data-testid="name-error">
-          {form.venueName.error}
-        </ErrorMsg>
-
-        <label htmlFor="address">
-          Venue Address*
-          <input
-            id="address"
-            type="text"
-            value={form.address.value}
-            onChange={form.address.onChange}
-            required
-          />
-        </label>
-        <ErrorMsg data-testid="address-error">
-          {form.address.error}
-        </ErrorMsg>
-
         <label htmlFor="username">
-          Contact Name*
+          Full Name*
           <input
             id="username"
             type="text"
@@ -140,7 +87,7 @@ export default function VenuesForm() {
         </ErrorMsg>
 
         <label htmlFor="email">
-          Contact Email*
+          Email*
           <input
             id="email"
             type="email"
@@ -151,19 +98,6 @@ export default function VenuesForm() {
         </label>
         <ErrorMsg data-testid="email-error">
           {form.email.error}
-        </ErrorMsg>
-
-        <label htmlFor="phone">
-          Contact Phone Number
-          <input
-            id="phone"
-            type="phone"
-            value={form.contactPhone.value}
-            onChange={form.contactPhone.onChange}
-          />
-        </label>
-        <ErrorMsg data-testid="phone-error">
-          {form.contactPhone.error}
         </ErrorMsg>
 
         <label htmlFor="website">
@@ -179,18 +113,6 @@ export default function VenuesForm() {
           {form.website.error}
         </ErrorMsg>
 
-        <label htmlFor="facebook">
-          Facebook page
-          <input
-            id="facebook"
-            value={form.facebook.value}
-            onChange={form.facebook.onChange}
-          />
-        </label>
-        <ErrorMsg data-testid="facebook-error">
-          {form.facebook.error}
-        </ErrorMsg>
-
         <label htmlFor="linkedin">
           LinkedIn
           <input
@@ -201,6 +123,18 @@ export default function VenuesForm() {
         </label>
         <ErrorMsg data-testid="linkedin-error">
           {form.linkedin.error}
+        </ErrorMsg>
+
+        <label htmlFor="facebook">
+          Facebook
+          <input
+            id="facebook"
+            value={form.facebook.value}
+            onChange={form.facebook.onChange}
+          />
+        </label>
+        <ErrorMsg data-testid="facebook-error">
+          {form.facebook.error}
         </ErrorMsg>
 
         <label htmlFor="twitter">
@@ -215,6 +149,21 @@ export default function VenuesForm() {
           {form.twitter.error}
         </ErrorMsg>
 
+        <label htmlFor="description">
+          Who are you?*
+          <p><small><i>Tell us a little about you and what you want to speak about</i></small></p>
+          <textarea
+            id="description"
+            className="form-control"
+            value={form.description.value}
+            onChange={form.description.onChange}
+            required
+          />
+        </label>
+        <ErrorMsg data-testid="description-error">
+          {form.description.error}
+        </ErrorMsg>
+
         <label htmlFor="image">
           Image URL
           <input
@@ -227,62 +176,9 @@ export default function VenuesForm() {
           {form.image.error}
         </ErrorMsg>
 
-        <label htmlFor="amenities">
-          Amenities
-          <p><small><i>Seperate each item with a comma,</i><br />
-            <i>use underscores instead of spaces (i.e. free_wifi, food, projector)</i><br />
-            <i>do not use any other special characters (@#$%*^& etc)</i></small></p>
-          <input
-            id="amenities"
-            value={form.amenities.value}
-            onChange={form.amenities.onChange}
-          />
-        </label>
-        <ErrorMsg data-testid="amenities-error">
-          {form.amenities.error}
-        </ErrorMsg>
-
-        <label htmlFor="cost">
-          Venue fee
-          <input
-            id="cost"
-            type="text"
-            value={form.cost.value}
-            onChange={form.cost.onChange}
-          />
-        </label>
-        <ErrorMsg data-testid="cost-error">
-          {form.cost.error}
-        </ErrorMsg>
-
-        <label htmlFor="capacity">
-          Venue capacity*
-          <input
-            id="capacity"
-            value={form.capacity.value}
-            onChange={form.capacity.onChange}
-            required
-          />
-        </label>
-        <ErrorMsg data-testid="capacity-error">
-          {form.capacity.error}
-        </ErrorMsg>
-
-        <label htmlFor="description">
-          Description
-          <textarea
-            id="description"
-            value={form.description.value}
-            onChange={form.description.onChange}
-          />
-        </label>
-        <ErrorMsg data-testid="description-error">
-          {form.description.error}
-        </ErrorMsg>
-
-        <Mutation mutation={ADD_VENUE}>
-          {addVenue => (
-            <button type="submit" onClick={addVenue}>
+        <Mutation mutation={ADD_SPEAKER}>
+          {addSpeaker => (
+            <button type="submit" onClick={addSpeaker}>
               Submit
             </button>
           )}
