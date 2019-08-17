@@ -12,33 +12,7 @@ export default function Network() {
   const [resourceType, setResourceType] = useState("codeSchool")
   const results = hasura[resourceType]
 
-  if (resourceType === "codeSchool" || resourceType === "venue") {
-    return (
-      <Container>
-        <Header>
-          <Title>Network</Title>
-          <SearchBar
-            filterText={filterText}
-            setFilterText={e => setFilterText(e.target.value)}
-            resourceType={resourceType}
-            setResourceType={e => setResourceType(e.target.value)}
-          />
-        </Header>
-
-        <MapContainer>
-          <GoogleMap
-            filterText={filterText}
-            resourceType={resourceType}
-            results={{ [resourceType]: results }}
-          />
-        </MapContainer>
-        <SearchResults
-          filterText={filterText}
-          results={{ [resourceType]: results }}
-        />
-      </Container>
-    )
-  } return (
+  return (
     <Container>
       <Header>
         <Title>Network</Title>
@@ -49,6 +23,18 @@ export default function Network() {
           setResourceType={e => setResourceType(e.target.value)}
         />
       </Header>
+
+      {(resourceType === "codeSchool" || resourceType === "venue")
+        && (
+        <MapContainer>
+          <GoogleMap
+            filterText={filterText}
+            resourceType={resourceType}
+            results={{ [resourceType]: results }}
+          />
+        </MapContainer>
+        )
+      }
       <SearchResults
         filterText={filterText}
         results={{ [resourceType]: results }}

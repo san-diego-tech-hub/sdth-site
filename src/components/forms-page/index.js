@@ -12,40 +12,16 @@ function FormsPage() {
     markdownRemark: { frontmatter }
   } = useStaticQuery(query)
 
-  const [jobClicked, setJobClicked] = useState(false)
-  const [venueClicked, setVenueClicked] = useState(false)
-  const [speakerClicked, setSpeakerClicked] = useState(false)
-  const [sponsorClicked, setSponsorClicked] = useState(false)
+  const [activeForm, setActiveForm] = useState("jobSeeker")
 
-  const handleButton = (formType) => {
-    switch (formType) {
-      case "jobSeeker":
-        setJobClicked(true)
-        setVenueClicked(false)
-        setSponsorClicked(false)
-        setSpeakerClicked(false)
-        break
-      case "venue":
-        setVenueClicked(true)
-        setJobClicked(false)
-        setSponsorClicked(false)
-        setSpeakerClicked(false)
-        break
-      case "sponsor":
-        setSponsorClicked(true)
-        setJobClicked(false)
-        setVenueClicked(false)
-        setSpeakerClicked(false)
-        break
-      case "speaker":
-        setSpeakerClicked(true)
-        setJobClicked(false)
-        setVenueClicked(false)
-        setSponsorClicked(false)
-        break
-      default:
-    }
+  const FORMS = {
+    jobSeeker: JobSeekersForm,
+    venue: VenuesForm,
+    speaker: SpeakersForm,
+    sponsor: SponsorsForm
   }
+
+  const ResourceForm = FORMS[activeForm]
 
   return (
     <Container>
@@ -58,18 +34,15 @@ function FormsPage() {
         </div>
         <ButtonGroup>
           <div className="btn-group">
-            <button type="button" onClick={() => handleButton("jobSeeker")}>Job Seeker</button>
-            <button type="button" onClick={() => handleButton("venue")}>Venue</button>
-            <button type="button" onClick={() => handleButton("sponsor")}>Sponsor</button>
-            <button type="button" onClick={() => handleButton("speaker")}>Speaker</button>
+            <button type="button" onClick={() => setActiveForm("jobSeeker")}>Job Seeker</button>
+            <button type="button" onClick={() => setActiveForm("venue")}>Venue</button>
+            <button type="button" onClick={() => setActiveForm("sponsor")}>Sponsor</button>
+            <button type="button" onClick={() => setActiveForm("speaker")}>Speaker</button>
           </div>
         </ButtonGroup>
       </section>
 
-      { jobClicked && <JobSeekersForm /> }
-      { venueClicked && <VenuesForm /> }
-      { sponsorClicked && <SponsorsForm />  }
-      { speakerClicked && <SpeakersForm />  }
+      <ResourceForm />
 
     </Container>
   )

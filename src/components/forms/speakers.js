@@ -1,11 +1,11 @@
-import { useForm } from "Utils/hooks"
 import React from "react"
-import ErrorMsg from "Common/ErrorMsg"
-import styled from "styled-components"
-import gql from "graphql-tag"
-import { Mutation } from "react-apollo"
 import Color from "color"
+import gql from "graphql-tag"
+import styled from "styled-components"
+import { Mutation } from "react-apollo"
 import { toast } from "react-toastify"
+import { useForm } from "Utils/hooks"
+import ErrorMsg from "Common/ErrorMsg"
 import {
   usernameField,
   emailField,
@@ -217,7 +217,7 @@ const Container = styled.div`
     margin-top: 2rem;
     padding: 1rem;
     width: 100%;
-    
+
     &:hover, &:focus {
       background: ${Color("#F03B92").darken(0.1).toString()};
       border: 2px solid #a31f5e;
@@ -243,7 +243,7 @@ const Container = styled.div`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  
+
   label {
     color: ${props => props.theme.primaryMuted};
     font-size: 2rem;
