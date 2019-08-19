@@ -14,6 +14,7 @@ import Burger from "./burger"
 import MenuItem from "./menu-item"
 import Cta from "./Cta"
 import PillarsDropDown from "./pillars-dropdown"
+import ResourcesDropDown from "./resources-dropdown"
 
 const Navigation = () => {
   const isBrowser = typeof window !== "undefined"
@@ -57,7 +58,11 @@ const Navigation = () => {
           <PillarsDropDown />
 
           <MenuItem to="/events">Events</MenuItem>
+
+          <ResourcesDropDown />
+
           <MenuItem to="/partners">Our Partners</MenuItem>
+
           <Cta to="/get-involved">Get Involved</Cta>
         </Menu>
       </Container>

@@ -18,7 +18,7 @@ const pillarList = [
   { name: "Talent", icon: TalentIcon }
 ]
 
-const PillarsDropDown = () => {
+const PillarsBurgerDropDown = () => {
   const { path } = useContext(AppContext)
   const isAnyActive = pillarList.find(pillar => {
     return path.includes(`/${pillar.name.toLowerCase()}`)
@@ -59,26 +59,24 @@ export const CaretIcon = styled(FontAwesomeIcon)`
 `
 
 export const Label = styled.div`
-  width: 100%;
+  align-items: left;
+  width: 50%;
+  font-size: 2rem;
+  cursor: pointer;
 `
 
 export const Drop = styled.li`
-  align-items: center;
-  border-bottom: ${props => {
-    return props.active
-      ? "1rem solid #2ABBF4"
-      : "1rem solid transparent"
-  }};
+  align-items: left;
   display: flex;
-  text-align: center;
   flex-grow: 1;
-  height: 100%;
-  margin: 0;
   position: relative;
 
-  &:hover .content,
   &:focus-within .content {
     display: block;
+  }
+
+  &:focus {
+    outline: none;
   }
 `
 
@@ -86,15 +84,16 @@ export const DropdownLinks = styled.div`
   background-color: white;
   border-radius: 3px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  color: ${props => props.theme.primaryDark};
+  color: ${props => props.theme.primaryWhite};
   display: none;
   font-weight: normal;
-  min-width: 170px;
+  min-width: 160px;
   position: absolute;
   text-align: left;
-  top: 60px;
+  top: 40px;
   width: 100%;
   z-index: 1;
+  font-size: 2rem;
 
   img {
     margin-right: 0.5rem;
@@ -110,12 +109,11 @@ export const DropdownLinks = styled.div`
   .active {
     background: ${props => props.theme.primaryWhite};
     color: ${props => props.theme.primaryMutedLight} !important;
-    border-radius: 3px;
 
     &:hover,
     &:focus {
       background: ${props => props.theme.primaryWhite};
-      cursor: default;
+      cursor: pointer;
     }
   }
 
@@ -129,4 +127,4 @@ export const DropdownLinks = styled.div`
   }
 `
 
-export default PillarsDropDown
+export default PillarsBurgerDropDown

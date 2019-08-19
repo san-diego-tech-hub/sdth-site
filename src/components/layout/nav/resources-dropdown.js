@@ -4,46 +4,40 @@ import styled from "styled-components"
 import AppContext from "Utils/context"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-import CommunityIcon from "Components/icons/CommunityIcon"
-import EducationIcon from "Components/icons/EducationIcon"
-import InclusionIcon from "Components/icons/InclusionIcon"
-import InnovationIcon from "Components/icons/InnovationIcon"
-import TalentIcon from "Components/icons/TalentIcon"
+import FormsIcon from "Components/icons/FormsIcon"
+import NetworkIcon from "Components/icons/NetworkIcon"
 
-const pillarList = [
-  { name: "Community", icon: CommunityIcon },
-  { name: "Education", icon: EducationIcon },
-  { name: "Inclusion", icon: InclusionIcon },
-  { name: "Innovation", icon: InnovationIcon },
-  { name: "Talent", icon: TalentIcon }
+const resourceList = [
+  { name: "Network", icon: NetworkIcon },
+  { name: "Forms", icon: FormsIcon },
 ]
 
-const PillarsDropDown = () => {
+const ResourcesDropDown = () => {
   const { path } = useContext(AppContext)
-  const isAnyActive = pillarList.find(pillar => {
-    return path.includes(`/${pillar.name.toLowerCase()}`)
+  const isAnyActive = resourceList.find(resource => {
+    return path.includes(`/${resource.name.toLowerCase()}`)
   })
 
   return (
     <Drop tabIndex="0" aria-haspopup="true" active={isAnyActive}>
       <Label>
-        PILLARS <CaretIcon icon="caret-down" />
+        RESOURCES <CaretIcon icon="caret-down" />
       </Label>
       <DropdownLinks className="content">
-        {pillarList.map((pillar) => {
-          const pillarPath = `/${pillar.name.toLowerCase()}`
-          const isActive = path.includes(pillarPath)
+        {resourceList.map((resource) => {
+          const resourcePath = `/${resource.name.toLowerCase()}`
+          const isActive = path.includes(resourcePath)
 
           return (
-            <div key={pillar.name}>
+            <div key={resource.name}>
               <Link
                 activeClassName="active"
                 className={`innerLink ${isActive ? "active" : ""}`}
-                to={pillarPath}
+                to={resourcePath}
               >
-                <pillar.icon active={isActive} />
+                <resource.icon active={isActive} />
                 <span style={{ marginLeft: "1rem" }}>
-                  {pillar.name}
+                  {resource.name}
                 </span>
               </Link>
             </div>
@@ -89,7 +83,7 @@ export const DropdownLinks = styled.div`
   color: ${props => props.theme.primaryDark};
   display: none;
   font-weight: normal;
-  min-width: 170px;
+  min-width: 160px;
   position: absolute;
   text-align: left;
   top: 60px;
@@ -129,4 +123,4 @@ export const DropdownLinks = styled.div`
   }
 `
 
-export default PillarsDropDown
+export default ResourcesDropDown
