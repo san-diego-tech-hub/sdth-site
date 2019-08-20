@@ -46,7 +46,7 @@ export default function SponsorCard({
       <ActionColumn>
         <p>{email}</p>
         <ExternalLink aria-label={name} color="#248ABA" href={website}>
-          View details
+          Website
         </ExternalLink>
       </ActionColumn>
     </Container>

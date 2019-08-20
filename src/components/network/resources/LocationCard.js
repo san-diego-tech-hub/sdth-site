@@ -66,7 +66,7 @@ export default function LocationCard({
         <p>{contactName}</p>
         <ExternalLink href={`mailto:${contactEmail}`}>{contactEmail}</ExternalLink>
         <ExternalLink aria-label={name} color="#248ABA" href={website}>
-          View details
+          Company Website
         </ExternalLink>
       </ActionColumn>
     </Container>
