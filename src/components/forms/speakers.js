@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Color from "color"
 import gql from "graphql-tag"
 import styled from "styled-components"
@@ -17,6 +17,40 @@ import {
   imageUrlField
 } from "Utils/forms"
 
+const ADD_SPEAKER = gql`
+  mutation addSpeaker(
+    $name: name!,
+    $email: String!,
+    $website: String!,
+    $description: String!,
+    $socialMedia: json,
+    $imageUrl: String!
+  ) {
+    insert_speaker (
+      objects: [
+        {
+          name: $name,
+          email: $email,
+          website: $website,
+          description: $description,
+          socialMedia: $socialMedia,
+          imageUrl: $imageUrl
+        }
+      ]
+    )
+    {
+      returning {
+        name
+        email
+        website
+        socialMedia
+        imageUrl
+        description
+        id
+      }
+    }
+  }
+`
 export default function SpeakersForm() {
   const form = useForm({
     fields: [
@@ -31,33 +65,30 @@ export default function SpeakersForm() {
     ]
   })
 
-  const ADD_SPEAKER = gql`
-    mutation {
-      insert_speaker (
-        objects: [
-          {
-            name: "${form.username.value}",
-            email: "${form.email.value}",
-            website: "${form.website.value}",
-            socialMedia: ["${form.facebook.value}", "${form.linkedin.value}", "${form.twitter.value}"],
-            imageUrl: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
-            description: "${form.description.value}"
-          }
-        ]
-      )
+  const [image, setImage] = useState("")
+  const [loading, setLoading] = useState(false)
+
+  const uploadImage = async e => {
+    const { files } = e.target
+    const data = new FormData()
+    data.append("file", files[0])
+    data.append("upload_preset", "speakers")
+
+
+    setLoading(true)
+    const res = await fetch(
+      process.env.CLOUDINARY_URL,
       {
-        returning {
-          name
-          email
-          website
-          socialMedia
-          imageUrl
-          description
-          id
-        }
+        method: "POST",
+        body: data
       }
-    }
-  `
+    )
+
+    const file = await res.json()
+    setImage(file.secure_url)
+    setLoading(false)
+  }
+
   const handleSubmit = () => {
     toast.success("🚀 Thank you for contributing to the network!")
   }
@@ -164,21 +195,46 @@ export default function SpeakersForm() {
           {form.description.error}
         </ErrorMsg>
 
-        <label htmlFor="image">
-          Image URL
-          <input
-            id="image"
-            value={form.image.value}
-            onChange={form.image.onChange}
-          />
-        </label>
+        <div className="form_line">
+          <h4>Upload Photo</h4>
+          <Field>
+            <input
+                onChange={uploadImage}
+                type="file"
+                accept="image/*"
+                placeholder="Upload an Image"
+                required
+            />
+          </Field>
+          {loading ? (
+            <h3>Loading...</h3>
+          ) : (
+            <>
+              <img src={image}
+              style={{ width: "250px", margin: "0 auto" }}
+              alt=""
+              />
+            </>
+          )}
+        </div>
         <ErrorMsg data-testid="image-error">
           {form.image.error}
         </ErrorMsg>
 
         <Mutation mutation={ADD_SPEAKER}>
           {addSpeaker => (
-            <button type="submit" onClick={addSpeaker}>
+            <button type="submit"
+            onClick={() => addSpeaker({
+              variables: {
+                name: form.username.value,
+                email: form.email.value,
+                website: form.website.value,
+                description: form.description.value,
+                socialMedia: [form.linkedin.value, form.facebook.value, form.twitter.value],
+                imageUrl: image
+              }
+            })}
+            >
               Submit
             </button>
           )}
@@ -273,4 +329,13 @@ const FormTitle = styled.h2`
   font-size: 3.2rem;
   text-align: center;
   margin-bottom: 0;
+`
+const Field = styled.div`
+    margin-bottom: 2rem;
+    border: 3px solid #E8E9F6;
+    background: #fff;
+    padding: .5rem 1rem;
+    &:focus {
+        outline: none;
+    }
 `
