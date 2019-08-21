@@ -38,7 +38,6 @@ export default function LocationCard({
           {amenities.split(",").map(amenity => (
             <li key={amenity}>
               <Label>{amenity}</Label>
-
             </li>
           ))}
         </List>

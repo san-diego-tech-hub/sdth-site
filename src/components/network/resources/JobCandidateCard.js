@@ -2,7 +2,11 @@ import React from "react"
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import ExternalLink from "Common/ExternalLink"
+<<<<<<< HEAD
 import ReadMoreReact from "read-more-react"
+=======
+// import { Label } from "Common/Label"
+>>>>>>> 6c6f21970c8b8e09cb0a12c71fb00558e35cbb9d
 import { urlToSocialIcon } from "./util"
 
 export default function JobCandidateCard({
@@ -12,7 +16,8 @@ export default function JobCandidateCard({
   website,
   socialMedia,
   email,
-  phoneNumber
+  phoneNumber,
+  // techStack
 }) {
   return (
     <Container>
@@ -26,6 +31,14 @@ export default function JobCandidateCard({
         <Description>
           <ReadMoreReact text={description} min={200} ideal={350} max={700} readMoreText="read more" />
         </Description>
+
+        {/* <List>
+          {techStack.split(",").map(tech => (
+            <li key={tech}>
+              <Label>{tech}</Label>
+            </li>
+          ))}
+        </List> */}
 
         <List>
           {
