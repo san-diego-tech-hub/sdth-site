@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import Html from "Common/Html"
-import JobSeekersForm from "../forms/job-seekers"
+import JobSeekersForm from "../forms/jobSeekers"
 import VenuesForm from "../forms/venues"
 import SpeakersForm from "../forms/speakers"
 import SponsorsForm from "../forms/sponsors"
@@ -41,9 +41,7 @@ function FormsPage() {
           </div>
         </ButtonGroup>
       </section>
-
       <ResourceForm />
-
     </Container>
   )
 }

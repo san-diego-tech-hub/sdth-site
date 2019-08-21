@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import ExternalLink from "Common/ExternalLink"
+// import { Label } from "Common/Label"
 import { urlToSocialIcon } from "./util"
 
 export default function JobCandidateCard({
@@ -11,7 +12,8 @@ export default function JobCandidateCard({
   website,
   socialMedia,
   email,
-  phoneNumber
+  phoneNumber,
+  // techStack
 }) {
   return (
     <Container>
@@ -23,6 +25,14 @@ export default function JobCandidateCard({
         <h2>{name}</h2>
 
         <Description>{description}</Description>
+
+        {/* <List>
+          {techStack.split(",").map(tech => (
+            <li key={tech}>
+              <Label>{tech}</Label>
+            </li>
+          ))}
+        </List> */}
 
         <List>
           {
