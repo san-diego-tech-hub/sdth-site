@@ -153,12 +153,13 @@ export default function JobSeekersForm() {
 
         <label htmlFor="description">
           Tell us a little about yourself*
-          <p><small><i>What are you looking for? Describe your skillset.</i></small></p>
+          <p><small><i>What are you looking for? Describe your skillset. (700 characters max)</i></small></p>
           <textarea
             id="description"
             className="form-control"
             value={form.description.value}
             onChange={form.description.onChange}
+            maxLength="700"
             required
           />
         </label>
@@ -250,6 +251,7 @@ const Form = styled.form`
 
   textarea {
     resize: vertical;
+    height: 200px;
   }
 
   @media (max-width: 990px) {

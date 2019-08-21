@@ -270,10 +270,12 @@ export default function VenuesForm() {
 
         <label htmlFor="description">
           Description
+          <p><small><i>Tell us about your venue. (700 characters max)</i></small></p>
           <textarea
             id="description"
             value={form.description.value}
             onChange={form.description.onChange}
+            maxLength="700"
           />
         </label>
         <ErrorMsg data-testid="description-error">
@@ -359,6 +361,7 @@ const Form = styled.form`
 
   textarea {
     resize: vertical;
+    height: 200px;
   }
 
   @media (max-width: 990px) {

@@ -151,12 +151,13 @@ export default function SpeakersForm() {
 
         <label htmlFor="description">
           Who are you?*
-          <p><small><i>Tell us a little about you and what you want to speak about</i></small></p>
+          <p><small><i>Tell us a little about you and what you want to speak about. (700 characters max)</i></small></p>
           <textarea
             id="description"
             className="form-control"
             value={form.description.value}
             onChange={form.description.onChange}
+            maxLength="700"
             required
           />
         </label>
@@ -255,6 +256,7 @@ const Form = styled.form`
 
   textarea {
     resize: vertical;
+    height: 200px;
   }
 
   @media (max-width: 990px) {

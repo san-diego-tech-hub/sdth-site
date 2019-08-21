@@ -167,12 +167,13 @@ export default function SponsorsForm() {
 
         <label htmlFor="description">
           Who are you?*
-          <p><small><i>What do you do? Why do you want to contribute?</i></small></p>
+          <p><small><i>What do you do? Why do you want to contribute? (700 characters max)</i></small></p>
           <textarea
             id="description"
             className="form-control"
             value={form.description.value}
             onChange={form.description.onChange}
+            maxLength="700"
             required
           />
         </label>
@@ -270,6 +271,7 @@ const Form = styled.form`
 
   textarea {
     resize: vertical;
+    height: 200px;
   }
 
   @media (max-width: 990px) {

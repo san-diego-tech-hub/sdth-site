@@ -34,6 +34,7 @@ export default function LocationCard({
         <Description>{description}</Description>
 
         <List>
+          {/* wrap ternary */}
           {amenities.split(",").map(amenity => (
             <li key={amenity}>
               <Label>{amenity}</Label>
@@ -97,6 +98,7 @@ const ActionColumn = styled.div`
 
 const List = styled.ul`
   list-style: none;
+  margin-left: 0;
 
   li {
     display: inline-block;
@@ -119,7 +121,7 @@ const Container = styled.div`
   display: flex;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 6rem 2rem;
+  padding: 4rem 4rem 2rem;
   width: 100%;
 
   > div {
