@@ -35,7 +35,7 @@ export const websiteField = {
 export const descriptionField = {
   name: "description",
   validate: notEmpty,
-  errorMsg: ""
+  errorMsg: "Description cannot be blank"
 }
 
 export const venueNameField = {

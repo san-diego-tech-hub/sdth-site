@@ -4,6 +4,8 @@ import styled from "styled-components"
 const SearchBar = ({
   filterText,
   setFilterText,
+  sort,
+  setSort,
   resourceType,
   setResourceType
 }) => {
@@ -32,6 +34,16 @@ const SearchBar = ({
           </option>
         </select>
       </Selector>
+      <Selector value={sort}>
+        <select onChange={setSort}>
+          <option value="A-Z">
+            A - Z
+          </option>
+          <option value="Z-A">
+            Z - A
+          </option>
+        </select>
+      </Selector>
       <Search type="text" onChange={setFilterText} value={filterText} />
     </Container>
   )
@@ -41,8 +53,8 @@ const BookEnd = styled.div`
   background: white;
   border-radius: 50%;
   height: 65px;
-  margin-right: -32px;
-  width: 65px;
+  margin-right: -25px;
+  width: 80px;
 
   @media(max-width: 990px) {
     display: none;
