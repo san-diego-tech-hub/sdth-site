@@ -87,7 +87,6 @@ const hasuraQuery = graphql`
         email
         phoneNumber
         imageUrl
-        techStack
       }
       speaker {
         name

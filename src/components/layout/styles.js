@@ -62,7 +62,7 @@ export const Wrapper = styled.div`
 
   @media (max-width: 768px) {
     section {
-      width: 80%;
+      width: auto;
       margin: 5rem auto;
     }
   }
