@@ -92,7 +92,7 @@ const plugins = [
   {
     resolve: "gatsby-source-meetup",
     options: {
-      key: process.env.MEETUP_API_KEY,
+      apiKey: process.env.MEETUP_API_KEY,
       groupUrlName: "sandiegojs",
       status: "upcoming,past",
       desc: "true",
