@@ -15,7 +15,7 @@ export default function JobCandidateCard({
   phoneNumber,
   techStack
 }) {
-  const [display, setDisplay] = useState("5")
+  const [display, setDisplay] = useState("4")
 
   const toggleDisplay = () => {
     setDisplay(1 - display)
@@ -38,15 +38,15 @@ export default function JobCandidateCard({
               <Label>{tech.value}</Label>
             </li>
           ))}
+          {
+            techStack.slice(0, display) >= "0"
+              ? [(display > "0"
+                ? <Button key={display} value={display} onClick={toggleDisplay}>more</Button>
+                : <Button key={display} value={display} onClick={toggleDisplay}>less</Button>
+              )]
+              : null
+          }
         </List>
-        {
-          techStack.slice(0, display) <= "0"
-            ? [(display > "0"
-              ? <Button key={display} value={display} onClick={toggleDisplay}>more</Button>
-              : <Button key={display} value={display} onClick={toggleDisplay}>less</Button>
-            )]
-            : null
-        }
 
         <List>
           {
