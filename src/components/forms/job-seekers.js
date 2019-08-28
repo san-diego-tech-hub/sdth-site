@@ -11,11 +11,11 @@ import {
   usernameField,
   emailField,
   phoneField,
-  techStackField,
   websiteField,
   linkedinField,
   githubField,
-  descriptionField
+  descriptionField,
+  techStackField
 } from "Utils/forms"
 import { groupedOptions } from "./select-options/select-options"
 
@@ -66,11 +66,11 @@ export default function JobSeekersForm() {
       usernameField,
       emailField,
       phoneField,
-      techStackField,
       websiteField,
       linkedinField,
       githubField,
-      descriptionField
+      descriptionField,
+      techStackField
     ]
   })
 
@@ -162,13 +162,14 @@ export default function JobSeekersForm() {
 
         <label htmlFor="techStack">
           Tech Stack
-          <p><small><i>Select the languages, frameworks, or libraries you're familiar with.</i><br /></small></p>
+          <p><small><i>Select the languages, frameworks, or libraries you're familiar with</i><br /></small></p>
 
           <Select
             value={tech}
             onChange={handleChange}
             options={groupedOptions}
             closeMenuOnSelect={false}
+            clearValue
             isMulti
           />
 
@@ -216,7 +217,7 @@ export default function JobSeekersForm() {
 
         <label htmlFor="description">
           Tell us a little about yourself*
-          <p><small><i>What are you looking for? Describe your skillset. (700 characters max)</i></small></p>
+          <p><small><i>What are you looking for? Describe your skillset (700 characters max)</i></small></p>
           <textarea
             id="description"
             className="form-control"

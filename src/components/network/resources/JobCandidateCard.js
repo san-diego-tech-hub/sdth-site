@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import ExternalLink from "Common/ExternalLink"
+import { Label } from "Common/Label"
 import ReadMoreReact from "read-more-react"
 import { urlToSocialIcon } from "./util"
 
@@ -13,7 +14,7 @@ export default function JobCandidateCard({
   socialMedia,
   email,
   phoneNumber,
-  // techStack
+  techStack
 }) {
   return (
     <Container>
@@ -25,16 +26,16 @@ export default function JobCandidateCard({
         <h2>{name}</h2>
 
         <Description>
-          <ReadMoreReact text={description} min={200} ideal={350} max={700} readMoreText="read more" />
+          <ReadMoreReact text={description} min={200} ideal={350} max={700} readMoreText="Read more" />
         </Description>
 
-        {/* <List>
-          {techStack.split(",").map(tech => (
-            <li key={tech}>
-              <Label>{tech}</Label>
+        <List>
+          {techStack.map(tech => (
+            <li key={tech.value}>
+              <Label>{tech.value}</Label>
             </li>
           ))}
-        </List> */}
+        </List>
 
         <List>
           {
@@ -130,27 +131,9 @@ const Description = styled.div`
   width: 99%;
 
   .read-more-button {
-    display: inline-block;
     color: ${props => props.theme.primaryDark};
     cursor: pointer;
-    width: 110px;
-    margin-left: 5px;
-  }
-
-  .read-more-button:active {
-    background-color: ${props => props.theme.primaryWhite};
+    margin-top: 10px;
+    width: 100px;
   }
 `
-
-// .read-more-button {
-//   color: white;
-//   cursor: pointer;
-//   width: 110px;
-//   margin-top: 20px;
-//   background-color: ${props => props.theme.primaryDark};
-//   box-shadow: 0 0 5px -1px rgba(0,0,0,0.2);
-//   cursor: pointer;
-//   vertical-align: middle;
-//   padding: 3px;
-//   text-align: center; 
-// }

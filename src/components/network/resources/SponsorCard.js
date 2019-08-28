@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import ExternalLink from "Common/ExternalLink"
+import ReadMoreReact from "read-more-react"
 import { urlToSocialIcon } from "./util"
 
 export default function SponsorCard({
@@ -23,7 +24,9 @@ export default function SponsorCard({
         <h2>{name}</h2>
         <p>{address}</p>
 
-        <Description>{description}</Description>
+        <Description>
+          <ReadMoreReact text={description} min={200} ideal={350} max={700} readMoreText="Read more" />
+        </Description>
 
         <List>
           {
@@ -87,6 +90,13 @@ const List = styled.ul`
 
 const Description = styled.div`
   margin: 20px 0;
+  
+  .read-more-button {
+    color: ${props => props.theme.primaryDark};
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100px;
+  }
 `
 
 const Container = styled.div`

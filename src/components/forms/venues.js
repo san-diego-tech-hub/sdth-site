@@ -255,9 +255,7 @@ export default function VenuesForm() {
 
         <label htmlFor="amenities">
           Amenities
-          <p><small><i>Seperate each item with a comma,</i><br />
-            <i>use underscores instead of spaces (i.e. free_wifi, food, projector)</i><br />
-            <i>do not use any other special characters (@#$%*^& etc)</i></small></p>
+          <p><small><i>Separate each item with a comma (ex. free wifi, tables, chairs)</i></small></p>
           <input
             id="amenities"
             value={form.amenities.value}
@@ -296,7 +294,7 @@ export default function VenuesForm() {
 
         <label htmlFor="description">
           Description
-          <p><small><i>Tell us about your venue. (700 characters max)</i></small></p>
+          <p><small><i>Tell us about your venue (700 characters max)</i></small></p>
           <textarea
             id="description"
             value={form.description.value}
