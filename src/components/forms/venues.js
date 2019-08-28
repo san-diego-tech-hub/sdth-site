@@ -255,7 +255,8 @@ export default function VenuesForm() {
 
         <label htmlFor="amenities">
           Amenities
-          <p><small><i>Separate each item with a comma (ex. free wifi, tables, chairs)</i></small></p>
+          <p><small><i>Separate each item with a comma
+            (ex. free wifi, tables, chairs)</i></small></p>
           <input
             id="amenities"
             value={form.amenities.value}

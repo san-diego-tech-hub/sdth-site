@@ -182,7 +182,8 @@ export default function SpeakersForm() {
 
         <label htmlFor="description">
           Who are you?*
-          <p><small><i>Tell us a little about you and what you want to speak about (700 characters max)</i></small></p>
+          <p><small><i>Tell us a little about you and what you want to speak about
+            (700 characters max)</i></small></p>
           <textarea
             id="description"
             className="form-control"
