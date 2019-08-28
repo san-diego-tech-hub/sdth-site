@@ -2,11 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import ExternalLink from "Common/ExternalLink"
-<<<<<<< HEAD
 import ReadMoreReact from "read-more-react"
-=======
-// import { Label } from "Common/Label"
->>>>>>> 6c6f21970c8b8e09cb0a12c71fb00558e35cbb9d
 import { urlToSocialIcon } from "./util"
 
 export default function JobCandidateCard({
