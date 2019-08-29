@@ -16,6 +16,8 @@ export default function JobCandidateCard({
   phoneNumber,
   techStack
 }) {
+  const [display, setDisplay] = useState(4)
+
   return (
     <Container>
       <ImageColumn>
@@ -35,6 +37,24 @@ export default function JobCandidateCard({
               <Label>{tech.value}</Label>
             </li>
           ))}
+          {
+            techStack.length > 4
+              ? [(techStack.length !== display
+                ? (
+                  <Button key={display}
+                  value={display}
+                  onClick={() => setDisplay(techStack.length)}
+                  >more</Button>
+                )
+                :  (
+                  <Button key={display}
+                  value={display}
+                  onClick={() => setDisplay(4)}
+                  >less</Button>
+                )
+              )]
+              : null
+          }
         </List>
 
         <List>

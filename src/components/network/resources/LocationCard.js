@@ -19,6 +19,8 @@ export default function LocationCard({
   socialMedia,
   website
 }) {
+  const [display, setDisplay] = useState(4)
+
   return (
     <Container>
       <ImageColumn>
@@ -44,6 +46,24 @@ export default function LocationCard({
                 <Label>{amenity}</Label>
               </li>
             )) : null}
+          {
+            amenities.split(",").length > 4
+              ? [(amenities.length !== display
+                ? (
+                  <Button key={display}
+                  value={display}
+                  onClick={() => setDisplay(amenities.length)}
+                  >more</Button>
+                )
+                :  (
+                  <Button key={display}
+                  value={display}
+                  onClick={() => setDisplay(4)}
+                  >less</Button>
+                )
+              )]
+              : null
+          }
         </List>
 
         <List>
