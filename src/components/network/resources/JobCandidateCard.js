@@ -2,7 +2,8 @@ import React from "react"
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import ExternalLink from "Common/ExternalLink"
-// import { Label } from "Common/Label"
+import { Label } from "Common/Label"
+import ReadMoreReact from "read-more-react"
 import { urlToSocialIcon } from "./util"
 
 export default function JobCandidateCard({
@@ -13,7 +14,7 @@ export default function JobCandidateCard({
   socialMedia,
   email,
   phoneNumber,
-  // techStack
+  techStack
 }) {
   return (
     <Container>
@@ -24,15 +25,17 @@ export default function JobCandidateCard({
       <ContentColumn>
         <h2>{name}</h2>
 
-        <Description>{description}</Description>
+        <Description>
+          <ReadMoreReact text={description} min={200} ideal={350} max={700} readMoreText="Read more" />
+        </Description>
 
-        {/* <List>
-          {techStack.split(",").map(tech => (
-            <li key={tech}>
-              <Label>{tech}</Label>
+        <List>
+          {techStack.map(tech => (
+            <li key={tech.value}>
+              <Label>{tech.value}</Label>
             </li>
           ))}
-        </List> */}
+        </List>
 
         <List>
           {
@@ -87,15 +90,12 @@ const ActionColumn = styled.div`
 
 const List = styled.ul`
   list-style: none;
+  margin-left: 0;
 
   li {
     display: inline-block;
     margin-right: 15px;
   }
-`
-
-const Description = styled.div`
-  margin: 20px 0;
 `
 
 const Container = styled.div`
@@ -105,7 +105,7 @@ const Container = styled.div`
   display: flex;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 6rem 2rem;
+  padding: 4rem 4rem 2rem;
   width: 100%;
 
   > div {
@@ -123,5 +123,17 @@ const Container = styled.div`
 
   @media(max-width: 600px) {
     margin: 1rem 0;
+  }
+`
+
+const Description = styled.div`
+  margin: 20px 0;
+  width: 99%;
+
+  .read-more-button {
+    color: ${props => props.theme.primaryDark};
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100px;
   }
 `

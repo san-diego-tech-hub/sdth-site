@@ -4,6 +4,7 @@ import Color from "color"
 import gql from "graphql-tag"
 import { Mutation } from "react-apollo"
 import { toast } from "react-toastify"
+import Select from "react-select"
 import ErrorMsg from "Common/ErrorMsg"
 import { useForm } from "Utils/hooks"
 import {
@@ -13,9 +14,10 @@ import {
   websiteField,
   linkedinField,
   githubField,
-  descriptionField
+  descriptionField,
+  techStackField
 } from "Utils/forms"
-
+import { groupedOptions } from "./select-options/select-options"
 
 const ADD_JOB_CANDIDATE = gql`
   mutation addJobCandidate(
@@ -26,6 +28,7 @@ const ADD_JOB_CANDIDATE = gql`
     $description: String!,
     $socialMedia: json!,
     $imageUrl: String!
+    $techStack: json!
   ) {
     insert_jobCandidate (
       objects: [
@@ -36,7 +39,8 @@ const ADD_JOB_CANDIDATE = gql`
           website: $website,
           description: $description,
           socialMedia: $socialMedia,
-          imageUrl: $imageUrl
+          imageUrl: $imageUrl,
+          techStack: $techStack
         }
       ]
     )
@@ -48,6 +52,7 @@ const ADD_JOB_CANDIDATE = gql`
         description
         phoneNumber
         imageUrl
+        techStack
         socialMedia
         id
       }
@@ -64,9 +69,16 @@ export default function JobSeekersForm() {
       websiteField,
       linkedinField,
       githubField,
-      descriptionField
+      descriptionField,
+      techStackField
     ]
   })
+
+  const [tech, setTech] = useState(null)
+
+  const handleChange = (selectedOptions) => {
+    setTech(selectedOptions)
+  }
 
   const [image, setImage] = useState("")
   const [loading, setLoading] = useState(false)
@@ -80,7 +92,7 @@ export default function JobSeekersForm() {
 
     setLoading(true)
     const res = await fetch(
-      process.env.CLOUDINARY_URL,
+      "https://api.cloudinary.com/v1_1/dd45wn87b/image/upload",
       {
         method: "POST",
         body: data
@@ -148,6 +160,25 @@ export default function JobSeekersForm() {
           {form.phone.error}
         </ErrorMsg>
 
+        <label htmlFor="techStack">
+          Tech Stack
+          <p><small><i>Select the languages, frameworks, or libraries
+            you're familiar with</i><br /></small></p>
+
+          <Select
+            value={tech}
+            onChange={handleChange}
+            options={groupedOptions}
+            closeMenuOnSelect={false}
+            clearValue
+            isMulti
+          />
+
+        </label>
+        <ErrorMsg data-testid="techStack-error">
+          {form.techStack.error}
+        </ErrorMsg>
+
         <label htmlFor="website">
           Website/Portfolio
           <p><small><i>Please include full url (ex. https://www.sandiegotechhub.com)</i></small></p>
@@ -187,12 +218,14 @@ export default function JobSeekersForm() {
 
         <label htmlFor="description">
           Tell us a little about yourself*
-          <p><small><i>What are you looking for? Describe your skillset.</i></small></p>
+          <p><small><i>What are you looking for? Describe your skillset
+            (700 characters max)</i></small></p>
           <textarea
             id="description"
             className="form-control"
             value={form.description.value}
             onChange={form.description.onChange}
+            maxLength="700"
             required
           />
         </label>
@@ -235,7 +268,8 @@ export default function JobSeekersForm() {
                 website: form.website.value,
                 description: form.description.value ? form.description.value : null,
                 socialMedia: [form.linkedin.value, form.github.value],
-                imageUrl: image
+                imageUrl: image,
+                techStack: tech
               }
             })}
             >
@@ -320,6 +354,7 @@ const Form = styled.form`
 
   textarea {
     resize: vertical;
+    height: 200px;
   }
 
   @media (max-width: 990px) {

@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import ExternalLink from "Common/ExternalLink"
 import { Label } from "Common/Label"
+import ReadMoreReact from "read-more-react"
 import { urlToSocialIcon } from "./util"
 
 export default function LocationCard({
@@ -31,15 +32,21 @@ export default function LocationCard({
         </div>
 
         <Description>{address}</Description>
-        <Description>{description}</Description>
+
+        <Description>
+          <ReadMoreReact text={description} min={200} ideal={350} max={700} readMoreText="Read more" />
+        </Description>
 
         <List>
-          {amenities.split(",").map(amenity => (
-            <li key={amenity}>
-              <Label>{amenity}</Label>
-            </li>
-          ))}
+          {amenities.length > 0
+            ? amenities.split(",").map(amenity => (
+              <li key={amenity}>
+                <Label>{amenity}</Label>
+              </li>
+            )) : null
+          }
         </List>
+
         <List>
           {
             socialMedia.map((url) => {
@@ -96,6 +103,7 @@ const ActionColumn = styled.div`
 
 const List = styled.ul`
   list-style: none;
+  margin-left: 0;
 
   li {
     display: inline-block;
@@ -109,6 +117,13 @@ const Cost = styled(Label)`
 
 const Description = styled.div`
   margin: 20px 0;
+
+  .read-more-button {
+    color: ${props => props.theme.primaryDark};
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100px;
+  }
 `
 
 const Container = styled.div`
@@ -118,7 +133,7 @@ const Container = styled.div`
   display: flex;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 6rem 2rem;
+  padding: 4rem 4rem 2rem;
   width: 100%;
 
   > div {

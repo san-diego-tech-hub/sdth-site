@@ -90,3 +90,8 @@ export const capacityField = {
   validate: notEmpty,
   errorMsg: "Capacity field cannot be empty"
 }
+
+export const techStackField = {
+  name: "techStack",
+  errorMsg: ""
+}

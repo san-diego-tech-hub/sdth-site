@@ -20,7 +20,7 @@ allPrograms:
       signUpForms:
         - form:
             label: "Mentor | Mentee Sign Up"
-            url: "www.bit.ly/SDTHMentorship_site"
+            url: "www.smorgborg.com/6310b729-e306-4c78-9892-a176b93d28d9?activeTab=mentoring"
       description: >-
 
         <p>Our purpose is to connect San Diego Tech Hub members to local mentorship programs to support education and career progression resulting in a stronger tech community.</p>
