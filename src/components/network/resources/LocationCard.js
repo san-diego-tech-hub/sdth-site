@@ -19,11 +19,7 @@ export default function LocationCard({
   socialMedia,
   website
 }) {
-  const [display, setDisplay] = useState("4")
-
-  const toggleDisplay = () => {
-    setDisplay(1 - display)
-  }
+  const [display, setDisplay] = useState(4)
 
   return (
     <Container>
@@ -51,10 +47,20 @@ export default function LocationCard({
               </li>
             )) : null}
           {
-            amenities.length >= 5
-              ? [(display > 0
-                ? <Button key={display} value={display} onClick={toggleDisplay}>more</Button>
-                : <Button key={display} value={display} onClick={toggleDisplay}>less</Button>
+            amenities.split(",").length > 4
+              ? [(amenities.length !== display
+                ? (
+                  <Button key={display}
+                  value={display}
+                  onClick={() => setDisplay(amenities.length)}
+                  >more</Button>
+                )
+                :  (
+                  <Button key={display}
+                  value={display}
+                  onClick={() => setDisplay(4)}
+                  >less</Button>
+                )
               )]
               : null
           }
