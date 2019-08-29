@@ -32,7 +32,7 @@ const ADD_VENUE = gql`
       $contactPhone: String!,
       $website: String!,
       $socialMedia: json!,
-      $amenities: json!,
+      $amenities: String!,
       $cost: String!,
       $capacity: Int!,
       $description: String!,
@@ -294,7 +294,7 @@ export default function VenuesForm() {
         </ErrorMsg>
 
         <label htmlFor="description">
-          Description
+          Description*
           <p><small><i>Tell us about your venue (700 characters max)</i></small></p>
           <textarea
             id="description"
