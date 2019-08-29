@@ -83,7 +83,7 @@ export default function SponsorsForm() {
 
     setLoading(true)
     const res = await fetch(
-      process.env.CLOUDINARY_URL,
+      "https://api.cloudinary.com/v1_1/dd45wn87b/image/upload",
       {
         method: "POST",
         body: data
@@ -200,7 +200,8 @@ export default function SponsorsForm() {
 
         <label htmlFor="description">
           Who are you?*
-          <p><small><i>What do you do? Why do you want to contribute? (700 characters max)</i></small></p>
+          <p><small><i>What do you do? Why do you want to contribute?
+            (700 characters max)</i></small></p>
           <textarea
             id="description"
             className="form-control"
@@ -215,7 +216,7 @@ export default function SponsorsForm() {
         </ErrorMsg>
 
         <div className="form_line">
-          <h4>Upload Photo</h4>
+          Upload Photo
           <Field>
             <input
                 onChange={uploadImage}
@@ -245,11 +246,11 @@ export default function SponsorsForm() {
             <button type="submit"
             onClick={() => addSponsor({
               variables: {
-                name: form.username.value,
-                email: form.email.value,
+                name: form.username.value ? form.username.value : null,
+                email: form.email.value ? form.email.value : null,
                 website: form.website.value,
                 address: form.address.value,
-                description: form.description.value,
+                description: form.description.value ? form.description.value : null,
                 socialMedia: [form.linkedin.value, form.facebook.value, form.twitter.value],
                 imageUrl: image
               }

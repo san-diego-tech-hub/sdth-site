@@ -77,7 +77,7 @@ export default function SpeakersForm() {
 
     setLoading(true)
     const res = await fetch(
-      process.env.CLOUDINARY_URL,
+      "https://api.cloudinary.com/v1_1/dd45wn87b/image/upload",
       {
         method: "POST",
         body: data
@@ -198,7 +198,7 @@ export default function SpeakersForm() {
         </ErrorMsg>
 
         <div className="form_line">
-          <h4>Upload Photo</h4>
+          Upload Photo
           <Field>
             <input
                 onChange={uploadImage}
@@ -228,10 +228,10 @@ export default function SpeakersForm() {
             <button type="submit"
             onClick={() => addSpeaker({
               variables: {
-                name: form.username.value,
-                email: form.email.value,
+                name: form.username.value ? form.username.value : null,
+                email: form.email.value ? form.email.value : null,
                 website: form.website.value,
-                description: form.description.value,
+                description: form.description.value ? form.description.value : null,
                 socialMedia: [form.linkedin.value, form.facebook.value, form.twitter.value],
                 imageUrl: image
               }

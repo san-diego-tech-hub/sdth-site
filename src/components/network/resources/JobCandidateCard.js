@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import ExternalLink from "Common/ExternalLink"
@@ -32,7 +32,7 @@ export default function JobCandidateCard({
         </Description>
 
         <List>
-          {techStack.slice(0, display).map(tech => (
+          {techStack.map(tech => (
             <li key={tech.value}>
               <Label>{tech.value}</Label>
             </li>
@@ -144,15 +144,6 @@ const Container = styled.div`
   @media(max-width: 600px) {
     margin: 1rem 0;
   }
-`
-
-const Button = styled.span`
-color: ${props => props.color || props.theme.primaryDark};
-text-decoration: none;
-&:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
 `
 
 const Description = styled.div`

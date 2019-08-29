@@ -32,7 +32,7 @@ const ADD_VENUE = gql`
       $contactPhone: String!,
       $website: String!,
       $socialMedia: json!,
-      $amenities: json!,
+      $amenities: String!,
       $cost: String!,
       $capacity: Int!,
       $description: String!,
@@ -109,7 +109,7 @@ export default function VenuesForm() {
 
     setLoading(true)
     const res = await fetch(
-      process.env.CLOUDINARY_URL,
+      "https://api.cloudinary.com/v1_1/dd45wn87b/image/upload",
       {
         method: "POST",
         body: data
@@ -294,7 +294,7 @@ export default function VenuesForm() {
         </ErrorMsg>
 
         <label htmlFor="description">
-          Description
+          Description*
           <p><small><i>Tell us about your venue (700 characters max)</i></small></p>
           <textarea
             id="description"
@@ -308,26 +308,29 @@ export default function VenuesForm() {
         </ErrorMsg>
 
         <div className="form_line">
-          <h4>Upload Photo</h4>
-          <Field>
-            <input
+          <label htmlFor="photo">
+          Upload Photo
+            <Field>
+              <input
                 onChange={uploadImage}
+                id="photo"
                 type="file"
                 accept="image/*"
                 placeholder="Upload an Image"
                 required
-            />
-          </Field>
-          {loading ? (
-            <h3>Loading...</h3>
-          ) : (
-            <>
-              <img src={image}
+              />
+            </Field>
+            {loading ? (
+              <h3>Loading...</h3>
+            ) : (
+              <>
+                <img src={image}
               style={{ width: "250px", margin: "0 auto" }}
               alt=""
-              />
-            </>
-          )}
+                />
+              </>
+            )}
+          </label>
         </div>
         <ErrorMsg data-testid="image-error">
           {form.image.error}
@@ -338,16 +341,16 @@ export default function VenuesForm() {
             <button type="submit"
             onClick={() => addVenue({
               variables: {
-                name: form.venueName.value,
-                address: form.address.value,
-                contactName: form.username.value,
-                contactEmail: form.email.value,
+                name: form.venueName.value ? form.venueName.value : null,
+                address: form.address.value ? form.address.value : null,
+                contactName: form.username.value ? form.username.value : null,
+                contactEmail: form.email.value ? form.email.value : null,
                 contactPhone: form.contactPhone.value,
                 website: form.website.value,
                 amenities: form.amenities.value,
                 cost: form.cost.value,
                 capacity: form.capacity.value,
-                description: form.description.value,
+                description: form.description.value ? form.description.value : null,
                 socialMedia: [form.linkedin.value, form.facebook.value, form.twitter.value],
                 imageUrl: image
               }
