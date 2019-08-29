@@ -77,7 +77,7 @@ export default function SpeakersForm() {
 
     setLoading(true)
     const res = await fetch(
-      process.env.CLOUDINARY_URL,
+      "https://api.cloudinary.com/v1_1/dd45wn87b/image/upload",
       {
         method: "POST",
         body: data

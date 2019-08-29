@@ -83,7 +83,7 @@ export default function SponsorsForm() {
 
     setLoading(true)
     const res = await fetch(
-      process.env.CLOUDINARY_URL,
+      "https://api.cloudinary.com/v1_1/dd45wn87b/image/upload",
       {
         method: "POST",
         body: data
@@ -200,7 +200,8 @@ export default function SponsorsForm() {
 
         <label htmlFor="description">
           Who are you?*
-          <p><small><i>What do you do? Why do you want to contribute? (700 characters max)</i></small></p>
+          <p><small><i>What do you do? Why do you want to contribute?
+            (700 characters max)</i></small></p>
           <textarea
             id="description"
             className="form-control"

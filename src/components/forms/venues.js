@@ -109,7 +109,7 @@ export default function VenuesForm() {
 
     setLoading(true)
     const res = await fetch(
-      process.env.CLOUDINARY_URL,
+      "https://api.cloudinary.com/v1_1/dd45wn87b/image/upload",
       {
         method: "POST",
         body: data
@@ -307,7 +307,7 @@ export default function VenuesForm() {
           {form.description.error}
         </ErrorMsg>
 
-        <div className="form_line">'
+        <div className="form_line">
           <label htmlFor="photo">
           Upload Photo
             <Field>

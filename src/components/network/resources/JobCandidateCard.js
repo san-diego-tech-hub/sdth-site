@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import ExternalLink from "Common/ExternalLink"
@@ -16,12 +16,6 @@ export default function JobCandidateCard({
   phoneNumber,
   techStack
 }) {
-  const [display, setDisplay] = useState("4")
-
-  const toggleDisplay = () => {
-    setDisplay(1 - display)
-  }
-
   return (
     <Container>
       <ImageColumn>
@@ -36,19 +30,11 @@ export default function JobCandidateCard({
         </Description>
 
         <List>
-          {techStack.slice(0, display).map(tech => (
+          {techStack.map(tech => (
             <li key={tech.value}>
               <Label>{tech.value}</Label>
             </li>
           ))}
-          {
-            techStack.length > 4
-              ? [(display > 0
-                ? <Button key={display} value={display} onClick={toggleDisplay}>more</Button>
-                : <Button key={display} value={display} onClick={toggleDisplay}>less</Button>
-              )]
-              : null
-          }
         </List>
 
         <List>
@@ -138,15 +124,6 @@ const Container = styled.div`
   @media(max-width: 600px) {
     margin: 1rem 0;
   }
-`
-
-const Button = styled.span`
-color: ${props => props.color || props.theme.primaryDark};
-text-decoration: none;
-&:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
 `
 
 const Description = styled.div`
