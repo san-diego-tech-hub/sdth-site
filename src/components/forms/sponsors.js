@@ -214,7 +214,7 @@ export default function SponsorsForm() {
         </ErrorMsg>
 
         <div className="form_line">
-          <h4>Upload Photo</h4>
+          Upload Photo
           <Field>
             <input
                 onChange={uploadImage}
@@ -244,11 +244,11 @@ export default function SponsorsForm() {
             <button type="submit"
             onClick={() => addSponsor({
               variables: {
-                name: form.username.value,
-                email: form.email.value,
+                name: form.username.value ? form.username.value : null,
+                email: form.email.value ? form.email.value : null,
                 website: form.website.value,
                 address: form.address.value,
-                description: form.description.value,
+                description: form.description.value ? form.description.value : null,
                 socialMedia: [form.linkedin.value, form.facebook.value, form.twitter.value],
                 imageUrl: image
               }
