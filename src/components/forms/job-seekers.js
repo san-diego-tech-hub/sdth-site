@@ -235,7 +235,7 @@ export default function JobSeekersForm() {
 
 
         <div className="form_line">
-          <h4>Upload Photo</h4>
+          Upload Photo
           <Field>
             <input
                 onChange={uploadImage}
@@ -262,11 +262,11 @@ export default function JobSeekersForm() {
             <button type="submit"
             onClick={() => addJobCandidate({
               variables: {
-                name: form.username.value,
-                email: form.email.value,
-                phoneNumber: form.phone.value,
+                name: form.username.value ? form.username.value : null,
+                email: form.email.value ? form.email.value : null,
+                phoneNumber: form.phone.value ? form.phone.value : null,
                 website: form.website.value,
-                description: form.description.value,
+                description: form.description.value ? form.description.value : null,
                 socialMedia: [form.linkedin.value, form.github.value],
                 imageUrl: image,
                 techStack: tech
