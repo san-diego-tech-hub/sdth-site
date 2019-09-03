@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import ExternalLink from "Common/ExternalLink"
@@ -41,7 +41,7 @@ export default function LocationCard({
 
         <List>
           {amenities.length > 0
-            ? amenities.split(",").map(amenity => (
+            ? amenities.split(",").slice(0, display).map(amenity => (
               <li key={amenity}>
                 <Label>{amenity}</Label>
               </li>
@@ -132,6 +132,16 @@ const List = styled.ul`
 
 const Cost = styled(Label)`
   background-color: #2ecd7a;
+`
+
+const Button = styled.span`
+  color: ${props => props.color || props.theme.primaryDark};
+  text-decoration: none;
+  
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 `
 
 const Description = styled.div`

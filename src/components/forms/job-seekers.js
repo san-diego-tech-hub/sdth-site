@@ -160,12 +160,14 @@ export default function JobSeekersForm() {
           {form.phone.error}
         </ErrorMsg>
 
+        {/* eslint-disable-next-line */}
         <label htmlFor="techStack">
           Tech Stack
           <p><small><i>Select the languages, frameworks, or libraries
             you're familiar with</i><br /></small></p>
 
           <Select
+            name="techStack"
             value={tech}
             onChange={handleChange}
             options={groupedOptions}
