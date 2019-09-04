@@ -94,6 +94,29 @@ allPrograms:
         <p><a rel="noopener noreferrer" target="_blank" href="https://www.meetup.com/Carlsbad-Tech-Talks/">Join the meetup</a> or contact <a rel="noopener noreferrer" target="_blank" href="mailto:ryan@airspacetechnologies.com">Ryan</a> if you are interested in helping out!</p>
 
   - program:
+      name: "Launch Pad"
+      logo: "launchpad"
+      pointsOfContact:
+        - contact:
+            name: "James Davis"
+            email: "james@dispersioniq.com"
+      signUpForms:
+        - form:
+            label: "Get Involved"
+            url: "docs.google.com/forms/d/e/1FAIpQLSdiQP1ccPst7SczWQl7WY6UBsv3YtJFYY_dtsRqWhsWesIkwA/viewform"
+      description: >-
+        <p>The LaunchPad program is geared towards helping startup companies and entrepreneurs build the fundamental knowledge required to launch a successful company.</p>
+        <p>Our goal is to provide access to free resources and support in building a pitch deck, defining a marketing plan, and doing any competitive analytics.  Basically we want to help make sure your idea is sound.</p>
+        <p>Success for this program is getting you to the stage where you can present your idea in front of investors for potential funding.  With the knowledge gained, you will have the ability to set your own path of creating your destiny.</p>
+        <p>There are multiple ways you can get involved:</p>
+        <ol>
+          <li>We are looking for startup and entrepreneurs that want to be part of the program as we are currently preparing for our pilot launch.</li>
+          <li>We are looking individuals and companies to help be mentors and coaches.</li>
+          <li>We are looking for partner inventors.</li>
+        </ol>
+        <p>If you would like to get involved in this program, please sign up and someone will be in contact with you.</p>
+
+  - program:
       name: "Sponsorship / Partnership"
       logo: "sponsorpartner"
       pointsOfContact:
