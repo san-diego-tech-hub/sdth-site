@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import Color from "color"
 import gql from "graphql-tag"
 import { Mutation } from "react-apollo"
 import { toast } from "react-toastify"
+import Select from "react-select"
 import ErrorMsg from "Common/ErrorMsg"
 import { useForm } from "Utils/hooks"
 import {
@@ -13,8 +14,51 @@ import {
   websiteField,
   linkedinField,
   githubField,
-  descriptionField
+  descriptionField,
+  techStackField
 } from "Utils/forms"
+import { groupedOptions } from "./select-options/select-options"
+
+const ADD_JOB_CANDIDATE = gql`
+  mutation addJobCandidate(
+    $name: name!,
+    $email: String!,
+    $phoneNumber: String!,
+    $website: String!,
+    $description: String!,
+    $socialMedia: json!,
+    $imageUrl: String!
+    $techStack: json!
+  ) {
+    insert_jobCandidate (
+      objects: [
+        {
+          name: $name,
+          email: $email,
+          phoneNumber: $phoneNumber,
+          website: $website,
+          description: $description,
+          socialMedia: $socialMedia,
+          imageUrl: $imageUrl,
+          techStack: $techStack
+        }
+      ]
+    )
+    {
+      returning {
+        name
+        email
+        website
+        description
+        phoneNumber
+        imageUrl
+        techStack
+        socialMedia
+        id
+      }
+    }
+  }
+  `
 
 export default function JobSeekersForm() {
   const form = useForm({
@@ -25,38 +69,40 @@ export default function JobSeekersForm() {
       websiteField,
       linkedinField,
       githubField,
-      descriptionField
+      descriptionField,
+      techStackField
     ]
   })
 
-  const ADD_JOB_CANDIDATE = gql`
-    mutation {
-      insert_jobCandidate (
-        objects: [
-          {
-            name: "${form.username.value}",
-            email: "${form.email.value}",
-            phoneNumber: "${form.phone.value}"
-            website: "${form.website.value}",
-            description: "${form.description.value}"
-            socialMedia: ["${form.linkedin.value}", "${form.github.value}"]
-            imageUrl: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-          }
-        ]
-      )
+  const [tech, setTech] = useState(null)
+
+  const handleChange = (selectedOptions) => {
+    setTech(selectedOptions)
+  }
+
+  const [image, setImage] = useState("")
+  const [loading, setLoading] = useState(false)
+
+  const uploadImage = async e => {
+    const { files } = e.target
+    const data = new FormData()
+    data.append("file", files[0])
+    data.append("upload_preset", "jobSeekers")
+
+
+    setLoading(true)
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/dd45wn87b/image/upload",
       {
-        returning {
-          name
-          email
-          website
-          description
-          imageUrl
-          socialMedia
-          id
-        }
+        method: "POST",
+        body: data
       }
-    }
-    `
+    )
+
+    const file = await res.json()
+    setImage(file.secure_url)
+    setLoading(false)
+  }
 
   const handleSubmit = () => {
     toast.success("🚀 Thank you for contributing to the network!")
@@ -114,6 +160,27 @@ export default function JobSeekersForm() {
           {form.phone.error}
         </ErrorMsg>
 
+        {/* eslint-disable-next-line */}
+        <label htmlFor="techStack">
+          Tech Stack
+          <p><small><i>Select the languages, frameworks, or libraries
+            you're familiar with</i><br /></small></p>
+
+          <Select
+            name="techStack"
+            value={tech}
+            onChange={handleChange}
+            options={groupedOptions}
+            closeMenuOnSelect={false}
+            clearValue
+            isMulti
+          />
+
+        </label>
+        <ErrorMsg data-testid="techStack-error">
+          {form.techStack.error}
+        </ErrorMsg>
+
         <label htmlFor="website">
           Website/Portfolio
           <p><small><i>Please include full url (ex. https://www.sandiegotechhub.com)</i></small></p>
@@ -153,12 +220,14 @@ export default function JobSeekersForm() {
 
         <label htmlFor="description">
           Tell us a little about yourself*
-          <p><small><i>What are you looking for? Describe your skillset.</i></small></p>
+          <p><small><i>What are you looking for? Describe your skillset
+            (700 characters max)</i></small></p>
           <textarea
             id="description"
             className="form-control"
             value={form.description.value}
             onChange={form.description.onChange}
+            maxLength="700"
             required
           />
         </label>
@@ -166,9 +235,46 @@ export default function JobSeekersForm() {
           {form.description.error}
         </ErrorMsg>
 
+
+        <div className="form_line">
+          Upload Photo
+          <Field>
+            <input
+                onChange={uploadImage}
+                type="file"
+                accept="image/*"
+                placeholder="Upload an Image"
+                required
+            />
+          </Field>
+          {loading ? (
+            <h3>Loading...</h3>
+          ) : (
+            <>
+              <img src={image}
+              style={{ width: "250px", margin: "0 auto" }}
+              alt=""
+              />
+            </>
+          )}
+        </div>
+
         <Mutation mutation={ADD_JOB_CANDIDATE}>
           {addJobCandidate => (
-            <button type="submit" onClick={addJobCandidate}>
+            <button type="submit"
+            onClick={() => addJobCandidate({
+              variables: {
+                name: form.username.value ? form.username.value : null,
+                email: form.email.value ? form.email.value : null,
+                phoneNumber: form.phone.value ? form.phone.value : null,
+                website: form.website.value,
+                description: form.description.value ? form.description.value : null,
+                socialMedia: [form.linkedin.value, form.github.value],
+                imageUrl: image,
+                techStack: tech
+              }
+            })}
+            >
               Submit
             </button>
           )}
@@ -250,6 +356,7 @@ const Form = styled.form`
 
   textarea {
     resize: vertical;
+    height: 200px;
   }
 
   @media (max-width: 990px) {
@@ -263,4 +370,14 @@ const FormTitle = styled.h2`
   font-size: 3.2rem;
   text-align: center;
   margin-bottom: 0;
+`
+
+const Field = styled.div`
+    margin-bottom: 2rem;
+    border: 3px solid #E8E9F6;
+    background: #fff;
+    padding: .5rem 1rem;
+    &:focus {
+        outline: none;
+    }
 `

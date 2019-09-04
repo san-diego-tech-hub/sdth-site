@@ -76,7 +76,6 @@ export const Drop = styled.li`
   margin: 0;
   padding: 0 1rem;
   position: relative;
-
   &:hover .content,
   &:focus-within .content {
     display: block;
@@ -96,29 +95,24 @@ export const DropdownLinks = styled.div`
   top: 60px;
   width: 100%;
   z-index: 1;
-
   img {
     margin-right: 0.5rem;
   }
-
   a:hover,
   a:focus {
     color: ${props => props.theme.primaryDark};
     background: #f0f0f0;
     border-radius: 3px;
   }
-
   .active {
     background: ${props => props.theme.primaryWhite};
     color: ${props => props.theme.primaryMutedLight} !important;
-
     &:hover,
     &:focus {
       background: ${props => props.theme.primaryWhite};
       cursor: default;
     }
   }
-
   .innerLink {
     align-items: center;
     color: ${props => props.theme.primaryDark};

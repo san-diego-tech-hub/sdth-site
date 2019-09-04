@@ -83,7 +83,6 @@ const MenuItem = styled(Link)`
 const Pillars = styled.p`
   font-size: 1.5rem;
   margin-bottom: 0;
-
 `
 
 export default Burger

@@ -28,23 +28,19 @@ const Li = styled.li`
   justify-content: center;
   margin: 0;
   height: 100%;
-
   a {
     background: ${props => props.theme.greenDark};
     border-bottom: 1rem solid transparent;
     border-radius: 10px;
     box-shadow: 3px 3px 4px rgba(0,0,0,0.2);
-
     &:hover, &:focus-within {
       background: ${props => props.theme.green};
     }
   }
-
   a.active {
     font-weight: 700;
     border-bottom: 1rem solid #2ABBF4;
     box-shadow: none;
-
     &:hover, &:focus-within {
       background: ${props => props.theme.greenDark};
       cursor: default;

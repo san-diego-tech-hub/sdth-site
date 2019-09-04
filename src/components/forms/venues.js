@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import Color from "color"
 import gql from "graphql-tag"
 import styled from "styled-components"
@@ -23,6 +23,59 @@ import {
   descriptionField
 } from "Utils/forms"
 
+const ADD_VENUE = gql`
+    mutation addVenue(
+      $name: name!,
+      $address: String!,
+      $contactName: name!,
+      $contactEmail: name!,
+      $contactPhone: String!,
+      $website: String!,
+      $socialMedia: json!,
+      $amenities: String!,
+      $cost: String!,
+      $capacity: Int!,
+      $description: String!,
+      $imageUrl: String!
+    ) {
+      insert_venue (
+        objects: [
+          {
+            name: $name,
+            address: $address,
+            contactName: $contactName,
+            contactEmail: $contactEmail,
+            contactPhone: $contactPhone,
+            website: $website,
+            socialMedia: $socialMedia,
+            description: $description,
+            amenities: $amenities,
+            cost: $cost,
+            capacity: $capacity,
+            imageUrl: $imageUrl
+          }
+        ]
+      )
+    {
+      returning {
+        name
+        address
+        contactName
+        contactEmail
+        contactPhone
+        website
+        socialMedia
+        imageUrl
+        amenities
+        cost
+        capacity
+        description
+        id
+      }
+    }
+  }
+`
+
 export default function VenuesForm() {
   const form = useForm({
     fields: [
@@ -43,45 +96,30 @@ export default function VenuesForm() {
     ]
   })
 
-  const ADD_VENUE = gql`
-    mutation {
-      insert_venue (
-        objects: [
-          {
-            name: "${form.venueName.value}",
-            address: "${form.address.value}",
-            contactName: "${form.username.value}",
-            contactEmail: "${form.email.value}",
-            contactPhone: "${form.contactPhone.value}",
-            website: "${form.website.value}",
-            socialMedia: ["${form.facebook.value}", "${form.linkedin.value}", "${form.twitter.value}"],
-            imageUrl: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
-            amenities: "${form.amenities.value}",
-            cost: "${form.cost.value}",
-            capacity: "${form.capacity.value}",
-            description: "${form.description.value}"
-          }
-        ]
-      )
+
+  const [image, setImage] = useState("")
+  const [loading, setLoading] = useState(false)
+
+  const uploadImage = async e => {
+    const { files } = e.target
+    const data = new FormData()
+    data.append("file", files[0])
+    data.append("upload_preset", "venues")
+
+
+    setLoading(true)
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/dd45wn87b/image/upload",
       {
-        returning {
-          name
-          address
-          contactName
-          contactEmail
-          contactPhone
-          website
-          socialMedia
-          imageUrl
-          amenities
-          cost
-          capacity
-          description
-          id
-        }
+        method: "POST",
+        body: data
       }
-    }
-  `
+    )
+
+    const file = await res.json()
+    setImage(file.secure_url)
+    setLoading(false)
+  }
 
   const handleSubmit = () => {
     toast.success("🚀 Thank you for contributing to the network!")
@@ -215,23 +253,10 @@ export default function VenuesForm() {
           {form.twitter.error}
         </ErrorMsg>
 
-        <label htmlFor="image">
-          Image URL
-          <input
-            id="image"
-            value={form.image.value}
-            onChange={form.image.onChange}
-          />
-        </label>
-        <ErrorMsg data-testid="image-error">
-          {form.image.error}
-        </ErrorMsg>
-
         <label htmlFor="amenities">
           Amenities
-          <p><small><i>Seperate each item with a comma,</i><br />
-            <i>use underscores instead of spaces (i.e. free_wifi, food, projector)</i><br />
-            <i>do not use any other special characters (@#$%*^& etc)</i></small></p>
+          <p><small><i>Separate each item with a comma
+            (ex. free wifi, tables, chairs)</i></small></p>
           <input
             id="amenities"
             value={form.amenities.value}
@@ -269,20 +294,68 @@ export default function VenuesForm() {
         </ErrorMsg>
 
         <label htmlFor="description">
-          Description
+          Description*
+          <p><small><i>Tell us about your venue (700 characters max)</i></small></p>
           <textarea
             id="description"
             value={form.description.value}
             onChange={form.description.onChange}
+            maxLength="700"
           />
         </label>
         <ErrorMsg data-testid="description-error">
           {form.description.error}
         </ErrorMsg>
 
+        <div className="form_line">
+          <label htmlFor="photo">
+          Upload Photo
+            <Field>
+              <input
+                onChange={uploadImage}
+                id="photo"
+                type="file"
+                accept="image/*"
+                placeholder="Upload an Image"
+                required
+              />
+            </Field>
+            {loading ? (
+              <h3>Loading...</h3>
+            ) : (
+              <>
+                <img src={image}
+              style={{ width: "250px", margin: "0 auto" }}
+              alt=""
+                />
+              </>
+            )}
+          </label>
+        </div>
+        <ErrorMsg data-testid="image-error">
+          {form.image.error}
+        </ErrorMsg>
+
         <Mutation mutation={ADD_VENUE}>
           {addVenue => (
-            <button type="submit" onClick={addVenue}>
+            <button type="submit"
+            onClick={() => addVenue({
+              variables: {
+                name: form.venueName.value ? form.venueName.value : null,
+                address: form.address.value ? form.address.value : null,
+                contactName: form.username.value ? form.username.value : null,
+                contactEmail: form.email.value ? form.email.value : null,
+                contactPhone: form.contactPhone.value,
+                website: form.website.value,
+                amenities: form.amenities.value,
+                cost: form.cost.value,
+                capacity: form.capacity.value,
+                description: form.description.value ? form.description.value : null,
+                socialMedia: [form.linkedin.value, form.facebook.value, form.twitter.value],
+                imageUrl: image
+              }
+            })}
+            >
               Submit
             </button>
           )}
@@ -359,6 +432,7 @@ const Form = styled.form`
 
   textarea {
     resize: vertical;
+    height: 200px;
   }
 
   @media (max-width: 990px) {
@@ -377,4 +451,14 @@ const FormTitle = styled.h2`
   font-size: 3.2rem;
   text-align: center;
   margin-bottom: 0;
+`
+
+const Field = styled.div`
+    margin-bottom: 2rem;
+    border: 3px solid #E8E9F6;
+    background: #fff;
+    padding: .5rem 1rem;
+    &:focus {
+        outline: none;
+    }
 `

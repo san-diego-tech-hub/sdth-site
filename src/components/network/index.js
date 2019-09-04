@@ -9,6 +9,7 @@ import GoogleMap from "./GoogleMap"
 export default function Network() {
   const { hasura } = useStaticQuery(hasuraQuery)
   const [filterText, setFilterText] = useState("")
+  const [sort, setSort] = useState("A-Z")
   const [resourceType, setResourceType] = useState("codeSchool")
   const results = hasura[resourceType]
 
@@ -19,6 +20,8 @@ export default function Network() {
         <SearchBar
           filterText={filterText}
           setFilterText={e => setFilterText(e.target.value)}
+          sort={sort}
+          setSort={e => setSort(e.target.value)}
           resourceType={resourceType}
           setResourceType={e => setResourceType(e.target.value)}
         />
@@ -37,6 +40,7 @@ export default function Network() {
       }
       <SearchResults
         filterText={filterText}
+        sort={sort}
         results={{ [resourceType]: results }}
       />
     </Container>
@@ -83,6 +87,7 @@ const hasuraQuery = graphql`
         email
         phoneNumber
         imageUrl
+        techStack
       }
       speaker {
         name

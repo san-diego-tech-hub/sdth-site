@@ -41,9 +41,7 @@ function FormsPage() {
           </div>
         </ButtonGroup>
       </section>
-
       <ResourceForm />
-
     </Container>
   )
 }

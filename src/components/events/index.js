@@ -77,7 +77,7 @@ function EventsComponent({ events }) {
 
               <Html
                 title={event.description}
-                style={{ padding: "1.6rem 0", color: "#333" }}
+                style={{ padding: "1.6rem 0", color: "#333", pointerEvents: "none" }}
               >
                 {truncateString(event.description || "No description")}
               </Html>
