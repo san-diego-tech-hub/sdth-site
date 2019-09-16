@@ -65,6 +65,24 @@ allPrograms:
           <li>Start your own Open Source Saturday Meetup by filling out the form.</li>
         </ol>
 
+  - program:
+      name: "Conduit Podcast"
+      logo: "conduit"
+      pointsOfContact:
+        - contact:
+            name: "Martin Danner"
+            email: "hello@conversayer.org"
+      signUpForms:
+        - form:
+            label: "Listen Now"
+            url: "conversayer.net/podcast-conduit/"
+      description: >-
+
+        <p>There are so many great stories to be shared about the San Diego Tech Hub. This podcast chronicles those stories, as told by those who are living it - the Conduits!</p>
+
+        <p><b>How to get involved:</b></p>
+
+        <p>There are opportunities to get involved with every aspect of the podcast: producing, hosting, editing, and sound design. No experience necessary - mentorships available.</p>
 
   - program:
       name: "SDTH Tech Talks"
