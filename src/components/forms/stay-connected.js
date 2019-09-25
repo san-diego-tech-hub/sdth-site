@@ -83,7 +83,7 @@ function StayConnected() {
           individuals looking to make a difference redefining the San Diego tech scene.
         </p>
 
-        <ExternalLink href="https://join.slack.com/t/sandiegotechhub/shared_invite/enQtNTI1MDA2NjQyNDcwLTRhYmFhOGZlNzQyZWQ0NmJjMTEzNGE1YjI1NTJmY2RhZjVmYjBjNDAyYmI4MDZkNTM4MzMwM2JmYWQzOGVkYjY">
+        <ExternalLink href="https://join.slack.com/t/sandiegotechhub/shared_invite/enQtNzIyODY1NjA4MjI3LTg1NWUzMDlkZDk2MWI4MTBhMTYwODFkMGQ3YTgwOTE5ZTI5MDlhZWQ1YmJkM2Y4ZTQwOGQ3ZjljZjM5ZTUwMTk">
           <button type="submit">
             <FontAwesomeIcon size="sm" icon={["fab", "slack"]} />
             <span className="slack-link">
