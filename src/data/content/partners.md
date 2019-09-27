@@ -62,6 +62,10 @@ sponsorsDescription: >-
 
 sponsors:
   - sponsor:
+      name: "Seamgen"
+      website: "https://www.seamgen.com/"
+      logo: "seamgen"
+  - sponsor:
       name: "Sayva"
       website: "https://sayvasolutions.com"
       logo: "sayva"
