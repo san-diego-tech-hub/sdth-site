@@ -117,11 +117,14 @@ allPrograms:
       pointsOfContact:
         - contact:
             name: "James Davis"
-            email: "james@dispersioniq.com"
+            email: "launchpad@sandiegotechhub.com"
       signUpForms:
         - form:
-            label: "Get Involved"
-            url: "docs.google.com/forms/d/e/1FAIpQLSdiQP1ccPst7SczWQl7WY6UBsv3YtJFYY_dtsRqWhsWesIkwA/viewform"
+            label: "Be a Speaker"
+            url: "launchpadsdth.typeform.com/to/doTX0S"
+        - form:
+            label: "Register"
+            url: "launchpadsdth.typeform.com/to/JhNwb4"
       description: >-
         <p>The LaunchPad program is geared towards helping startup companies and entrepreneurs build the fundamental knowledge required to launch a successful company.</p>
         <p>Our goal is to provide access to free resources and support in building a pitch deck, defining a marketing plan, and doing any competitive analytics.  Basically we want to help make sure your idea is sound.</p>
