@@ -93,4 +93,8 @@ sponsors:
       name: "AIS"
       website: "https://www.americanis.net/"
       logo: "ais"
+  - sponsor:
+      name: "Arkus Nexus"
+      website: "https://arkusnexus.com/"
+      logo: "arkusNexus"
 ---
