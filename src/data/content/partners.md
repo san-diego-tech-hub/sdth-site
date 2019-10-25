@@ -62,6 +62,14 @@ sponsorsDescription: >-
 
 sponsors:
   - sponsor:
+      name: "Arkus Nexus"
+      website: "https://arkusnexus.com/"
+      logo: "arkusNexus"
+  - sponsor:
+      name: "Qimia"
+      website: "https://qimia.io/index.html"
+      logo: "qimia"
+  - sponsor:
       name: "Seamgen"
       website: "https://www.seamgen.com/"
       logo: "seamgen"
@@ -69,10 +77,7 @@ sponsors:
       name: "Sayva"
       website: "https://sayvasolutions.com"
       logo: "sayva"
-  - sponsor:
-      name: "Qimia"
-      website: "https://qimia.io/index.html"
-      logo: "qimia"
+
   - sponsor:
       name: "HNM Systems, Inc"
       website: "http://www.hnmsystems.com"
@@ -93,8 +98,4 @@ sponsors:
       name: "AIS"
       website: "https://www.americanis.net/"
       logo: "ais"
-  - sponsor:
-      name: "Arkus Nexus"
-      website: "https://arkusnexus.com/"
-      logo: "arkusNexus"
 ---
