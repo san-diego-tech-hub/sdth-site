@@ -7,6 +7,10 @@ partnersDescription: >-
 
 partners:
   - partner:
+      name: "SOCIHACKS"
+      website: "https://www.socihacks.com"
+      logo: "socihacks"
+  - partner:
       name: "San Diego Life Changing"
       website: "https://www.sandiegolifechanging.org"
       logo: "sdlc"
@@ -66,13 +70,17 @@ sponsors:
       website: "https://arkusnexus.com/"
       logo: "arkusNexus"
   - sponsor:
-      name: "Qimia"
-      website: "https://qimia.io/index.html"
-      logo: "qimia"
-  - sponsor:
       name: "Seamgen"
       website: "https://www.seamgen.com/"
       logo: "seamgen"
+  - sponsor:
+      name: "FieldLevel"
+      website: "https://www.fieldlevel.com/"
+      logo: "fieldLevel"
+  - sponsor:
+      name: "Qimia"
+      website: "https://qimia.io/index.html"
+      logo: "qimia"
   - sponsor:
       name: "Sayva"
       website: "https://sayvasolutions.com"
