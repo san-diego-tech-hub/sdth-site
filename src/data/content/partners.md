@@ -7,6 +7,10 @@ partnersDescription: >-
 
 partners:
   - partner:
+      name: "SOCIHACKS"
+      website: "https://www.socihacks.com"
+      logo: "socihacks"
+  - partner:
       name: "San Diego Life Changing"
       website: "https://www.sandiegolifechanging.org"
       logo: "sdlc"
