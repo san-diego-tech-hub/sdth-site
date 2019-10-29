@@ -128,13 +128,13 @@ function Team() {
                     padding: 0
                   }}
                 >
-                  <Link
-                    to={`/${leader.pillar}`}
+                  <div
                     style={{
                       alignItems: "center",
                       color: "white",
                       display: "flex",
                       padding: "1.3rem",
+                      paddingTop: 0,
                       textDecoration: "none",
                     }}
                   >
@@ -145,7 +145,7 @@ function Team() {
                       style={{ margin: 0, marginRight: "0.8rem" }}
                     />
                     {leader.pillar}
-                  </Link>
+                  </div>
                 </Label>
                 <AvatarCard>
                   <Img
