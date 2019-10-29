@@ -81,7 +81,6 @@ function Home() {
       <PillarRow>
         {frontmatter.pillarIcons.map(pillar => (
           <PillarIcon
-            to={`/${pillar.pillarItem.title}`}
             key={pillar.pillarItem.title}
             background={pillar.pillarItem.background}
           >
