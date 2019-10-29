@@ -5,8 +5,13 @@ export const AvatarCard = styled.div`
   box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
   margin: auto;
   width: 200px;
+
   img {
     border-radius: 100%;
+  }
+
+  & > div {
+    height: 200px;
   }
 `
 export const Blurb = styled.div`
@@ -107,11 +112,6 @@ export const Label = styled.div`
   padding: 0.2rem 1.5rem 1rem 0.2rem;
   text-transform: capitalize;
   width: fit-content;
-
-  &:hover, &:focus-within {
-    border: 2px solid rgba(0,0,0,0.2);
-    border-left: none;
-  }
 
   img {
     margin: 1rem 0 0 0;

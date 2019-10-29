@@ -1,5 +1,4 @@
 import React from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import styled from "styled-components"
 import { Link } from "gatsby"
 import BurgerMenu from "react-burger-menu/lib/menus/slide"
@@ -31,26 +30,6 @@ const Burger = () => {
       <MenuItem onClick={closeMenu} to="/team">
         Team
       </MenuItem>
-
-      <Pillars>
-        PILLARS of EXCELLENCE <FontAwesomeIcon icon="caret-down" />
-      </Pillars>
-      <MenuItem indent="true" firstpillar="true" onClick={closeMenu} to="/community">
-        Community
-      </MenuItem>
-      <MenuItem indent="true" onClick={closeMenu} to="/education">
-        Education
-      </MenuItem>
-      <MenuItem indent="true" onClick={closeMenu} to="/inclusion">
-        Inclusion
-      </MenuItem>
-      <MenuItem indent="true" onClick={closeMenu} to="/innovation">
-        Innovation
-      </MenuItem>
-      <MenuItem indent="true" onClick={closeMenu} to="/talent">
-        Talent
-      </MenuItem>
-
       <MenuItem onClick={closeMenu} to="/events">
         Events
       </MenuItem>
@@ -78,12 +57,6 @@ const MenuItem = styled(Link)`
   margin-top: ${props => { return props.firstpillar ? "1rem" : "3rem" }};
   margin-left: ${props => { return props.indent ? "3rem" : "0" }};
   text-transform: uppercase;
-`
-
-const Pillars = styled.p`
-  font-size: 1.5rem;
-  margin-bottom: 0;
-
 `
 
 export default Burger
