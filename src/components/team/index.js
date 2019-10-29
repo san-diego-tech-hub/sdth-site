@@ -1,17 +1,11 @@
 import React from "react"
-import { useStaticQuery, graphql, Link } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import Color from "color"
 import { aggregateImages } from "Utils"
 
-import communityIcon from "Images/misc/icon_community.svg"
-import educationIcon from "Images/misc/icon_education.svg"
-import inclusionIcon from "Images/misc/icon_inclusion.svg"
-import innovationIcon from "Images/misc/icon_innovation.svg"
-import talentIcon from "Images/misc/icon_talent.svg"
 import sdthLogo from "Images/misc/circle-logo.svg"
 import Html from "Common/Html"
-import { pillarsInfo } from "Utils/constants"
 import {
   AvatarCard,
   Blurb,
@@ -23,15 +17,7 @@ import {
   Why,
 } from "./styles"
 
-const pillarIcons = {
-  community: communityIcon,
-  education: educationIcon,
-  inclusion: inclusionIcon,
-  innovation: innovationIcon,
-  talent: talentIcon,
-}
-
-const FOUNDER_COLOR = Color("#545CFE").desaturate(0.2)
+const CARD_COLOR = Color("#545CFE").desaturate(0.2)
 
 function Team() {
   const {
@@ -59,94 +45,43 @@ function Team() {
       </Header>
 
       <TeamSection>
-        <span>
-          <Card
-            color={FOUNDER_COLOR.toString()}
-            style={{ width: "50%", margin: "auto" }}
-          >
-            <Label
-              style={{
-                background: FOUNDER_COLOR.darken(0.15).toString(),
-                padding: 0,
-              }}
-            >
-              <Link
-                to="/about"
+        <PillarLeaders>
+          {frontmatter.team.map(({ leader }, i) => {
+            return (
+              <Card
+                color={CARD_COLOR.toString()}
+                key={leader.name}
                 style={{
-                  alignItems: "center",
-                  color: "white",
-                  display: "flex",
-                  padding: "1.3rem",
-                  textDecoration: "none",
+                  paddingTop: i === 0 ? 0 : "5.4rem"
                 }}
               >
-                <img
-                  alt="SDTH"
-                  height="30px"
-                  src={sdthLogo}
-                  style={{ margin: 0, marginRight: "1rem" }}
-                />
-                Founder
-              </Link>
-            </Label>
-            <AvatarCard style={{ marginTop: "1rem" }}>
-              <Img
-                fluid={avatars.claude_2_cropped}
-                alt={frontmatter.founderName}
-              />
-            </AvatarCard>
-
-            <div className="card-header">
-              <div style={{ fontWeight: "700" }}>{frontmatter.founderName}</div>
-              <div style={{ fontSize: "2rem" }}>{frontmatter.founderEmail}</div>
-
-              <div className="card-text">
-                <Why color={FOUNDER_COLOR.darken(0.4).toString()}>
-                  Why San Diego Tech Hub Is Important To Me
-                </Why>
-                <Blurb
-                  dangerouslySetInnerHTML={{
-                    __html: frontmatter.founderDescription,
-                  }}
-                />
-              </div>
-            </div>
-          </Card>
-        </span>
-        <PillarLeaders>
-          {frontmatter.team.map(({ leader }) => {
-            const icon = pillarIcons[leader.pillar]
-            const baseColor = Color(
-              pillarsInfo[leader.pillar].color,
-            ).desaturate(0.2)
-
-            return (
-              <Card color={baseColor.toString()} key={leader.name}>
-                <Label
-                  style={{
-                    background: baseColor.darken(0.2).toString(),
-                    padding: 0
-                  }}
-                >
-                  <div
+                {i === 0 && (
+                  <Label
                     style={{
-                      alignItems: "center",
-                      color: "white",
-                      display: "flex",
-                      padding: "1.3rem",
-                      paddingTop: 0,
-                      textDecoration: "none",
+                      background: CARD_COLOR.darken(0.2).toString(),
+                      padding: 0
                     }}
                   >
-                    <img
-                      alt={leader.pillar}
-                      height="25px"
-                      src={icon}
-                      style={{ margin: 0, marginRight: "0.8rem" }}
-                    />
-                    {leader.pillar}
-                  </div>
-                </Label>
+                    <div
+                      style={{
+                        alignItems: "center",
+                        color: "white",
+                        display: "flex",
+                        padding: "1.3rem",
+                        paddingTop: 0,
+                        textDecoration: "none",
+                      }}
+                    >
+                      <img
+                        alt="SDTH"
+                        height="30px"
+                        src={sdthLogo}
+                        style={{ margin: 0, marginRight: "1rem" }}
+                      />
+                      Founder
+                    </div>
+                  </Label>
+                )}
                 <AvatarCard>
                   <Img
                     fluid={avatars[leader.photo]}
@@ -161,7 +96,7 @@ function Team() {
 
                   <div className="card-text">
                     {leader.name !== "TBD" && (
-                      <Why color={baseColor.darken(0.4).toString()}>
+                      <Why color={CARD_COLOR.darken(0.4).toString()}>
                         Why San Diego Tech Hub Is Important To Me
                       </Why>
                     )}
@@ -187,14 +122,10 @@ const query = graphql`
       frontmatter {
         mainTitle
         mainDescription
-        founderName
-        founderEmail
-        founderDescription
         team {
           leader {
             name
             email
-            pillar
             bioDescription
             photo
           }
