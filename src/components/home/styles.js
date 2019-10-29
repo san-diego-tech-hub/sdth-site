@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { Link } from "gatsby"
 
 export const Collaboration = styled.div`
   max-width: 800px;
@@ -47,7 +46,7 @@ export const PillarDescription = styled.div`
   }
 `
 
-export const PillarIcon = styled(Link)`
+export const PillarIcon = styled.div`
   background: ${props => props.background};
   border-radius: 1rem;
   color: white;
@@ -59,11 +58,6 @@ export const PillarIcon = styled(Link)`
   text-align: center;
   text-decoration: none;
   width: 27rem;
-
-  &:hover, &:focus {
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    transform: translate(-2px, -2px);
-  }
 
   p {
     padding-bottom: 1rem;

@@ -5,7 +5,6 @@ import AppContext from "Utils/context"
 import { ToastContainer } from "react-toastify"
 import { library } from "@fortawesome/fontawesome-svg-core"
 import {
-  faCaretDown,
   faMapMarker,
   faClock,
   faChevronLeft,
@@ -27,7 +26,6 @@ import "./layout.css"
 import "react-toastify/dist/ReactToastify.min.css"
 
 library.add(
-  faCaretDown,
   faClock,
   faChevronLeft,
   faChevronRight,
