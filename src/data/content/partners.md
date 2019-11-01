@@ -41,7 +41,7 @@ partners:
   - partner:
       name: "San Diego Workforce Partnership"
       website: "https://workforce.org"
-      logo: "workforce"
+      logo: "sd-workforce-partnership"
   - partner:
       name: "San Diego Futures Foundation"
       website: "https://sdfutures.org"
