@@ -7,6 +7,10 @@ partnersDescription: >-
 
 partners:
   - partner:
+      name: "Framework Science"
+      website: "https://www.fwscience.com"
+      logo: "framework_science"
+  - partner:
       name: "SOCIHACKS"
       website: "https://www.socihacks.com"
       logo: "socihacks"
