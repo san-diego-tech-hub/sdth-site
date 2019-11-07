@@ -7,10 +7,6 @@ partnersDescription: >-
 
 partners:
   - partner:
-      name: "Framework Science"
-      website: "https://www.fwscience.com"
-      logo: "framework_science"
-  - partner:
       name: "SOCIHACKS"
       website: "https://www.socihacks.com"
       logo: "socihacks"
@@ -69,6 +65,10 @@ sponsorsDescription: >-
   Becoming a sponsor organization means you have donated refreshments for our monthly meetings, or offered your facilities for a San Diego Tech Hub event.  In exchange for your help, you will have your logo presented during the meeting/event, have an opportunity to briefly share about your company, and have your logo placed on our website. Take a look at our sponsor organizations below.<p><p>Interested in becoming a sponsor organization? Please contact <a href='mailto:fred.jordan@randstadusa.com'>Fred Jordan</a> to get plugged in to our network and have your logo placed on our website. There is power in numbers. Join the movement of change.
 
 sponsors:
+  - sponsor:
+      name: "Framework Science"
+      website: "https://www.fwscience.com"
+      logo: "framework_science"
   - sponsor:
       name: "Arkus Nexus"
       website: "https://arkusnexus.com/"
