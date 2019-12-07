@@ -66,6 +66,10 @@ sponsorsDescription: >-
 
 sponsors:
   - sponsor:
+      name: "John Sanders"
+      website: "http://johnsanders.com"
+      logo: "johnSanders"
+  - sponsor:
       name: "Framework Science"
       website: "https://www.fwscience.com"
       logo: "framework_science"
